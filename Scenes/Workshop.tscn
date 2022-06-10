@@ -1,14 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/textures/painted-metal-shed.tres" type="Material" id=1]
 [ext_resource path="res://Assets/models/wall/wall.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://Assets/textures/old-plank-flooring2.tres" type="Material" id=3]
+[ext_resource path="res://Scenes/environment_workshop.tres" type="Environment" id=4]
 [ext_resource path="res://Assets/models/capacitor/capacitor.dae" type="PackedScene" id=5]
 
 [node name="Workshop" type="Spatial"]
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.632185, -0.0793327, 0.770745, 0.0031203, 0.994997, 0.0998555, -0.774811, -0.0607222, 0.62927, -25.9675, 5.85522, -15.4002 )
+transform = Transform( 0.52236, -0.622165, 0.583138, -0.00893953, 0.67982, 0.733325, -0.852678, -0.388273, 0.349549, 3.05694, 20.7236, 1.69471 )
 
 [node name="Floor" type="CSGBox" parent="."]
 transform = Transform( 35, 0, 0, 0, 0.1, 0, 0, 0, 35, -2.41273, 0.0276299, 0.205824 )
@@ -37,4 +38,29 @@ material/0 = ExtResource( 1 )
 [node name="Objects" type="Spatial" parent="."]
 
 [node name="capacitor" parent="Objects" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.46644, 2.95956, 8.07149 )
+transform = Transform( -0.0185521, 0.994384, 0.104192, -0.996744, -0.0102153, -0.0799855, -0.078472, -0.105336, 0.991336, -28.8581, 6.50166, -3.46501 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( -0.380571, 0.849488, 0.365426, -0.612747, -0.527608, 0.588363, 0.692609, -4.25849e-08, 0.721313, -28.2918, 11.119, -5.29023 )
+light_color = Color( 1, 0.945098, 0.639216, 1 )
+light_energy = 9.954
+light_indirect_energy = 9.514
+light_bake_mode = 0
+shadow_enabled = true
+shadow_bias = 0.578
+shadow_reverse_cull_face = true
+omni_range = 26.8498
+
+[node name="OmniLight2" type="OmniLight" parent="."]
+transform = Transform( -0.122589, -0.771487, 0.624323, 0.963989, -0.24215, -0.109945, 0.236001, 0.588363, 0.77339, -0.677107, 11.0537, -33.2245 )
+light_color = Color( 1, 0.945098, 0.639216, 1 )
+light_energy = 9.954
+light_indirect_energy = 9.514
+light_bake_mode = 0
+shadow_enabled = true
+shadow_bias = 0.578
+shadow_reverse_cull_face = true
+omni_range = 26.8498
+
+[node name="environment_workshop" type="WorldEnvironment" parent="."]
+environment = ExtResource( 4 )
