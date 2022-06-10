@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Assets/painted-metal-shed.tres" type="Material" id=1]
-[ext_resource path="res://Assets/wall.obj" type="ArrayMesh" id=2]
-[ext_resource path="res://Assets/old-plank-flooring2.tres" type="Material" id=3]
+[ext_resource path="res://Assets/textures/painted-metal-shed.tres" type="Material" id=1]
+[ext_resource path="res://Assets/models/wall/wall.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://Assets/textures/old-plank-flooring2.tres" type="Material" id=3]
 
 [node name="Workshop" type="Spatial"]
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.632185, -0.0793327, 0.770746, 0.0031203, 0.994997, 0.0998555, -0.774811, -0.0607222, 0.62927, -11.2896, -13.3597, -67.1185 )
+transform = Transform( 0.632185, -0.0793327, 0.770745, 0.0031203, 0.994997, 0.0998555, -0.774811, -0.0607222, 0.62927, -25.9675, 5.85522, -15.4002 )
 
 [node name="Floor" type="CSGBox" parent="."]
 transform = Transform( 35, 0, 0, 0, 0.1, 0, 0, 0, 35, -2.41273, 0.0276299, 0.205824 )
