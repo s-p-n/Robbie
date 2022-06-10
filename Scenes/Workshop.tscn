@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/textures/painted-metal-shed.tres" type="Material" id=1]
 [ext_resource path="res://Assets/models/wall/wall.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://Assets/textures/old-plank-flooring2.tres" type="Material" id=3]
 [ext_resource path="res://Scenes/environment_workshop.tres" type="Environment" id=4]
 [ext_resource path="res://Assets/models/capacitor/capacitor.dae" type="PackedScene" id=5]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=6]
 
 [node name="Workshop" type="Spatial"]
 
@@ -13,6 +14,7 @@ transform = Transform( 0.52236, -0.622165, 0.583138, -0.00893953, 0.67982, 0.733
 
 [node name="Floor" type="CSGBox" parent="."]
 transform = Transform( 35, 0, 0, 0, 0.1, 0, 0, 0, 35, -2.41273, 0.0276299, 0.205824 )
+use_collision = true
 material = ExtResource( 3 )
 
 [node name="Walls" type="Spatial" parent="."]
@@ -64,3 +66,6 @@ omni_range = 26.8498
 
 [node name="environment_workshop" type="WorldEnvironment" parent="."]
 environment = ExtResource( 4 )
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14.4319 )
