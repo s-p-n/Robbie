@@ -1,28 +1,34 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Assets/space-cruiser-panels2-bl.tres" type="Material" id=1]
+[ext_resource path="res://Assets/painted-metal-shed.tres" type="Material" id=1]
 [ext_resource path="res://Assets/wall.obj" type="ArrayMesh" id=2]
-[ext_resource path="res://Assets/worn-painted-cement.tres" type="Material" id=3]
+[ext_resource path="res://Assets/old-plank-flooring2.tres" type="Material" id=3]
 
 [node name="Workshop" type="Spatial"]
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.373117, -0.240128, 0.896171, 0, 0.965926, 0.258819, -0.927784, -0.0965698, 0.360404, 16.0807, 20.392, 13.0239 )
+transform = Transform( 0.632185, -0.0793327, 0.770746, 0.0031203, 0.994997, 0.0998555, -0.774811, -0.0607222, 0.62927, -11.2896, -13.3597, -67.1185 )
 
 [node name="Floor" type="CSGBox" parent="."]
-transform = Transform( 35, 0, 0, 0, 0.1, 0, 0, 0, 35, 0, 0, 0 )
+transform = Transform( 35, 0, 0, 0, 0.1, 0, 0, 0, 35, -2.41273, 0.0276299, 0.205824 )
 material = ExtResource( 3 )
 
 [node name="Walls" type="Spatial" parent="."]
 
 [node name="wall1" type="MeshInstance" parent="Walls"]
-transform = Transform( -0.709497, 0, 0.704708, 0, 1, 0, -0.704708, 0, -0.709497, -8.79179, 5.93212, -20.562 )
+transform = Transform( 0.707107, -0.00082687, -0.707106, -0.000122173, 0.999999, -0.00129154, 0.707107, 0.000999648, 0.707106, -20.8168, 5.93212, -25.6819 )
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = ExtResource( 1 )
+
+[node name="wall3" type="MeshInstance" parent="Walls"]
+transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -0.835739, 5.93212, -34.009 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = ExtResource( 1 )
 
 [node name="wall2" type="MeshInstance" parent="Walls"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 5.93212, -1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.1028, 5.93212, -5.74065 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = ExtResource( 1 )
