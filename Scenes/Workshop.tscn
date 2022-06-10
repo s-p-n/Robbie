@@ -6,30 +6,23 @@
 
 [node name="Workshop" type="Spatial"]
 
-[node name="RigidBody" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, 0 )
-mode = 1
-
-[node name="MeshInstance" type="MeshInstance" parent="RigidBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.93212, -1 )
-mesh = ExtResource( 2 )
-material/0 = ExtResource( 1 )
-
-[node name="RigidBody2" type="RigidBody" parent="."]
-transform = Transform( -0.709497, 0, 0.704708, 0, 1, 0, -0.704708, 0, -0.709497, -8.79179, 0, -20.562 )
-mode = 1
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="MeshInstance" type="MeshInstance" parent="RigidBody2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.93212, 0 )
-mesh = ExtResource( 2 )
-material/0 = ExtResource( 1 )
-
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.373117, -0.240128, 0.896171, 0, 0.965926, 0.258819, -0.927784, -0.0965698, 0.360404, 16.0807, 20.392, 13.0239 )
 
-[node name="CSGBox" type="CSGBox" parent="."]
+[node name="Floor" type="CSGBox" parent="."]
 transform = Transform( 35, 0, 0, 0, 0.1, 0, 0, 0, 35, 0, 0, 0 )
 material = ExtResource( 3 )
+
+[node name="Walls" type="Spatial" parent="."]
+
+[node name="wall1" type="MeshInstance" parent="Walls"]
+transform = Transform( -0.709497, 0, 0.704708, 0, 1, 0, -0.704708, 0, -0.709497, -8.79179, 5.93212, -20.562 )
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = ExtResource( 1 )
+
+[node name="wall2" type="MeshInstance" parent="Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 5.93212, -1 )
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = ExtResource( 1 )
