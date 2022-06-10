@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/painted_metal_shed_metallic.png-ea14c7ef77678b7af42685bba91f8078.s3tc.stex"
-path.etc2="res://.import/painted_metal_shed_metallic.png-ea14c7ef77678b7af42685bba91f8078.etc2.stex"
+path.s3tc="res://.import/painted_metal_shed_metallic.png-519192e5a5a67ae3e3c52a09ed1c724f.s3tc.stex"
+path.etc2="res://.import/painted_metal_shed_metallic.png-519192e5a5a67ae3e3c52a09ed1c724f.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/textures/painted-metal-shed-bl/painted_metal_shed_metallic.png"
-dest_files=[ "res://.import/painted_metal_shed_metallic.png-ea14c7ef77678b7af42685bba91f8078.s3tc.stex", "res://.import/painted_metal_shed_metallic.png-ea14c7ef77678b7af42685bba91f8078.etc2.stex" ]
+source_file="res://assets/textures/painted-metal-shed-bl/painted_metal_shed_metallic.png"
+dest_files=[ "res://.import/painted_metal_shed_metallic.png-519192e5a5a67ae3e3c52a09ed1c724f.s3tc.stex", "res://.import/painted_metal_shed_metallic.png-519192e5a5a67ae3e3c52a09ed1c724f.etc2.stex" ]
 
 [params]
 

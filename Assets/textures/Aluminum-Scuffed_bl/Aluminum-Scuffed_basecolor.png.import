@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Aluminum-Scuffed_basecolor.png-a70f576e1a0059301c489bd4c816f1ec.s3tc.stex"
-path.etc2="res://.import/Aluminum-Scuffed_basecolor.png-a70f576e1a0059301c489bd4c816f1ec.etc2.stex"
+path.s3tc="res://.import/Aluminum-Scuffed_basecolor.png-2cb13555b338ded0b03b3e64cb92e8a4.s3tc.stex"
+path.etc2="res://.import/Aluminum-Scuffed_basecolor.png-2cb13555b338ded0b03b3e64cb92e8a4.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/textures/Aluminum-Scuffed_bl/Aluminum-Scuffed_basecolor.png"
-dest_files=[ "res://.import/Aluminum-Scuffed_basecolor.png-a70f576e1a0059301c489bd4c816f1ec.s3tc.stex", "res://.import/Aluminum-Scuffed_basecolor.png-a70f576e1a0059301c489bd4c816f1ec.etc2.stex" ]
+source_file="res://assets/textures/Aluminum-Scuffed_bl/Aluminum-Scuffed_basecolor.png"
+dest_files=[ "res://.import/Aluminum-Scuffed_basecolor.png-2cb13555b338ded0b03b3e64cb92e8a4.s3tc.stex", "res://.import/Aluminum-Scuffed_basecolor.png-2cb13555b338ded0b03b3e64cb92e8a4.etc2.stex" ]
 
 [params]
 

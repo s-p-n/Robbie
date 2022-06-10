@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/painted_metal_shed_normal-ogl.png-27f468499029fd95aada8a267b46fca3.s3tc.stex"
-path.etc2="res://.import/painted_metal_shed_normal-ogl.png-27f468499029fd95aada8a267b46fca3.etc2.stex"
+path.s3tc="res://.import/painted_metal_shed_normal-ogl.png-0fa65248666c473c4bf1535cb65fd48e.s3tc.stex"
+path.etc2="res://.import/painted_metal_shed_normal-ogl.png-0fa65248666c473c4bf1535cb65fd48e.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/textures/painted-metal-shed-bl/painted_metal_shed_normal-ogl.png"
-dest_files=[ "res://.import/painted_metal_shed_normal-ogl.png-27f468499029fd95aada8a267b46fca3.s3tc.stex", "res://.import/painted_metal_shed_normal-ogl.png-27f468499029fd95aada8a267b46fca3.etc2.stex" ]
+source_file="res://assets/textures/painted-metal-shed-bl/painted_metal_shed_normal-ogl.png"
+dest_files=[ "res://.import/painted_metal_shed_normal-ogl.png-0fa65248666c473c4bf1535cb65fd48e.s3tc.stex", "res://.import/painted_metal_shed_normal-ogl.png-0fa65248666c473c4bf1535cb65fd48e.etc2.stex" ]
 
 [params]
 

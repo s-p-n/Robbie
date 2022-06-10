@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Material.001 Base Color.png-564ade28a8b7a6356b5e872c5410116d.stex"
+path="res://.import/Material.001 Base Color.png-cc9f60db26e9af31fba9c05e5d5cd6c4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/models/capacitor/Material.001 Base Color.png"
-dest_files=[ "res://.import/Material.001 Base Color.png-564ade28a8b7a6356b5e872c5410116d.stex" ]
+source_file="res://assets/models/capacitor/Material.001 Base Color.png"
+dest_files=[ "res://.import/Material.001 Base Color.png-cc9f60db26e9af31fba9c05e5d5cd6c4.stex" ]
 
 [params]
 

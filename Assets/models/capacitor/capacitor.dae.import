@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/capacitor.dae-c3b7102a68e2227659b4eedfa3be5c5f.scn"
+path="res://.import/capacitor.dae-1b38d70da5bff32839c6fb566714ef05.scn"
 
 [deps]
 
-source_file="res://Assets/models/capacitor/capacitor.dae"
-dest_files=[ "res://.import/capacitor.dae-c3b7102a68e2227659b4eedfa3be5c5f.scn" ]
+source_file="res://assets/models/capacitor/capacitor.dae"
+dest_files=[ "res://.import/capacitor.dae-1b38d70da5bff32839c6fb566714ef05.scn" ]
 
 [params]
 

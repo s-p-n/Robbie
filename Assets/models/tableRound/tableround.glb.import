@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/tableround.glb-f8fbfafe138ae37380ec0dda481ddd40.scn"
+path="res://.import/tableround.glb-32ae3fb36afe14a6c11026115b64b62d.scn"
 
 [deps]
 
-source_file="res://Assets/models/tableRound/tableround.glb"
-dest_files=[ "res://.import/tableround.glb-f8fbfafe138ae37380ec0dda481ddd40.scn" ]
+source_file="res://assets/models/tableRound/tableround.glb"
+dest_files=[ "res://.import/tableround.glb-32ae3fb36afe14a6c11026115b64b62d.scn" ]
 
 [params]
 

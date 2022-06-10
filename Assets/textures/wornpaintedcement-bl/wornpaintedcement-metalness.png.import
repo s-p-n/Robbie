@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/wornpaintedcement-metalness.png-34e2b8fdda70a2e69f66cfa9dfbce67e.s3tc.stex"
-path.etc2="res://.import/wornpaintedcement-metalness.png-34e2b8fdda70a2e69f66cfa9dfbce67e.etc2.stex"
+path.s3tc="res://.import/wornpaintedcement-metalness.png-9d9b14345455258b5f3f239e8dfc9a2b.s3tc.stex"
+path.etc2="res://.import/wornpaintedcement-metalness.png-9d9b14345455258b5f3f239e8dfc9a2b.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/textures/wornpaintedcement-bl/wornpaintedcement-metalness.png"
-dest_files=[ "res://.import/wornpaintedcement-metalness.png-34e2b8fdda70a2e69f66cfa9dfbce67e.s3tc.stex", "res://.import/wornpaintedcement-metalness.png-34e2b8fdda70a2e69f66cfa9dfbce67e.etc2.stex" ]
+source_file="res://assets/textures/wornpaintedcement-bl/wornpaintedcement-metalness.png"
+dest_files=[ "res://.import/wornpaintedcement-metalness.png-9d9b14345455258b5f3f239e8dfc9a2b.s3tc.stex", "res://.import/wornpaintedcement-metalness.png-9d9b14345455258b5f3f239e8dfc9a2b.etc2.stex" ]
 
 [params]
 

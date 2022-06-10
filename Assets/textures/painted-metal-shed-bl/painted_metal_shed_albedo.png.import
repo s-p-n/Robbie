@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/painted_metal_shed_albedo.png-3bc5632756448818bcadb05385874a56.s3tc.stex"
-path.etc2="res://.import/painted_metal_shed_albedo.png-3bc5632756448818bcadb05385874a56.etc2.stex"
+path.s3tc="res://.import/painted_metal_shed_albedo.png-f2cb17086eb23d7419efbbf353b30e64.s3tc.stex"
+path.etc2="res://.import/painted_metal_shed_albedo.png-f2cb17086eb23d7419efbbf353b30e64.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/textures/painted-metal-shed-bl/painted_metal_shed_albedo.png"
-dest_files=[ "res://.import/painted_metal_shed_albedo.png-3bc5632756448818bcadb05385874a56.s3tc.stex", "res://.import/painted_metal_shed_albedo.png-3bc5632756448818bcadb05385874a56.etc2.stex" ]
+source_file="res://assets/textures/painted-metal-shed-bl/painted_metal_shed_albedo.png"
+dest_files=[ "res://.import/painted_metal_shed_albedo.png-f2cb17086eb23d7419efbbf353b30e64.s3tc.stex", "res://.import/painted_metal_shed_albedo.png-f2cb17086eb23d7419efbbf353b30e64.etc2.stex" ]
 
 [params]
 

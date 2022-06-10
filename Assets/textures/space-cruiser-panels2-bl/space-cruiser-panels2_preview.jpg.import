@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/space-cruiser-panels2_preview.jpg-84594064d89bbe0fb7a63cb09a2022ee.stex"
+path="res://.import/space-cruiser-panels2_preview.jpg-f2225710e7bd3bd4f9bf3bc99b2ee886.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/textures/space-cruiser-panels2-bl/space-cruiser-panels2_preview.jpg"
-dest_files=[ "res://.import/space-cruiser-panels2_preview.jpg-84594064d89bbe0fb7a63cb09a2022ee.stex" ]
+source_file="res://assets/textures/space-cruiser-panels2-bl/space-cruiser-panels2_preview.jpg"
+dest_files=[ "res://.import/space-cruiser-panels2_preview.jpg-f2225710e7bd3bd4f9bf3bc99b2ee886.stex" ]
 
 [params]
 

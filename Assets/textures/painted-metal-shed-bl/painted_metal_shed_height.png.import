@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/painted_metal_shed_height.png-de0381e6ed1749050b6fd3ebfcadf6c4.s3tc.stex"
-path.etc2="res://.import/painted_metal_shed_height.png-de0381e6ed1749050b6fd3ebfcadf6c4.etc2.stex"
+path.s3tc="res://.import/painted_metal_shed_height.png-ad98c245f04755bcd022ccb01e3aaaac.s3tc.stex"
+path.etc2="res://.import/painted_metal_shed_height.png-ad98c245f04755bcd022ccb01e3aaaac.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/textures/painted-metal-shed-bl/painted_metal_shed_height.png"
-dest_files=[ "res://.import/painted_metal_shed_height.png-de0381e6ed1749050b6fd3ebfcadf6c4.s3tc.stex", "res://.import/painted_metal_shed_height.png-de0381e6ed1749050b6fd3ebfcadf6c4.etc2.stex" ]
+source_file="res://assets/textures/painted-metal-shed-bl/painted_metal_shed_height.png"
+dest_files=[ "res://.import/painted_metal_shed_height.png-ad98c245f04755bcd022ccb01e3aaaac.s3tc.stex", "res://.import/painted_metal_shed_height.png-ad98c245f04755bcd022ccb01e3aaaac.etc2.stex" ]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/wornpaintedcement-roughness.png-2266384daaf941eff3283e5316a0a47c.s3tc.stex"
-path.etc2="res://.import/wornpaintedcement-roughness.png-2266384daaf941eff3283e5316a0a47c.etc2.stex"
+path.s3tc="res://.import/wornpaintedcement-roughness.png-fa135954d0b23afefb3fac048d217b1b.s3tc.stex"
+path.etc2="res://.import/wornpaintedcement-roughness.png-fa135954d0b23afefb3fac048d217b1b.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/textures/wornpaintedcement-bl/wornpaintedcement-roughness.png"
-dest_files=[ "res://.import/wornpaintedcement-roughness.png-2266384daaf941eff3283e5316a0a47c.s3tc.stex", "res://.import/wornpaintedcement-roughness.png-2266384daaf941eff3283e5316a0a47c.etc2.stex" ]
+source_file="res://assets/textures/wornpaintedcement-bl/wornpaintedcement-roughness.png"
+dest_files=[ "res://.import/wornpaintedcement-roughness.png-fa135954d0b23afefb3fac048d217b1b.s3tc.stex", "res://.import/wornpaintedcement-roughness.png-fa135954d0b23afefb3fac048d217b1b.etc2.stex" ]
 
 [params]
 

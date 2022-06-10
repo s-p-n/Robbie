@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/space-cruiser-panels2_roughness.png-8a22599270a0d1ea913f86dbbf827d08.s3tc.stex"
-path.etc2="res://.import/space-cruiser-panels2_roughness.png-8a22599270a0d1ea913f86dbbf827d08.etc2.stex"
+path.s3tc="res://.import/space-cruiser-panels2_roughness.png-69143ccfcda1e5d5017e3f925e9fa218.s3tc.stex"
+path.etc2="res://.import/space-cruiser-panels2_roughness.png-69143ccfcda1e5d5017e3f925e9fa218.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/textures/space-cruiser-panels2-bl/space-cruiser-panels2_roughness.png"
-dest_files=[ "res://.import/space-cruiser-panels2_roughness.png-8a22599270a0d1ea913f86dbbf827d08.s3tc.stex", "res://.import/space-cruiser-panels2_roughness.png-8a22599270a0d1ea913f86dbbf827d08.etc2.stex" ]
+source_file="res://assets/textures/space-cruiser-panels2-bl/space-cruiser-panels2_roughness.png"
+dest_files=[ "res://.import/space-cruiser-panels2_roughness.png-69143ccfcda1e5d5017e3f925e9fa218.s3tc.stex", "res://.import/space-cruiser-panels2_roughness.png-69143ccfcda1e5d5017e3f925e9fa218.etc2.stex" ]
 
 [params]
 

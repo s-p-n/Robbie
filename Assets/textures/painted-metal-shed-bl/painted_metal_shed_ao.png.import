@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/painted_metal_shed_ao.png-2ccc22caafccc48ced3491c9461e53e2.stex"
+path="res://.import/painted_metal_shed_ao.png-e650f965cf4428923db8d29d5f0c5cfd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/textures/painted-metal-shed-bl/painted_metal_shed_ao.png"
-dest_files=[ "res://.import/painted_metal_shed_ao.png-2ccc22caafccc48ced3491c9461e53e2.stex" ]
+source_file="res://assets/textures/painted-metal-shed-bl/painted_metal_shed_ao.png"
+dest_files=[ "res://.import/painted_metal_shed_ao.png-e650f965cf4428923db8d29d5f0c5cfd.stex" ]
 
 [params]
 

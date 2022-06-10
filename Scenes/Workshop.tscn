@@ -1,47 +1,97 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Assets/textures/painted-metal-shed.tres" type="Material" id=1]
-[ext_resource path="res://Assets/models/wall/wall.obj" type="ArrayMesh" id=2]
-[ext_resource path="res://Assets/textures/old-plank-flooring2.tres" type="Material" id=3]
-[ext_resource path="res://Scenes/environment_workshop.tres" type="Environment" id=4]
-[ext_resource path="res://Assets/models/capacitor/capacitor.dae" type="PackedScene" id=5]
+[ext_resource path="res://assets/models/capacitor/capacitor.dae" type="PackedScene" id=1]
+[ext_resource path="res://scenes/environment_workshop.tres" type="Environment" id=2]
+[ext_resource path="res://assets/models/wall/wall.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://assets/textures/old-plank-flooring2.tres" type="Material" id=4]
+[ext_resource path="res://scripts/workshop/InputListener.gd" type="Script" id=5]
+[ext_resource path="res://scripts/workshop/CameraTween.gd" type="Script" id=6]
+[ext_resource path="res://assets/textures/painted-metal-shed.tres" type="Material" id=7]
 
 [node name="Workshop" type="Spatial"]
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.52236, -0.622165, 0.583138, -0.00893953, 0.67982, 0.733325, -0.852678, -0.388273, 0.349549, 3.05694, 20.7236, 1.69471 )
+[node name="Cameras" type="Node" parent="."]
 
-[node name="Floor" type="CSGBox" parent="."]
+[node name="WorkshopCameraNode" type="Spatial" parent="Cameras"]
+script = ExtResource( 5 )
+
+[node name="WorkshopCamera" type="Camera" parent="Cameras/WorkshopCameraNode"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.106, 6.728, 11.716 )
+script = ExtResource( 6 )
+
+[node name="Positions" type="Node" parent="Cameras/WorkshopCameraNode"]
+
+[node name="Position1" type="Spatial" parent="Cameras/WorkshopCameraNode/Positions"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.1058, 6.72836, 11.7159 )
+
+[node name="Position2" type="Spatial" parent="Cameras/WorkshopCameraNode/Positions"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.1058, 6.72836, -5.71193 )
+
+[node name="Position3" type="Spatial" parent="Cameras/WorkshopCameraNode/Positions"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -14.4673, 6.06998, -20.0012 )
+
+[node name="Position4" type="Spatial" parent="Cameras/WorkshopCameraNode/Positions"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1747, 6.06998, -25.5689 )
+
+[node name="Interfaces" type="Node" parent="Cameras/WorkshopCameraNode"]
+
+[node name="View1" type="Control" parent="Cameras/WorkshopCameraNode/Interfaces"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="View2" type="Control" parent="Cameras/WorkshopCameraNode/Interfaces"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="View3" type="Control" parent="Cameras/WorkshopCameraNode/Interfaces"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="View4" type="Control" parent="Cameras/WorkshopCameraNode/Interfaces"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="World" type="Node" parent="."]
+
+[node name="Floor" type="CSGBox" parent="World"]
 transform = Transform( 35, 0, 0, 0, 0.1, 0, 0, 0, 35, -2.41273, 0.0276299, 0.205824 )
-material = ExtResource( 3 )
+material = ExtResource( 4 )
 
-[node name="Walls" type="Spatial" parent="."]
+[node name="Walls" type="Spatial" parent="World"]
 
-[node name="wall1" type="MeshInstance" parent="Walls"]
+[node name="wall1" type="MeshInstance" parent="World/Walls"]
 transform = Transform( 0.707107, -0.00082687, -0.707106, -0.000122173, 0.999999, -0.00129154, 0.707107, 0.000999648, 0.707106, -20.8168, 5.9, -25.6819 )
-mesh = ExtResource( 2 )
+mesh = ExtResource( 3 )
 skeleton = NodePath("")
-material/0 = ExtResource( 1 )
+material/0 = ExtResource( 7 )
 
-[node name="wall3" type="MeshInstance" parent="Walls"]
+[node name="wall3" type="MeshInstance" parent="World/Walls"]
 transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -0.835739, 5.9, -34.009 )
-mesh = ExtResource( 2 )
+mesh = ExtResource( 3 )
 skeleton = NodePath("")
-material/0 = ExtResource( 1 )
+material/0 = ExtResource( 7 )
 
-[node name="wall2" type="MeshInstance" parent="Walls"]
+[node name="wall2" type="MeshInstance" parent="World/Walls"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.103, 5.9, -5.741 )
-mesh = ExtResource( 2 )
+mesh = ExtResource( 3 )
 skeleton = NodePath("")
-material/0 = ExtResource( 1 )
+material/0 = ExtResource( 7 )
 
-[node name="Objects" type="Spatial" parent="."]
+[node name="wall4" type="MeshInstance" parent="World/Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.103, 5.9, 17.5888 )
+mesh = ExtResource( 3 )
+skeleton = NodePath("")
+material/0 = ExtResource( 7 )
 
-[node name="capacitor" parent="Objects" instance=ExtResource( 5 )]
+[node name="Objects" type="Spatial" parent="World"]
+
+[node name="capacitor" parent="World/Objects" instance=ExtResource( 1 )]
 transform = Transform( -0.0185521, 0.994384, 0.104192, -0.996744, -0.0102153, -0.0799855, -0.078472, -0.105336, 0.991336, -28.8581, 6.50166, -3.46501 )
 
-[node name="OmniLight" type="OmniLight" parent="."]
-transform = Transform( -0.380571, 0.849488, 0.365426, -0.612747, -0.527608, 0.588363, 0.692609, -4.25849e-08, 0.721313, -28.2918, 11.119, -5.29023 )
+[node name="Lighting" type="Node" parent="."]
+
+[node name="OmniLight" type="OmniLight" parent="Lighting"]
+transform = Transform( -0.380571, 0.849488, 0.365426, -0.612747, -0.527608, 0.588363, 0.692609, 1.84257e-07, 0.721313, -28.2918, 11.119, -5.29023 )
 light_color = Color( 1, 0.945098, 0.639216, 1 )
 light_energy = 9.954
 light_indirect_energy = 9.514
@@ -51,7 +101,7 @@ shadow_bias = 0.578
 shadow_reverse_cull_face = true
 omni_range = 26.8498
 
-[node name="OmniLight2" type="OmniLight" parent="."]
+[node name="OmniLight2" type="OmniLight" parent="Lighting"]
 transform = Transform( -0.122589, -0.771487, 0.624323, 0.963989, -0.24215, -0.109945, 0.236001, 0.588363, 0.77339, -0.677107, 11.0537, -33.2245 )
 light_color = Color( 1, 0.945098, 0.639216, 1 )
 light_energy = 9.954
@@ -62,5 +112,5 @@ shadow_bias = 0.578
 shadow_reverse_cull_face = true
 omni_range = 26.8498
 
-[node name="environment_workshop" type="WorldEnvironment" parent="."]
-environment = ExtResource( 4 )
+[node name="environment_workshop" type="WorldEnvironment" parent="Lighting"]
+environment = ExtResource( 2 )

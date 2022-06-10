@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/couchpillow.glb-f477927c4ca4121b89d3254507eefe1c.scn"
+path="res://.import/couchpillow.glb-995053943c21876ef7d7245cbfa2876d.scn"
 
 [deps]
 
-source_file="res://Assets/models/couch/couchpillow.glb"
-dest_files=[ "res://.import/couchpillow.glb-f477927c4ca4121b89d3254507eefe1c.scn" ]
+source_file="res://assets/models/couch/couchpillow.glb"
+dest_files=[ "res://.import/couchpillow.glb-995053943c21876ef7d7245cbfa2876d.scn" ]
 
 [params]
 

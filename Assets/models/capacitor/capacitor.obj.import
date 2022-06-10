@@ -2,14 +2,14 @@
 
 importer="wavefront_obj"
 type="Mesh"
-path="res://.import/capacitor.obj-9c054bd9c8d55786e786cec152dbd6cf.mesh"
+path="res://.import/capacitor.obj-4726fddb76ecd7e3466fdaaaae09dc71.mesh"
 
 [deps]
 
-files=[ "res://.import/capacitor.obj-9c054bd9c8d55786e786cec152dbd6cf.mesh" ]
+files=[ "res://.import/capacitor.obj-4726fddb76ecd7e3466fdaaaae09dc71.mesh" ]
 
-source_file="res://Assets/models/capacitor/capacitor.obj"
-dest_files=[ "res://.import/capacitor.obj-9c054bd9c8d55786e786cec152dbd6cf.mesh", "res://.import/capacitor.obj-9c054bd9c8d55786e786cec152dbd6cf.mesh" ]
+source_file="res://assets/models/capacitor/capacitor.obj"
+dest_files=[ "res://.import/capacitor.obj-4726fddb76ecd7e3466fdaaaae09dc71.mesh", "res://.import/capacitor.obj-4726fddb76ecd7e3466fdaaaae09dc71.mesh" ]
 
 [params]
 

@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/capacitor.glb-b422456fa8be0ee30e4d4490da314821.scn"
+path="res://.import/capacitor.glb-5b11d580aea3339c2524baa315f36718.scn"
 
 [deps]
 
-source_file="res://Assets/models/capacitor/capacitor.glb"
-dest_files=[ "res://.import/capacitor.glb-b422456fa8be0ee30e4d4490da314821.scn" ]
+source_file="res://assets/models/capacitor/capacitor.glb"
+dest_files=[ "res://.import/capacitor.glb-5b11d580aea3339c2524baa315f36718.scn" ]
 
 [params]
 

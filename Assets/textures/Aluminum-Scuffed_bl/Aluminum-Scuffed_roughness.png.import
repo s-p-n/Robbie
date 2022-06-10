@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Aluminum-Scuffed_roughness.png-c5ca4f76cacf3963942e43c36f7e9e26.s3tc.stex"
-path.etc2="res://.import/Aluminum-Scuffed_roughness.png-c5ca4f76cacf3963942e43c36f7e9e26.etc2.stex"
+path.s3tc="res://.import/Aluminum-Scuffed_roughness.png-0f35632b035bbced075b715fe3201b97.s3tc.stex"
+path.etc2="res://.import/Aluminum-Scuffed_roughness.png-0f35632b035bbced075b715fe3201b97.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/textures/Aluminum-Scuffed_bl/Aluminum-Scuffed_roughness.png"
-dest_files=[ "res://.import/Aluminum-Scuffed_roughness.png-c5ca4f76cacf3963942e43c36f7e9e26.s3tc.stex", "res://.import/Aluminum-Scuffed_roughness.png-c5ca4f76cacf3963942e43c36f7e9e26.etc2.stex" ]
+source_file="res://assets/textures/Aluminum-Scuffed_bl/Aluminum-Scuffed_roughness.png"
+dest_files=[ "res://.import/Aluminum-Scuffed_roughness.png-0f35632b035bbced075b715fe3201b97.s3tc.stex", "res://.import/Aluminum-Scuffed_roughness.png-0f35632b035bbced075b715fe3201b97.etc2.stex" ]
 
 [params]
 

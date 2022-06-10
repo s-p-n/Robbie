@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/couchback.glb-98a0f1345a0e57ac4b03468b8db9d42b.scn"
+path="res://.import/couchback.glb-6fc03da42d0b974f8de323fa3493e8c8.scn"
 
 [deps]
 
-source_file="res://Assets/models/couch/couchback.glb"
-dest_files=[ "res://.import/couchback.glb-98a0f1345a0e57ac4b03468b8db9d42b.scn" ]
+source_file="res://assets/models/couch/couchback.glb"
+dest_files=[ "res://.import/couchback.glb-6fc03da42d0b974f8de323fa3493e8c8.scn" ]
 
 [params]
 

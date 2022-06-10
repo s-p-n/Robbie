@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/couch.glb-ee88b634ec4d147ed68b5bab94d0f77c.scn"
+path="res://.import/couch.glb-5a4286752d5851899706fe1003c37162.scn"
 
 [deps]
 
-source_file="res://Assets/models/couch/couch.glb"
-dest_files=[ "res://.import/couch.glb-ee88b634ec4d147ed68b5bab94d0f77c.scn" ]
+source_file="res://assets/models/couch/couch.glb"
+dest_files=[ "res://.import/couch.glb-5a4286752d5851899706fe1003c37162.scn" ]
 
 [params]
 
