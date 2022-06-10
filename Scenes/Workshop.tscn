@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/textures/painted-metal-shed.tres" type="Material" id=1]
 [ext_resource path="res://Assets/models/wall/wall.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://Assets/textures/old-plank-flooring2.tres" type="Material" id=3]
+[ext_resource path="res://Assets/models/capacitor/capacitor.dae" type="PackedScene" id=5]
 
 [node name="Workshop" type="Spatial"]
 
@@ -16,19 +17,24 @@ material = ExtResource( 3 )
 [node name="Walls" type="Spatial" parent="."]
 
 [node name="wall1" type="MeshInstance" parent="Walls"]
-transform = Transform( 0.707107, -0.00082687, -0.707106, -0.000122173, 0.999999, -0.00129154, 0.707107, 0.000999648, 0.707106, -20.8168, 5.93212, -25.6819 )
+transform = Transform( 0.707107, -0.00082687, -0.707106, -0.000122173, 0.999999, -0.00129154, 0.707107, 0.000999648, 0.707106, -20.8168, 5.9, -25.6819 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = ExtResource( 1 )
 
 [node name="wall3" type="MeshInstance" parent="Walls"]
-transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -0.835739, 5.93212, -34.009 )
+transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -0.835739, 5.9, -34.009 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = ExtResource( 1 )
 
 [node name="wall2" type="MeshInstance" parent="Walls"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.1028, 5.93212, -5.74065 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.103, 5.9, -5.741 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = ExtResource( 1 )
+
+[node name="Objects" type="Spatial" parent="."]
+
+[node name="capacitor" parent="Objects" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.46644, 2.95956, 8.07149 )
