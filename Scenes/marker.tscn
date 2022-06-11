@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="SphereMesh" id=1]
+
+[sub_resource type="SphereShape" id=2]
+
+[node name="Marker" type="RigidBody"]
+transform = Transform( 0.0448, 0, 0, 0, 0.049, 0, 0, 0, -0.044, -7.43829, 0.854342, -6.50606 )
+mode = 1
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+layers = 8
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 2 )

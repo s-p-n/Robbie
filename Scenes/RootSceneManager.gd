@@ -13,7 +13,9 @@ var workshop_camera = preload("res://scenes/WorkshopCamera.tscn").instance()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	cameras.add_child(workshop_camera)
-	$Cameras/WorkshopCamera/Camera.current = true
+	
+	# Comment this line below to see player camera.
+	#$Cameras/WorkshopCamera/Camera.current = true
 	
 
 

@@ -13,23 +13,15 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("left"):
-		print("Left Pressed")
 		if camera_index < 1:
-			print("Index Number: ", camera_index)
-			print("Returned")
 			return
 		camera_index -= 1
-		print("Index Number: ", camera_index)
 		cam.set_target(positions[camera_index])
 		set_other_interfaces_vis()
 	elif Input.is_action_just_pressed("right"):
-		print("Right Pressed")
 		if camera_index >= (len(positions) - 1):
-			print("Index Number: ", camera_index)
-			print("Returned")
 			return
 		camera_index += 1
-		print("Index Number: ", camera_index)
 		cam.set_target(positions[camera_index])
 		set_other_interfaces_vis()
 

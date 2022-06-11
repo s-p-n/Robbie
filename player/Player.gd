@@ -2,25 +2,21 @@ extends KinematicBody
 
 var mouse_sensitivity = 1
 var joystick_deadzone = 0.2
-
+# Movement
 var run_speed = 6 # Running speed in m/s
-var walk_speed = run_speed / 2
+# Walk speed is actually run. Because peter said so.
+var walk_speed = run_speed * 1.25
 var crouch_speed = run_speed / 3
 var jump_height = 4
-
 var current_speed = run_speed
-
 var ground_acceleration = 10
 var air_acceleration = 5
 var acceleration = air_acceleration
-
 var direction = Vector3()
 var velocity = Vector3() # Direction with acceleration added
 var movement = Vector3() # Velocity with gravity added
-
 var gravity = 9.8
 var gravity_vec = Vector3()
-
 var snapped = false
 var can_jump = true
 var crouched = false
@@ -29,6 +25,12 @@ var can_crouch = true
 # Data:
 var player_speed = 0
 var falling_velocity = 0
+onready	var start_pos = $Head/Camera/PositionStart
+onready	var stop_pos = $Head/Camera/PositionStop
+var offset = Vector3(0, 1.6, 0)
+
+# Shooting
+onready var marker = preload("res://scenes/marker.tscn")
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -43,6 +45,18 @@ func _input(event):
 	direction = Vector3()
 
 func _physics_process(delta):
+	process_movement(delta)
+	if Input.is_action_just_pressed("leftclick"):
+		var current_position = translation
+		print("Drawing Intersect Line.\nFrom: ", start_pos.global_transform.origin, "\nTo ", stop_pos.global_transform.origin)
+		var space = get_viewport().world.direct_space_state
+		var results = space.intersect_ray(start_pos.global_transform.origin, stop_pos.global_transform.origin, [self])
+		print(results)
+		
+	
+
+
+func process_movement(delta):
 	# Look with the right analog of the joystick
 	if Input.get_joy_axis(0, 2) < -joystick_deadzone or Input.get_joy_axis(0, 2) > joystick_deadzone:
 		rotation_degrees.y -= Input.get_joy_axis(0, 2) * 2
