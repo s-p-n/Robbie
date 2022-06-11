@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://CameraTween.gd" type="Script" id=3]
+[ext_resource path="res://InputListener.gd" type="Script" id=4]
+
+[node name="Camera Controller" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.74094, -0.0416565, 0.096199 )
+script = ExtResource( 4 )
+
+[node name="Cameras" type="Node" parent="."]
+
+[node name="Workshop" type="Camera" parent="Cameras"]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 6, 6, 0 )
+script = ExtResource( 3 )
+
+[node name="Positions" type="Node" parent="."]
+
+[node name="Position1" type="Spatial" parent="Positions"]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 8.74094, 6.04166, -0.096199 )
+
+[node name="Position2" type="Spatial" parent="Positions"]
+transform = Transform( -0.819152, -0.148453, 0.554032, 0, 0.965926, 0.258819, -0.573576, 0.212012, -0.79124, 23.7409, 10.0417, 2.9038 )
+
+[node name="Interfaces" type="Node" parent="."]
+
+[node name="View1" type="Control" parent="Interfaces"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Panel2" type="Panel" parent="Interfaces/View1"]
+margin_left = 70.0
+margin_top = 22.0
+margin_right = 357.0
+margin_bottom = 115.0
+rect_pivot_offset = Vector2( 228, 47 )
+
+[node name="Panel" type="Panel" parent="Interfaces/View1"]
+margin_left = 708.0
+margin_top = 22.0
+margin_right = 995.0
+margin_bottom = 115.0
+rect_pivot_offset = Vector2( 228, 47 )
+
+[node name="View2" type="Control" parent="Interfaces"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Panel2" type="Panel" parent="Interfaces/View2"]
+margin_left = 62.0
+margin_top = 445.0
+margin_right = 349.0
+margin_bottom = 538.0
+rect_pivot_offset = Vector2( 228, 47 )
+
+[node name="Panel" type="Panel" parent="Interfaces/View2"]
+margin_left = 700.0
+margin_top = 445.0
+margin_right = 987.0
+margin_bottom = 538.0
+rect_pivot_offset = Vector2( 228, 47 )
