@@ -52,6 +52,8 @@ func _physics_process(delta):
 		var space = get_viewport().world.direct_space_state
 		var results = space.intersect_ray(start_pos.global_transform.origin, stop_pos.global_transform.origin, [self])
 		print(results)
+		if results:
+			results['collider'].add_child(marker.instance())
 		
 	
 
