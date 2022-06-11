@@ -24,7 +24,7 @@ func _process(delta):
 		set_other_interfaces_vis()
 	elif Input.is_action_just_pressed("right"):
 		print("Right Pressed")
-		if camera_index > len(positions):
+		if camera_index >= (len(positions) - 1):
 			print("Index Number: ", camera_index)
 			print("Returned")
 			return
