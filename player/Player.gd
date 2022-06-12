@@ -1,5 +1,8 @@
 extends KinematicBody
 
+onready var tool_menu = $Head/Camera/ToolMenu
+onready var tool_label = $Head/Camera/ToolPanel/ToolLabel
+
 var mouse_sensitivity = 1
 var joystick_deadzone = 0.2
 # Movement
@@ -22,22 +25,37 @@ var can_jump = true
 var crouched = false
 var can_crouch = true
 
+# COLLISION LAYERS FOR EACH ITEM
+# Claw   = 4   Wire  = 6
+# Solder = 7   Brush = 5
+enum hand {CLAW, WIRE, SOLDER, BRUSH}
+var tool_state = hand.CLAW
+var mouse_visible
+
+var held_object = null
+
 # Data:
 var player_speed = 0
 var falling_velocity = 0
 onready	var start_pos = $Head/Camera/PositionStart
 onready	var stop_pos = $Head/Camera/PositionStop
+onready var pickup_ray = $Head/PickupRay
+onready var brush_ray = $Head/BrushRay
 var offset = Vector3(0, 1.6, 0)
 
 # Shooting
 onready var marker = preload("res://scenes/marker.tscn")
+var dust_particles = preload("res://scenes/particles/CleanParticle.tscn")
 
 func _ready():
+	tool_label.text = 'Claw'
+	tool_menu.visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	mouse_visible = false
 
 func _input(event):
 	# Look with the mouse
-	if event is InputEventMouseMotion:
+	if (event is InputEventMouseMotion) and (mouse_visible == false):
 		rotation_degrees.y -= event.relative.x * mouse_sensitivity / 18
 		$Head.rotation_degrees.x -= event.relative.y * mouse_sensitivity / 18
 		$Head.rotation_degrees.x = clamp($Head.rotation_degrees.x, -90, 90)
@@ -45,18 +63,70 @@ func _input(event):
 	direction = Vector3()
 
 func _physics_process(delta):
+	if held_object:
+		held_object.global_transform.origin = stop_pos.global_transform.origin	
+	
+	if Input.is_action_just_pressed("tilda"):
+		if mouse_visible:
+			#print(mouse_visible)
+			mouse_visible = false
+			tool_menu.visible = false
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		else:
+			#print(mouse_visible)
+			mouse_visible = true
+			tool_menu.visible = true
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+	if mouse_visible:
+		return
 	process_movement(delta)
 	if Input.is_action_just_pressed("leftclick"):
 		var current_position = translation
-		print("Drawing Intersect Line.\nFrom: ", start_pos.global_transform.origin, "\nTo ", stop_pos.global_transform.origin)
+		#print("Drawing Intersect Line.\nFrom: ", start_pos.global_transform.origin, "\nTo ", stop_pos.global_transform.origin)
 		var space = get_viewport().world.direct_space_state
 		var results = space.intersect_ray(start_pos.global_transform.origin, stop_pos.global_transform.origin, [self])
-		print(results)
-		if results:
-			results['collider'].add_child(marker.instance())
 		
-	
+		# Checks for collision data
+		if results:
+			#print(results)
+			pass
+			
 
+		# Picks up object if claw is equipped and there is an object in the collider	
+		if tool_state == hand.CLAW:
+			if held_object:
+				#print("Dropping Held Object")
+				#held_object.mode = RigidBody.MODE_RIGID
+				held_object.set_linear_velocity(Vector3(0,-0.1,0))
+				held_object = null
+			else:
+				print(pickup_ray.get_collider())
+				if pickup_ray.get_collider():
+					#print("Picking up object")
+					held_object = pickup_ray.get_collider()
+					#held_object.mode = RigidBody.MODE_KINEMATIC
+		
+		if tool_state == hand.BRUSH:
+			if brush_ray.get_collider():
+				brush_ray.get_collider().clean()
+				print(brush_ray.get_collision_point())
+			
+
+func set_tool(tool_name):
+	if tool_name.to_lower() == 'claw':
+		tool_state = hand.CLAW
+		tool_label.text = 'Claw'
+	elif tool_name.to_lower() == 'brush':
+		tool_state = hand.BRUSH
+		tool_label.text = 'Brush'
+	elif tool_name.to_lower() == 'solder':
+		tool_state = hand.SOLDER
+		tool_label.text = 'Solder'
+	elif tool_name.to_lower() == 'wire':
+		tool_state = hand.WIRE
+		tool_label.text = 'Wire'
+	print("Tool State: ", tool_state)
 
 func process_movement(delta):
 	# Look with the right analog of the joystick
@@ -167,3 +237,16 @@ func crouch_animation(button_pressed):
 			$CrouchTween.interpolate_property($Head, "translation:y", $Head.translation.y, 1.6, 0.2, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 			$CrouchTween.start()
 			crouched = false
+
+
+func _on_ClawButton_button_down():
+	set_tool('claw')
+
+func _on_WireButton_button_down():
+	set_tool('wire')
+
+func _on_BrushButton_button_down():
+	set_tool('brush')
+
+func _on_SolderButton_button_down():
+	set_tool('solder')

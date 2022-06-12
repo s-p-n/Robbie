@@ -16,7 +16,7 @@ script = ExtResource( 4 )
 [node name="WorkshopScene" parent="World" instance=ExtResource( 2 )]
 
 [node name="Player" parent="World" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3516, 1.5637, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.1743, 1.5637, -2.81135 )
 
 [node name="Environment" type="Spatial" parent="."]
 
