@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/WorkshopScene.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/environment_workshop.tres" type="Environment" id=3]
 [ext_resource path="res://Scenes/RootSceneManager.gd" type="Script" id=4]
+[ext_resource path="res://cellphone.tscn" type="PackedScene" id=5]
 
 [node name="Robbie" type="Spatial"]
 script = ExtResource( 4 )
@@ -21,3 +22,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3516, 1.5637, 0 )
 
 [node name="environment_workshop" type="WorldEnvironment" parent="Environment"]
 environment = ExtResource( 3 )
+
+[node name="cellphone" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.205772, 0.968557, 0.139841, -0.563783, 0.234132, -0.792042, -0.799879, 0.0841402, 0.594234, -1.52995, 6.56735, -3.68752 )
