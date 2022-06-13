@@ -62,6 +62,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.32, 0 )
 [node name="Capacitor" parent="BakedLightmap/models" instance=ExtResource( 8 )]
 transform = Transform( -0.978477, 0, -0.206358, 0, 1, 0, 0.206358, 0, -0.978477, -7.9787, 0.0238488, -1.69117 )
 
+[node name="Wires" type="Spatial" parent="BakedLightmap"]
+
 [node name="top" type="OmniLight" parent="BakedLightmap"]
 transform = Transform( 1, 0, 0, 0, 0.736262, 0.676696, 0, -0.676696, 0.736262, 13.5675, 1.15164, -13.4847 )
 light_color = Color( 1, 1, 0.8, 1 )

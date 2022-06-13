@@ -6,6 +6,7 @@ extends ImmediateGeometry
 var fixed = false
 var player
 onready var stop_position = $StopPosition
+var is_colliding = false
 
 # references: 
 # https://docs.unrealengine.com/4.26/en-US/Basics/Components/Rendering/CableComponent/
@@ -106,6 +107,7 @@ func add_particle_at_end(adjust_length: bool) -> void:
 
 # private
 var time: float = 0.0
+var time_since = 0.0
 var particle_data: RopeParticleData
 var visibility_notifier: VisibilityNotifier
 var collision_check_param: PhysicsShapeQueryParameters
@@ -486,18 +488,26 @@ func _apply_constraints() -> void:
 		collision_check_param.transform.origin = global_transform.origin + aabb.position + aabb.size * 0.5
 		var colliders: Array = space_state.intersect_shape(collision_check_param, 1)
 		if len(colliders) >= 1:
-			print("Collision")
+			var any_result = false
 			for i in range(simulation_particles - 1):
 				var result: Dictionary = space_state.intersect_ray(particle_data.pos_curr[i] + prev_normal * 0.4, particle_data.pos_curr[i + 1], [], collision_mask)
 				if result:
+					any_result = true
 					prev_normal = result.normal
 					var ydiff: Vector3 = result.position - particle_data.pos_curr[i + 1]
 					ydiff = ydiff.project(result.normal)
+					#print(ydiff)
 					#ydiff += rope_width * 0.5 * result.normal
 					particle_data.pos_curr[i + 1] += ydiff
 					particle_data.pos_prev[i + 1] = particle_data.pos_curr[i + 1]
+				
+			if any_result:
+				print("Collision")
+			else:
+				print("No collision")
+				
 		else:
-			print("No Collision")
+			pass
 
 func _get_configuration_warning() -> String:
 	visibility_notifier = null
@@ -531,12 +541,10 @@ func _ready() -> void:
 	
 	if material_override == null:
 		material_override = preload("./DefaultRope.material")
-	player = get_parent().get_parent().get_parent()
+	player = get_parent().get_parent().find_node('Player')
 	_create_rope()
 
 func _physics_process(delta: float) -> void:
-	
-	
 	
 	if Engine.editor_hint and (particle_data == null or particle_data.is_empty()):
 		_create_rope()
@@ -575,8 +583,10 @@ func _physics_process(delta: float) -> void:
 		#_draw_rope_particles()
 	
 	# MY STUFF
-	if fixed:
-		return
+	if is_colliding:
+		time_since += delta
+		if time_since > 3:
+			player.delete_held_wire()
 	
 
 func _on_VisibilityNotifier_camera_exited(_camera: Camera) -> void:
