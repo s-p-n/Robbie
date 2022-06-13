@@ -18,6 +18,8 @@ extents = Vector3( 0.0883798, 6.36257, 11.7138 )
 [node name="Spatial" type="Spatial"]
 
 [node name="wall" type="MeshInstance" parent="."]
+generate_lightmap = false
+lightmap_scale = 3
 mesh = ExtResource( 1 )
 skeleton = NodePath("../../OmniLight")
 material/0 = SubResource( 2 )

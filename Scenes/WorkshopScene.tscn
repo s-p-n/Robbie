@@ -1,10 +1,11 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Assets/models/capacitor/capacitor.dae" type="PackedScene" id=1]
+[ext_resource path="res://Assets/models/capacitor/capacitor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/textures/painted-metal-shed.tres" type="Material" id=2]
 [ext_resource path="res://Assets/textures/old-plank-flooring2.tres" type="Material" id=3]
 [ext_resource path="res://Assets/models/wall/wall.obj" type="ArrayMesh" id=4]
 [ext_resource path="res://Scenes/CleanSelf.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/pylon.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -12,9 +13,6 @@
 
 [sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 0.137255, 0.0980392, 0.0980392, 1 )
-
-[sub_resource type="SpatialMaterial" id=4]
-albedo_color = Color( 0.188235, 0.211765, 0.356863, 1 )
 
 [node name="WorkshopScene" type="Spatial"]
 
@@ -51,9 +49,6 @@ material = ExtResource( 3 )
 
 [node name="Objects" type="Spatial" parent="."]
 
-[node name="capacitor" parent="Objects" instance=ExtResource( 1 )]
-transform = Transform( 0.99629, 0.0269782, 0.0817307, -0.0272839, 0.999624, 0.00262602, -0.0816292, -0.00484563, 0.996651, -23.6112, 0.0674362, -3.46501 )
-
 [node name="Moveable" type="RigidBody" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6944, 4.15892, -5.93088 )
 collision_layer = 9
@@ -89,47 +84,10 @@ material/0 = SubResource( 3 )
 [node name="CollisionShape" type="CollisionShape" parent="Objects/Cleanable"]
 shape = SubResource( 2 )
 
-[node name="Placeable1" type="RigidBody" parent="Objects"]
-transform = Transform( 0.343092, 0, 0, 0, 2.17293, 0, 0, 0, 0.308933, -16.6944, 1.89688, -12.7645 )
-collision_layer = 33
-collision_mask = 33
-mode = 1
-axis_lock_linear_x = true
-axis_lock_linear_y = true
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-axis_lock_angular_z = true
+[node name="pylon2" parent="Objects" instance=ExtResource( 6 )]
 
-[node name="MeshInstance" type="MeshInstance" parent="Objects/Placeable1"]
-layers = 9
-mesh = SubResource( 1 )
-skeleton = NodePath("../CollisionShape")
-material/0 = SubResource( 4 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Objects/Placeable1"]
-shape = SubResource( 2 )
-
-[node name="Placeable2" type="RigidBody" parent="Objects"]
-transform = Transform( 0.343092, 0, 0, 0, 2.17293, 0, 0, 0, 0.308933, -6.05352, 1.89688, -20.5666 )
-collision_layer = 33
-collision_mask = 33
-mode = 1
-axis_lock_linear_x = true
-axis_lock_linear_y = true
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-axis_lock_angular_z = true
-
-[node name="MeshInstance" type="MeshInstance" parent="Objects/Placeable2"]
-layers = 9
-mesh = SubResource( 1 )
-skeleton = NodePath("../CollisionShape")
-material/0 = SubResource( 4 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Objects/Placeable2"]
-shape = SubResource( 2 )
+[node name="pylon3" parent="Objects" instance=ExtResource( 6 )]
+transform = Transform( 0.343092, 0, 0, 0, 2.17293, 0, 0, 0, 0.308933, -6.05352, 1.89688, -16.5287 )
 
 [node name="OmniLight" type="OmniLight" parent="."]
 transform = Transform( -0.380571, 0.849488, 0.365426, -0.612747, -0.527608, 0.588363, 0.692609, 2.99251e-07, 0.721313, -28.2918, 11.119, -5.29023 )
@@ -152,3 +110,6 @@ shadow_enabled = true
 shadow_bias = 0.578
 shadow_reverse_cull_face = true
 omni_range = 26.8498
+
+[node name="Capacitor" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0106, 0.403478, -5.38728 )

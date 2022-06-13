@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/models/circuit_board/AO-med.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/environment_workshop.tres" type="Environment" id=7]
 [ext_resource path="res://Assets/models/capacitor/capacitor.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/models/wall/wall.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/pylon.tscn" type="PackedScene" id=10]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 6 )
@@ -33,17 +34,29 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.96733, 0 )
 
 [node name="models" type="Spatial" parent="."]
 
-[node name="wall" parent="models" instance=ExtResource( 9 )]
+[node name="outside-wall" parent="models" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.2, 14, 6, 0 )
 
-[node name="wall2" parent="models" instance=ExtResource( 9 )]
+[node name="outside-wall2" parent="models" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.2, -14, 6, 0 )
 
-[node name="wall3" parent="models" instance=ExtResource( 9 )]
+[node name="outside-wall3" parent="models" instance=ExtResource( 9 )]
 transform = Transform( -4.37114e-08, 0, 1.2, 0, 1, 0, -1, 0, -5.24537e-08, 0, 6, 14 )
 
-[node name="wall4" parent="models" instance=ExtResource( 9 )]
+[node name="outside-wall4" parent="models" instance=ExtResource( 9 )]
 transform = Transform( -4.37114e-08, 0, 1.2, 0, 1, 0, -1, 0, -5.24537e-08, 0, 6, -14 )
+
+[node name="inside-wall" parent="models" instance=ExtResource( 9 )]
+transform = Transform( -4.37114e-08, 0, 1.2, 0, 1, 0, -1, 0, -5.24537e-08, -3.88136, 6, 0.790867 )
+
+[node name="Placeable2" parent="models" instance=ExtResource( 10 )]
+transform = Transform( 0.343092, 0, 0, 0, 2.17293, 0, 0, 0, 0.308933, 12.8967, 2.25, 2.77033 )
+
+[node name="Placeable3" parent="models" instance=ExtResource( 10 )]
+transform = Transform( 0.343092, 0, 0, 0, 2.17293, 0, 0, 0, 0.308933, -13.1903, 2.25, 6.68091 )
+
+[node name="Placeable4" parent="models" instance=ExtResource( 10 )]
+transform = Transform( 0.343092, 0, 0, 0, 2.17293, 0, 0, 0, 0.308933, -8.224, 2.25, -12.35 )
 
 [node name="circuit_board" type="MeshInstance" parent="models"]
 generate_lightmap = false
@@ -58,14 +71,29 @@ mode = 1
 [node name="CollisionShape" type="CollisionShape" parent="models/circuit_board/RigidBody"]
 shape = SubResource( 2 )
 
+[node name="circuit_board2" type="MeshInstance" parent="models"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.23245, 0 )
+generate_lightmap = false
+lightmap_scale = 3
+mesh = ExtResource( 5 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 1 )
+
+[node name="RigidBody" type="RigidBody" parent="models/circuit_board2"]
+mode = 1
+
+[node name="CollisionShape" type="CollisionShape" parent="models/circuit_board2/RigidBody"]
+shape = SubResource( 2 )
+
 [node name="Capacitor" parent="models" instance=ExtResource( 8 )]
-transform = Transform( -0.978477, 0, -0.206358, 0, 1, 0, 0.206358, 0, -0.978477, 1.08555, 0.325764, 0.792886 )
+transform = Transform( -0.978477, 0, -0.206358, 0, 1, 0, 0.206358, 0, -0.978477, -7.9787, 0.0238488, -1.69117 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 7 )
 
 [node name="top" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.736262, 0.676696, 0, -0.676696, 0.736262, 12.9924, 12.6466, -13.8871 )
+transform = Transform( 1, 0, 0, 0, 0.736262, 0.676696, 0, -0.676696, 0.736262, 13.5675, 2.8946, -13.4847 )
+light_energy = 10.0
 light_indirect_energy = 0.0
 light_size = 1.0
 light_bake_mode = 2
@@ -74,7 +102,8 @@ shadow_reverse_cull_face = true
 omni_range = 117.344
 
 [node name="bottom" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.736262, 0.676696, 0, -0.676696, 0.736262, -10.9804, 6.23133, 10.5256 )
+transform = Transform( 1, 0, 0, 0, 0.736262, 0.676696, 0, -0.676696, 0.736262, -10.9804, 0.733571, 10.5256 )
+light_energy = 10.0
 light_indirect_energy = 0.0
 light_size = 1.0
 light_bake_mode = 2
