@@ -31,9 +31,27 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0 )
 
 [node name="Camera" type="Camera" parent="Head"]
+doppler_tracking = 2
 current = true
 
 [node name="Flashlight" parent="Head/Camera" instance=ExtResource( 4 )]
+light_energy = 0.05
+light_indirect_energy = 0.127
+light_size = 0.303
+light_specular = 25.0
+light_bake_mode = 2
+spot_range = 5.0
+spot_attenuation = 9.51361
+spot_angle = 47.932
+spot_angle_attenuation = 0.406129
+
+[node name="SpotLight" type="SpotLight" parent="Head/Camera/Flashlight"]
+light_energy = 0.061
+light_specular = 12.0
+spot_range = 25.0
+spot_attenuation = 1.93189
+spot_angle = 23.4323
+spot_angle_attenuation = 0.267943
 
 [node name="PositionStart" type="Position3D" parent="Head/Camera"]
 

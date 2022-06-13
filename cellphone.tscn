@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=12 format=2]
 
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/models/circuit_board/AO-med.png" type="Texture" id=2]
 [ext_resource path="res://Assets/models/circuit_board/Metallic-med.png" type="Texture" id=3]
 [ext_resource path="res://Assets/models/circuit_board/Roughness-med.png" type="Texture" id=4]
 [ext_resource path="res://Assets/models/circuit_board/circuit_board.obj" type="ArrayMesh" id=5]
 [ext_resource path="res://Assets/models/circuit_board/Albido-med.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/environment_workshop.tres" type="Environment" id=7]
+[ext_resource path="res://Assets/models/capacitor/capacitor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/models/wall/wall.tscn" type="PackedScene" id=9]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 6 )
@@ -12,21 +16,68 @@ metallic = 1.0
 metallic_specular = 0.52
 metallic_texture = ExtResource( 3 )
 metallic_texture_channel = 4
-roughness = 0.02
 roughness_texture = ExtResource( 4 )
 ao_enabled = true
 ao_light_affect = 1.0
 ao_texture = ExtResource( 2 )
 ao_on_uv2 = true
 ao_texture_channel = 0
-uv1_scale = Vector3( 0.1, 0.1, 0.1 )
-uv1_triplanar = true
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 14.9449, 0.0785757, 14.9391 )
 
 [node name="cellphone" type="Spatial"]
 
-[node name="models" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14847, 0 )
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.96733, 0 )
 
-[node name="circuit_board" type="MeshInstance" parent="."]
+[node name="models" type="Spatial" parent="."]
+
+[node name="wall" parent="models" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.2, 14, 6, 0 )
+
+[node name="wall2" parent="models" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.2, -14, 6, 0 )
+
+[node name="wall3" parent="models" instance=ExtResource( 9 )]
+transform = Transform( -4.37114e-08, 0, 1.2, 0, 1, 0, -1, 0, -5.24537e-08, 0, 6, 14 )
+
+[node name="wall4" parent="models" instance=ExtResource( 9 )]
+transform = Transform( -4.37114e-08, 0, 1.2, 0, 1, 0, -1, 0, -5.24537e-08, 0, 6, -14 )
+
+[node name="circuit_board" type="MeshInstance" parent="models"]
+generate_lightmap = false
+lightmap_scale = 3
 mesh = ExtResource( 5 )
+skeleton = NodePath("../..")
 material/0 = SubResource( 1 )
+
+[node name="RigidBody" type="RigidBody" parent="models/circuit_board"]
+mode = 1
+
+[node name="CollisionShape" type="CollisionShape" parent="models/circuit_board/RigidBody"]
+shape = SubResource( 2 )
+
+[node name="Capacitor" parent="models" instance=ExtResource( 8 )]
+transform = Transform( -0.978477, 0, -0.206358, 0, 1, 0, 0.206358, 0, -0.978477, 1.08555, 0.325764, 0.792886 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 7 )
+
+[node name="top" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.736262, 0.676696, 0, -0.676696, 0.736262, 12.9924, 12.6466, -13.8871 )
+light_indirect_energy = 0.0
+light_size = 1.0
+light_bake_mode = 2
+shadow_enabled = true
+shadow_reverse_cull_face = true
+omni_range = 117.344
+
+[node name="bottom" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.736262, 0.676696, 0, -0.676696, 0.736262, -10.9804, 6.23133, 10.5256 )
+light_indirect_energy = 0.0
+light_size = 1.0
+light_bake_mode = 2
+shadow_enabled = true
+shadow_reverse_cull_face = true
+omni_range = 117.344
