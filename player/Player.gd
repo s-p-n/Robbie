@@ -3,6 +3,8 @@ extends KinematicBody
 onready var tool_menu = $Head/Camera/ToolMenu
 onready var tool_label = $Head/Camera/ToolPanel/ToolLabel
 
+
+var wire_held = false
 var mouse_sensitivity = 1
 var joystick_deadzone = 0.2
 # Movement
@@ -41,13 +43,17 @@ onready	var start_pos = $Head/Camera/PositionStart
 onready	var stop_pos = $Head/Camera/PositionStop
 onready var pickup_ray = $Head/PickupRay
 onready var brush_ray = $Head/BrushRay
+onready var wire_ray = $Head/WireRay
+onready var wire_position = $WirePosition
+onready var wires
 var offset = Vector3(0, 1.6, 0)
 
 # Shooting
 onready var marker = preload("res://scenes/marker.tscn")
-var dust_particles = preload("res://scenes/particles/CleanParticle.tscn")
+onready var wire = preload("res://scenes/Wire.tscn")
 
 func _ready():
+	wires = get_parent().get_child(2)
 	tool_label.text = 'Claw'
 	tool_menu.visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -63,6 +69,8 @@ func _input(event):
 	direction = Vector3()
 
 func _physics_process(delta):
+	if wire_held:
+		wires.get_child(wires.get_child_count() - 1).stop_position.global_transform.origin = wire_position.global_transform.origin
 	if held_object:
 		held_object.global_transform.origin = stop_pos.global_transform.origin	
 	
@@ -108,10 +116,31 @@ func _physics_process(delta):
 					#held_object.mode = RigidBody.MODE_KINEMATIC
 		
 		if tool_state == hand.BRUSH:
-			if brush_ray.get_collider():
-				brush_ray.get_collider().clean()
-				print(brush_ray.get_collision_point())
-			
+			var dirty_object = brush_ray.get_collider()
+			if dirty_object:
+				dirty_object.clean()
+				if dirty_object.get_health() > 0:
+					dirty_object.spawn_particle(brush_ray.get_collision_point())
+					#print(brush_ray.get_collision_point())
+		
+		if tool_state == hand.WIRE:
+			print("attempting to wire")
+			if wire_ray.get_collider():
+				print(wire_ray.get_collision_point())
+				if wire_held:
+					# Set wire end point.
+					var wire_index = wires.get_child_count() - 1
+					wires.get_child(wire_index).stop_position.global_transform.origin = wire_ray.get_collision_point()
+					wire_held = false
+				else:
+					# Spawn wire
+					var new_wire = wire.instance()
+					new_wire.set_translation(wire_ray.get_collision_point())
+					wires.add_child(new_wire)
+					#new_wire.global_transform.origin = wire_ray.get_collision_point()
+					new_wire.stop_position.global_transform.origin = wire_ray.get_collision_point()
+					wire_held = true
+					new_wire.visible = true
 
 func set_tool(tool_name):
 	if tool_name.to_lower() == 'claw':
@@ -250,3 +279,7 @@ func _on_BrushButton_button_down():
 
 func _on_SolderButton_button_down():
 	set_tool('solder')
+	
+func get_wire_position():
+	return wire_position.global_transform.origin
+	

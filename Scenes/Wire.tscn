@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/verlet_rope_gd/DefaultRope.material" type="Material" id=1]
+[ext_resource path="res://addons/verlet_rope_gd/verlet_rope.gd" type="Script" id=2]
+
+[node name="Spatial" type="ImmediateGeometry"]
+visible = false
+material_override = ExtResource( 1 )
+script = ExtResource( 2 )
+attach_end_to = NodePath("StopPosition")
+rope_length = 0.01
+simulation_particles = 20
+simulate = false
+gravity = Vector3( 0, -2, 0 )
+apply_collision = true
+collision_mask = 512
+
+[node name="StopPosition" type="Position3D" parent="."]
+
+[node name="VisibilityNotifier" type="VisibilityNotifier" parent="."]
+aabb = AABB( 0, -0.0184494, 0, 0, 0.0184494, 0 )
