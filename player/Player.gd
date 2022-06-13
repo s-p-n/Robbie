@@ -53,7 +53,7 @@ onready var marker = preload("res://scenes/marker.tscn")
 onready var wire = preload("res://scenes/Wire.tscn")
 
 func _ready():
-	wires = get_parent().get_child(2)
+	wires = get_parent().find_node('Wires')
 	tool_label.text = 'Claw'
 	tool_menu.visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -282,4 +282,9 @@ func _on_SolderButton_button_down():
 	
 func get_wire_position():
 	return wire_position.global_transform.origin
+	
+func delete_held_wire():
+	var wire_index = wires.get_child_count() - 1
+	wires.get_child(wire_index).queue_free()
+	wire_held = false
 	
