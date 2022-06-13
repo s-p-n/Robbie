@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/models/circuit_board/circuit-board.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/environment_foggy.tres" type="Environment" id=3]
+[ext_resource path="res://Assets/models/capacitor/capacitor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/models/wall/wall.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/pylon.tscn" type="PackedScene" id=10]
+
+[node name="cellphone" type="Spatial"]
+
+[node name="env-level" type="WorldEnvironment" parent="."]
+environment = ExtResource( 3 )
+
+[node name="BakedLightmap" type="BakedLightmap" parent="."]
+layers = 1023
+extents = Vector3( 14.2293, 2.8709, 14.0744 )
+quality = 3
+bounces = 5
+bounce_indirect_energy = 16.0
+default_texels_per_unit = 36.76
+environment_mode = 1
+environment_min_light = Color( 0.0470588, 0.117647, 0.0235294, 1 )
+capture_cell_size = 0.25
+capture_quality = 2
+
+[node name="Player" parent="BakedLightmap" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22437, 0 )
+
+[node name="models" type="Spatial" parent="BakedLightmap"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.74296, 0 )
+
+[node name="outside-wall" parent="BakedLightmap/models" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 6, 0 )
+
+[node name="outside-wall2" parent="BakedLightmap/models" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 6, 0 )
+
+[node name="outside-wall3" parent="BakedLightmap/models" instance=ExtResource( 9 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 6, 14 )
+
+[node name="outside-wall4" parent="BakedLightmap/models" instance=ExtResource( 9 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 6, -14 )
+
+[node name="inside-wall" parent="BakedLightmap/models" instance=ExtResource( 9 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.21471, 5.6421, 0.790867 )
+
+[node name="Placeable2" parent="BakedLightmap/models" instance=ExtResource( 10 )]
+transform = Transform( 0.343092, 0, 0, 0, 2.17293, 0, 0, 0, 0.308933, 12.8967, 2.25, 2.77033 )
+
+[node name="Placeable3" parent="BakedLightmap/models" instance=ExtResource( 10 )]
+transform = Transform( 0.343092, 0, 0, 0, 2.17293, 0, 0, 0, 0.308933, -13.1903, 2.25, 6.68091 )
+
+[node name="Placeable4" parent="BakedLightmap/models" instance=ExtResource( 10 )]
+transform = Transform( 0.343092, 0, 0, 0, 2.17293, 0, 0, 0, 0.308933, -8.224, 2.25, -12.35 )
+
+[node name="circuit-board" parent="BakedLightmap/models" instance=ExtResource( 2 )]
+
+[node name="circuit-board2" parent="BakedLightmap/models" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.32, 0 )
+
+[node name="Capacitor" parent="BakedLightmap/models" instance=ExtResource( 8 )]
+transform = Transform( -0.978477, 0, -0.206358, 0, 1, 0, 0.206358, 0, -0.978477, -7.9787, 0.0238488, -1.69117 )
+
+[node name="top" type="OmniLight" parent="BakedLightmap"]
+transform = Transform( 1, 0, 0, 0, 0.736262, 0.676696, 0, -0.676696, 0.736262, 13.5675, 1.15164, -13.4847 )
+light_color = Color( 1, 1, 0.8, 1 )
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_size = 1.0
+shadow_enabled = true
+shadow_reverse_cull_face = true
+omni_range = 291.555
+omni_shadow_mode = 0
+
+[node name="bottom" type="OmniLight" parent="BakedLightmap"]
+transform = Transform( 1, 0, 0, 0, 0.736262, 0.676696, 0, -0.676696, 0.736262, -10.9804, -1.00939, 10.5256 )
+light_color = Color( 1, 1, 0.8, 1 )
+light_energy = 10.0
+light_indirect_energy = 0.0
+light_size = 1.0
+shadow_enabled = true
+shadow_reverse_cull_face = true
+omni_range = 117.344
