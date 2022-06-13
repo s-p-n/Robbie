@@ -18,7 +18,7 @@ func _ready():
 	cameras.add_child(workshop_camera)
 	
 	# Comment this line below to see player camera.
-	#$Cameras/WorkshopCamera/Camera.current = true
+	#$Cameras/WorkshopCamera/Camera.current = true	
 	
 
 

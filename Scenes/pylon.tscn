@@ -7,23 +7,18 @@ albedo_color = Color( 0.188235, 0.211765, 0.356863, 1 )
 
 [sub_resource type="BoxShape" id=2]
 
-[node name="Placeable2" type="RigidBody"]
-transform = Transform( 0.343092, 0, 0, 0, 2.17293, 0, 0, 0, 0.308933, -6.05352, 1.89688, -20.5666 )
-collision_layer = 33
-collision_mask = 33
-mode = 1
-axis_lock_linear_x = true
-axis_lock_linear_y = true
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-axis_lock_angular_z = true
+[node name="Placeable2" type="Spatial"]
+transform = Transform( 0.343092, 0, 0, 0, 0.345781, 0, 0, 0, 0.308933, -6.05352, 1.89688, -20.5666 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
+[node name="RigidBody" type="RigidBody" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 layers = 9
 mesh = SubResource( 1 )
 skeleton = NodePath("../CollisionShape")
 material/0 = SubResource( 4 )
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 2 )
