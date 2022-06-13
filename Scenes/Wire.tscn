@@ -10,7 +10,6 @@ script = ExtResource( 2 )
 attach_end_to = NodePath("StopPosition")
 rope_length = 0.01
 simulation_particles = 20
-simulate = false
 gravity = Vector3( 0, -2, 0 )
 apply_collision = true
 collision_mask = 512

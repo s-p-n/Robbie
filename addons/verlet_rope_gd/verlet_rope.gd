@@ -480,13 +480,13 @@ func _apply_constraints() -> void:
 				particle_data.pos_curr[i + 1] -= r * d * 0.5 * stiffness
 	
 	if apply_collision:
-		print("Collision")
 		# check if any objects are in its aabb before doing collisions
 		var aabb: AABB = get_aabb()
 		collision_check_box.extents = aabb.size * 0.5
 		collision_check_param.transform.origin = global_transform.origin + aabb.position + aabb.size * 0.5
 		var colliders: Array = space_state.intersect_shape(collision_check_param, 1)
 		if len(colliders) >= 1:
+			print("Collision")
 			for i in range(simulation_particles - 1):
 				var result: Dictionary = space_state.intersect_ray(particle_data.pos_curr[i] + prev_normal * 0.4, particle_data.pos_curr[i + 1], [], collision_mask)
 				if result:
@@ -496,6 +496,8 @@ func _apply_constraints() -> void:
 					#ydiff += rope_width * 0.5 * result.normal
 					particle_data.pos_curr[i + 1] += ydiff
 					particle_data.pos_prev[i + 1] = particle_data.pos_curr[i + 1]
+		else:
+			print("No Collision")
 
 func _get_configuration_warning() -> String:
 	visibility_notifier = null
