@@ -1,5 +1,6 @@
 extends RigidBody
 var health
+var dust_particles = preload("res://scenes/particles/CleanParticle.tscn")
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -31,5 +32,16 @@ func clean():
 		var surface = $MeshInstance.get_active_material(0)
 		print(surface.albedo_color)
 		print("Cleaned!")
+		
+func spawn_particle(pos):
+	var dust = dust_particles.instance()
+	add_child(dust)
+	dust.global_transform.origin = pos
+	
+	
+func get_health():
+	return health
+	
+	
 
 

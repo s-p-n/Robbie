@@ -1,7 +1,10 @@
 extends Spatial
 onready var cameras = $Cameras
 onready var world = $World
+onready var wires = $Wires
 onready var env = $Environment
+onready var player = $Player
+var update_time = 0
 
 var workshop_camera = preload("res://scenes/WorkshopCamera.tscn").instance()
 
@@ -20,5 +23,6 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	update_time += delta
+		
