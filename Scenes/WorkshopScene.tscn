@@ -95,9 +95,9 @@ material/0 = SubResource( 3 )
 shape = SubResource( 2 )
 
 [node name="pylon2" parent="World/Objects" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18.728 )
 
 [node name="pylon3" parent="World/Objects" instance=ExtResource( 6 )]
-transform = Transform( 0.343092, 0, 0, 0, 2.17293, 0, 0, 0, 0.308933, -6.05352, 1.89688, -16.5287 )
 
 [node name="Column" type="RigidBody" parent="World/Objects"]
 transform = Transform( 0.343092, 0, 0, 0, 2.17293, 0, 0, 0, 0.308933, -11.4746, 1.89688, -13.5826 )
