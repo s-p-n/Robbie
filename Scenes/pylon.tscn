@@ -27,8 +27,8 @@ axis_lock_angular_z = true
 
 [node name="Input" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.976796, 0 )
-collision_layer = 4096
-collision_mask = 4096
+collision_layer = 4128
+collision_mask = 4128
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
@@ -47,8 +47,8 @@ shape = SubResource( 2 )
 
 [node name="Output" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.42556, 0 )
-collision_layer = 4096
-collision_mask = 4096
+collision_layer = 4128
+collision_mask = 4128
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
@@ -67,8 +67,8 @@ shape = SubResource( 2 )
 
 [node name="Pole" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.586295, 0 )
-collision_layer = 4128
-collision_mask = 4128
+collision_layer = 4096
+collision_mask = 4096
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true

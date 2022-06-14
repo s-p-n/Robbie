@@ -45,6 +45,7 @@ script = ExtResource( 16 )
 min_zoom = 1.0
 
 [node name="CenterDot" parent="Head" instance=ExtResource( 2 )]
+position = Vector2( 510, 332 )
 
 [node name="ToolPanel" type="Panel" parent="Head"]
 margin_right = 71.0
@@ -138,7 +139,7 @@ enabled = true
 collision_mask = 8
 
 [node name="WireRay" type="RayCast" parent="Head"]
-transform = Transform( 0.073483, 0, 0, 0, -1.08311e-08, -0.0821306, 0, 4.0184, -5.82201e-08, 0, 8.88109e-05, -1.25016 )
+transform = Transform( 0.073483, 0, 0, 0, -1.08311e-08, -0.0821306, 0, 4.0184, -5.82201e-08, 0, 8.88109e-05, 0.00604153 )
 enabled = true
 collision_mask = 32
 

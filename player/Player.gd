@@ -7,6 +7,7 @@ onready var tool_label = $Head/ToolPanel/ToolLabel
 var wire_held = false
 var mouse_sensitivity = 1
 var joystick_deadzone = 0.2
+
 # Movement
 var run_speed = 6 # Running speed in m/s
 # Walk speed is actually run. Because peter said so.
@@ -126,16 +127,17 @@ func _physics_process(delta):
 					print(brush_ray.get_collision_point())
 		
 		if tool_state == hand.WIRE:
-			print("attempting to wire")
 			if wire_ray.get_collider():
-				print(wire_ray.get_collision_point())
+				print(wire_ray.get_collider())
 				if wire_held:
+					print("Placing end of wire")
 					# Set wire end point.
 					var wire_index = wires.get_child_count() - 1
 					wires.get_child(wire_index).stop_position.global_transform.origin = wire_ray.get_collision_point()
 					wire_held = false
 				else:
-					# Spawn wire
+					print("Placing start of wire.")
+					# Spawn wire`
 					var new_wire = wire.instance()
 					new_wire.set_translation(wire_ray.get_collision_point())
 					wires.add_child(new_wire)
@@ -143,6 +145,7 @@ func _physics_process(delta):
 					new_wire.stop_position.global_transform.origin = wire_ray.get_collision_point()
 					wire_held = true
 					new_wire.visible = true
+					print(wires.get_child_count())
 
 func set_tool(tool_name):
 	if tool_name.to_lower() == 'claw':
@@ -289,4 +292,5 @@ func delete_held_wire():
 	var wire_index = wires.get_child_count() - 1
 	wires.get_child(wire_index).queue_free()
 	wire_held = false
+	print("Wire is snagged. Try again.")
 	

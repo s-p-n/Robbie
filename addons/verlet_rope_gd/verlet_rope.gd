@@ -7,6 +7,7 @@ var fixed = false
 var player
 onready var stop_position = $StopPosition
 var is_colliding = false
+var count = 0
 
 # references: 
 # https://docs.unrealengine.com/4.26/en-US/Basics/Components/Rendering/CableComponent/
@@ -502,9 +503,11 @@ func _apply_constraints() -> void:
 					particle_data.pos_prev[i + 1] = particle_data.pos_curr[i + 1]
 				
 			if any_result:
-				print("Collision")
+				#print("Collision")
+				is_colliding = true
 			else:
-				print("No collision")
+				#print("No collision")
+				is_colliding = false
 				
 		else:
 			pass
@@ -585,8 +588,13 @@ func _physics_process(delta: float) -> void:
 	# MY STUFF
 	if is_colliding:
 		time_since += delta
-		if time_since > 3:
+		if time_since > 1.5:
 			player.delete_held_wire()
+	else:
+		count += 1
+		if count > 8:
+			time_since = 0.0
+			count = 0
 	
 
 func _on_VisibilityNotifier_camera_exited(_camera: Camera) -> void:
