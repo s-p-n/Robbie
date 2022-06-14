@@ -14,6 +14,11 @@ config/name="Robbie"
 run/main_scene="res://Scenes/Robbie.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/verlet_rope_gd/plugin.cfg" )
