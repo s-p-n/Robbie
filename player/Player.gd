@@ -117,11 +117,13 @@ func _physics_process(delta):
 		
 		if tool_state == hand.BRUSH:
 			var dirty_object = brush_ray.get_collider()
+			print("attempt to clean")
+			print(dirty_object)
 			if dirty_object:
 				dirty_object.clean()
 				if dirty_object.get_health() > 0:
 					dirty_object.spawn_particle(brush_ray.get_collision_point())
-					#print(brush_ray.get_collision_point())
+					print(brush_ray.get_collision_point())
 		
 		if tool_state == hand.WIRE:
 			print("attempting to wire")

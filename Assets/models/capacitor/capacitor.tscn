@@ -9,20 +9,19 @@
 radius = 1.02487
 height = 1.62409
 
-[node name="Capacitor" type="Spatial"]
+[node name="capacitor" type="RigidBody"]
+collision_layer = 569
+collision_mask = 569
+mode = 1
 script = ExtResource( 4 )
 
-[node name="RigidBody" type="RigidBody" parent="."]
-mode = 1
-
-[node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
-shape = SubResource( 1 )
-
-[node name="capacitor" type="MeshInstance" parent="RigidBody/CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0 )
+[node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = ExtResource( 1 )
-skeleton = NodePath("../../..")
+skeleton = NodePath("../..")
 material/0 = ExtResource( 3 )
 material/1 = ExtResource( 2 )
 material/2 = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+shape = SubResource( 1 )
