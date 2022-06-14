@@ -1,5 +1,4 @@
-extends RigidBody
-onready var points = get_parent().get_parent().get_child(3)
+extends Spatial
 
 
 # Declare member variables here. Examples:
@@ -9,11 +8,9 @@ onready var points = get_parent().get_parent().get_child(3)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for node in get_parent().get_children():
-		add_collision_exception_with(node)
-	add_collision_exception_with(get_parent().get_parent())
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	linear_velocity = Vector3(0,0,0)
+	pass

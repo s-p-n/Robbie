@@ -2,6 +2,7 @@ extends KinematicBody
 
 onready var tool_menu = $Head/ToolMenu
 onready var tool_label = $Head/ToolPanel/ToolLabel
+var wire_hold_node = preload("res://Scenes/wires/WirePosition.tscn")
 
 
 var wire_held = false
@@ -11,7 +12,7 @@ var joystick_deadzone = 0.2
 # Movement
 var run_speed = 6 # Running speed in m/s
 # Walk speed is actually run. Because peter said so.
-var walk_speed = run_speed * 1.25
+var walk_speed = run_speed * 2
 var crouch_speed = run_speed / 3
 var jump_height = 4
 var current_speed = run_speed
@@ -76,16 +77,19 @@ func _physics_process(delta):
 		held_object.global_transform.origin = stop_pos.global_transform.origin	
 	
 	if Input.is_action_just_pressed("tilda"):
-		if mouse_visible:
-			#print(mouse_visible)
-			mouse_visible = false
-			tool_menu.visible = false
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		if held_object:
+			pass
 		else:
-			#print(mouse_visible)
-			mouse_visible = true
-			tool_menu.visible = true
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			if mouse_visible:
+				#print(mouse_visible)
+				mouse_visible = false
+				tool_menu.visible = false
+				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			else:
+				#print(mouse_visible)
+				mouse_visible = true
+				tool_menu.visible = true
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	if mouse_visible:
 		return
@@ -136,16 +140,25 @@ func _physics_process(delta):
 					wires.get_child(wire_index).stop_position.global_transform.origin = wire_ray.get_collision_point()
 					wire_held = false
 				else:
+					var wire_index = wires.get_child_count()
+					# Set position of wire to new child node on pylon
 					print("Placing start of wire.")
 					# Spawn wire`
 					var new_wire = wire.instance()
-					new_wire.set_translation(wire_ray.get_collision_point())
+					var wire_start_pos = wire_hold_node.instance()
+					wire_start_pos.index_id = wire_index
+					wire_ray.get_collider().points.add_child(wire_start_pos)
+					
+					wire_start_pos.name = 'WirePositionStart'
+					print(wire_ray.get_collision_point(), ' ', wire_start_pos.global_transform.origin)
+					wire_start_pos.global_transform.origin = wire_ray.get_collision_point()
+					print(wire_ray.get_collision_point(), ' ', wire_start_pos.global_transform.origin)
+					new_wire.set_translation(wire_start_pos.global_transform.origin)
 					wires.add_child(new_wire)
-					#new_wire.global_transform.origin = wire_ray.get_collision_point()
-					new_wire.stop_position.global_transform.origin = wire_ray.get_collision_point()
 					wire_held = true
 					new_wire.visible = true
 					print(wires.get_child_count())
+					
 
 func set_tool(tool_name):
 	if tool_name.to_lower() == 'claw':

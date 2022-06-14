@@ -8,6 +8,8 @@ var player
 onready var stop_position = $StopPosition
 var is_colliding = false
 var count = 0
+var index_id : int
+
 
 # references: 
 # https://docs.unrealengine.com/4.26/en-US/Basics/Components/Rendering/CableComponent/
@@ -586,13 +588,18 @@ func _physics_process(delta: float) -> void:
 		#_draw_rope_particles()
 	
 	# MY STUFF
+	
+	# Reset Positions
+	
+	
+	# Collision
 	if is_colliding:
 		time_since += delta
 		if time_since > 1.5:
 			player.delete_held_wire()
 	else:
 		count += 1
-		if count > 8:
+		if count > 25:
 			time_since = 0.0
 			count = 0
 	
