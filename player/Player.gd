@@ -1,7 +1,7 @@
 extends KinematicBody
 
-onready var tool_menu = $Head/Camera/ToolMenu
-onready var tool_label = $Head/Camera/ToolPanel/ToolLabel
+onready var tool_menu = $Head/ToolMenu
+onready var tool_label = $Head/ToolPanel/ToolLabel
 
 
 var wire_held = false

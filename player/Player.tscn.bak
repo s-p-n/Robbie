@@ -44,9 +44,15 @@ margin = 1.0
 script = ExtResource( 16 )
 min_zoom = 1.0
 
+<<<<<<< HEAD
+[node name="CenterDot" parent="Head/Camera" instance=ExtResource( 2 )]
+
+[node name="ToolPanel" type="Panel" parent="Head/Camera"]
+=======
 [node name="CenterDot" parent="Head" instance=ExtResource( 2 )]
 
 [node name="ToolPanel" type="Panel" parent="Head"]
+>>>>>>> 7d744a2eeb2a1211501fc2ff9fd8bf08ac038d19
 margin_right = 71.0
 margin_bottom = 25.0
 
@@ -102,6 +108,15 @@ texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 8 )
 texture_hover = ExtResource( 11 )
 
+<<<<<<< HEAD
+[node name="PositionStart" type="Position3D" parent="Head/Camera"]
+
+[node name="PositionStop" type="Position3D" parent="Head/Camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.9 )
+
+[node name="Flashlight" parent="Head" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.603083, -0.0526338, -0.385631 )
+=======
 [node name="OmniLight" type="OmniLight" parent="Head"]
 transform = Transform( 0.993686, -0.0100615, -0.111745, 0.0593208, 0.892492, 0.447145, 0.095233, -0.450951, 0.887454, 0, 0, 0 )
 layers = 31
@@ -111,6 +126,7 @@ omni_range = 20.5085
 
 [node name="Flashlight" parent="Head" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.04497 )
+>>>>>>> 7d744a2eeb2a1211501fc2ff9fd8bf08ac038d19
 light_color = Color( 1, 1, 0.8, 1 )
 light_energy = 3.657
 light_size = 0.303
@@ -118,6 +134,8 @@ light_specular = 25.0
 spot_range = 50.0
 spot_angle = 60.6612
 
+<<<<<<< HEAD
+=======
 [node name="Camera" type="Camera" parent="Head"]
 doppler_tracking = 2
 
@@ -126,6 +144,7 @@ doppler_tracking = 2
 [node name="PositionStop" type="Position3D" parent="Head/Camera"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3 )
 
+>>>>>>> 7d744a2eeb2a1211501fc2ff9fd8bf08ac038d19
 [node name="SolderArea" type="Area" parent="Head"]
 transform = Transform( 0.073483, 0, 0, 0, 0.0821306, 0, 0, 0, 1.33192, 0, 0, -1.67198 )
 
