@@ -1,7 +1,5 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://levels/WorkshopScene.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/environment_workshop.tres" type="Environment" id=3]
 [ext_resource path="res://Scenes/RootSceneManager.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/WireManager.gd" type="Script" id=5]
@@ -16,12 +14,7 @@ script = ExtResource( 5 )
 
 [node name="ActiveLevel" type="Spatial" parent="."]
 
-[node name="WorkshopScene" parent="ActiveLevel" instance=ExtResource( 2 )]
-
 [node name="Environment" type="Spatial" parent="."]
 
 [node name="environment_workshop" type="WorldEnvironment" parent="Environment"]
 environment = ExtResource( 3 )
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.1743, 1.5637, -2.81135 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/models/capacitor/capacitor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/textures/painted-metal-shed.tres" type="Material" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/pylon.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/models/big_fan/big_fan.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/models/connection_home/connection_home.tscn" type="PackedScene" id=8]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -194,3 +195,6 @@ shadow_enabled = true
 shadow_bias = 0.578
 shadow_reverse_cull_face = true
 omni_range = 26.8498
+
+[node name="Player" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.582, 0.127631, 7.51118 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/audio/CG_Creepy_Electrical_Ambience.wav" type="AudioStream" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Assets/models/ramp/ramp.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/models/circuit_board/circuit_board.obj" type="ArrayMesh" id=8]
 [ext_resource path="res://Assets/models/circuit_board/circuit-board-low.tres" type="Material" id=9]
+[ext_resource path="res://Scenes/pylon.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/models/capacitor/capacitor.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ConvexPolygonShape" id=1]
 points = PoolVector3Array( -16, 0, -16, -16, 0.25, -16, 16, 0, -16, -16, 0, 16, -16, 0.25, 16, 16, 0.25, -16, 16, 0, 16, 16, 0.25, 16 )
@@ -19,7 +21,7 @@ points = PoolVector3Array( -16, 0, -16, -16, 0.25, -16, 16, 0, -16, -16, 0, 16, 
 environment = ExtResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.8319, 3.56688, 50.5995 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4272, 43.0979, 99.9096 )
 
 [node name="test2" type="Spatial" parent="."]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 24, 0, 90 )
@@ -81,9 +83,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 29 )
 [node name="bigFan2" parent="test2" instance=ExtResource( 4 )]
 transform = Transform( 1.2, 0, -7.10543e-15, 0, 1.2, 0, 7.10543e-15, 0, 1, 2.94447, 0, 11.6 )
 speed = 5
+is_spinning = false
 
 [node name="bigFan2" parent="test2/bigFan2" instance=ExtResource( 4 )]
-transform = Transform( 1.2, 0, 8.47033e-22, 0, -5.24537e-08, -1, 0, 1.2, -4.37114e-08, -4.13525, -2.7898, -33.4 )
+transform = Transform( 1.2, 0, 2.11758e-22, 0, -5.24537e-08, -1, 0, 1.2, -4.37114e-08, -4.13525, -2.7898, -33.6311 )
 speed = 5
 
 [node name="fan-lamp" type="OmniLight" parent="test2"]
@@ -131,7 +134,7 @@ transform = Transform( -0.561855, 0, -4.91189e-08, 0, 1, 0, 8.74228e-08, 0, -1, 
 transform = Transform( -1, 0, -8.74228e-08, 0, 7.686, 0, 8.74228e-08, 0, -1, 11.8508, 17.8559, 81.1103 )
 
 [node name="block-441-wall11" parent="Pipe" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 1.74846e-07, 0, 7.686, 0, -1.74846e-07, 0, 1, 30.2597, 17.3324, 81.2066 )
+transform = Transform( 0.0131421, 0, -0.999914, 0, 1.62115, 0, 0.999914, 0, 0.0131421, 25.6965, 35.7965, 84.4524 )
 
 [node name="circuit-board6" type="RigidBody" parent="Pipe"]
 transform = Transform( -0.561855, 0, -4.91189e-08, 0, 33.9261, 0, 8.74228e-08, 0, -1, 41.2839, -0.821219, 96.01 )
@@ -150,7 +153,7 @@ shape = SubResource( 1 )
 transform = Transform( 1, 0, 1.74846e-07, 0, 7.686, 0, -1.74846e-07, 0, 1, 38.1815, 17.3324, 81.2066 )
 
 [node name="block-441-wall13" parent="Pipe" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 1.74846e-07, 0, 7.686, 0, -1.74846e-07, 0, 1, 46.36, 17.3324, 81.2066 )
+transform = Transform( 1.1, 0, 1.92331e-07, 0, 7.686, 0, -1.74846e-07, 0, 1, 46.36, 17.3324, 81.2066 )
 
 [node name="block-441-wall14" parent="Pipe" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 7.686, 0, -1, 0, -4.37114e-08, 51.2343, 17.3324, 84.2066 )
@@ -219,3 +222,172 @@ omni_shadow_mode = 0
 [node name="ramp" parent="Pipe" instance=ExtResource( 7 )]
 transform = Transform( 4.6507e-08, 0, -3.9, 0, 3.9, 0, 5, 0, 5.96244e-08, 25.9178, 3.72047, 87.2338 )
 mode = 1
+
+[node name="block-441-wall30" parent="Pipe" instance=ExtResource( 3 )]
+transform = Transform( -1.26669, 0, -1.10738e-07, 0, 4.69433, 0, 8.74228e-08, 0, -1, 21.0704, 29.3675, 81.1103 )
+
+[node name="circuit-board10" type="RigidBody" parent="Pipe"]
+transform = Transform( -0.112371, 0, -9.82378e-09, 3.55271e-15, 3.39261, 0, 8.74228e-08, -1.19209e-07, -1, 3.2839, 16.1788, 98.01 )
+mode = 1
+
+[node name="circuit_board" type="MeshInstance" parent="Pipe/circuit-board10"]
+use_in_baked_light = true
+mesh = ExtResource( 8 )
+material/0 = ExtResource( 9 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Pipe/circuit-board10"]
+transform = Transform( 1, 0, 0, 0, 1, 0, -7.10543e-15, 0, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall31" parent="Pipe" instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 7.686, 0, 8.74228e-08, 0, -1, 11.8508, 17.8559, 81.1103 )
+
+[node name="capacitor10" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 33.9928, 15.8892, 111.818 )
+
+[node name="circuit-board12" type="RigidBody" parent="Pipe"]
+transform = Transform( -0.112371, 0, -9.82378e-09, 3.55271e-15, 3.39261, 0, 1.39876e-08, -1.90735e-08, -0.16, 22.2839, 21.1788, 110.01 )
+mode = 1
+
+[node name="circuit_board" type="MeshInstance" parent="Pipe/circuit-board12"]
+transform = Transform( 1, 0, 0, -8.00342e-30, 1, -6.31089e-30, -7.10543e-15, 0, 1, 0, 0, 0 )
+use_in_baked_light = true
+mesh = ExtResource( 8 )
+material/0 = ExtResource( 9 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Pipe/circuit-board12"]
+transform = Transform( 1, 0, 0, -8.00342e-30, 1, -6.31089e-30, -1.42109e-14, 0, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="capacitor13" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 31.651, 18.6416, 111.818 )
+
+[node name="circuit-board13" type="RigidBody" parent="Pipe"]
+transform = Transform( -0.112371, 0, -9.82378e-09, 3.55271e-15, 3.39261, 0, 1.39876e-08, -1.90735e-08, -0.16, 44.5653, 21.1788, 110.01 )
+mode = 1
+
+[node name="circuit_board" type="MeshInstance" parent="Pipe/circuit-board13"]
+transform = Transform( 1, 0, 0, -8.00342e-30, 1, -6.31089e-30, -7.10543e-15, 0, 1, 0, 0, 0 )
+use_in_baked_light = true
+mesh = ExtResource( 8 )
+material/0 = ExtResource( 9 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Pipe/circuit-board13"]
+transform = Transform( 1, 0, 0, 0, 1, 0, -7.10543e-15, 0, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall32" parent="Pipe" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1.35274, 0, -1, 0, -4.37114e-08, 49.2343, 13.1366, 108.207 )
+
+[node name="capacitor15" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49.1188, 19, 105.293 )
+
+[node name="capacitor6" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 12.5361, 18.6041, 111.818 )
+
+[node name="capacitor7" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 47.6504, 9.08699, 107.422 )
+
+[node name="capacitor8" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 47.6504, 11.2946, 109.259 )
+
+[node name="capacitor9" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 47.6504, 13.5748, 105.23 )
+
+[node name="capacitor11" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 47.6504, 15.8203, 110.481 )
+
+[node name="capacitor14" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 29.052, 21.1607, 111.818 )
+
+[node name="capacitor16" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( -1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 7.35136, 17.3393, 82.4525 )
+
+[node name="capacitor17" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( -0.982942, 9.39708e-08, -0.183917, -0.183917, -2.68872e-08, 0.982942, 8.74228e-08, 1, 4.37114e-08, 16.1712, 25.4151, 82.4525 )
+
+[node name="capacitor19" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( -1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 20.7103, 18.0976, 82.4525 )
+
+[node name="capacitor20" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( -1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 7.41736, 26.0762, 82.4525 )
+
+[node name="capacitor22" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( -1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 15.8629, 15.68, 82.4525 )
+
+[node name="capacitor21" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( -1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 10.3389, 23.9424, 82.4525 )
+
+[node name="capacitor23" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( -1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 21.5383, 23.7085, 82.4525 )
+
+[node name="capacitor24" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( -1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 11.8674, 30.345, 82.4525 )
+
+[node name="capacitor25" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( -1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 4.63565, 28.9818, 82.4525 )
+
+[node name="block-441-wall33" parent="Pipe" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 1.74846e-07, 0, 7.686, 0, -1.74846e-07, 0, 1, 30.2597, 17.3324, 81.2066 )
+
+[node name="block-441-wall35" parent="Pipe" instance=ExtResource( 3 )]
+transform = Transform( 0.0131421, 0, -0.999914, 0, 1.62115, 0, 0.999914, 0, 0.0131421, 25.6965, 18.1187, 84.6353 )
+
+[node name="capacitor26" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( -1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 11.3082, 17.2883, 82.4525 )
+
+[node name="capacitor28" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( -1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 25.8163, 19.7742, 89.0251 )
+
+[node name="capacitor29" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( 1.19249e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, -1.19249e-08, -5.21253e-16, 27.1358, 20.1217, 85.357 )
+
+[node name="capacitor30" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( 1.19249e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, -1.19249e-08, -5.21253e-16, 27.1358, 22.3699, 83.2924 )
+
+[node name="capacitor31" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( -1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 25.8163, 13.6792, 89.0251 )
+
+[node name="capacitor32" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( 1.19249e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, -1.19249e-08, -5.21253e-16, 27.225, 13.2514, 85.357 )
+
+[node name="capacitor33" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( 1.19249e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, -1.19249e-08, -5.21253e-16, 27.1358, 17.2124, 83.2924 )
+
+[node name="capacitor34" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( 1.19249e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, -1.19249e-08, -5.21253e-16, 24.3937, 13.4749, 85.5591 )
+
+[node name="capacitor35" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( 1.19249e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, -1.19249e-08, -5.21253e-16, 24.3937, 19.1134, 86.5222 )
+
+[node name="circuit-board11" parent="Pipe" instance=ExtResource( 5 )]
+transform = Transform( -0.561855, 0, -4.91189e-08, 0, 1, 0, 8.74228e-08, 0, -1, 24.3077, 33.0216, 90.3671 )
+
+[node name="ramp2" parent="Pipe" instance=ExtResource( 7 )]
+transform = Transform( 1.73594, 0, 0, 0, 3.9, 0, 0, 0, 3.9, 28.4464, 37.1853, 90.6729 )
+mode = 1
+
+[node name="circuit-board14" parent="Pipe" instance=ExtResource( 5 )]
+transform = Transform( -1.80566, 0, -1.57856e-07, 0, 1.00007, 0, 8.74287e-08, 0, -1.00007, 24.3077, 47.9551, 97.7324 )
+
+[node name="capacitor27" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( -1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 19.5108, 13.4162, 82.4525 )
+
+[node name="pylon2" parent="Pipe" instance=ExtResource( 10 )]
+transform = Transform( 1.52982, 0, 0, 0, 1.95277, 0, 0, 0, 1.47881, 20.1525, 33.207, 84.5187 )
+mode = 1
+
+[node name="pylon3" parent="Pipe" instance=ExtResource( 10 )]
+transform = Transform( 1.52982, 0, 0, 0, 1.95277, 0, 0, 0, 1.47881, 20.1525, 33.207, 91.8995 )
+mode = 1
+
+[node name="pylon4" parent="Pipe" instance=ExtResource( 10 )]
+transform = Transform( 1.52982, 0, 0, 0, 1.95277, 0, 0, 0, 1.47881, 20.1525, 33.207, 100.139 )
+mode = 1
+
+[node name="pylon5" parent="Pipe" instance=ExtResource( 10 )]
+transform = Transform( 1.52982, 0, 0, 0, 1.95277, 0, 0, 0, 1.47881, 28.4955, 33.207, 100.235 )
+mode = 1
+
+[node name="circuit-board15" parent="Pipe" instance=ExtResource( 5 )]
+transform = Transform( -0.230599, 0, -2.01596e-08, 0, 1, 0, 4.79806e-08, 0, -0.548834, 46.6407, 41.2635, 86.7313 )
