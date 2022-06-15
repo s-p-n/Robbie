@@ -9,7 +9,6 @@ const MIN_HEAT:int = 0
 const LAYER_BIT_OBSTICLE = 1
 const LAYER_BIT_CLAW = 4
 const LAYER_BIT_BRUSH = 5
-const LAYER_BIT_WIRE = 6
 const LAYER_BIT_SOLDER = 7
 
 export(int, 0, 10) var damage = 10
