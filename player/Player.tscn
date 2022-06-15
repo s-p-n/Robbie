@@ -156,7 +156,7 @@ shape = SubResource( 1 )
 transform = Transform( 0.993686, -0.0100615, -0.111745, 0.0593208, 0.892492, 0.447145, 0.095233, -0.450951, 0.887454, 0, 1.6, 0 )
 layers = 31
 light_color = Color( 1, 1, 0.8, 1 )
-light_indirect_energy = 16.0
+light_energy = 0.25
 omni_range = 20.5085
 
 [node name="MeshInstance" type="MeshInstance" parent="."]

@@ -10,7 +10,7 @@ onready var wires
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	wires = find_parent('Robbie').find_node('Wires')
+	wires = find_parent("root").find_node('Wires')
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
