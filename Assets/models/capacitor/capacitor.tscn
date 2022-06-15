@@ -10,8 +10,7 @@ radius = 1.02487
 height = 1.62409
 
 [node name="capacitor" type="RigidBody"]
-axis_lock_angular_x = true
-axis_lock_angular_z = true
+gravity_scale = 7.0
 script = ExtResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]

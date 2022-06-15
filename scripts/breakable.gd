@@ -17,6 +17,7 @@ export var is_soldered:bool = false
 export var is_working:bool = false
 
 var is_powered = false
+var is_home = false
 
 var active_layers = []
 var connection_home = null
@@ -37,18 +38,47 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	linear_velocity = Vector3(0,-10,0)
+	if connection_home and !is_home:
+		var dest = connection_home.get_transform()
+		transform.origin = lerp(transform.origin, dest.origin, delta*10)
+		rotation = lerp(rotation, connection_home.rotation, delta*10)
+		
+		if is_near_home():
+			transform = dest
+			is_home = true
+			print("at home")
+		else:
+			print("heading home")
+	elif !connection_home and is_home:
+		is_home = false
+		print("left home")
+	elif connection_home and is_home:
+		if is_near_home():
+			linear_velocity = Vector3(0, 0, 0)
+			gravity_scale = 0
+		else:
+			is_home = false
+		#transform = connection_home.get_transform()
+	else:
+		gravity_scale = 7
+		#linear_velocity = Vector3(0,-10,0)
 	#setup_collisions()
 	pass
+
+func is_near_home():
+	var dest = connection_home.get_transform()
+	var diff = transform.origin - dest.origin
+	diff = Vector3(abs(diff.x), abs(diff.y), abs(diff.z))
+	return diff < Vector3(0.01, 0.01, 0.01)
 
 func setup_collisions():
 	var result = 0
 	is_working = false
 	
-	if is_soldered: # cannot move if soldered
-		mode = MODE_STATIC
-	else:
-		mode = MODE_RIGID
+	#if is_soldered: # cannot move if soldered
+	#	mode = MODE_STATIC
+	#else:
+	#	mode = MODE_RIGID
 	
 	# always make it an obsticle
 	active_layers = [LAYER_BIT_OBSTICLE]
@@ -69,8 +99,9 @@ func setup_collisions():
 		
 	collision_layer = result
 	
+	print("is capacitor at home? ", is_home)
 	print("is capacitor working? ", is_working)
-	
+	print("is capacitor powered? ", is_powered)
 
 func repair():
 	if damage > MIN_DAMAGE:
@@ -151,10 +182,10 @@ func disconnect_from_home(old_home):
 
 
 func _on_capacitor_body_entered(body):
-	print("capacitor body entered: ", body)
+	print("capacitor body entered: ", body.name)
 	pass # Replace with function body.
 
 
 func _on_capacitor_body_exited(body):
-	print("capacitor body exited: ", body)
+	print("capacitor body exited: ", body.name)
 	pass # Replace with function body.
