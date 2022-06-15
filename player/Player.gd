@@ -60,7 +60,7 @@ onready var wire = preload("res://scenes/Wire.tscn")
 
 func _ready():
 	wire_held = false
-	wires = get_parent().find_node('Wires')
+	wires = get_tree().current_scene.find_node('Wires')
 	tool_label.text = 'Claw'
 	tool_menu.visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

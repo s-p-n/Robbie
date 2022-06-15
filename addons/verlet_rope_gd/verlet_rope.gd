@@ -525,6 +525,8 @@ func _get_configuration_warning() -> String:
 	return ""
 
 func _ready() -> void:
+	time_since = 0.0
+	time = 0.0
 	for c in get_children():
 		if c is VisibilityNotifier:
 			visibility_notifier = c
@@ -546,7 +548,7 @@ func _ready() -> void:
 	
 	if material_override == null:
 		material_override = preload("./DefaultRope.material")
-	player = get_parent().get_parent().find_node('Player')
+	player = get_viewport().get_child(0).get_child(2).get_child(0).get_child(0)
 	_create_rope()
 
 func _physics_process(delta: float) -> void:
@@ -596,7 +598,8 @@ func _physics_process(delta: float) -> void:
 	if is_colliding:
 		time_since += delta
 		if time_since > (delta * 10):
-			player.delete_held_wire()
+			if visible:
+				player.delete_held_wire()
 	else:
 		count += 1
 		if count > 25:

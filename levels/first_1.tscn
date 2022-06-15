@@ -23,11 +23,11 @@ points = PoolVector3Array( 1, -1, 1, 1, 1, -1.00024, -1, -1, 1, 1, -1, -2.27423,
 
 [node name="Level" type="Spatial"]
 
-[node name="env-level" type="WorldEnvironment" parent="."]
-environment = ExtResource( 4 )
-
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.16809, 2.56688, 27.5995 )
+
+[node name="env-level" type="WorldEnvironment" parent="."]
+environment = ExtResource( 4 )
 
 [node name="test" type="Spatial" parent="."]
 
