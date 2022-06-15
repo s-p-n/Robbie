@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/audio/CG_Creepy_Electrical_Ambience.wav" type="AudioStream" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
@@ -9,10 +9,14 @@
 [ext_resource path="res://Assets/models/ramp/ramp.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/models/circuit_board/circuit_board.obj" type="ArrayMesh" id=8]
 [ext_resource path="res://Assets/models/circuit_board/circuit-board-low.tres" type="Material" id=9]
+[ext_resource path="res://Assets/models/block-441/block-441.obj" type="ArrayMesh" id=10]
 [ext_resource path="res://Assets/models/capacitor/static_capacitor.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ConvexPolygonShape" id=1]
 points = PoolVector3Array( -16, 0, -16, -16, 0.25, -16, 16, 0, -16, -16, 0, 16, -16, 0.25, 16, 16, 0.25, -16, 16, 0, 16, 16, 0.25, 16 )
+
+[sub_resource type="ConcavePolygonShape" id=2]
+data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
 
 [node name="Level" type="Spatial"]
 
@@ -206,7 +210,7 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 7.686, 0, 8.74228e-08, 0, -1, 51.
 transform = Transform( -0.444989, 0, -3.89022e-08, 0, 1, 0, 5.24537e-08, 0, -0.6, 25.896, 0.0427723, 91.01 )
 
 [node name="fan-lamp" type="OmniLight" parent="Pipe"]
-transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 30.0409, 15.5135, 96.5862 )
+transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 30.5203, 21.7189, 97.853 )
 light_color = Color( 0.105882, 0.8, 0.117647, 1 )
 light_energy = 0.27
 light_indirect_energy = 0.0
@@ -310,6 +314,7 @@ transform = Transform( -1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228
 
 [node name="capacitor20" parent="Pipe" instance=ExtResource( 11 )]
 transform = Transform( -1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 7.41736, 26.0762, 82.4525 )
+gravity_scale = 0.0
 
 [node name="capacitor22" parent="Pipe" instance=ExtResource( 11 )]
 transform = Transform( -1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 15.8629, 15.68, 82.4525 )
@@ -374,3 +379,19 @@ transform = Transform( -1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228
 
 [node name="circuit-board15" parent="Pipe" instance=ExtResource( 5 )]
 transform = Transform( -0.230599, 0, -2.01596e-08, 0, 1, 0, 4.79806e-08, 0, -0.548834, 46.6407, 41.2635, 86.7313 )
+
+[node name="capacitor36" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( -0.395551, 3.02309e-15, -3.45802e-08, 0, -32.2201, -2.81677e-06, -2.61293e-08, -2.61293e-08, 0.298884, 25.2241, 18.8991, 97.8332 )
+
+[node name="block-441-wall36" type="RigidBody" parent="Pipe"]
+transform = Transform( 0.0131421, 0, -0.999914, 0, 0.90448, 0, 0.999914, 0, 0.0131421, 25.1088, 27.8469, 97.8584 )
+mode = 1
+
+[node name="block-441" type="MeshInstance" parent="Pipe/block-441-wall36"]
+transform = Transform( 0.180391, 0, -0.0107723, 0, 1.46454, 0, -0.0107723, 0, 0.999858, 0, 0, 0 )
+mesh = ExtResource( 10 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Pipe/block-441-wall36"]
+transform = Transform( 0.180391, 0, -0.0107723, 0, 1.46454, 0, -0.0107723, 0, 0.999858, 0, 0, 0 )
+shape = SubResource( 2 )
