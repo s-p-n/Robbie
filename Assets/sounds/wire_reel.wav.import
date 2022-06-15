@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/wire_reel.wav-b3b7bc16852f21612a00191546081b08.sample"
+
+[deps]
+
+source_file="res://Assets/sounds/wire_reel.wav"
+dest_files=[ "res://.import/wire_reel.wav-b3b7bc16852f21612a00191546081b08.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
