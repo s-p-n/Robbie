@@ -17,7 +17,7 @@ var run_speed = 6 # Running speed in m/s
 # Walk speed is actually run. Because peter said so.
 var walk_speed = run_speed * 2
 var crouch_speed = run_speed / 3
-var jump_height = 4
+var jump_height = 6
 var current_speed = run_speed
 var ground_acceleration = 10
 var air_acceleration = 5

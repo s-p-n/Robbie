@@ -1,0 +1,221 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Assets/audio/CG_Creepy_Electrical_Ambience.wav" type="AudioStream" id=1]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/models/block-441/block-441.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/models/big_fan/big_fan.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/models/circuit_board/circuit-board-low.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/environment_foggy.tres" type="Environment" id=6]
+[ext_resource path="res://Assets/models/ramp/ramp.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/models/circuit_board/circuit_board.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://Assets/models/circuit_board/circuit-board-low.tres" type="Material" id=9]
+
+[sub_resource type="ConvexPolygonShape" id=1]
+points = PoolVector3Array( -16, 0, -16, -16, 0.25, -16, 16, 0, -16, -16, 0, 16, -16, 0.25, 16, 16, 0.25, -16, 16, 0, 16, 16, 0.25, 16 )
+
+[node name="Level" type="Spatial"]
+
+[node name="env-level" type="WorldEnvironment" parent="."]
+environment = ExtResource( 6 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.8319, 3.56688, 50.5995 )
+
+[node name="test2" type="Spatial" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 24, 0, 90 )
+
+[node name="block-441-wall" parent="test2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 4, 45 )
+
+[node name="block-441-wall15" parent="test2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, 45 )
+
+[node name="block-441-wall2" parent="test2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4, 45 )
+
+[node name="block-441-wall3" parent="test2" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 4, 42 )
+
+[node name="block-441-wall4" parent="test2" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 4, 34 )
+
+[node name="block-441-wall5" parent="test2" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 4, 26 )
+
+[node name="block-441-wall6" parent="test2" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 4, 18 )
+
+[node name="block-441-wall7" parent="test2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 4, 13 )
+
+[node name="block-441-wall10" parent="test2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 4, 13 )
+
+[node name="block-441-wall11" parent="test2" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 4, 18 )
+
+[node name="block-441-wall12" parent="test2" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 4, 26 )
+
+[node name="block-441-wall13" parent="test2" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 4, 34 )
+
+[node name="block-441-wall16" parent="test2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 4, 34 )
+
+[node name="block-441-wall17" parent="test2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 4, 34 )
+
+[node name="block-441-wall18" parent="test2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4, 34 )
+
+[node name="block-441-wall14" parent="test2" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 4, 42 )
+
+[node name="circuit-board3" parent="test2" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 29 )
+
+[node name="circuit-board4" parent="test2" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 29 )
+
+[node name="bigFan2" parent="test2" instance=ExtResource( 4 )]
+transform = Transform( 1.2, 0, -7.10543e-15, 0, 1.2, 0, 7.10543e-15, 0, 1, 2.94447, 0, 11.6 )
+speed = 5
+
+[node name="bigFan2" parent="test2/bigFan2" instance=ExtResource( 4 )]
+transform = Transform( 1.2, 0, 8.47033e-22, 0, -5.24537e-08, -1, 0, 1.2, -4.37114e-08, -4.13525, -2.7898, -33.4 )
+speed = 5
+
+[node name="fan-lamp" type="OmniLight" parent="test2"]
+transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 3.16402, 6.59479, 10.2378 )
+light_color = Color( 0.52549, 0.25098, 0.168627, 1 )
+light_energy = 0.27
+light_indirect_energy = 0.0
+light_size = 1.0
+light_cull_mask = 4294966273
+shadow_enabled = true
+shadow_reverse_cull_face = true
+omni_range = 500.0
+omni_attenuation = 0.15932
+omni_shadow_mode = 0
+
+[node name="fan-lamp2" type="OmniLight" parent="test2"]
+transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 3.16402, 4.59479, 10.2378 )
+light_color = Color( 0.52549, 0.25098, 0.168627, 1 )
+light_energy = 0.27
+light_indirect_energy = 0.0
+light_size = 1.0
+light_cull_mask = 4294966273
+shadow_enabled = true
+shadow_reverse_cull_face = true
+omni_range = 500.0
+omni_attenuation = 0.15932
+omni_shadow_mode = 0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="test2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 5, 11 )
+stream = ExtResource( 1 )
+unit_db = 1.0
+unit_size = 10.0
+max_db = 6.0
+autoplay = true
+max_distance = 30.0
+doppler_tracking = 1
+
+[node name="Pipe" type="Spatial" parent="."]
+
+[node name="circuit-board8" parent="Pipe" instance=ExtResource( 5 )]
+transform = Transform( -0.561855, 0, -4.91189e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.89601, 0.0427723, 96.01 )
+
+[node name="block-441-wall10" parent="Pipe" instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 7.686, 0, 8.74228e-08, 0, -1, 11.8508, 17.8559, 81.1103 )
+
+[node name="block-441-wall11" parent="Pipe" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 1.74846e-07, 0, 7.686, 0, -1.74846e-07, 0, 1, 30.2597, 17.3324, 81.2066 )
+
+[node name="circuit-board6" type="RigidBody" parent="Pipe"]
+transform = Transform( -0.561855, 0, -4.91189e-08, 0, 33.9261, 0, 8.74228e-08, 0, -1, 41.2839, -0.821219, 96.01 )
+mode = 1
+
+[node name="circuit_board" type="MeshInstance" parent="Pipe/circuit-board6"]
+use_in_baked_light = true
+mesh = ExtResource( 8 )
+material/0 = ExtResource( 9 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Pipe/circuit-board6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, -7.10543e-15, 0, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall12" parent="Pipe" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 1.74846e-07, 0, 7.686, 0, -1.74846e-07, 0, 1, 38.1815, 17.3324, 81.2066 )
+
+[node name="block-441-wall13" parent="Pipe" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 1.74846e-07, 0, 7.686, 0, -1.74846e-07, 0, 1, 46.36, 17.3324, 81.2066 )
+
+[node name="block-441-wall14" parent="Pipe" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 7.686, 0, -1, 0, -4.37114e-08, 51.2343, 17.3324, 84.2066 )
+
+[node name="block-441-wall15" parent="Pipe" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 7.686, 0, -1, 0, -4.37114e-08, 51.2343, 17.3324, 92.2066 )
+
+[node name="block-441-wall16" parent="Pipe" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 7.686, 0, -1, 0, -4.37114e-08, 51.2343, 17.3324, 100.207 )
+
+[node name="block-441-wall17" parent="Pipe" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 7.686, 0, -1, 0, -4.37114e-08, 51.2343, 17.3324, 108.207 )
+
+[node name="block-441-wall18" parent="Pipe" instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 7.686, 0, 8.74228e-08, 0, -1, 3.85076, 17.8559, 81.1103 )
+
+[node name="block-441-wall19" parent="Pipe" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 7.686, 0, -1, 0, -4.37114e-08, 0.234261, 17.3324, 86.2066 )
+
+[node name="block-441-wall20" parent="Pipe" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 7.686, 0, -1, 0, -4.37114e-08, 0.234261, 17.3324, 94.2066 )
+
+[node name="block-441-wall21" parent="Pipe" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 7.686, 0, -1, 0, -4.37114e-08, 0.234261, 17.3324, 102.207 )
+
+[node name="block-441-wall22" parent="Pipe" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 7.686, 0, -1, 0, -4.37114e-08, 0.234261, 17.3324, 110.207 )
+
+[node name="block-441-wall23" parent="Pipe" instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 7.686, 0, 8.74228e-08, 0, -1, 3.85076, 17.8559, 113.11 )
+
+[node name="block-441-wall24" parent="Pipe" instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 7.686, 0, 8.74228e-08, 0, -1, 11.8508, 17.8559, 113.11 )
+
+[node name="block-441-wall25" parent="Pipe" instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 7.686, 0, 8.74228e-08, 0, -1, 19.8508, 17.8559, 113.11 )
+
+[node name="block-441-wall26" parent="Pipe" instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 7.686, 0, 8.74228e-08, 0, -1, 27.8508, 17.8559, 113.11 )
+
+[node name="block-441-wall27" parent="Pipe" instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 7.686, 0, 8.74228e-08, 0, -1, 35.8508, 17.8559, 113.11 )
+
+[node name="block-441-wall28" parent="Pipe" instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 7.686, 0, 8.74228e-08, 0, -1, 43.8508, 17.8559, 113.11 )
+
+[node name="block-441-wall29" parent="Pipe" instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 7.686, 0, 8.74228e-08, 0, -1, 51.8508, 17.8559, 113.11 )
+
+[node name="circuit-board9" parent="Pipe" instance=ExtResource( 5 )]
+transform = Transform( -0.444989, 0, -3.89022e-08, 0, 1, 0, 5.24537e-08, 0, -0.6, 25.896, 0.0427723, 91.01 )
+
+[node name="fan-lamp" type="OmniLight" parent="Pipe"]
+transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 30.0409, 15.5135, 96.5862 )
+light_color = Color( 0.105882, 0.8, 0.117647, 1 )
+light_energy = 0.27
+light_indirect_energy = 0.0
+light_size = 1.0
+light_cull_mask = 4294966273
+shadow_enabled = true
+shadow_reverse_cull_face = true
+omni_range = 500.0
+omni_attenuation = 0.15932
+omni_shadow_mode = 0
+
+[node name="ramp" parent="Pipe" instance=ExtResource( 7 )]
+transform = Transform( 4.6507e-08, 0, -3.9, 0, 3.9, 0, 5, 0, 5.96244e-08, 25.9178, 3.72047, 87.2338 )
+mode = 1

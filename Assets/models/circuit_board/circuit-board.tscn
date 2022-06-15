@@ -1,41 +1,20 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Assets/models/circuit_board/Roughness-med.png" type="Texture" id=1]
-[ext_resource path="res://Assets/models/circuit_board/Metallic-med.png" type="Texture" id=2]
-[ext_resource path="res://Assets/models/circuit_board/AO-med.png" type="Texture" id=3]
-[ext_resource path="res://Assets/models/circuit_board/Albido-med.png" type="Texture" id=4]
 [ext_resource path="res://Assets/models/circuit_board/circuit_board.obj" type="ArrayMesh" id=5]
-[ext_resource path="res://Assets/textures/wornpaintedcement-bl/wornpaintedcement-norrmal.png" type="Texture" id=6]
 
-[sub_resource type="SpatialMaterial" id=1]
-albedo_texture = ExtResource( 4 )
-metallic = 1.0
-metallic_specular = 0.52
-metallic_texture = ExtResource( 2 )
-metallic_texture_channel = 4
-roughness_texture = ExtResource( 1 )
-normal_enabled = true
-normal_scale = 1.0
-normal_texture = ExtResource( 6 )
-ao_enabled = true
-ao_light_affect = 1.0
-ao_texture = ExtResource( 3 )
-ao_on_uv2 = true
-ao_texture_channel = 0
-
-[sub_resource type="BoxShape" id=2]
-extents = Vector3( 14.9449, 0.0785757, 14.9391 )
+[sub_resource type="ConcavePolygonShape" id=2]
+data = PoolVector3Array( 15, -0.0547, -15, -15, -0.0547, -15, 15, -0.0547, 15, 15, 0.0547, 15, 15, -0.0547, 15, -15, 0.0547, 15, -15, 0.0547, 15, -15, -0.0547, 15, -15, 0.0547, -15, -15, 0.0547, -15, 15, 0.0547, -15, -15, 0.0547, 15, 15, 0.0547, -15, 15, -0.0547, -15, 15, 0.0547, 15, -15, 0.0547, -15, -15, -0.0547, -15, 15, 0.0547, -15, 15, -0.0547, 15, -15, -0.0547, -15, -15, -0.0547, 15, -15, 0.0547, 15, 15, -0.0547, 15, -15, -0.0547, 15, -15, 0.0547, -15, -15, -0.0547, 15, -15, -0.0547, -15, -15, 0.0547, 15, 15, 0.0547, -15, 15, 0.0547, 15, 15, 0.0547, 15, 15, -0.0547, -15, 15, -0.0547, 15, 15, 0.0547, -15, -15, -0.0547, -15, 15, -0.0547, -15 )
 
 [node name="circuit-board" type="RigidBody"]
 mode = 1
 
 [node name="circuit-board-mesh" type="MeshInstance" parent="."]
+transform = Transform( 0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 0, 0, 0 )
 use_in_baked_light = true
-generate_lightmap = false
 lightmap_scale = 3
 mesh = ExtResource( 5 )
 skeleton = NodePath("../../..")
-material/0 = SubResource( 1 )
+material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 2 )
