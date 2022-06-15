@@ -57,8 +57,6 @@ transform = Transform( 35, 0, 0, 0, 0.1, 0, 0, 0, 35, -2.41273, 0.0276299, 0.205
 use_collision = true
 material = ExtResource( 3 )
 
-[node name="Wires" type="Spatial" parent="."]
-
 [node name="Pylons" type="Spatial" parent="."]
 
 [node name="pylon1" parent="Pylons" instance=ExtResource( 6 )]
