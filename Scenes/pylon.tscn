@@ -23,6 +23,7 @@ albedo_color = Color( 0.317647, 0.329412, 0.360784, 1 )
 [sub_resource type="CylinderMesh" id=9]
 
 [node name="Pylon" type="RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00810051, 9.53674e-07, 0.0327435 )
 axis_lock_linear_y = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
@@ -123,4 +124,6 @@ mesh = SubResource( 9 )
 skeleton = NodePath("../Spatial/RigidBody")
 material/0 = null
 
-[node name="Points" type="Spatial" parent="."]
+[node name="StartPoints" type="Spatial" parent="."]
+
+[node name="EndPoints" type="Spatial" parent="."]

@@ -137,7 +137,17 @@ func _physics_process(delta):
 					print("Placing end of wire")
 					# Set wire end point.
 					var wire_index = wires.get_child_count() - 1
-					wires.get_child(wire_index).stop_position.global_transform.origin = wire_ray.get_collision_point()
+					var wire_end_pos = wire_hold_node.instance()
+					wire_end_pos.index_id = wire_index
+					wire_ray.get_collider().get_parent().get_parent().end_points.add_child(wire_end_pos)
+					wire_end_pos.name = 'WirePositionEnd'
+					wire_end_pos.global_transform.origin = wire_ray.get_collision_point()
+					wire_end_pos.transform.origin.x = 0
+					wire_end_pos.transform.origin.z = 0
+					wires.get_child(wire_index).stop_position.global_transform.origin = wire_end_pos.global_transform.origin
+					print(wire_ray.get_collider().name)
+					#print(wires.get_child(wire_index).stop_position.global_transform.origin,' ',wire_ray.get_collision_point())
+
 					wire_held = false
 				else:
 					var wire_index = wires.get_child_count()
@@ -147,12 +157,12 @@ func _physics_process(delta):
 					var new_wire = wire.instance()
 					var wire_start_pos = wire_hold_node.instance()
 					wire_start_pos.index_id = wire_index
-					wire_ray.get_collider().points.add_child(wire_start_pos)
-					
+					wire_ray.get_collider().get_parent().get_parent().start_points.add_child(wire_start_pos)
 					wire_start_pos.name = 'WirePositionStart'
-					print(wire_ray.get_collision_point(), ' ', wire_start_pos.global_transform.origin)
+					#print(wire_ray.get_collision_point(), ' ', wire_start_pos.global_transform.origin)
 					wire_start_pos.global_transform.origin = wire_ray.get_collision_point()
-					print(wire_ray.get_collision_point(), ' ', wire_start_pos.global_transform.origin)
+					wire_start_pos.transform.origin.x = 0
+					wire_start_pos.transform.origin.z = 0
 					new_wire.set_translation(wire_start_pos.global_transform.origin)
 					wires.add_child(new_wire)
 					wire_held = true
