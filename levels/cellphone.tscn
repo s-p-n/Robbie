@@ -13,6 +13,9 @@
 
 [node name="cellphone" type="Spatial"]
 
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.16809, 2.56688, 27.5995 )
+
 [node name="env-level" type="WorldEnvironment" parent="."]
 environment = ExtResource( 3 )
 
@@ -27,9 +30,6 @@ environment_mode = 1
 environment_min_light = Color( 0.0470588, 0.117647, 0.0235294, 1 )
 capture_cell_size = 0.25
 capture_quality = 2
-
-[node name="Player" parent="BakedLightmap" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.16809, 2.56688, 27.5995 )
 
 [node name="models" type="Spatial" parent="BakedLightmap"]
 

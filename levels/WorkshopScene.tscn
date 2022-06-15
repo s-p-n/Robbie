@@ -27,6 +27,9 @@ material = SubResource( 6 )
 
 [node name="WorkshopScene" type="Spatial"]
 
+[node name="Player" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.582, 0.127631, 7.51118 )
+
 [node name="Walls" type="Spatial" parent="."]
 
 [node name="wall1" type="MeshInstance" parent="Walls"]
@@ -201,6 +204,3 @@ shadow_enabled = true
 shadow_bias = 0.578
 shadow_reverse_cull_face = true
 omni_range = 26.8498
-
-[node name="Player" parent="." instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.582, 0.127631, 7.51118 )
