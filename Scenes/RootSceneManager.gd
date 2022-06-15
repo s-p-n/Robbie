@@ -17,7 +17,7 @@ var workshop_camera = preload("res://scenes/WorkshopCamera.tscn").instance()
 func _ready():
 	cameras.add_child(workshop_camera)
 	
-	# Comment this line below to see player camera.
+	#Comment this line below to see player camera.
 	#$Cameras/WorkshopCamera/Camera.current = true	
 	
 
