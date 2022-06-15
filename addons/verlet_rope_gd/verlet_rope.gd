@@ -595,7 +595,7 @@ func _physics_process(delta: float) -> void:
 	# Collision
 	if is_colliding:
 		time_since += delta
-		if time_since > 1.5:
+		if time_since > (delta * 10):
 			player.delete_held_wire()
 	else:
 		count += 1
