@@ -140,15 +140,20 @@ transform = Transform( 1, 0, 0, 0, -1.74846e-07, -1, 0, 3.01653, -3.29641e-08, 0
 enabled = true
 collision_mask = 8
 
+[node name="BrushRay" type="RayCast" parent="Head"]
+transform = Transform( 1, 0, 0, 0, -1.31877e-07, -1, 0, 3.017, -4.37114e-08, 0, 0.00108147, -0.00108147 )
+enabled = true
+collision_mask = 16
+
 [node name="WireRay" type="RayCast" parent="Head"]
 transform = Transform( 0.073483, 0, 0, 0, -1.08311e-08, -0.0821306, 0, 4.0184, -5.82201e-08, 0, 8.88109e-05, 0.00604153 )
 enabled = true
 collision_mask = 32
 
-[node name="BrushRay" type="RayCast" parent="Head"]
-transform = Transform( 1, 0, 0, 0, -1.31877e-07, -1, 0, 3.017, -4.37114e-08, 0, 0.00108147, -0.00108147 )
+[node name="SolderRay" type="RayCast" parent="Head"]
+transform = Transform( 0.073483, 0, 0, 0, -1.08311e-08, -0.0821306, 0, 4.0184, -5.82201e-08, 0, 8.88109e-05, 0.00604153 )
 enabled = true
-collision_mask = 16
+collision_mask = 64
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.875, 0 )

@@ -1,13 +1,23 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/models/block-441/block-441.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://Assets/models/connection_home/connection_home_material.tres" type="Material" id=2]
+[ext_resource path="res://Scripts/connection_home.gd" type="Script" id=3]
 
 [sub_resource type="ConcavePolygonShape" id=1]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
 
 [node name="connection_home" type="RigidBody"]
-mode = 1
+collision_layer = 65
+contacts_reported = 1
+contact_monitor = true
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource( 3 )
 
 [node name="block-441" type="MeshInstance" parent="."]
 transform = Transform( 0.25, 0, 0, 0, -1.09278e-08, -0.125, 0, 0.25, -5.46392e-09, 0, 0, 0 )
@@ -17,3 +27,6 @@ material/0 = ExtResource( 2 )
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 0.25, 0, 0, 0, -1.09278e-08, -0.125, 0, 0.25, -5.46392e-09, 0, 0, 0 )
 shape = SubResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_connection_home_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_connection_home_body_exited"]

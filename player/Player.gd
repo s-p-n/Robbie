@@ -49,6 +49,7 @@ onready	var stop_pos = $Head/Camera/PositionStop
 onready var pickup_ray = $Head/PickupRay
 onready var brush_ray = $Head/BrushRay
 onready var wire_ray = $Head/WireRay
+onready var solder_ray = $Head/SolderRay
 onready var wire_position = $WirePosition
 onready var wires
 var offset = Vector3(0, 1.6, 0)
@@ -129,17 +130,17 @@ func _physics_process(delta):
 					held_object = pickup_ray.get_collider()
 					#held_object.mode = RigidBody.MODE_KINEMATIC
 		
-		if tool_state == hand.BRUSH:
+		elif tool_state == hand.BRUSH:
 			var dirty_object = brush_ray.get_collider()
 			print("attempt to clean")
 			print(dirty_object)
-			if dirty_object:
+			if dirty_object and dirty_object.has_method("clean"):
 				dirty_object.clean()
 				if dirty_object.get_health() > 0:
 					dirty_object.spawn_particle(brush_ray.get_collision_point())
 					print(brush_ray.get_collision_point())
 		
-		if tool_state == hand.WIRE:
+		elif tool_state == hand.WIRE:
 			if wire_ray.get_collider():
 				print(wire_ray.get_collider())
 				if wire_held:
@@ -178,7 +179,14 @@ func _physics_process(delta):
 					new_wire.visible = true
 					placement_audio.play()
 					#print(wires.get_child_count())
-					
+		elif tool_state == hand.SOLDER:
+			var solderable_object = solder_ray.get_collider()
+			print("attempt to solder")
+			print(solderable_object)
+			if solderable_object and solderable_object.has_method("heat"):
+				solderable_object.heat()
+				if solderable_object.damage > 0:
+					solderable_object.spawn_particle(brush_ray.get_collision_point())
 
 func set_tool(tool_name):
 	if tool_name.to_lower() == 'claw':
