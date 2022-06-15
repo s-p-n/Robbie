@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://player/crosshair/CenterDot.tscn" type="PackedScene" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://Assets/images/cyan_wheel_button_pressed.png" type="Texture" id=14]
 [ext_resource path="res://Assets/images/cyan_wheel_button_hover.png" type="Texture" id=15]
 [ext_resource path="res://Scripts/ClippedCamera.gd" type="Script" id=16]
+[ext_resource path="res://Assets/sounds/wire_reel.wav" type="AudioStream" id=17]
+[ext_resource path="res://Assets/sounds/install.wav" type="AudioStream" id=18]
 
 [sub_resource type="BoxShape" id=3]
 
@@ -171,6 +173,15 @@ material/0 = null
 
 [node name="WirePosition" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.621345, 1.02263, -0.847026 )
+
+[node name="Sounds" type="Spatial" parent="."]
+
+[node name="WireReelAudio" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 17 )
+autoplay = true
+
+[node name="PlacementAudio" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 18 )
 
 [connection signal="button_down" from="Head/ToolMenu/ClawButton" to="." method="_on_ClawButton_button_down"]
 [connection signal="button_down" from="Head/ToolMenu/WireButton" to="." method="_on_WireButton_button_down"]

@@ -2,6 +2,8 @@ extends KinematicBody
 
 onready var tool_menu = $Head/ToolMenu
 onready var tool_label = $Head/ToolPanel/ToolLabel
+onready var wire_reel_audio = $Sounds/WireReelAudio
+onready var placement_audio = $Sounds/PlacementAudio
 var wire_hold_node = preload("res://Scenes/wires/WirePosition.tscn")
 
 
@@ -10,6 +12,7 @@ var mouse_sensitivity = 1
 var joystick_deadzone = 0.2
 
 # Movement
+var is_moving = false
 var run_speed = 6 # Running speed in m/s
 # Walk speed is actually run. Because peter said so.
 var walk_speed = run_speed * 2
@@ -55,6 +58,7 @@ onready var marker = preload("res://scenes/marker.tscn")
 onready var wire = preload("res://scenes/Wire.tscn")
 
 func _ready():
+	wire_held = false
 	wires = get_parent().find_node('Wires')
 	tool_label.text = 'Claw'
 	tool_menu.visible = false
@@ -94,6 +98,11 @@ func _physics_process(delta):
 	if mouse_visible:
 		return
 	process_movement(delta)
+	if is_moving and wire_held:
+		if not wire_reel_audio.playing:
+			wire_reel_audio.playing = true
+	else:
+		wire_reel_audio.playing = false
 	if Input.is_action_just_pressed("leftclick"):
 		var current_position = translation
 		#print("Drawing Intersect Line.\nFrom: ", start_pos.global_transform.origin, "\nTo ", stop_pos.global_transform.origin)
@@ -145,9 +154,9 @@ func _physics_process(delta):
 					wire_end_pos.transform.origin.x = 0
 					wire_end_pos.transform.origin.z = 0
 					wires.get_child(wire_index).stop_position.global_transform.origin = wire_end_pos.global_transform.origin
-					print(wire_ray.get_collider().name)
+					#print(wire_ray.get_collider().name)
 					#print(wires.get_child(wire_index).stop_position.global_transform.origin,' ',wire_ray.get_collision_point())
-
+					placement_audio.play()
 					wire_held = false
 				else:
 					var wire_index = wires.get_child_count()
@@ -167,7 +176,8 @@ func _physics_process(delta):
 					wires.add_child(new_wire)
 					wire_held = true
 					new_wire.visible = true
-					print(wires.get_child_count())
+					placement_audio.play()
+					#print(wires.get_child_count())
 					
 
 func set_tool(tool_name):
@@ -186,6 +196,7 @@ func set_tool(tool_name):
 	print("Tool State: ", tool_state)
 
 func process_movement(delta):
+	var moved = false
 	# Look with the right analog of the joystick
 	if Input.get_joy_axis(0, 2) < -joystick_deadzone or Input.get_joy_axis(0, 2) > joystick_deadzone:
 		rotation_degrees.y -= Input.get_joy_axis(0, 2) * 2
@@ -196,12 +207,16 @@ func process_movement(delta):
 	direction = Vector3()
 	
 	if Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_Z) or Input.is_key_pressed(KEY_UP):
+		moved = true
 		direction.z += -1
 	if Input.is_key_pressed(KEY_S) or Input.is_key_pressed(KEY_DOWN):
+		moved = true
 		direction.z += 1
 	if Input.is_key_pressed(KEY_A) or Input.is_key_pressed(KEY_Q) or Input.is_key_pressed(KEY_LEFT):
+		moved = true
 		direction.x += -1
 	if Input.is_key_pressed(KEY_D) or Input.is_key_pressed(KEY_RIGHT):
+		moved = true
 		direction.x += 1
 		
 	direction = direction.normalized()
@@ -231,6 +246,7 @@ func process_movement(delta):
 		gravity_vec = -get_floor_normal() * 10
 		snapped = true
 	else:
+		moved = true
 		acceleration = air_acceleration
 		if snapped:
 			gravity_vec = Vector3()
@@ -248,6 +264,7 @@ func process_movement(delta):
 	
 	if Input.is_key_pressed(KEY_SPACE) or Input.is_joy_button_pressed(0, JOY_XBOX_A):
 		if is_on_floor() and can_jump:
+			moved = true
 			snapped = false
 			can_jump = false
 			gravity_vec = Vector3.UP * jump_height
@@ -271,6 +288,10 @@ func process_movement(delta):
 	movement = move_and_slide(movement, Vector3.UP)
 	
 	player_speed = movement.length()
+	if moved:
+		is_moving = true
+	else:
+		is_moving = false
 
 func land_animation():
 	var movement_y = clamp(falling_velocity, -20, 0) / 40
@@ -313,7 +334,7 @@ func get_wire_position():
 	
 func delete_held_wire():
 	var wire_index = wires.get_child_count() - 1
-	wires.get_child(wire_index).queue_free()
+	wires.get_child(wire_index).visible = false
 	wire_held = false
 	print("Wire is snagged. Try again.")
 	
