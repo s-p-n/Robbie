@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/models/block-441/block-441.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Assets/models/connection_home/connection_home_material.tres" type="Material" id=2]
+
+[sub_resource type="ConcavePolygonShape" id=1]
+data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
+
+[node name="connection_home" type="RigidBody"]
+mode = 1
+
+[node name="block-441" type="MeshInstance" parent="."]
+transform = Transform( 0.25, 0, 0, 0, -1.09278e-08, -0.125, 0, 0.25, -5.46392e-09, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.25, 0, 0, 0, -1.09278e-08, -0.125, 0, 0.25, -5.46392e-09, 0, 0, 0 )
+shape = SubResource( 1 )

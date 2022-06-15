@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/models/circuit_board/circuit-board-low.tscn" type="PackedScene" id=2]
@@ -7,8 +7,15 @@
 [ext_resource path="res://Assets/models/ramp/ramp.obj" type="ArrayMesh" id=5]
 [ext_resource path="res://Assets/models/capacitor/capacitor.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/models/block-441/block-441.obj" type="ArrayMesh" id=7]
+[ext_resource path="res://Assets/models/connection_home/connection_home.tscn" type="PackedScene" id=8]
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.419608, 0.654902, 0.129412, 1 )
 
 [sub_resource type="ConcavePolygonShape" id=1]
+data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=4]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
 
 [sub_resource type="ConvexPolygonShape" id=2]
@@ -69,8 +76,22 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 4, 
 [node name="block-441-wall14" parent="test" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 4, 42 )
 
+[node name="connection_home" parent="test" instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.84784, 0.369857, 39.6187 )
+
+[node name="block-441-wall20" type="RigidBody" parent="test"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 4, 45 )
+mode = 1
+
+[node name="block-441" type="MeshInstance" parent="test/block-441-wall20"]
+mesh = ExtResource( 7 )
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="test/block-441-wall20"]
+shape = SubResource( 1 )
+
 [node name="circuit-board3" parent="test" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 29 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 29 )
 
 [node name="circuit-board4" parent="test" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 29 )
@@ -89,7 +110,46 @@ material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="test/block-441-wall16"]
 transform = Transform( 9.9, -1.50944e-14, 3.8466e-07, -1.50944e-14, 9, 3.4532e-07, 3.8466e-07, 3.4532e-07, 1.1, 0, 0, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 4 )
+
+[node name="block-441-wall17" type="RigidBody" parent="test"]
+transform = Transform( 1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, 15, -17, -5 )
+mode = 1
+
+[node name="block-441" type="MeshInstance" parent="test/block-441-wall17"]
+transform = Transform( 9.9, -1.50944e-14, 3.8466e-07, -1.50944e-14, 9, 3.4532e-07, 3.8466e-07, 3.4532e-07, 1.1, 0, 0, 0 )
+mesh = ExtResource( 7 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="test/block-441-wall17"]
+transform = Transform( 9.9, -1.50944e-14, 3.8466e-07, -1.50944e-14, 9, 3.4532e-07, 3.8466e-07, 3.4532e-07, 1.1, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="block-441-wall18" type="RigidBody" parent="test"]
+transform = Transform( 1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, -57, -17, -5 )
+mode = 1
+
+[node name="block-441" type="MeshInstance" parent="test/block-441-wall18"]
+transform = Transform( 9.9, -1.50944e-14, 3.8466e-07, -1.50944e-14, 9, 3.4532e-07, 3.8466e-07, 3.4532e-07, 1.1, 0, 0, 0 )
+mesh = ExtResource( 7 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="test/block-441-wall18"]
+transform = Transform( 9.9, -1.50944e-14, 3.8466e-07, -1.50944e-14, 9, 3.4532e-07, 3.8466e-07, 3.4532e-07, 1.1, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="block-441-wall19" type="RigidBody" parent="test"]
+transform = Transform( 1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, -57, -17, 74 )
+mode = 1
+
+[node name="block-441" type="MeshInstance" parent="test/block-441-wall19"]
+transform = Transform( 9.9, -1.50944e-14, 3.8466e-07, -1.50944e-14, 9, 3.4532e-07, 3.8466e-07, 3.4532e-07, 1.1, 0, 0, 0 )
+mesh = ExtResource( 7 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="test/block-441-wall19"]
+transform = Transform( 9.9, -1.50944e-14, 3.8466e-07, -1.50944e-14, 9, 3.4532e-07, 3.8466e-07, 3.4532e-07, 1.1, 0, 0, 0 )
+shape = SubResource( 4 )
 
 [node name="lamp2" type="OmniLight" parent="test"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.74257, -7.24188, 77.8871 )
@@ -102,7 +162,7 @@ omni_range = 291.555
 omni_shadow_mode = 0
 
 [node name="lamp" type="OmniLight" parent="test"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.628714, 5.37906, 27.9435 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.31074, 5.37906, 41.1185 )
 light_color = Color( 1, 1, 0.8, 1 )
 light_size = 1.0
 light_cull_mask = 4294966273
