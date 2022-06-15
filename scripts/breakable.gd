@@ -15,6 +15,7 @@ const LAYER_BIT_SOLDER = 7
 export(int, 0, 10) var damage = 10
 export(int, 0, 10) var heat = 0
 export var is_soldered:bool = false
+export var is_working:bool = false
 
 var is_powered = false
 
@@ -39,18 +40,16 @@ func _ready():
 func _process(delta):
 	linear_velocity = Vector3(0,-10,0)
 	#setup_collisions()
+	pass
 
 func setup_collisions():
 	var result = 0
+	is_working = false
 	
 	if is_soldered: # cannot move if soldered
-		axis_lock_linear_x = true
-		axis_lock_linear_y = true
-		axis_lock_linear_z = true
+		mode = MODE_STATIC
 	else:
-		axis_lock_linear_x = false
-		axis_lock_linear_y = false
-		axis_lock_linear_z = false
+		mode = MODE_RIGID
 	
 	# always make it an obsticle
 	active_layers = [LAYER_BIT_OBSTICLE]
@@ -64,12 +63,15 @@ func setup_collisions():
 		active_layers.append(LAYER_BIT_CLAW)
 		active_layers.append(LAYER_BIT_SOLDER)
 	else: # if it is soldered in place and has no damage
-		active_layers.append(LAYER_BIT_WIRE)
+		is_working = true
 	
 	for bit in active_layers:
 		result += pow(2, bit - 1)
 		
 	collision_layer = result
+	
+	print("is capacitor working? ", is_working)
+	
 
 func repair():
 	if damage > MIN_DAMAGE:
@@ -136,6 +138,7 @@ func clean ():
 func connect_to_home(new_home):
 	print("Connecting to new home: ", new_home)
 	connection_home = new_home
+	setup_collisions()
 
 func disconnect_from_home(old_home):
 	print("Disconnecting from home: ", old_home)
@@ -145,3 +148,14 @@ func disconnect_from_home(old_home):
 	else:
 		print("failed to disconnect")
 		print(connection_home)
+	setup_collisions()
+
+
+func _on_capacitor_body_entered(body):
+	print("capacitor body entered: ", body)
+	pass # Replace with function body.
+
+
+func _on_capacitor_body_exited(body):
+	print("capacitor body exited: ", body)
+	pass # Replace with function body.
