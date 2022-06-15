@@ -546,7 +546,14 @@ func _ready() -> void:
 	
 	if material_override == null:
 		material_override = preload("./DefaultRope.material")
-	player = get_parent().get_parent().find_node('Player')
+	
+	player = get_viewport().get_child(0).find_node("Player", true)
+	#get_viewport().print_tree_pretty()
+	var root =  get_path_to(get_viewport().get_child(0))
+	var playerPath = get_node(root).get_node("ActiveLevel")
+	print('robbie? ', get_node(root))
+	playerPath.print_tree_pretty()
+	print("player: ", playerPath.find_node("Player"))
 	_create_rope()
 
 func _physics_process(delta: float) -> void:

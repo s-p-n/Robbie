@@ -34,5 +34,5 @@ func _process(delta):
 			wire.stop_position.global_transform.origin = (wire_point.global_transform.origin)
 	
 	wires_attached = new_wires_attached
-	if len(wires_attached) > 0:
-		print(wires_attached)
+	#if len(wires_attached) > 0:
+	#	print(wires_attached)

@@ -40,36 +40,40 @@ func _ready():
 func _process(delta):
 	if connection_home and !is_home:
 		var dest = connection_home.get_transform()
-		transform.origin = lerp(transform.origin, dest.origin, delta*10)
-		rotation = lerp(rotation, connection_home.rotation, delta*10)
+		transform.origin = lerp(transform.origin, dest.origin, delta*5)
+		rotation = lerp(rotation, connection_home.rotation, delta*5)
 		
 		if is_near_home():
 			transform = dest
 			is_home = true
+			setup_collisions()
 			print("at home")
 		else:
+			gravity_scale = 0
+			linear_velocity = Vector3(0, 0, 0)
 			print("heading home")
 	elif !connection_home and is_home:
 		is_home = false
-		print("left home")
+		print("lost connection, leaving home")
 	elif connection_home and is_home:
 		if is_near_home():
-			linear_velocity = Vector3(0, 0, 0)
 			gravity_scale = 0
+			linear_velocity = Vector3(0, 0, 0)
 		else:
+			setup_collisions()
 			is_home = false
+			print("not near home anymore")
 		#transform = connection_home.get_transform()
 	else:
 		gravity_scale = 7
 		#linear_velocity = Vector3(0,-10,0)
-	#setup_collisions()
-	pass
+	
 
 func is_near_home():
 	var dest = connection_home.get_transform()
 	var diff = transform.origin - dest.origin
 	diff = Vector3(abs(diff.x), abs(diff.y), abs(diff.z))
-	return diff < Vector3(0.01, 0.01, 0.01)
+	return diff < Vector3(0.1, 0.1, 0.1)
 
 func setup_collisions():
 	var result = 0
