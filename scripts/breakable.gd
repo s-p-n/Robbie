@@ -209,3 +209,13 @@ func _on_capacitor_body_exited(body):
 func _on_capacitor_input_event(camera, event, position, normal, shape_idx):
 	print("capacitor input event: ", event)
 	pass # Replace with function body.
+
+
+func _on_battery_body_entered(body):
+	print("battery body entered: ", body.name)
+	pass # Replace with function body.
+
+
+func _on_battery_body_exited(body):
+	print("battery body exited: ", body.name)
+	pass # Replace with function body.

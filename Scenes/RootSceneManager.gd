@@ -2,8 +2,6 @@ extends Spatial
 onready var cameras = $Cameras
 onready var active_level = $ActiveLevel
 onready var wires = $Wires
-onready var env = $Environment
-onready var player = $Player
 var update_time = 0
 
 var workshop_camera = preload("res://scenes/WorkshopCamera.tscn")
@@ -25,10 +23,10 @@ func _ready():
 	#$Cameras/WorkshopCamera/Camera.current = true	
 	
 	# LOADS WORKSHOP SCENE
-	load_level('workshop')
+	#load_level('workshop')
 	
 	# LOADS LEVEL 1
-	#load_level('level1')
+	load_level('level1')
 	
 	# LOADS LEVEL 2
 	#load_level('level2')
