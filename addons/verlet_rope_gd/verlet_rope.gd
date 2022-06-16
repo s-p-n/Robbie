@@ -525,6 +525,7 @@ func _get_configuration_warning() -> String:
 	return ""
 
 func _ready() -> void:
+	index_id = get_parent().get_child_count() - 1
 	time_since = 0.0
 	time = 0.0
 	for c in get_children():
@@ -597,9 +598,16 @@ func _physics_process(delta: float) -> void:
 	# Collision
 	if is_colliding:
 		time_since += delta
-		if time_since > (delta * 10):
+		if time_since > (delta * 5):
 			if visible:
-				player.delete_held_wire()
+				print("Wire id: ", index_id, "    Checked id: ", (get_parent().get_child_count() -1 ))
+				if (get_parent().get_child_count() - 1) == index_id:
+					print("Deleting.")
+					player.delete_held_wire()
+				else:
+					print("Hiding.")
+					player.delete_wire(index_id)
+					
 	else:
 		count += 1
 		if count > 25:
