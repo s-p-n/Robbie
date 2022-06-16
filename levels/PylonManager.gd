@@ -16,7 +16,9 @@ func _process(delta):
 	var powered_wires = get_source_wires()
 	powered_wires = get_connected_wires(powered_wires)
 	set_pylon_power(powered_wires)
-	print(powered_wires)
+	if len(powered_wires) > 0:
+		#print(powered_wires)
+		pass
 
 
 

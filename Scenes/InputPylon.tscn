@@ -22,8 +22,9 @@ albedo_color = Color( 0.317647, 0.329412, 0.360784, 1 )
 
 [sub_resource type="CylinderMesh" id=9]
 
-[node name="Pylon" type="RigidBody"]
+[node name="InputPylon" type="RigidBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00810051, 9.53674e-07, 0.0327435 )
+mode = 1
 axis_lock_linear_y = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
@@ -34,48 +35,31 @@ script = ExtResource( 3 )
 script = ExtResource( 2 )
 
 [node name="Output" type="RigidBody" parent="Parts"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.42556, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.34831, 0 )
 collision_layer = 4128
 collision_mask = 4128
+mode = 1
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Parts/Output"]
-transform = Transform( 0.501967, 0, 0, 0, 0.501967, 0, 0, 0, 0.501967, 0, 0, 0 )
+transform = Transform( 0.501967, 0, 0, 0, 0.941324, 0, 0, 0, 0.501967, 0, 0, 0 )
 layers = 4105
 mesh = SubResource( 1 )
 skeleton = NodePath("../CollisionShape")
 material/0 = SubResource( 4 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Parts/Output"]
-transform = Transform( 0.501967, 0, 0, 0, 0.501967, 0, 0, 0, 0.501967, 0, 0, 0 )
+transform = Transform( 0.501967, 0, 0, 0, 0.941324, 0, 0, 0, 0.501967, 0, 0, 0 )
 shape = SubResource( 2 )
-
-[node name="Pole" type="RigidBody" parent="Parts"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.586295, 0 )
-collision_layer = 4096
-collision_mask = 4096
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-axis_lock_angular_z = true
-script = ExtResource( 1 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Parts/Pole"]
-transform = Transform( 0.131644, 0, 0, 0, 1.87607, 0, 0, 0, 0.131644, 0, 1.66656, 0 )
-shape = SubResource( 5 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Parts/Pole"]
-transform = Transform( 0.131574, 0, 0, 0, 1.87507, 0, 0, 0, 0.131574, 0, 1.66656, 0 )
-layers = 4097
-mesh = SubResource( 6 )
-material/0 = SubResource( 7 )
 
 [node name="RigidBody" type="RigidBody" parent="Parts"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.65708, 0 )
 collision_layer = 0
 collision_mask = 0
+mode = 1
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
@@ -93,11 +77,11 @@ skeleton = NodePath("")
 material/0 = SubResource( 7 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1.51237, 0, 0, 0, 2.16243, 0, 0, 0, 1.51237, 0, 2.31007, 0 )
+transform = Transform( 0.499165, 0, 0, 0, 0.71372, 0, 0, 0, 0.499165, 0, 1.54447, 0 )
 shape = SubResource( 8 )
 
 [node name="CollisionMesh" type="MeshInstance" parent="."]
-transform = Transform( 1.51237, 0, 0, 0, 2.16243, 0, 0, 0, 1.51237, 0, 2.31007, 0 )
+transform = Transform( 0.499165, 0, 0, 0, 0.71372, 0, 0, 0, 0.499165, 0, 1.54447, 0 )
 visible = false
 layers = 8192
 mesh = SubResource( 9 )
@@ -109,7 +93,7 @@ material/0 = null
 [node name="EndPoints" type="Spatial" parent="."]
 
 [node name="PowerLight" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.35495, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8066, 0 )
 visible = false
 light_color = Color( 0.156863, 0.454902, 0.0235294, 1 )
 light_energy = 1.216

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Assets/models/capacitor/capacitor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/textures/painted-metal-shed.tres" type="Material" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/source.tscn" type="PackedScene" id=10]
 [ext_resource path="res://levels/PylonManager.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/InputPylon.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/InputPylonFan.tscn" type="PackedScene" id=13]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -73,6 +75,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18.728 )
 
 [node name="Source" parent="Pylons" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.89263, -0.0987129, 0.0327435 )
+
+[node name="InputPylon" parent="Pylons" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.93541, -0.162673, -6.77325 )
+
+[node name="InputPylon2" parent="Pylons" instance=ExtResource( 13 )]
+transform = Transform( -0.00682413, 0, -0.999977, 0, 1, 0, 0.999977, 0, -0.00682413, 20.7791, 9.53674e-07, -11.2476 )
 
 [node name="Objects" type="Spatial" parent="."]
 
