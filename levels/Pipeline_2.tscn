@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/audio/CG_Creepy_Electrical_Ambience.wav" type="AudioStream" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/models/circuit_board/circuit-board-low.tres" type="Material" id=9]
 [ext_resource path="res://Assets/models/block-441/block-441.obj" type="ArrayMesh" id=10]
 [ext_resource path="res://Assets/models/capacitor/static_capacitor.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/models/battery/battery.tscn" type="PackedScene" id=12]
 
 [sub_resource type="ConvexPolygonShape" id=1]
 points = PoolVector3Array( -16, 0, -16, -16, 0.25, -16, 16, 0, -16, -16, 0, 16, -16, 0.25, 16, 16, 0.25, -16, 16, 0, 16, 16, 0.25, 16 )
@@ -395,3 +396,6 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="Pipe/block-441-wall36"]
 transform = Transform( 0.180391, 0, -0.0107723, 0, 1.46454, 0, -0.0107723, 0, 0.999858, 0, 0, 0 )
 shape = SubResource( 2 )
+
+[node name="battery" parent="Pipe" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.4397, 42.5042, 83.3563 )
