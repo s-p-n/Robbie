@@ -40,36 +40,42 @@ func _ready():
 func _process(delta):
 	if connection_home and !is_home:
 		var dest = connection_home.get_transform()
-		transform.origin = lerp(transform.origin, dest.origin, delta*10)
-		rotation = lerp(rotation, connection_home.rotation, delta*10)
+		transform.origin = lerp(transform.origin, dest.origin, delta*5)
+		rotation = lerp(rotation, connection_home.rotation, delta*5)
 		
 		if is_near_home():
 			transform = dest
 			is_home = true
+			setup_collisions()
 			print("at home")
 		else:
+			gravity_scale = 0
+			linear_velocity = Vector3(0, 0, 0)
 			print("heading home")
 	elif !connection_home and is_home:
 		is_home = false
-		print("left home")
+		print("lost connection, leaving home")
 	elif connection_home and is_home:
 		if is_near_home():
-			linear_velocity = Vector3(0, 0, 0)
 			gravity_scale = 0
+			linear_velocity = Vector3(0, 0, 0)
 		else:
+			setup_collisions()
 			is_home = false
+			print("not near home anymore")
 		#transform = connection_home.get_transform()
 	else:
 		gravity_scale = 7
 		#linear_velocity = Vector3(0,-10,0)
-	#setup_collisions()
-	pass
+	
 
 func is_near_home():
+	if !connection_home:
+		return false
 	var dest = connection_home.get_transform()
 	var diff = transform.origin - dest.origin
 	diff = Vector3(abs(diff.x), abs(diff.y), abs(diff.z))
-	return diff < Vector3(0.01, 0.01, 0.01)
+	return diff < Vector3(0.1, 0.1, 0.1)
 
 func setup_collisions():
 	var result = 0
@@ -81,12 +87,21 @@ func setup_collisions():
 	#	mode = MODE_RIGID
 	
 	# always make it an obsticle
-	active_layers = [LAYER_BIT_OBSTICLE]
+	active_layers = [LAYER_BIT_OBSTICLE, LAYER_BIT_CLAW]
+	if is_soldered and is_home and is_near_home():
+		mode = MODE_STATIC
+		find_node("SpotLight").visible = true
+	elif !is_home and !is_near_home():
+		is_soldered = false
+		heat = MIN_HEAT
+		mode = MODE_RIGID
+		find_node("SpotLight").visible = false
+		
+	
 	if damage != 0:
 		if is_soldered:
 			active_layers.append(LAYER_BIT_SOLDER)
 		else:
-			active_layers.append(LAYER_BIT_CLAW)
 			active_layers.append(LAYER_BIT_BRUSH)
 	elif !is_soldered: # if has no damage and is not soldered in place
 		active_layers.append(LAYER_BIT_CLAW)
@@ -188,4 +203,9 @@ func _on_capacitor_body_entered(body):
 
 func _on_capacitor_body_exited(body):
 	print("capacitor body exited: ", body.name)
+	pass # Replace with function body.
+
+
+func _on_capacitor_input_event(camera, event, position, normal, shape_idx):
+	print("capacitor input event: ", event)
 	pass # Replace with function body.

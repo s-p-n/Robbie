@@ -43,5 +43,5 @@ func _process(delta):
 
 func get_wires():
 	return wires_attached
-
-
+	#if len(wires_attached) > 0:
+	#	print(wires_attached)
