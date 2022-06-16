@@ -76,11 +76,20 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 4, 
 [node name="block-441-wall14" parent="test" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 4, 42 )
 
+[node name="block-441-wall21" parent="test" instance=ExtResource( 3 )]
+transform = Transform( 1.31134e-07, 1, 4.37114e-08, 3.82137e-15, 4.37114e-08, -1, -1, 1.31134e-07, 1.91069e-15, 19.5025, 1.13299, 49.8973 )
+
+[node name="block-441-wall22" parent="test" instance=ExtResource( 3 )]
+transform = Transform( 1.31134e-07, 1, 4.37114e-08, 3.82137e-15, 4.37114e-08, -1, -1, 1.31134e-07, 1.91069e-15, 19.5025, 3.07626, 39.5846 )
+
+[node name="block-441-wall23" parent="test" instance=ExtResource( 3 )]
+transform = Transform( 1.31134e-07, 1, 4.37114e-08, 3.82137e-15, 4.37114e-08, -1, -1, 1.31134e-07, 1.91069e-15, 19.5025, 5.38057, 31.2073 )
+
 [node name="connection_home" parent="test" instance=ExtResource( 8 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.84784, 0.369857, 39.6187 )
 
 [node name="block-441-wall20" type="RigidBody" parent="test"]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 4, 45 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.03395, 4, 45 )
 mode = 1
 
 [node name="block-441" type="MeshInstance" parent="test/block-441-wall20"]
@@ -97,7 +106,7 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 2
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 29 )
 
 [node name="circuit-board5" parent="test" instance=ExtResource( 2 )]
-transform = Transform( 2.98023e-08, -1, 0, 1, 2.98023e-08, 0, 0, 0, 1, 20.8689, -0.901474, 71.396 )
+transform = Transform( 2.98023e-08, -1, 0, 1, 2.98023e-08, 0, 0, 0, 1, 20.8689, -0.901474, 40.8764 )
 
 [node name="block-441-wall16" type="RigidBody" parent="test"]
 transform = Transform( 1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, 15, -17, 74 )

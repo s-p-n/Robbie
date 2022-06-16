@@ -70,6 +70,8 @@ func _process(delta):
 	
 
 func is_near_home():
+	if !connection_home:
+		return false
 	var dest = connection_home.get_transform()
 	var diff = transform.origin - dest.origin
 	diff = Vector3(abs(diff.x), abs(diff.y), abs(diff.z))
@@ -85,12 +87,21 @@ func setup_collisions():
 	#	mode = MODE_RIGID
 	
 	# always make it an obsticle
-	active_layers = [LAYER_BIT_OBSTICLE]
+	active_layers = [LAYER_BIT_OBSTICLE, LAYER_BIT_CLAW]
+	if is_soldered and is_home and is_near_home():
+		mode = MODE_STATIC
+		find_node("SpotLight").visible = true
+	elif !is_home and !is_near_home():
+		is_soldered = false
+		heat = MIN_HEAT
+		mode = MODE_RIGID
+		find_node("SpotLight").visible = false
+		
+	
 	if damage != 0:
 		if is_soldered:
 			active_layers.append(LAYER_BIT_SOLDER)
 		else:
-			active_layers.append(LAYER_BIT_CLAW)
 			active_layers.append(LAYER_BIT_BRUSH)
 	elif !is_soldered: # if has no damage and is not soldered in place
 		active_layers.append(LAYER_BIT_CLAW)
@@ -192,4 +203,9 @@ func _on_capacitor_body_entered(body):
 
 func _on_capacitor_body_exited(body):
 	print("capacitor body exited: ", body.name)
+	pass # Replace with function body.
+
+
+func _on_capacitor_input_event(camera, event, position, normal, shape_idx):
+	print("capacitor input event: ", event)
 	pass # Replace with function body.
