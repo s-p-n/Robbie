@@ -340,6 +340,10 @@ func _on_SolderButton_button_down():
 func get_wire_position():
 	return wire_position.global_transform.origin
 	
+func delete_wire(wire_id):
+	wires.get_child(wire_id).visible = false
+	print("A wire became snagged.")
+		
 func delete_held_wire():
 	var wire_index = wires.get_child_count() - 1
 	wires.get_child(wire_index).visible = false

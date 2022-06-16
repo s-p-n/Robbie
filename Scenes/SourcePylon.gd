@@ -1,7 +1,6 @@
 extends RigidBody
 onready var start_points = $StartPoints
 onready var end_points = $EndPoints
-onready var power_light = $PowerLight
 onready var wires
 var wires_attached = []
 var is_powered
@@ -14,9 +13,7 @@ var is_source
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	power_light.visible = false
-	is_powered = false
-	is_source = false
+	is_source = true
 	wires = get_tree().current_scene.find_node('Wires')
 
 
@@ -43,5 +40,3 @@ func _process(delta):
 
 func get_wires():
 	return wires_attached
-	#if len(wires_attached) > 0:
-	#	print(wires_attached)
