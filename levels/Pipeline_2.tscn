@@ -399,3 +399,15 @@ shape = SubResource( 2 )
 
 [node name="battery" parent="Pipe" instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.4397, 42.5042, 83.3563 )
+
+[node name="capacitor37" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( -1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 36.7417, 40.8161, 82.4525 )
+
+[node name="capacitor38" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( 1.19249e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, -1.19249e-08, -5.21253e-16, 24.3937, 34.7082, 86.5222 )
+
+[node name="capacitor39" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( 1.19249e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, -1.19249e-08, -5.21253e-16, 24.3937, 37.4286, 83.5138 )
+
+[node name="capacitor40" parent="Pipe" instance=ExtResource( 11 )]
+transform = Transform( 1.19249e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, -1.19249e-08, -5.21253e-16, 24.3937, 40.4552, 86.5222 )

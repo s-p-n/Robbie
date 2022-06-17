@@ -163,12 +163,10 @@ shape = SubResource( 11 )
 
 [node name="Platform" type="RigidBody" parent="Pylons/InputPylonElevator/Elevator"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-collision_layer = 513
 mode = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="Pylons/InputPylonElevator/Elevator/Platform"]
 transform = Transform( 1.70452, 0, 0, 0, 0.0937871, 0, 0, 0, 1.78901, 0, -0.318526, -0.312426 )
-layers = 513
 mesh = SubResource( 10 )
 material/0 = SubResource( 13 )
 
