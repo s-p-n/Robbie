@@ -1,9 +1,11 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scripts/pylons/Pylon.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/PylonPositioner.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/LerpVelocityToZero.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/FanInputCheck.gd" type="Script" id=4]
+[ext_resource path="res://Assets/audio/CG_Creepy_Electrical_Ambience.wav" type="AudioStream" id=5]
+[ext_resource path="res://Scripts/loop.gd" type="Script" id=6]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -177,6 +179,13 @@ material/0 = null
 [node name="StartPoints" type="Spatial" parent="."]
 
 [node name="EndPoints" type="Spatial" parent="."]
+
+[node name="Sound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.91139, 3.15701, 0.590887 )
+stream = ExtResource( 5 )
+script = ExtResource( 6 )
+loop = true
+is_active = true
 
 [node name="PowerLight" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8066, 0 )

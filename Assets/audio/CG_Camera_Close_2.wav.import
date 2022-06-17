@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/CG_Camera_Close_2.wav-0d9ae2ce41ba36c1a6f90803f480fd66.sample"
+
+[deps]
+
+source_file="res://Assets/audio/CG_Camera_Close_2.wav"
+dest_files=[ "res://.import/CG_Camera_Close_2.wav-0d9ae2ce41ba36c1a6f90803f480fd66.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

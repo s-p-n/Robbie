@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Assets/models/circuit_board/circuit_board.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Assets/models/capacitor/capacitor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/InputPylonElevator.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/models/circuit_board/circuit_board.obj" type="ArrayMesh" id=3]
 [ext_resource path="res://Scenes/pylon.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/models/connection_home/connection_home.tscn" type="PackedScene" id=8]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=9]
@@ -36,12 +37,12 @@ mode = 1
 transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0 )
 use_in_baked_light = true
 lightmap_scale = 3
-mesh = ExtResource( 1 )
+mesh = ExtResource( 3 )
 skeleton = NodePath("../../..")
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Objects/circuit-board"]
-transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0 )
+transform = Transform( 2.132, 0, 0, 0, 1, 0, 0, 0, 2.132, 0, 0.169496, 0 )
 shape = SubResource( 2 )
 
 [node name="circuit-board2" type="RigidBody" parent="Objects"]
@@ -52,7 +53,7 @@ mode = 1
 transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0 )
 use_in_baked_light = true
 lightmap_scale = 3
-mesh = ExtResource( 1 )
+mesh = ExtResource( 3 )
 skeleton = NodePath("../../..")
 material/0 = null
 
@@ -61,6 +62,10 @@ transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0 )
 shape = SubResource( 2 )
 
 [node name="connection_home" parent="Objects" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.90056, 0.224191, -29.715 )
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 6.87793, 0.415707, -29.185 )
+connected_object = NodePath("../../Pylons/InputPylonElevator")
+
+[node name="capacitor" parent="Objects" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3693, 1.01978, -26.1963 )
 
 [node name="Environment" type="Spatial" parent="."]
