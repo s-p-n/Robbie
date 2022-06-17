@@ -16,7 +16,7 @@ var joystick_deadzone = 0.2
 var looking_at_interactable = false
 # Movement
 var is_moving = false
-var run_speed = 6 # Running speed in m/s
+var run_speed = 16 # Running speed in m/s
 # Walk speed is actually run. Because peter said so.
 var walk_speed = run_speed * 2
 var crouch_speed = run_speed / 3

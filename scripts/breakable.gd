@@ -1,8 +1,8 @@
 extends RigidBody
 
 const MIN_DAMAGE:int = 0
-const MAX_DAMAGE:int = 1
-const MAX_HEAT:int = 1
+const MAX_DAMAGE:int = 10
+const MAX_HEAT:int = 10
 const MIN_HEAT:int = 0
 
 
@@ -18,14 +18,30 @@ export var is_working:bool = false
 
 var is_powered = false
 var is_home = false
+var is_solder_settling = false
+var solder_settling_for:float = 0.0
+export var solder_settle_time:float = 1.0
+
 
 var active_layers = []
 var connection_home = null
 
+var vacuum_playing_for:float = 0.0
+const vacuum_play_time:float = 2.0
 
+onready var audio_after_solder = preload("res://Assets/audio/After Solder.wav")
+onready var audio_solder = [
+	preload("res://Assets/audio/Solder 1.wav"),
+	preload("res://Assets/audio/Solder 2.wav")
+]
+onready var audio_vacuum = preload("res://Assets/audio/CG_Modular_Vaccum.wav")
+onready var audio_success = preload("res://Assets/audio/CG_GameSound_Puzzle_Solved-01.wav")
+onready var audio_error = preload("res://Assets/audio/alert.wav")
 onready var dust_particles = preload("res://scenes/particles/CleanParticle.tscn")
 onready var player = find_parent("root").find_node("Player")
 onready var light = find_node("SpotLight")
+onready var audio = find_node("audio_static")
+onready var vacuum_stream = find_node("vacuum_stream")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -34,11 +50,31 @@ onready var light = find_node("SpotLight")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	setup_collisions()
+	vacuum_stream.stream = audio_vacuum
+	vacuum_stream.play(0)
+	vacuum_stream.stream_paused = true
+	
 	
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if !vacuum_stream.stream_paused:
+		if vacuum_playing_for >= vacuum_play_time:
+			vacuum_stream.stream_paused = true
+			vacuum_playing_for = 0
+		else:
+			vacuum_playing_for += delta
+	
+	if is_solder_settling:
+		if solder_settling_for >= solder_settle_time:
+			heat = 0
+			is_solder_settling = false
+			is_soldered = true
+			setup_collisions()
+		else:
+			solder_settling_for += delta
+	
 	if connection_home and !is_home:
 		var dest = connection_home.get_transform()
 		transform.origin = lerp(transform.origin, dest.origin, delta*5)
@@ -48,14 +84,11 @@ func _process(delta):
 			transform = dest
 			is_home = true
 			setup_collisions()
-			print("at home")
 		else:
 			gravity_scale = 0
 			linear_velocity = Vector3(0, 0, 0)
-			print("heading home")
 	elif !connection_home and is_home:
 		is_home = false
-		print("lost connection, leaving home")
 	elif connection_home and is_home:
 		if is_near_home():
 			gravity_scale = 0
@@ -63,12 +96,8 @@ func _process(delta):
 		else:
 			setup_collisions()
 			is_home = false
-			print("not near home anymore")
-		#transform = connection_home.get_transform()
 	else:
 		gravity_scale = 7
-		#linear_velocity = Vector3(0,-10,0)
-	
 
 func is_near_home():
 	if !connection_home:
@@ -113,21 +142,14 @@ func setup_collisions():
 		result += pow(2, bit - 1)
 		
 	collision_layer = result
-	for bit in active_layers:
-		print("collision bit ", bit, ": ", get_collision_layer_bit(bit - 1))
-	print("collision result: ", result)
-	print("Is Capacitor clawable: ", get_collision_layer_bit(3))
-	print("Is Capacitor clawable: ", get_collision_layer_bit(4))
-	print("is capacitor at home? ", is_home)
-	print("is capacitor working? ", is_working)
-	print("is capacitor powered? ", is_powered)
 
 func repair():
 	if damage > MIN_DAMAGE:
 		var surface = $MeshInstance.get_surface_material(0).duplicate()
 		damage -= 1
-		print(surface)
+		#print(surface)
 		print("damage: ", damage)
+		indicate_vacuum()
 		surface.roughness = damage / MAX_DAMAGE
 		surface.normal_scale = surface.roughness * 16
 		#surface.albedo_color = Color((35 + ((10 - damage) * 22))/255.0, (25 + ((10 - damage) * 23))/255.0, (25 + ((10 - damage) * 23))/255.0, 1)
@@ -163,14 +185,20 @@ func heat():
 			print("Already in place, you should wire this.")
 			return
 	print("In place, not soldered, not damaged.")
-	
-	if heat < MAX_HEAT:
+	if heat == MAX_HEAT - 1:
 		heat += 1
-	else:
-		is_soldered = true
-		print("Soldered in place")
-		setup_collisions()
-	print("heat: ", heat)
+		is_solder_settling = true
+		solder_settling_for = 0
+		play_sound(audio_after_solder)
+	elif heat < MAX_HEAT:
+		heat += 1
+		play_sound(audio_solder[round(rand_range(0,1))])
+	
+	#if heat >= MAX_HEAT:
+	#	is_soldered = true
+		#print("Soldered in place")
+	#	setup_collisions()
+	#print("heat: ", heat)
 
 func spawn_particle(pos):
 	var dust = dust_particles.instance()
@@ -207,6 +235,7 @@ func attempt_to_work():
 		print("Path to object: ", connection_home.connected_object)
 		print("Object Capacitor should work with: ", obj)
 		if obj and obj.has_method("work"):
+			
 			obj.work(self)
 			indicate_working()
 			print("Obj is now working.")
@@ -214,13 +243,26 @@ func attempt_to_work():
 			print("Invalid connection. Set the 'Connected Object' property of the 'connection_home'. Select the path to the object you want to connect to.")
 			display_error()
 
+func play_sound(stream):
+	audio.stream = stream
+	audio.play(0)
+
 func display_error():
-	light.light_color = Color(0.7, 0, 0)
+	if !light.visible or light.light_color != Color(0.7, 0, 0):
+		play_sound(audio_error)
+		light.light_color = Color(0.7, 0, 0)
 	light.visible = true
 
 func turn_off_light():
 	light.light_color = Color(0.7, 0.7, 1)
 	light.visible = false
 
+func indicate_vacuum():
+	vacuum_stream.stream_paused = false
+	vacuum_playing_for = 0
+
 func indicate_working():
 	light.light_color = Color(0.7, 1, 0.7)
+	play_sound(audio_success)
+	
+
