@@ -64,6 +64,7 @@ func check_if_working():
 		is_working = false
 	
 func work(sourcery):
+	print("im getting called yo")
 	if sourcery:
 		source = sourcery
 		is_working = true
