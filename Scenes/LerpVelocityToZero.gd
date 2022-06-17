@@ -34,7 +34,10 @@ func _process(delta):
 		power_light.visible = false
 	
 	var new_wires_attached = []
-	set_linear_velocity(lerp(get_linear_velocity(), Vector3(0,0,0), delta))
+	#set_linear_velocity(lerp(get_linear_velocity(), Vector3(0,0,0), delta))
+	set_linear_velocity(Vector3(0,0,0))
+	
+	#print('pylon vel: ', get_linear_velocity())
 	var wire_start_points = start_points.get_children()
 	for wire_point in wire_start_points:
 		var wire = wires.get_child(wire_point.index_id)

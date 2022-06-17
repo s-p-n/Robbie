@@ -110,11 +110,13 @@ func _physics_process(delta):
 				#print(mouse_visible)
 				mouse_visible = false
 				pause_screen.visible = false
+				find_parent("Robbie").is_paused = false
 				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			else:
 				#print(mouse_visible)
 				mouse_visible = true
 				pause_screen.visible = true
+				find_parent("Robbie").is_paused = true
 				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if tool_menu.visible or mouse_visible:
 		if not Input.is_action_just_released("leftclick"):

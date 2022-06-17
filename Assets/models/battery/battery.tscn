@@ -199,5 +199,7 @@ width = 0.122549
 height = 0.0578669
 depth = 0.0252644
 
+[node name="audio" type="AudioStreamPlayer" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_battery_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_battery_body_exited"]

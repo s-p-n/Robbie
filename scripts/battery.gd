@@ -16,6 +16,8 @@ var is_home = false
 var active_layers = []
 var connection_home = null
 
+onready var audio = find_node("audio")
+onready var audio_drain = preload("res://Assets/audio/CG_GameSound_Selection_2.wav")
 onready var dust_particles = preload("res://scenes/particles/CleanParticle.tscn")
 onready var green_light = preload("res://Assets/models/battery/progress_bar_green.tres")
 onready var red_light = preload("res://Assets/models/battery/progress_bar_red.tres")
@@ -34,6 +36,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if find_parent("Robbie").is_paused:
+		print("paused")
+		return
 	if is_powered:
 		drain += delta
 		if drain >= drain_time:
@@ -81,6 +86,9 @@ func update_lights():
 		if power_level > float(i) / total_lights:
 			level.get_child(i).material_override = green_light
 		else:
+			if level.get_child(i).material_override == green_light:
+				audio.stream = audio_drain
+				audio.play(0)
 			level.get_child(i).material_override = red_light
 	setup_collisions()
 		

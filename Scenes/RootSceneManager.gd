@@ -3,7 +3,7 @@ onready var cameras = $Cameras
 onready var active_level = $ActiveLevel
 onready var wires = $Wires
 var update_time = 0
-
+var is_paused = false
 var workshop_camera = preload("res://scenes/WorkshopCamera.tscn")
 var workshop = preload("res://levels/WorkshopScene.tscn")
 var level_1 = preload("res://levels/first_1.tscn")
@@ -27,7 +27,7 @@ func _ready():
 	#load_level('workshop')
 	
 	# LOADS LEVEL 1
-	#load_level('level1')
+	load_level('level1')
 	
 	# LOADS LEVEL 2
 	#load_level('level2')
@@ -36,7 +36,7 @@ func _ready():
 	#load_level('level3')
 	
 	# LOADS LEVEL 4
-	load_level('level4')
+	#load_level('level4')
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
