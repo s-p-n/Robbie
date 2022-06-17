@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/models/circuit_board/circuit-board-low.tscn" type="PackedScene" id=2]
@@ -28,6 +28,9 @@ data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4
 
 [sub_resource type="ConcavePolygonShape" id=4]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=14]
+points = PoolVector3Array( 1, -1, 1, 1, 1, -1.00024, -1, -1, 1, 1, -1, -2.27423, -1, 1, -1.00024, 1, 1, -2.27423, -1, -1, -2.27423, -1, 1, -2.27423 )
 
 [sub_resource type="ConvexPolygonShape" id=2]
 points = PoolVector3Array( 1, -1, 1, 1, 1, -1.00024, -1, -1, 1, 1, -1, -2.27423, -1, 1, -1.00024, 1, 1, -2.27423, -1, -1, -2.27423, -1, 1, -2.27423 )
@@ -70,75 +73,99 @@ connected_object = NodePath("../block-441-wall20")
 
 [node name="block-441-wall" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 4, 45 )
+collision_layer = 513
 
 [node name="block-441-wall15" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, 45 )
+collision_layer = 513
 
 [node name="block-441-wall2" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4, 45 )
+collision_layer = 513
 
 [node name="block-441-wall3" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 4, 42 )
+collision_layer = 513
 
 [node name="block-441-wall4" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 4, 34 )
+collision_layer = 513
 
 [node name="block-441-wall5" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 4, 26 )
+collision_layer = 513
 
 [node name="block-441-wall6" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 4, 18 )
+collision_layer = 513
 
 [node name="block-441-wall7" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 4, 13 )
+collision_layer = 513
 
 [node name="block-441-wall8" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4, 13 )
+collision_layer = 513
 
 [node name="block-441-wall9" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, 13 )
+collision_layer = 513
 
 [node name="block-441-wall10" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 4, 13 )
+collision_layer = 513
 
 [node name="block-441-wall11" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 4, 18 )
+collision_layer = 513
 
 [node name="block-441-wall12" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 4, 26 )
+collision_layer = 513
 
 [node name="block-441-wall13" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 4, 34 )
+collision_layer = 513
 
 [node name="block-441-wall14" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 4, 42 )
+collision_layer = 513
 
 [node name="block-441-wall21" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( 1.31134e-07, 1, 4.37114e-08, 3.82137e-15, 4.37114e-08, -1, -1, 1.31134e-07, 1.91069e-15, 19.5025, 1.13299, 49.8973 )
+collision_layer = 513
 
 [node name="block-441-wall27" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( 1.31134e-07, 1, 4.37114e-08, 3.82137e-15, 4.37114e-08, -1, -1, 1.31134e-07, 1.91069e-15, 11.4728, -0.549987, 49.1916 )
+collision_layer = 513
 
 [node name="block-441-wall28" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( 1.31134e-07, 1, 4.37114e-08, -1, 1.31134e-07, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 16.5871, 3.77544, 54.3584 )
+collision_layer = 513
 
 [node name="block-441-wall31" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( 1.31134e-07, 1, 4.37114e-08, -1, 1.31134e-07, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 20.0066, 10.2936, 26.1487 )
+collision_layer = 513
 
 [node name="block-441-wall29" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( 1.31134e-07, 1, 4.37114e-08, -1, 1.31134e-07, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 8.56521, 3.77544, 54.3584 )
+collision_layer = 513
 
 [node name="block-441-wall30" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 1.77636e-14, -1, -1, 1.31134e-07, 4.37114e-08, 1.31134e-07, 1, 1.06581e-14, 8.81655, 3.77544, 49.8412 )
+collision_layer = 513
 
 [node name="block-441-wall32" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 1.77636e-14, -1, -1, 1.31134e-07, 4.37114e-08, 1.31134e-07, 1, 1.06581e-14, 8.79299, -11.8945, 49.9691 )
+collision_layer = 513
 
 [node name="block-441-wall33" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1.31134e-07, 1, 4.37114e-08, -1, 1.31134e-07, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 13.7172, -11.8945, 53.4363 )
+transform = Transform( 1.31134e-07, 1, 4.37114e-08, -1, 1.31134e-07, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 13.7172, -11.8945, 52.9963 )
+collision_layer = 513
 
 [node name="block-441-wall34" type="RigidBody" parent="Objects"]
 transform = Transform( 1.31134e-07, 1, 4.37114e-08, -1, 1.31134e-07, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 0.0733352, 11.2877, 26.1413 )
+collision_layer = 513
 mode = 1
 
 [node name="block-441" type="MeshInstance" parent="Objects/block-441-wall34"]
@@ -150,8 +177,51 @@ material/0 = null
 transform = Transform( 0.750348, 4.28458e-07, 1.09126e-08, 4.28458e-07, 4.01768, 1.31907e-07, 1.09127e-08, 1.31907e-07, 1, 0, 0, 0 )
 shape = SubResource( 1 )
 
+[node name="block-441-wall36" type="RigidBody" parent="Objects"]
+transform = Transform( 1.31134e-07, 1, 4.37114e-08, -1, 1.31134e-07, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 4.44539, -12.8702, 24.7903 )
+collision_layer = 513
+mode = 1
+
+[node name="block-441" type="MeshInstance" parent="Objects/block-441-wall36"]
+transform = Transform( 0.750348, 4.28458e-07, 1.09126e-08, 4.28458e-07, 4.01768, 1.31907e-07, 1.09127e-08, 1.31907e-07, 1, 0, 0, 0 )
+mesh = ExtResource( 7 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/block-441-wall36"]
+transform = Transform( 0.750348, 4.28458e-07, 1.09126e-08, 4.28458e-07, 4.01768, 1.31907e-07, 1.09127e-08, 1.31907e-07, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall38" type="RigidBody" parent="Objects"]
+transform = Transform( 1.31134e-07, 1, 4.37114e-08, -1, 1.31134e-07, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 4.44539, -12.8702, 44.891 )
+collision_layer = 513
+mode = 1
+
+[node name="block-441" type="MeshInstance" parent="Objects/block-441-wall38"]
+transform = Transform( 0.750348, 4.28458e-07, 1.09126e-08, 4.28458e-07, 4.01768, 1.31907e-07, 1.09127e-08, 1.31907e-07, 1, 0, 0, 0 )
+mesh = ExtResource( 7 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/block-441-wall38"]
+transform = Transform( 0.750348, 4.28458e-07, 1.09126e-08, 4.28458e-07, 4.01768, 1.31907e-07, 1.09127e-08, 1.31907e-07, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall37" type="RigidBody" parent="Objects"]
+transform = Transform( 4.37114e-08, -8.74228e-08, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, -8.74228e-08, -12.7756, -12.8702, 56.8009 )
+collision_layer = 513
+mode = 1
+
+[node name="block-441" type="MeshInstance" parent="Objects/block-441-wall37"]
+transform = Transform( 0.750348, 9.82324e-07, 1.09126e-08, 9.82323e-07, 8.24134, 3.62482e-07, 1.09127e-08, 5.01151e-07, 1, 0, 0, 0 )
+mesh = ExtResource( 7 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/block-441-wall37"]
+transform = Transform( 0.750348, 9.82324e-07, 1.09126e-08, 9.82323e-07, 8.24134, 3.62482e-07, 1.09127e-08, 5.01151e-07, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
 [node name="block-441-wall35" type="RigidBody" parent="Objects"]
 transform = Transform( 1.31134e-07, 1, 4.37114e-08, -1, 1.31134e-07, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 0.0733352, 11.2877, 44.9273 )
+collision_layer = 513
 mode = 1
 
 [node name="block-441" type="MeshInstance" parent="Objects/block-441-wall35"]
@@ -165,21 +235,27 @@ shape = SubResource( 1 )
 
 [node name="block-441-wall24" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( 1.31134e-07, 1, 4.37114e-08, 3.82137e-15, 4.37114e-08, -1, -1, 1.31134e-07, 1.91069e-15, -20.1103, 1.13299, 38.7131 )
+collision_layer = 513
 
 [node name="block-441-wall22" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( 1.31134e-07, 1, 4.37114e-08, 3.82137e-15, 4.37114e-08, -1, -1, 1.31134e-07, 1.91069e-15, 19.5025, 3.07626, 39.5846 )
+collision_layer = 513
 
 [node name="block-441-wall25" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( 1.31134e-07, 1, 4.37114e-08, 3.82137e-15, 4.37114e-08, -1, -1, 1.31134e-07, 1.91069e-15, -20.0349, 3.07626, 34.3399 )
+collision_layer = 513
 
 [node name="block-441-wall23" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( 1.31134e-07, 1, 4.37114e-08, 3.82137e-15, 4.37114e-08, -1, -1, 1.31134e-07, 1.91069e-15, 19.5025, 5.38057, 31.2073 )
+collision_layer = 513
 
 [node name="block-441-wall26" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( 1.31134e-07, 1, 4.37114e-08, 3.82137e-15, 4.37114e-08, -1, -1, 1.31134e-07, 1.91069e-15, -19.9589, 5.38057, 31.2073 )
+collision_layer = 513
 
 [node name="block-441-wall20" type="RigidBody" parent="Objects"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.93273, 4, 45 )
+collision_layer = 513
 mode = 1
 script = ExtResource( 16 )
 open_position = 6.0
@@ -195,15 +271,19 @@ shape = SubResource( 13 )
 
 [node name="circuit-board3" parent="Objects" instance=ExtResource( 2 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 29 )
+collision_layer = 513
 
 [node name="circuit-board4" parent="Objects" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 29 )
+collision_layer = 513
 
 [node name="circuit-board5" parent="Objects" instance=ExtResource( 2 )]
 transform = Transform( 2.98023e-08, -1, 0, 1, 2.98023e-08, 0, 0, 0, 1, 20.8689, -0.901474, 40.8764 )
+collision_layer = 513
 
 [node name="block-441-wall16" type="RigidBody" parent="Objects"]
 transform = Transform( 1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, 15, -17, 74 )
+collision_layer = 513
 mode = 1
 
 [node name="block-441" type="MeshInstance" parent="Objects/block-441-wall16"]
@@ -217,6 +297,7 @@ shape = SubResource( 4 )
 
 [node name="block-441-wall17" type="RigidBody" parent="Objects"]
 transform = Transform( 1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, 15, -17, -5 )
+collision_layer = 513
 mode = 1
 
 [node name="block-441" type="MeshInstance" parent="Objects/block-441-wall17"]
@@ -230,6 +311,7 @@ shape = SubResource( 4 )
 
 [node name="block-441-wall18" type="RigidBody" parent="Objects"]
 transform = Transform( 1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, -57, -17, -5 )
+collision_layer = 513
 mode = 1
 
 [node name="block-441" type="MeshInstance" parent="Objects/block-441-wall18"]
@@ -243,6 +325,7 @@ shape = SubResource( 4 )
 
 [node name="block-441-wall19" type="RigidBody" parent="Objects"]
 transform = Transform( 1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, -57, -17, 74 )
+collision_layer = 513
 mode = 1
 
 [node name="block-441" type="MeshInstance" parent="Objects/block-441-wall19"]
@@ -265,17 +348,39 @@ omni_range = 291.555
 omni_shadow_mode = 0
 
 [node name="lamp" type="OmniLight" parent="Objects"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.31074, 5.37906, 41.1185 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.54268, 2.37559, 39.4831 )
 light_color = Color( 1, 1, 0.8, 1 )
 light_size = 1.0
 light_cull_mask = 4294966273
 shadow_enabled = true
 shadow_reverse_cull_face = true
-omni_range = 291.555
+omni_range = 2.0
 omni_shadow_mode = 0
+
+[node name="ramp2" type="RigidBody" parent="Objects"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10.7508, -13.8793, 39.3243 )
+collision_layer = 513
+mode = 1
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="ramp" type="MeshInstance" parent="Objects/ramp2"]
+transform = Transform( 1, 0, -8.74228e-08, 0, 2, 0, -8.74228e-08, 0, 2, 0, 0, 0 )
+mesh = ExtResource( 5 )
+skeleton = NodePath("../../ramp2")
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/ramp2"]
+transform = Transform( 1, 0, -8.74228e-08, 0, 2, 0, -8.74228e-08, 0, 2, 0, 0, 0 )
+shape = SubResource( 14 )
 
 [node name="ramp" type="RigidBody" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3619, -7.78794, 63.2049 )
+collision_layer = 513
 mode = 1
 axis_lock_linear_x = true
 axis_lock_linear_y = true
@@ -309,7 +414,7 @@ transform = Transform( 0.0163182, 0.827637, -0.561027, 0, 0.561101, 0.827747, 0.
 spot_range = 10.372
 
 [node name="connection_home" parent="Objects" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 0.561101, 0.827747, 0, -0.827747, 0.561101, 14.9282, -14.976, 45.985 )
+transform = Transform( 1, 0, 0, 0, 0.561101, 0.827747, 0, -0.827747, 0.561101, 13.0801, -14.976, 48.082 )
 connected_object = NodePath("../../Pylons/InputPylon")
 
 [node name="OmniLight" type="OmniLight" parent="Objects"]
@@ -321,7 +426,7 @@ omni_attenuation = 0.0206173
 script = ExtResource( 11 )
 
 [node name="InputPylon" parent="Pylons" instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0419, -15.9, 47.1654 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1938, -15.9, 49.2624 )
 
 [node name="Pylon" type="RigidBody" parent="Pylons"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.65426, -15.9, 47.8496 )
