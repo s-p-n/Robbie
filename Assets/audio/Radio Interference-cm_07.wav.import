@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Radio Interference-cm_07.wav-87cc7f8970b4d688fe811174d8fa3123.sample"
+
+[deps]
+
+source_file="res://Assets/audio/Radio Interference-cm_07.wav"
+dest_files=[ "res://.import/Radio Interference-cm_07.wav-87cc7f8970b4d688fe811174d8fa3123.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
