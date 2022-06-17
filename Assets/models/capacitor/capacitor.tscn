@@ -27,11 +27,7 @@ shape = SubResource( 1 )
 [node name="SpotLight" type="SpotLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3, 0 )
 visible = false
-light_color = Color( 0.694118, 0.729412, 1, 1 )
+light_color = Color( 0.701961, 0.701961, 1, 1 )
 light_energy = 7.0
 spot_range = 25.0
 spot_angle = 38.33
-
-[connection signal="body_entered" from="." to="." method="_on_capacitor_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_capacitor_body_exited"]
-[connection signal="input_event" from="." to="." method="_on_capacitor_input_event"]

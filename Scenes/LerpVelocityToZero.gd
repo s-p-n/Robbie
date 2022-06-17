@@ -6,7 +6,7 @@ onready var wires
 var wires_attached = []
 var is_powered
 var is_source
-
+var power_source = null
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -22,6 +22,17 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if is_source:
+		if !power_source or !power_source.is_powered:
+			is_source = false
+		else:
+			is_powered = true
+	
+	if is_powered:
+		power_light.visible = true
+	else:
+		power_light.visible = false
+	
 	var new_wires_attached = []
 	set_linear_velocity(lerp(get_linear_velocity(), Vector3(0,0,0), delta))
 	var wire_start_points = start_points.get_children()
@@ -40,6 +51,11 @@ func _process(delta):
 			wire.stop_position.global_transform.origin = (wire_point.global_transform.origin)
 	
 	wires_attached = new_wires_attached
+
+func set_power_source(source):
+	if source and source.is_powered:
+		power_source = source
+		is_source = true;
 
 func get_wires():
 	return wires_attached

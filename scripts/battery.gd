@@ -102,6 +102,7 @@ func setup_collisions():
 	if is_home and is_near_home() and power > 0:
 		is_powered = true
 		find_node("SpotLight").visible = true
+		attempt_to_power_circuit()
 	else:
 		is_powered = false
 		find_node("SpotLight").visible = false
@@ -128,3 +129,18 @@ func disconnect_from_home(old_home):
 		print("failed to disconnect")
 		print(connection_home)
 	setup_collisions()
+
+func attempt_to_power_circuit():
+	print("Attempting to power circuit..")
+	
+	if connection_home:
+		var pylon = get_node(connection_home.connected_object)
+		print("Path to pylon: ", connection_home.connected_object)
+		print("Pylon Battery should power: ", pylon)
+		if pylon and pylon.has_method("set_power_source"):
+			pylon.set_power_source(self)
+			print("Pylon is now a power supply.")
+		else:
+			print("Invalid power source. Set the 'Connected Object' property of the 'connection_home'. The pylon object must be a child of the Pylons Spatial node.")
+			
+

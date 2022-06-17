@@ -23,10 +23,10 @@ func _ready():
 	#$Cameras/WorkshopCamera/Camera.current = true	
 	
 	# LOADS WORKSHOP SCENE
-	load_level('workshop')
+	#load_level('workshop')
 	
 	# LOADS LEVEL 1
-	#load_level('level1')
+	load_level('level1')
 	
 	# LOADS LEVEL 2
 	#load_level('level2')

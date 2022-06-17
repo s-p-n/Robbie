@@ -1,5 +1,6 @@
 extends RigidBody
 
+export var connected_object:NodePath = ""
 export var is_connectable:bool = true
 # Declare member variables here. Examples:
 # var a = 2
@@ -8,6 +9,7 @@ export var is_connectable:bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("connected object path: ", connected_object)
 	pass # Replace with function body.
 
 
