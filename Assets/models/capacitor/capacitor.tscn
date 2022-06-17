@@ -12,6 +12,7 @@ height = 1.62409
 [node name="capacitor" type="RigidBody"]
 gravity_scale = 7.0
 script = ExtResource( 1 )
+damage = 10
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = ExtResource( 4 )
@@ -31,3 +32,7 @@ light_color = Color( 0.701961, 0.701961, 1, 1 )
 light_energy = 7.0
 spot_range = 25.0
 spot_angle = 38.33
+
+[node name="audio_static" type="AudioStreamPlayer" parent="."]
+
+[node name="vacuum_stream" type="AudioStreamPlayer" parent="."]
