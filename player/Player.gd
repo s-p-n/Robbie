@@ -34,6 +34,8 @@ var snapped = false
 var can_jump = true
 var crouched = false
 var can_crouch = true
+var bad_position = false
+export var update_pos_time = .5
 
 # COLLISION LAYERS FOR EACH ITEM
 # Claw   = 4   Wire  = 6
@@ -57,6 +59,8 @@ onready var wire_position = $WirePosition
 onready var wires
 onready var interactable_notice = $Head/CenterDot/Interactable
 var offset = Vector3(0, 1.6, 0)
+var pos_time = 0.0
+var last_valid_pos: Vector3
 
 var time_since_mouse_down:float = 0.0
 # Shooting
@@ -64,6 +68,7 @@ onready var marker = preload("res://scenes/marker.tscn")
 onready var wire = preload("res://scenes/Wire.tscn")
 
 func _ready():
+	last_valid_pos = global_transform.origin
 	wire_held = false
 	wires = get_tree().current_scene.find_node('Wires')
 	tool_label.text = 'Claw'
@@ -111,11 +116,25 @@ func _physics_process(delta):
 				mouse_visible = true
 				pause_screen.visible = true
 				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
 	if tool_menu.visible or mouse_visible:
 		if not Input.is_action_just_released("leftclick"):
 			return
+	
+	pos_time += delta
 	process_movement(delta)
+	if wires.get_child_count() > 0:
+		var held_wire_node = wires.get_child(wires.get_child_count() - 1)
+		if held_wire_node and held_wire_node.is_colliding and wire_held:
+			bad_position = true
+		else:
+			bad_position = false
+	if (pos_time >= update_pos_time) and !bad_position:
+		if (global_transform.origin.distance_to(last_valid_pos) > 2.5):
+			pos_time = 0.0
+			last_valid_pos = global_transform.origin
+	if bad_position:
+		global_transform.origin = last_valid_pos
+	
 	if is_moving and wire_held:
 		if not wire_reel_audio.playing:
 			wire_reel_audio.playing = true
@@ -287,6 +306,9 @@ func set_tool(tool_name):
 	print("Tool State: ", tool_state)
 
 func process_movement(delta):
+	var current_rotation = rotation
+	var current_pos = global_transform.origin #Vector3(global_transform.origin.x, global_transform.origin.y, global_transform.origin.z)
+	#print("global_transform.origin begin: ", current_pos)
 	var moved = false
 	# Look with the right analog of the joystick
 	if Input.get_joy_axis(0, 2) < -joystick_deadzone or Input.get_joy_axis(0, 2) > joystick_deadzone:
@@ -383,6 +405,9 @@ func process_movement(delta):
 		is_moving = true
 	else:
 		is_moving = false
+	#my headset died again
+	#print("current_pos end: ", global_transform.origin)
+	
 
 func land_animation():
 	var movement_y = clamp(falling_velocity, -20, 0) / 40
@@ -428,8 +453,10 @@ func delete_wire(wire_id):
 	print("A wire became snagged.")
 		
 func delete_held_wire():
-	var wire_index = wires.get_child_count() - 1
-	wires.get_child(wire_index).visible = false
-	wire_held = false
+	velocity.x = 0
+	velocity.z = 0
+	#var wire_index = wires.get_child_count() - 1
+	#wires.get_child(wire_index).visible = false
+	#wire_held = false
 	print("Wire is snagged. Try again.")
 	

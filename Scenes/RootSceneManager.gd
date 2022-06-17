@@ -27,7 +27,7 @@ func _ready():
 	#load_level('workshop')
 	
 	# LOADS LEVEL 1
-	load_level('level1')
+	#load_level('level1')
 	
 	# LOADS LEVEL 2
 	#load_level('level2')
@@ -36,7 +36,7 @@ func _ready():
 	#load_level('level3')
 	
 	# LOADS LEVEL 4
-	#load_level('level4')
+	load_level('level4')
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

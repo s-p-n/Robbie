@@ -602,7 +602,7 @@ func _physics_process(delta: float) -> void:
 		if time_since > (delta * 5):
 			if visible:
 				print("Wire id: ", index_id, "    Checked id: ", (get_parent().get_child_count() -1 ))
-				if (get_parent().get_child_count() - 1) == index_id:
+				if ((get_parent().get_child_count() - 1) == index_id) and player.wire_held:
 					print("Deleting.")
 					player.delete_held_wire()
 				else:
