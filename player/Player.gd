@@ -131,7 +131,7 @@ func _physics_process(delta):
 		else:
 			bad_position = false
 	if (pos_time >= update_pos_time) and !bad_position:
-		if (global_transform.origin.distance_to(last_valid_pos) > 2.5):
+		if (global_transform.origin.distance_to(last_valid_pos) > 4.5):
 			pos_time = 0.0
 			last_valid_pos = global_transform.origin
 	if bad_position:
