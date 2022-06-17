@@ -1,4 +1,9 @@
 extends Spatial
+
+export var platform_top:float = 9
+export var platform_bottom:float = 1.2
+export var platform_brakes:float = 2.5
+export var platform_speed:float = 0.5
 var is_powered:bool
 onready var platform = $Platform
 var moving_upwards
@@ -35,10 +40,10 @@ func _process(delta):
 	if is_powered and is_working:
 		if moving_upwards:
 			if not waiting:
-				platform.transform.origin.y = lerp(platform.transform.origin.y, 15, delta * .5)
+				platform.transform.origin.y = lerp(platform.transform.origin.y, platform_top + platform_brakes, delta * platform_speed)
 		else:
 			if not waiting:
-				platform.transform.origin.y = lerp(platform.transform.origin.y, -4, delta * .5)
+				platform.transform.origin.y = lerp(platform.transform.origin.y, platform_bottom - platform_brakes, delta * platform_speed)
 	
 	#print(platform.transform.origin.y)
 	
@@ -47,11 +52,11 @@ func change():
 
 func check_direction():
 	if moving_upwards:
-		if platform.transform.origin.y >= 8.8:
+		if platform.transform.origin.y >= platform_top:
 			waiting = true
 			time_since = time
 	else:
-		if platform.transform.origin.y <= 1.2:
+		if platform.transform.origin.y <= platform_bottom:
 			waiting = true
 			time_since = time
 		

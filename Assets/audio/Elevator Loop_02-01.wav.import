@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Elevator Loop_02-01.wav-d80125a1ce545fede2cbea0b95bbaddd.sample"
+
+[deps]
+
+source_file="res://Assets/audio/Elevator Loop_02-01.wav"
+dest_files=[ "res://.import/Elevator Loop_02-01.wav-d80125a1ce545fede2cbea0b95bbaddd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
