@@ -4,7 +4,7 @@ onready var end_points = $EndPoints
 onready var power_light = $PowerLight
 onready var wires
 var wires_attached = []
-var is_powered
+var is_powered = false
 var is_source
 var power_source = null
 # Declare member variables here. Examples:
