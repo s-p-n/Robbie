@@ -36,7 +36,6 @@ environment = ExtResource( 4 )
 
 [node name="battery" parent="Objects" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.26846, 25.9231 )
-power = 5
 
 [node name="connection_home2" parent="Objects" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5124, 0.770683, 39.5718 )

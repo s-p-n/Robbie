@@ -9,6 +9,7 @@ var workshop = preload("res://levels/WorkshopScene.tscn")
 var level_1 = preload("res://levels/first_1.tscn")
 var level_2 = preload("res://levels/Pipeline_2.tscn")
 var level_3 = preload("res://levels/cellphone.tscn")
+var level_4 = preload("res://levels/level_4.tscn")
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -26,7 +27,7 @@ func _ready():
 	#load_level('workshop')
 	
 	# LOADS LEVEL 1
-	load_level('level1')
+	#load_level('level1')
 	
 	# LOADS LEVEL 2
 	#load_level('level2')
@@ -34,6 +35,8 @@ func _ready():
 	# LOADS LEVEL 3
 	#load_level('level3')
 	
+	# LOADS LEVEL 4
+	load_level('level4')
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -56,4 +59,6 @@ func load_level(level_name):
 		active_level.add_child(level_2.instance())
 	elif level_name == 'level3':
 		active_level.add_child(level_3.instance())
+	elif level_name == 'level4':
+		active_level.add_child(level_4.instance())
 		
