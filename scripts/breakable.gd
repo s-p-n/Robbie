@@ -1,8 +1,8 @@
 extends RigidBody
 
 const MIN_DAMAGE:int = 0
-const MAX_DAMAGE:int = 10
-const MAX_HEAT:int = 10
+const MAX_DAMAGE:int = 1
+const MAX_HEAT:int = 1
 const MIN_HEAT:int = 0
 
 
@@ -11,7 +11,7 @@ const LAYER_BIT_CLAW = 4
 const LAYER_BIT_BRUSH = 5
 const LAYER_BIT_SOLDER = 7
 
-export(int, 0, 10) var damage = 10
+export(int, 0, 10) var damage = 1
 export(int, 0, 10) var heat = 0
 export var is_soldered:bool = false
 export var is_working:bool = false

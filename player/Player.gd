@@ -1,7 +1,10 @@
 extends KinematicBody
 
+export var menu_wait_time:float = 0.25
+
 onready var tool_menu = $Head/ToolMenu
 onready var tool_label = $Head/ToolPanel/ToolLabel
+onready var pause_screen = $Head/Paused
 onready var wire_reel_audio = $Sounds/WireReelAudio
 onready var placement_audio = $Sounds/PlacementAudio
 var wire_hold_node = preload("res://Scenes/wires/WirePosition.tscn")
@@ -10,7 +13,7 @@ var wire_hold_node = preload("res://Scenes/wires/WirePosition.tscn")
 var wire_held = false
 var mouse_sensitivity = 1
 var joystick_deadzone = 0.2
-
+var looking_at_interactable = false
 # Movement
 var is_moving = false
 var run_speed = 6 # Running speed in m/s
@@ -52,8 +55,10 @@ onready var wire_ray = $Head/WireRay
 onready var solder_ray = $Head/SolderRay
 onready var wire_position = $WirePosition
 onready var wires
+onready var interactable_notice = $Head/CenterDot/Interactable
 var offset = Vector3(0, 1.6, 0)
 
+var time_since_mouse_down:float = 0.0
 # Shooting
 onready var marker = preload("res://scenes/marker.tscn")
 onready var wire = preload("res://scenes/Wire.tscn")
@@ -76,28 +81,40 @@ func _input(event):
 	direction = Vector3()
 
 func _physics_process(delta):
+	var interactables = look_for_interactables()
+	if !tool_menu.visible and Input.is_mouse_button_pressed(BUTTON_LEFT):
+		if time_since_mouse_down >= menu_wait_time:
+			time_since_mouse_down = 0
+			print("showing tool menu")
+			show_tool_menu()
+		time_since_mouse_down += delta
 	if wire_held:
 		wires.get_child(wires.get_child_count() - 1).stop_position.global_transform.origin = wire_position.global_transform.origin
+	
 	if held_object:
 		held_object.global_transform.origin = stop_pos.global_transform.origin	
 	
+	setup_interactable_notice(interactables)
+	handle_tool_menu()
+	
 	if Input.is_action_just_pressed("tilda"):
-		if held_object:
+		if held_object or wire_held:
 			pass
 		else:
 			if mouse_visible:
 				#print(mouse_visible)
 				mouse_visible = false
-				tool_menu.visible = false
+				pause_screen.visible = false
 				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			else:
 				#print(mouse_visible)
 				mouse_visible = true
-				tool_menu.visible = true
+				pause_screen.visible = true
 				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
-	if mouse_visible:
-		return
+	if tool_menu.visible or mouse_visible:
+		if not Input.is_action_just_released("leftclick"):
+			return
 	process_movement(delta)
 	if is_moving and wire_held:
 		if not wire_reel_audio.playing:
@@ -105,10 +122,18 @@ func _physics_process(delta):
 	else:
 		wire_reel_audio.playing = false
 	if Input.is_action_just_pressed("leftclick"):
+		time_since_mouse_down = 0.0
+		#if looking_at_interactable:
+		#	show_tool_menu()
+		
+	if Input.is_action_just_released("leftclick"):
+		
 		var current_position = translation
 		#print("Drawing Intersect Line.\nFrom: ", start_pos.global_transform.origin, "\nTo ", stop_pos.global_transform.origin)
 		var space = get_viewport().world.direct_space_state
 		var results = space.intersect_ray(start_pos.global_transform.origin, stop_pos.global_transform.origin, [self])
+		
+		hide_tool_menu()
 		
 		# Checks for collision data
 		if results:
@@ -188,6 +213,64 @@ func _physics_process(delta):
 				if solderable_object.damage > 0:
 					solderable_object.spawn_particle(brush_ray.get_collision_point())
 
+func show_tool_menu():
+	#mouse_visible = true
+	tool_menu.visible = true
+	tool_label.get_parent().visible = true
+	#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func hide_tool_menu():
+	#mouse_visible = false
+	tool_menu.visible = false
+	tool_label.get_parent().visible = false
+	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func handle_tool_menu():
+	if tool_menu.visible:
+		if Input.is_action_just_released("up"):
+			print("Switched to Claw tool")
+			tool_state = hand.CLAW
+			hide_tool_menu()
+		elif Input.is_action_just_released("right"):
+			print("Switched to Solder tool")
+			tool_state = hand.SOLDER
+			hide_tool_menu()
+		elif Input.is_action_just_released("down"):
+			print("Switched to Vacuum tool")
+			tool_state = hand.BRUSH
+			hide_tool_menu()
+		elif Input.is_action_just_released("left"):
+			print("Switched to Wire tool")
+			tool_state = hand.WIRE
+			hide_tool_menu()
+		
+		
+func look_for_interactables():
+	return [
+		pickup_ray.get_collider(),
+		wire_ray.get_collider(),
+		solder_ray.get_collider(),
+		brush_ray.get_collider()
+	]
+	
+func setup_interactable_notice(interactables):
+	# interactalbes is expected to be an array of Nodes or Nil/falsey nodes
+	# using `!interactables[0]` will return True for null nodes, so we have to 
+	# use 2, such as `!!interactables[0]` to get False for null nodes, and True
+	# for nodes that we can interact with. Tada! we know if we can interact.
+	var can_grab = !!interactables[0]
+	var can_wire = !!interactables[1]
+	var can_solder = !!interactables[2]
+	var can_brush = !!interactables[3]
+	
+	var interacting = held_object
+	if (not interacting) and (can_grab or can_wire or can_solder or can_brush):
+		looking_at_interactable = true
+		interactable_notice.visible = true
+	else:
+		looking_at_interactable = false
+		interactable_notice.visible = false
+	
 func set_tool(tool_name):
 	if tool_name.to_lower() == 'claw':
 		tool_state = hand.CLAW

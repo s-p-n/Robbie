@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://player/crosshair/CenterDot.tscn" type="PackedScene" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Scripts/ClippedCamera.gd" type="Script" id=16]
 [ext_resource path="res://Assets/sounds/wire_reel.wav" type="AudioStream" id=17]
 [ext_resource path="res://Assets/sounds/install.wav" type="AudioStream" id=18]
+[ext_resource path="res://Assets/images/interactable.png" type="Texture" id=19]
 
 [sub_resource type="BoxShape" id=3]
 
@@ -31,6 +32,9 @@ radius = 0.5
 collision_layer = 8193
 collision_mask = 8193
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
 
 [node name="Head" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0 )
@@ -46,12 +50,34 @@ margin = 1.0
 script = ExtResource( 16 )
 min_zoom = 1.0
 
+[node name="Paused" type="Panel" parent="Head"]
+visible = false
+margin_left = 460.0
+margin_top = 264.0
+margin_right = 500.0
+margin_bottom = 304.0
+rect_scale = Vector2( 2.6, 1 )
+
+[node name="Label" type="Label" parent="Head/Paused"]
+margin_left = 1.15384
+margin_top = 6.0
+margin_right = 47.1538
+margin_bottom = 20.0
+rect_scale = Vector2( 0.815385, 2.04 )
+text = "Paused"
+
 [node name="CenterDot" parent="Head" instance=ExtResource( 2 )]
 position = Vector2( 510, 332 )
 
+[node name="Interactable" type="Sprite" parent="Head/CenterDot"]
+texture = ExtResource( 19 )
+
 [node name="ToolPanel" type="Panel" parent="Head"]
-margin_right = 71.0
-margin_bottom = 25.0
+visible = false
+margin_left = 471.0
+margin_top = 319.0
+margin_right = 542.0
+margin_bottom = 344.0
 
 [node name="ToolLabel" type="Label" parent="Head/ToolPanel"]
 margin_right = 71.0
@@ -62,48 +88,115 @@ valign = 1
 
 [node name="ToolMenu" type="Control" parent="Head"]
 visible = false
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 508.0
+margin_top = 123.0
+margin_right = 831.0
+margin_bottom = 419.0
+rect_rotation = 44.9999
 
 [node name="ClawButton" type="TextureButton" parent="Head/ToolMenu"]
-margin_left = 342.0
-margin_top = 132.0
-margin_right = 562.0
-margin_bottom = 352.0
+margin_left = -21.0
+margin_top = -15.0
+margin_right = 199.0
+margin_bottom = 205.0
 rect_scale = Vector2( 0.75, 0.75 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 9 )
 texture_hover = ExtResource( 10 )
 
+[node name="ClawLabel" type="Label" parent="Head/ToolMenu"]
+margin_left = 97.5807
+margin_top = -7.07095
+margin_right = 137.581
+margin_bottom = 6.92905
+rect_rotation = -8.18736
+text = "Claw"
+
 [node name="WireButton" type="TextureButton" parent="Head/ToolMenu"]
-margin_left = 342.0
-margin_top = 303.0
-margin_right = 562.0
-margin_bottom = 523.0
+margin_left = -21.0
+margin_top = 156.0
+margin_right = 199.0
+margin_bottom = 376.0
 rect_scale = Vector2( 0.75, 0.75 )
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 13 )
 texture_hover = ExtResource( 12 )
 
+[node name="WireLabel" type="Label" parent="Head/ToolMenu"]
+margin_left = -9.1926
+margin_top = 204.354
+margin_right = 30.8074
+margin_bottom = 218.354
+rect_rotation = -100.259
+text = "Wire"
+
 [node name="BrushButton" type="TextureButton" parent="Head/ToolMenu"]
-margin_left = 513.0
-margin_top = 303.0
-margin_right = 733.0
-margin_bottom = 523.0
+margin_left = 150.0
+margin_top = 156.0
+margin_right = 370.0
+margin_bottom = 376.0
 rect_scale = Vector2( 0.75, 0.75 )
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 14 )
 texture_hover = ExtResource( 15 )
 
+[node name="BrushLabel" type="Label" parent="Head/ToolMenu"]
+margin_left = 154.149
+margin_top = 261.63
+margin_right = 205.149
+margin_bottom = 275.63
+rect_rotation = -21.26
+text = "Vacuum"
+
 [node name="SolderButton" type="TextureButton" parent="Head/ToolMenu"]
-margin_left = 513.0
-margin_top = 132.0
-margin_right = 733.0
-margin_bottom = 352.0
+margin_left = 150.0
+margin_top = -15.0
+margin_right = 370.0
+margin_bottom = 205.0
 rect_scale = Vector2( 0.75, 0.75 )
 texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 8 )
 texture_hover = ExtResource( 11 )
+
+[node name="SolderLabel" type="Label" parent="Head/ToolMenu"]
+margin_left = 254.558
+margin_top = 144.25
+margin_right = 305.558
+margin_bottom = 158.25
+rect_rotation = -111.571
+text = "Solder"
+
+[node name="ClawKeyLabel" type="Label" parent="Head/ToolMenu"]
+margin_left = 45.9619
+margin_top = 51.6189
+margin_right = 59.9619
+margin_bottom = 65.6189
+rect_rotation = -44.9999
+text = "W"
+
+[node name="BrushKeyLabel" type="Label" parent="Head/ToolMenu"]
+margin_left = 236.173
+margin_top = 241.831
+margin_right = 250.173
+margin_bottom = 255.831
+rect_rotation = -44.9999
+text = "S"
+
+[node name="WireKeyLabel" type="Label" parent="Head/ToolMenu"]
+margin_left = 36.0622
+margin_top = 243.952
+margin_right = 50.0622
+margin_bottom = 257.952
+rect_rotation = -44.9999
+text = "A"
+
+[node name="SolderKeyLabel" type="Label" parent="Head/ToolMenu"]
+margin_left = 228.395
+margin_top = 51.619
+margin_right = 242.395
+margin_bottom = 65.6191
+rect_rotation = -44.9999
+text = "D"
 
 [node name="OmniLight" type="OmniLight" parent="Head"]
 transform = Transform( 0.993686, -0.0100615, -0.111745, 0.0593208, 0.892492, 0.447145, 0.095233, -0.450951, 0.887454, 0, 0, 0 )
