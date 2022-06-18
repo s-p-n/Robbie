@@ -2,6 +2,7 @@ extends RigidBody
 onready var start_points = $StartPoints
 onready var end_points = $EndPoints
 onready var power_light = $PowerLight
+onready var audio = $audio
 onready var wires
 var wires_attached = []
 var is_powered = false
@@ -29,8 +30,14 @@ func _process(delta):
 			is_powered = true
 	
 	if is_powered:
+		if audio and !audio.loop:
+			print("got power")
+			audio.play_stream()
 		power_light.visible = true
 	else:
+		if audio and audio.loop:
+			print("lost power")
+			audio.stop_stream()
 		power_light.visible = false
 	
 	var new_wires_attached = []

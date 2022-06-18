@@ -83,7 +83,7 @@ albedo_color = Color( 0.254902, 0.262745, 0.278431, 1 )
 [node name="Level" type="Spatial"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.76512, 2.16856, 30.6012 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9248, 2.16856, 51.9241 )
 
 [node name="env-level" type="WorldEnvironment" parent="."]
 environment = ExtResource( 4 )
