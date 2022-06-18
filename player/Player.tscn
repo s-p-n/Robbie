@@ -150,11 +150,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0 )
 
 [node name="cameraHolder" type="SpringArm" parent="Head"]
 transform = Transform( 1, 0, 0, 0, 0.986856, 0.161604, 0, -0.161604, 0.986856, 0, 1.1, 0 )
+visible = false
 margin = 2.0
 
 [node name="ClippedCamera" type="ClippedCamera" parent="Head/cameraHolder"]
 transform = Transform( 1, 0, 0, 0, 1, 4.47035e-08, 0, -2.98023e-08, 1, 0, -0.432247, -0.0707831 )
-current = true
 margin = 1.0
 script = ExtResource( 16 )
 min_zoom = 1.0
@@ -309,6 +309,7 @@ spot_angle = 60.6612
 
 [node name="Camera" type="Camera" parent="Head"]
 doppler_tracking = 2
+current = true
 
 [node name="PositionStart" type="Position3D" parent="Head/Camera"]
 

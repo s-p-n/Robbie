@@ -51,8 +51,9 @@ onready var vacuum_stream = find_node("vacuum_stream")
 func _ready():
 	setup_collisions()
 	vacuum_stream.stream = audio_vacuum
-	vacuum_stream.play(0)
+	#vacuum_stream.play(0)
 	vacuum_stream.stream_paused = true
+	
 	
 	
 	
@@ -259,6 +260,7 @@ func turn_off_light():
 
 func indicate_vacuum():
 	vacuum_stream.stream_paused = false
+	vacuum_stream.play(vacuum_stream.get_playback_position())
 	vacuum_playing_for = 0
 
 func indicate_working():

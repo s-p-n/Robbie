@@ -66,10 +66,11 @@ func load_level(level_name):
 	# Delete the Workshop Scene
 	var old_levels = active_level.get_children()
 	var old_wires = wires.get_children()
-	for active_scene in old_levels:
-		active_scene.queue_free()
 	for wire in old_wires:
 		wire.queue_free()
+	for active_scene in old_levels:
+		active_scene.queue_free()
+	
 	# Load the level
 	if level_name == 'workshop':
 		cur_level = 'workshop'
