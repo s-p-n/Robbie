@@ -23,7 +23,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(fan.is_spinning)
+	#print(fan.is_spinning)
 	if is_source:
 		if !power_source or !power_source.is_powered:
 			is_source = false
