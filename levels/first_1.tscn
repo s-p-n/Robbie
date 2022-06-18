@@ -306,7 +306,6 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.93273
 collision_layer = 513
 mode = 1
 script = ExtResource( 16 )
-open_position = 6.0
 
 [node name="block-441" type="MeshInstance" parent="Objects/block-441-wall20"]
 transform = Transform( 0.507065, 0, 2.07977e-08, 0, 0.984349, 0, 2.07977e-08, 0, 0.269167, -2.0458, 0, 0 )

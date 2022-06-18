@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=81 format=2]
 
 [ext_resource path="res://Assets/models/capacitor/capacitor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/PylonPositioner.gd" type="Script" id=2]
@@ -16,11 +16,13 @@
 [ext_resource path="res://Assets/models/capacitor/static_capacitor.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scripts/fan_spin.gd" type="Script" id=15]
 [ext_resource path="res://Scenes/BatteryPylon.tscn" type="PackedScene" id=16]
+[ext_resource path="res://levels/SlidingDoorPylon.gd" type="Script" id=17]
 [ext_resource path="res://Assets/audio/CG_Creepy_Electrical_Ambience.wav" type="AudioStream" id=18]
 [ext_resource path="res://Scripts/loop.gd" type="Script" id=19]
 [ext_resource path="res://levels/PoweredFanPylon.gd" type="Script" id=20]
 [ext_resource path="res://Assets/models/battery/battery.tscn" type="PackedScene" id=21]
 [ext_resource path="res://levels/FanInputCheckInverse.gd" type="Script" id=22]
+[ext_resource path="res://Assets/models/block-441/block-441.obj" type="ArrayMesh" id=23]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -183,6 +185,12 @@ surfaces/0 = {
 
 [sub_resource type="ConcavePolygonShape" id=51]
 data = PoolVector3Array( -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, -1, 1, -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, -1, -1, -1, 1, 1, -1, 1, -1, 1, -1, 1, 1, 1, -1, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=65]
+albedo_color = Color( 0.419608, 0.654902, 0.129412, 1 )
+
+[sub_resource type="ConcavePolygonShape" id=66]
+data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
 
 [sub_resource type="CubeMesh" id=60]
 
@@ -837,6 +845,27 @@ shape = SubResource( 51 )
 
 [node name="BatteryPylon" parent="Pylons" instance=ExtResource( 16 )]
 
+[node name="InputPylon2" parent="Pylons" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00645638, 0.803371, -26.4584 )
+
+[node name="SlidingDoor" type="RigidBody" parent="Pylons/InputPylon2"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.473, 3.197, 1 )
+collision_layer = 2048
+mode = 1
+script = ExtResource( 17 )
+
+[node name="block-441" type="MeshInstance" parent="Pylons/InputPylon2/SlidingDoor"]
+transform = Transform( 0.673154, 0, -1.10401e-08, 0, 0.984349, 0, 2.761e-08, 0, 0.269167, -2.0458, 0, -2.38419e-07 )
+mesh = ExtResource( 23 )
+material/0 = SubResource( 65 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Pylons/InputPylon2/SlidingDoor"]
+transform = Transform( 0.673154, 0, -1.10401e-08, 0, 0.984349, 0, 2.761e-08, 0, 0.269167, -2.0458, 0, -2.38419e-07 )
+shape = SubResource( 66 )
+
+[node name="Source3" parent="Pylons" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.97999, 0.488837, -12.2898 )
+
 [node name="Objects" type="Spatial" parent="."]
 
 [node name="Walls" type="Spatial" parent="Objects"]
@@ -1321,6 +1350,20 @@ material/0 = SubResource( 61 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Objects/Walls/Sidewall13"]
 transform = Transform( 0.0602503, 0, 0, 0, 3.42438, 0, 0, 0, 10.0953, 0, 0, 0 )
+shape = SubResource( 62 )
+
+[node name="Wall19" type="RigidBody" parent="Objects/Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.47961, 4.895, -35.6194 )
+collision_layer = 513
+mode = 1
+
+[node name="MeshInstance" type="MeshInstance" parent="Objects/Walls/Wall19"]
+transform = Transform( 0.519423, 0, 0, 0, 4.89709, 0, 0, 0, 9.92782, 0, 0, 0 )
+mesh = SubResource( 60 )
+material/0 = SubResource( 61 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Walls/Wall19"]
+transform = Transform( 0.519423, 0, 0, 0, 4.89709, 0, 0, 0, 9.92782, 0, 0, 0 )
 shape = SubResource( 62 )
 
 [node name="connection_home" parent="Objects" instance=ExtResource( 8 )]
