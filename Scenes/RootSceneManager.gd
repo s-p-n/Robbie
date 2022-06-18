@@ -1,10 +1,10 @@
 extends Spatial
-onready var cameras = $Cameras
 onready var active_level = $ActiveLevel
 onready var wires = $Wires
 var update_time = 0
 var is_paused = false
-var workshop_camera = preload("res://scenes/WorkshopCamera.tscn")
+var cur_level = "workshop"
+#var workshop_camera = preload("res://scenes/WorkshopCamera.tscn")
 var workshop = preload("res://levels/WorkshopScene.tscn")
 var level_1 = preload("res://levels/first_1.tscn")
 var level_2 = preload("res://levels/Pipeline_2.tscn")
@@ -28,6 +28,7 @@ func _ready():
 	
 	# LOADS LEVEL 1
 	#load_level('level1')
+	load_level(cur_level)
 	
 	# LOADS LEVEL 2
 	#load_level('level2')
@@ -36,29 +37,53 @@ func _ready():
 	#load_level('level3')
 	
 	# LOADS LEVEL 4
-	load_level('level4')
+	#load_level('level4')
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	update_time += delta
 
+func restart_level():
+	load_level(cur_level)
 
+func next_level():
+	print("switching to level after this one: ", cur_level)
+	if cur_level == 'workshop':
+		cur_level = 'level1'
+	elif cur_level == 'level1':
+		cur_level = 'level2'
+	elif cur_level == 'level2':
+		cur_level = 'level3'
+	elif cur_level == 'level3':
+		cur_level = 'level4'
+	elif cur_level == 'level4':
+		cur_level = 'workshop'
+	print("next level is: ", cur_level)
+	load_level(cur_level)
 
 func load_level(level_name):
 	# Delete the Workshop Scene
 	var old_levels = active_level.get_children()
+	var old_wires = wires.get_children()
 	for active_scene in old_levels:
 		active_scene.queue_free()
+	for wire in old_wires:
+		wire.queue_free()
 	# Load the level
 	if level_name == 'workshop':
+		cur_level = 'workshop'
 		active_level.add_child(workshop.instance())
 	elif level_name == 'level1':
+		cur_level = 'level1'
 		active_level.add_child(level_1.instance())
 	elif level_name == 'level2':
+		cur_level = 'level2'
 		active_level.add_child(level_2.instance())
 	elif level_name == 'level3':
+		cur_level = 'level3'
 		active_level.add_child(level_3.instance())
 	elif level_name == 'level4':
+		cur_level = 'level4'
 		active_level.add_child(level_4.instance())
 		

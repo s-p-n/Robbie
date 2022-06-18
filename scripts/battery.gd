@@ -37,7 +37,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if find_parent("Robbie").is_paused:
-		print("paused")
 		return
 	if is_powered:
 		drain += delta
