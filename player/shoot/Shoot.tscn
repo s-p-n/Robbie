@@ -5,7 +5,7 @@
 [ext_resource path="res://player/shoot/Impact.tscn" type="PackedScene" id=3]
 [ext_resource path="res://player/shoot/rifle_shoot.wav" type="AudioStream" id=4]
 [ext_resource path="res://player/shoot/reload.wav" type="AudioStream" id=5]
-[ext_resource path="res://font/Roboto-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Assets/font/Roboto-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://player/shoot/empty.wav" type="AudioStream" id=7]
 [ext_resource path="res://player/shoot/Shell.tscn" type="PackedScene" id=8]
 [ext_resource path="res://player/shoot/AK-47_Magazine.tscn" type="PackedScene" id=9]
@@ -13,6 +13,7 @@
 [ext_resource path="res://player/shoot/pistol_shoot.wav" type="AudioStream" id=11]
 [ext_resource path="res://player/shoot/Knife.obj" type="ArrayMesh" id=12]
 [ext_resource path="res://player/Theme.tres" type="Theme" id=13]
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 50

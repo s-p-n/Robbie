@@ -4,7 +4,7 @@ export var menu_wait_time:float = 0.25
 
 onready var tool_menu = $Head/ToolMenu
 onready var tool_label = $Head/ToolPanel/ToolLabel
-onready var pause_screen = $Head/Paused
+onready var pause_screen = $Paused
 onready var wire_reel_audio = $Sounds/WireReelAudio
 onready var placement_audio = $Sounds/PlacementAudio
 var wire_hold_node = preload("res://Scenes/wires/WirePosition.tscn")
@@ -102,7 +102,7 @@ func _physics_process(delta):
 	setup_interactable_notice(interactables)
 	handle_tool_menu()
 	
-	if Input.is_action_just_pressed("tilda"):
+	if false and Input.is_action_just_pressed("tilda"):
 		if held_object or wire_held:
 			pass
 		else:
@@ -117,7 +117,7 @@ func _physics_process(delta):
 				mouse_visible = true
 				pause_screen.visible = true
 				find_parent("Robbie").is_paused = true
-				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+				Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 	if tool_menu.visible or mouse_visible:
 		if not Input.is_action_just_released("leftclick"):
 			return
