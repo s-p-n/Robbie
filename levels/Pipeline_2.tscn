@@ -21,7 +21,7 @@ data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4
 [node name="Level2" type="Spatial"]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.9404, 43.0979, 83.3094 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9891, 1.79444, 50.6716 )
 
 [node name="test2" type="Spatial" parent="."]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 24, 0, 90 )
@@ -124,6 +124,9 @@ max_db = 6.0
 autoplay = true
 max_distance = 30.0
 doppler_tracking = 1
+
+[node name="block-441-wall19" parent="test2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8503, 4, 45 )
 
 [node name="Pipe" type="Spatial" parent="."]
 
@@ -295,7 +298,7 @@ transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4
 transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 47.6504, 13.5748, 105.23 )
 
 [node name="capacitor11" parent="Pipe" instance=ExtResource( 11 )]
-transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 47.6504, 15.8203, 110.481 )
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 47.6504, 15.9515, 109.965 )
 
 [node name="capacitor14" parent="Pipe" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 29.052, 21.1607, 111.818 )
