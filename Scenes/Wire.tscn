@@ -2,12 +2,12 @@
 
 [ext_resource path="res://addons/verlet_rope_gd/verlet_rope.gd" type="Script" id=2]
 
-[sub_resource type="SpatialMaterial" id=1]
+[sub_resource type="SpatialMaterial" id=21]
 
 [node name="Spatial" type="ImmediateGeometry"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0136509, -0.0163679, 0.0116529 )
 visible = false
-material_override = SubResource( 1 )
+material_override = SubResource( 21 )
 use_in_baked_light = true
 generate_lightmap = false
 script = ExtResource( 2 )
@@ -23,4 +23,4 @@ collision_mask = 512
 [node name="StopPosition" type="Position3D" parent="."]
 
 [node name="VisibilityNotifier" type="VisibilityNotifier" parent="."]
-aabb = AABB( -0.0532744, -0.483432, -0.0552168, 0.148087, 0.486983, 0.154304 )
+aabb = AABB( -0.0699737, -0.418339, -0.0613909, 0.139947, 0.445481, 0.350302 )
