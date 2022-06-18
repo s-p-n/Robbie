@@ -1,11 +1,10 @@
 extends Spatial
-onready var cameras = $Cameras
 onready var active_level = $ActiveLevel
 onready var wires = $Wires
 var update_time = 0
 var is_paused = false
 var cur_level = "workshop"
-var workshop_camera = preload("res://scenes/WorkshopCamera.tscn")
+#var workshop_camera = preload("res://scenes/WorkshopCamera.tscn")
 var workshop = preload("res://levels/WorkshopScene.tscn")
 var level_1 = preload("res://levels/first_1.tscn")
 var level_2 = preload("res://levels/Pipeline_2.tscn")
@@ -65,8 +64,11 @@ func next_level():
 func load_level(level_name):
 	# Delete the Workshop Scene
 	var old_levels = active_level.get_children()
+	var old_wires = wires.get_children()
 	for active_scene in old_levels:
 		active_scene.queue_free()
+	for wire in old_wires:
+		wire.queue_free()
 	# Load the level
 	if level_name == 'workshop':
 		cur_level = 'workshop'

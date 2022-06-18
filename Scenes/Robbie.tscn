@@ -9,6 +9,4 @@ script = ExtResource( 4 )
 [node name="Wires" type="Spatial" parent="."]
 script = ExtResource( 5 )
 
-[node name="Cameras" type="Spatial" parent="."]
-
 [node name="ActiveLevel" type="Spatial" parent="."]
