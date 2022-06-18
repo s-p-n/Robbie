@@ -83,7 +83,7 @@ albedo_color = Color( 0.254902, 0.262745, 0.278431, 1 )
 [node name="Level" type="Spatial"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9248, 2.16856, 51.9241 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.53304, 2.16856, 35.8091 )
 
 [node name="env-level" type="WorldEnvironment" parent="."]
 environment = ExtResource( 4 )
@@ -183,6 +183,22 @@ collision_layer = 513
 
 [node name="block-441-wall32" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 1.77636e-14, -1, -1, 1.31134e-07, 4.37114e-08, 1.31134e-07, 1, 1.06581e-14, 8.79299, -11.8945, 49.9691 )
+collision_layer = 513
+
+[node name="block-441-wall39" parent="Objects" instance=ExtResource( 3 )]
+transform = Transform( 1, -1.31134e-07, -1.06581e-14, -1.06581e-14, 1.20316e-14, -1, 1.31134e-07, 1, 1.06581e-14, 19.8295, -1.11569, 19.9493 )
+collision_layer = 513
+
+[node name="block-441-wall40" parent="Objects" instance=ExtResource( 3 )]
+transform = Transform( 1, -1.31134e-07, -1.06581e-14, -1.06581e-14, 1.20316e-14, -1, 1.31134e-07, 1, 1.06581e-14, 19.8295, 7.28218, 19.9229 )
+collision_layer = 513
+
+[node name="block-441-wall41" parent="Objects" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 1.77636e-14, -1, -1, 1.31134e-07, 4.37114e-08, 1.31134e-07, 1, 1.06581e-14, 21.5176, 3.95902, 19.931 )
+collision_layer = 513
+
+[node name="block-441-wall42" parent="Objects" instance=ExtResource( 3 )]
+transform = Transform( 1.31134e-07, 1, 4.37114e-08, -1, 1.31134e-07, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 19.9997, 3.54729, 15.0481 )
 collision_layer = 513
 
 [node name="block-441-wall33" parent="Objects" instance=ExtResource( 3 )]
