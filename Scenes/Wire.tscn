@@ -23,4 +23,4 @@ collision_mask = 512
 [node name="StopPosition" type="Position3D" parent="."]
 
 [node name="VisibilityNotifier" type="VisibilityNotifier" parent="."]
-aabb = AABB( -0.0699736, -0.483771, -0.0922647, 0.139947, 0.488343, 0.143446 )
+aabb = AABB( -0.0699738, -0.485681, -0.0595336, 0.139948, 0.486722, 0.152803 )
