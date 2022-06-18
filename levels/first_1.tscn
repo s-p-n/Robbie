@@ -1,9 +1,8 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/models/circuit_board/circuit-board-low.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/models/block-441/block-441.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/environment_foggy.tres" type="Environment" id=4]
 [ext_resource path="res://Assets/models/ramp/ramp.obj" type="ArrayMesh" id=5]
 [ext_resource path="res://Assets/models/capacitor/capacitor.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/models/block-441/block-441.obj" type="ArrayMesh" id=7]
@@ -84,9 +83,6 @@ albedo_color = Color( 0.254902, 0.262745, 0.278431, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.53304, 2.16856, 35.8091 )
-
-[node name="env-level" type="WorldEnvironment" parent="."]
-environment = ExtResource( 4 )
 
 [node name="Objects" type="Spatial" parent="."]
 
@@ -202,7 +198,7 @@ transform = Transform( 1.31134e-07, 1, 4.37114e-08, -1, 1.31134e-07, 4.37114e-08
 collision_layer = 513
 
 [node name="block-441-wall33" parent="Objects" instance=ExtResource( 3 )]
-transform = Transform( 1.31134e-07, 1, 4.37114e-08, -1, 1.31134e-07, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 13.7172, -11.8945, 52.9963 )
+transform = Transform( 1.31134e-07, 1, 4.37114e-08, -1, 1.31134e-07, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 11.6514, -11.9103, 52.892 )
 collision_layer = 513
 
 [node name="block-441-wall34" type="RigidBody" parent="Objects"]

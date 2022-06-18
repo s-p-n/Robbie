@@ -549,8 +549,8 @@ func _ready() -> void:
 	
 	if material_override == null:
 		material_override = preload("./DefaultRope.material")
-	
-	player = get_viewport().get_child(0).get_child(2).get_child(0).get_child(0)
+	get_viewport().print_tree_pretty()
+	player = get_viewport().get_child(0).get_child(1).get_child(0).get_child(0)
 	_create_rope()
 
 func _physics_process(delta: float) -> void:
