@@ -30,11 +30,15 @@ var vacuum_playing_for:float = 0.0
 const vacuum_play_time:float = 2.0
 
 onready var audio_after_solder = preload("res://Assets/audio/After Solder.wav")
-onready var audio_solder = [
+export(Array, AudioStream) var audio_solder = [
 	preload("res://Assets/audio/Solder 1.wav"),
 	preload("res://Assets/audio/Solder 2.wav")
 ]
-onready var audio_vacuum = preload("res://Assets/audio/CG_Modular_Vaccum.wav")
+
+export(Array, AudioStream) var audio_vacuum = [
+	preload("res://Assets/audio/CG_Modular_Vaccum.wav")
+]
+
 onready var audio_success = preload("res://Assets/audio/CG_GameSound_Puzzle_Solved-01.wav")
 onready var audio_error = preload("res://Assets/audio/alert.wav")
 onready var dust_particles = preload("res://Scenes/particles/CleanParticle.tscn")
