@@ -17,5 +17,5 @@ func _ready():
 
 
 func _on_Exit_gui_input(event):
-	if Input.is_action_just_pressed("leftclick"):
+	if Input.is_action_just_released("leftclick"):
 		get_tree().quit()

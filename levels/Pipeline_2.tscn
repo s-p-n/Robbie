@@ -1,11 +1,10 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/audio/CG_Creepy_Electrical_Ambience.wav" type="AudioStream" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/models/block-441/block-441.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/models/big_fan/big_fan.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/models/circuit_board/circuit-board-low.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/environment_foggy.tres" type="Environment" id=6]
 [ext_resource path="res://Assets/models/ramp/ramp.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/models/circuit_board/circuit_board.obj" type="ArrayMesh" id=8]
 [ext_resource path="res://Assets/models/circuit_board/circuit-board-low.tres" type="Material" id=9]
@@ -23,9 +22,6 @@ data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.9404, 43.0979, 83.3094 )
-
-[node name="env-level" type="WorldEnvironment" parent="."]
-environment = ExtResource( 6 )
 
 [node name="test2" type="Spatial" parent="."]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 24, 0, 90 )

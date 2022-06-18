@@ -18,6 +18,6 @@ func _ready():
 
 
 func _on_Continue_gui_input(event):
-	if Input.is_action_just_pressed("leftclick"):
+	if Input.is_action_just_released("leftclick"):
 		find_parent("Paused").visible = false
 		print("clicked on continue")

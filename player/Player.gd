@@ -243,26 +243,26 @@ func show_tool_menu():
 func hide_tool_menu():
 	#mouse_visible = false
 	tool_menu.visible = false
-	tool_label.get_parent().visible = false
+	#tool_label.get_parent().visible = false
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func handle_tool_menu():
 	if tool_menu.visible:
 		if Input.is_action_just_released("up"):
 			print("Switched to Claw tool")
-			tool_state = hand.CLAW
+			set_tool("claw")
 			hide_tool_menu()
 		elif Input.is_action_just_released("right"):
 			print("Switched to Solder tool")
-			tool_state = hand.SOLDER
+			set_tool("solder")
 			hide_tool_menu()
 		elif Input.is_action_just_released("down"):
 			print("Switched to Vacuum tool")
-			tool_state = hand.BRUSH
+			set_tool("brush")
 			hide_tool_menu()
 		elif Input.is_action_just_released("left"):
 			print("Switched to Wire tool")
-			tool_state = hand.WIRE
+			set_tool("wire")
 			hide_tool_menu()
 		
 		

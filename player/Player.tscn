@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://player/crosshair/CenterDot.tscn" type="PackedScene" id=2]
@@ -27,6 +27,8 @@
 [ext_resource path="res://Scripts/pause_menu_restart.gd" type="Script" id=25]
 [ext_resource path="res://Scripts/pause_menu_skip.gd" type="Script" id=26]
 [ext_resource path="res://Scripts/pause_menu_exit.gd" type="Script" id=27]
+[ext_resource path="res://Assets/images/mouse_directions.png" type="Texture" id=28]
+[ext_resource path="res://Assets/images/keymap.png" type="Texture" id=29]
 
 [sub_resource type="StyleBoxEmpty" id=4]
 
@@ -49,6 +51,7 @@ __meta__ = {
 
 [node name="Paused" type="Control" parent="."]
 pause_mode = 2
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.002
 margin_right = -1.0
@@ -145,6 +148,14 @@ margin_right = 87.0
 margin_bottom = 45.0
 text = "Exit"
 
+[node name="MouseDirections" type="Sprite" parent="Paused"]
+position = Vector2( 730, 143 )
+texture = ExtResource( 28 )
+
+[node name="Keymap" type="Sprite" parent="Paused"]
+position = Vector2( 728, 438 )
+texture = ExtResource( 29 )
+
 [node name="Head" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0 )
 
@@ -166,15 +177,16 @@ position = Vector2( 510, 332 )
 texture = ExtResource( 19 )
 
 [node name="ToolPanel" type="Panel" parent="Head"]
-visible = false
-margin_left = 471.0
-margin_top = 319.0
-margin_right = 542.0
-margin_bottom = 344.0
+margin_left = 453.0
+margin_top = 508.0
+margin_right = 551.0
+margin_bottom = 552.0
+theme = ExtResource( 20 )
 
 [node name="ToolLabel" type="Label" parent="Head/ToolPanel"]
-margin_right = 71.0
-margin_bottom = 25.0
+margin_top = 5.0
+margin_right = 97.0
+margin_bottom = 39.0
 text = "Null"
 align = 1
 valign = 1
@@ -375,6 +387,7 @@ autoplay = true
 [node name="PlacementAudio" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 18 )
 
+[connection signal="gui_input" from="Paused" to="Paused" method="_on_Paused_gui_input"]
 [connection signal="gui_input" from="Paused/pause_menu/Continue" to="Paused/pause_menu/Continue" method="_on_Continue_gui_input"]
 [connection signal="gui_input" from="Paused/pause_menu/Restart" to="Paused/pause_menu/Restart" method="_on_Restart_gui_input"]
 [connection signal="gui_input" from="Paused/pause_menu/Skip" to="Paused/pause_menu/Skip" method="_on_Skip_gui_input"]

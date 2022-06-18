@@ -613,7 +613,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.91139, 3.15701, 0.590887 )
 stream = ExtResource( 18 )
 script = ExtResource( 19 )
 loop = true
-is_active = true
 
 [node name="PowerLight" type="OmniLight" parent="Pylons/PoweredFanPylon"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8066, 0 )
@@ -764,7 +763,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.91139, 3.15701, 0.590887 )
 stream = ExtResource( 18 )
 script = ExtResource( 19 )
 loop = true
-is_active = true
 
 [node name="PowerLight" type="OmniLight" parent="Pylons/PoweredFanPylon2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8066, 0 )
@@ -1442,5 +1440,3 @@ shape = SubResource( 38 )
 
 [node name="battery" parent="Objects" instance=ExtResource( 21 )]
 transform = Transform( -0.699027, 0, -0.715095, 0, 1, 0, 0.715095, 0, -0.699027, -18.9128, 2.13243, 27.5946 )
-
-[node name="Environment" type="Spatial" parent="."]

@@ -18,3 +18,8 @@ func _process(event):
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_tree().paused = visible
 		
+
+
+func _on_Paused_gui_input(event):
+	if Input.is_action_just_released("leftclick"):
+		visible = false

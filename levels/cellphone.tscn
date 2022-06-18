@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/models/circuit_board/circuit-board.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/environment_foggy.tres" type="Environment" id=3]
 [ext_resource path="res://Assets/models/circuit_board/circuit-board-low.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/models/big_fan/big_fan.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/models/block-441/block-441.tscn" type="PackedScene" id=6]
@@ -15,9 +14,6 @@
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.16809, 2.56688, 27.5995 )
-
-[node name="env-level" type="WorldEnvironment" parent="."]
-environment = ExtResource( 3 )
 
 [node name="BakedLightmap" type="BakedLightmap" parent="."]
 layers = 1023
