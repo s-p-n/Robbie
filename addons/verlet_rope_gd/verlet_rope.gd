@@ -499,16 +499,13 @@ func _apply_constraints() -> void:
 					prev_normal = result.normal
 					var ydiff: Vector3 = result.position - particle_data.pos_curr[i + 1]
 					ydiff = ydiff.project(result.normal)
-					#print(ydiff)
 					#ydiff += rope_width * 0.5 * result.normal
 					particle_data.pos_curr[i + 1] += ydiff
 					particle_data.pos_prev[i + 1] = particle_data.pos_curr[i + 1]
 				
 			if any_result:
-				#print("Collision")
 				is_colliding = true
 			else:
-				#print("No collision")
 				is_colliding = false
 				
 		else:
@@ -549,7 +546,6 @@ func _ready() -> void:
 	
 	if material_override == null:
 		material_override = preload("./DefaultRope.material")
-	get_viewport().print_tree_pretty()
 	player = get_viewport().get_child(0).get_child(1).get_child(0).get_child(0)
 	_create_rope()
 
@@ -601,12 +597,9 @@ func _physics_process(delta: float) -> void:
 		time_since += delta
 		if time_since > (delta * 5):
 			if visible:
-				print("Wire id: ", index_id, "    Checked id: ", (get_parent().get_child_count() -1 ))
 				if ((get_parent().get_child_count() - 1) == index_id) and player.wire_held:
-					print("Deleting.")
 					player.delete_held_wire()
 				else:
-					print("Hiding.")
 					player.delete_wire(index_id)
 					
 	else:

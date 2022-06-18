@@ -37,7 +37,7 @@ onready var audio_solder = [
 onready var audio_vacuum = preload("res://Assets/audio/CG_Modular_Vaccum.wav")
 onready var audio_success = preload("res://Assets/audio/CG_GameSound_Puzzle_Solved-01.wav")
 onready var audio_error = preload("res://Assets/audio/alert.wav")
-onready var dust_particles = preload("res://scenes/particles/CleanParticle.tscn")
+onready var dust_particles = preload("res://Scenes/particles/CleanParticle.tscn")
 onready var player = find_parent("root").find_node("Player")
 onready var light = find_node("SpotLight")
 onready var audio = find_node("audio_static")
@@ -148,44 +148,37 @@ func repair():
 	if damage > MIN_DAMAGE:
 		var surface = $MeshInstance.get_surface_material(0).duplicate()
 		damage -= 1
-		#print(surface)
-		print("damage: ", damage)
 		indicate_vacuum()
 		surface.roughness = damage / MAX_DAMAGE
 		surface.normal_scale = surface.roughness * 16
 		#surface.albedo_color = Color((35 + ((10 - damage) * 22))/255.0, (25 + ((10 - damage) * 23))/255.0, (25 + ((10 - damage) * 23))/255.0, 1)
 		$MeshInstance.set_surface_material(0, surface)
-		print(surface.roughness)
 		surface = $MeshInstance.get_active_material(0)
 	else:
 		var surface = $MeshInstance.get_active_material(0)
-		print(surface.roughness)
-		print("Cleaned!")
 	setup_collisions()
 
-func heat():
+func solder():
 	setup_collisions()
-	print("connection home: ", connection_home)
 	
 	if connection_home == null:
-		print("No connection to solder to.")
 		return
 	
 	if damage != 0:
 		if is_soldered:
-			print("Soldered in place but damaged, should remove")
+			#Soldered in place but damaged, should remove
 			return
-		print("Too damaged to solder")
+		#Too damaged to solder
 		return
 	
 	if is_soldered:
 		if is_powered:
-			print("Already in place and powered. Should work!")
+			#Already in place and powered. Should work!
 			return
 		else:
-			print("Already in place, you should wire this.")
+			#Already in place, you should wire this.
 			return
-	print("In place, not soldered, not damaged.")
+	#In place, not soldered, not damaged.
 	if heat == MAX_HEAT - 1:
 		heat += 1
 		is_solder_settling = true
@@ -194,12 +187,6 @@ func heat():
 	elif heat < MAX_HEAT:
 		heat += 1
 		play_sound(audio_solder[round(rand_range(0,1))])
-	
-	#if heat >= MAX_HEAT:
-	#	is_soldered = true
-		#print("Soldered in place")
-	#	setup_collisions()
-	#print("heat: ", heat)
 
 func spawn_particle(pos):
 	var dust = dust_particles.instance()
@@ -214,34 +201,21 @@ func clean ():
 	repair()
 
 func connect_to_home(new_home):
-	print("Connecting to new home: ", new_home)
 	connection_home = new_home
 	setup_collisions()
 
 func disconnect_from_home(old_home):
-	print("Disconnecting from home: ", old_home)
 	if (connection_home == old_home):
 		connection_home = null
-		print("disconnected")
-	else:
-		print("failed to disconnect")
-		print(connection_home)
 	setup_collisions()
 
 func attempt_to_work():
-	print("Capacitor is Attempting to make something work")
-	
 	if connection_home:
 		var obj = get_node(connection_home.connected_object)
-		print("Path to object: ", connection_home.connected_object)
-		print("Object Capacitor should work with: ", obj)
 		if obj and obj.has_method("work"):
-			
 			obj.work(self)
 			indicate_working()
-			print("Obj is now working.")
 		else:
-			print("Invalid connection. Set the 'Connected Object' property of the 'connection_home'. Select the path to the object you want to connect to.")
 			display_error()
 
 func play_sound(stream):

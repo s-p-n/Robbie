@@ -36,7 +36,6 @@ func _process(delta):
 		waiting = false
 		change()
 
-	#print("Is_powered: ", is_powered, "\nMoving_upwards: ", moving_upwards, "\nWaiting: ", waiting, "\nTime-Time_since: ", time, "-", time_since)
 	if is_powered and is_working:
 		if moving_upwards:
 			if not waiting:
@@ -44,9 +43,7 @@ func _process(delta):
 		else:
 			if not waiting:
 				platform.transform.origin.y = lerp(platform.transform.origin.y, platform_bottom - platform_brakes, delta * platform_speed)
-	
-	#print(platform.transform.origin.y)
-	
+
 func change():
 	moving_upwards = !moving_upwards
 
@@ -69,7 +66,6 @@ func check_if_working():
 		is_working = false
 	
 func work(sourcery):
-	print("im getting called yo")
 	if sourcery:
 		source = sourcery
 		is_working = true

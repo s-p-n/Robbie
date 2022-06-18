@@ -12,17 +12,13 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	var powered_wires = get_source_wires()
 	powered_wires = get_connected_wires(powered_wires)
 	set_pylon_power(powered_wires)
 	if len(powered_wires) > 0:
 		#print(powered_wires)
 		pass
-
-
-
-
 
 func get_source_wires():
 	var active_sources = []
@@ -34,8 +30,6 @@ func get_source_wires():
 					if not index_number in active_sources:
 						active_sources.append(index_number)
 	return active_sources
-		
-
 
 func get_connected_wires(wire_id_array):
 	# wire_id_array is an array of wires attached to power sources

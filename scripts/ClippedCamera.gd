@@ -32,12 +32,5 @@ func _process(delta):
 		zoom_level = max_zoom
 	
 	zoom_y_level = 4 + (zoom_level * zoom_y_multiple)
-	var cam_pos = self.global_transform.origin
-	var cam_dest = cam_pos + Vector3(0, zoom_y_level, 0)
-	
-	#print("Zoom level: ", zoom_level, " y-level: ", zoom_y_level)
 	y_offset = lerp(y_offset, zoom_y_level, delta * zoom_speed)
-	
-	#self.set_translation(cam_pos + Vector3(0, y_offset, 0))
 	holder.spring_length = lerp(holder.spring_length, zoom_level, zoom_speed * delta)
-	#holder. = ( Vector3(0, zoom_y_level, 0), zoom_speed * delta)
