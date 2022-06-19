@@ -30,20 +30,21 @@ var vacuum_playing_for:float = 0.0
 const vacuum_play_time:float = 2.0
 
 onready var audio_after_solder = preload("res://Assets/audio/After Solder.wav")
-onready var audio_solder = [
-	preload("res://Assets/audio/Mouth Solder-cm.wav"),
-	preload("res://Assets/audio/Mouth Solder-cm_01.wav")
-	preload("res://Assets/audio/Mouth Solder-cm_02.wav")
-	preload("res://Assets/audio/Mouth Solder-cm_03.wav")
+export(Array, AudioStream) var audio_solder = [
+	preload("res://Assets/audio/Solder 1.wav"),
+	preload("res://Assets/audio/Solder 2.wav")
 ]
-onready var audio_vacuum = preload("res://Assets/audio/CG_Modular_Vaccum.wav")
+
+export(Array, AudioStream) var audio_vacuum = [
+	preload("res://Assets/audio/CG_Modular_Vaccum.wav")
+]
+
 onready var audio_success = preload("res://Assets/audio/CG_GameSound_Puzzle_Solved-01.wav")
 onready var audio_error = preload("res://Assets/audio/alert.wav")
 onready var dust_particles = preload("res://Scenes/particles/CleanParticle.tscn")
 onready var player = find_parent("root").find_node("Player")
 onready var light = find_node("SpotLight")
 onready var audio = find_node("audio_static")
-onready var vacuum_stream = find_node("vacuum_stream")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -52,22 +53,9 @@ onready var vacuum_stream = find_node("vacuum_stream")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	setup_collisions()
-	vacuum_stream.stream = audio_vacuum
-	#vacuum_stream.play(0)
-	vacuum_stream.stream_paused = true
-	
-	
-	
-	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
-	if !vacuum_stream.stream_paused:
-		if vacuum_playing_for >= vacuum_play_time:
-			vacuum_stream.stream_paused = true
-			vacuum_playing_for = 0
-		else:
-			vacuum_playing_for += delta
 	
 	if is_solder_settling:
 		if solder_settling_for >= solder_settle_time:
@@ -188,7 +176,8 @@ func solder():
 		play_sound(audio_after_solder)
 	elif heat < MAX_HEAT:
 		heat += 1
-		play_sound(audio_solder[round(rand_range(0,1))])
+		play_sound(audio_solder[round(
+			rand_range(0,len(audio_solder) - 1))])
 
 func spawn_particle(pos):
 	var dust = dust_particles.instance()
@@ -235,9 +224,8 @@ func turn_off_light():
 	light.visible = false
 
 func indicate_vacuum():
-	vacuum_stream.stream_paused = false
-	vacuum_stream.play(vacuum_stream.get_playback_position())
-	vacuum_playing_for = 0
+	play_sound(audio_vacuum[round(
+			rand_range(0,len(audio_vacuum) - 1))])
 
 func indicate_working():
 	light.light_color = Color(0.7, 1, 0.7)
