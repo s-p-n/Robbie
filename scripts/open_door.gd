@@ -3,6 +3,9 @@ extends RigidBody
 export(String, "X", "Y", "Z") var open_axis = "X"
 export var open_position:float = 0.0
 export(float, 0, 25) var open_speed:float = 0.5
+
+var audio = $audio
+
 var should_open = false
 var should_close = false
 var is_open = false
@@ -83,6 +86,7 @@ func close_door(delta:float):
 	return home_position
 
 func work(new_source):
+	audio.play(0.0)
 	source = new_source
 	should_open = true
 	should_close = false
