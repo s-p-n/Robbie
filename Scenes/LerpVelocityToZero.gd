@@ -2,15 +2,12 @@ extends RigidBody
 onready var start_points = $StartPoints
 onready var end_points = $EndPoints
 onready var power_light = $PowerLight
-onready var audio = get_node_or_null("audio")
+onready var audio = get_node_or_null("play_when_powered")
 onready var wires
 var wires_attached = []
 var is_powered = false
 var is_source
 var power_source = null
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
 
 # Called when the node enters the scene tree for the first time.

@@ -121,7 +121,7 @@ light_color = Color( 0.156863, 0.454902, 0.0235294, 1 )
 light_energy = 1.216
 omni_attenuation = 9.18958
 
-[node name="audio" type="AudioStreamPlayer3D" parent="."]
+[node name="play_when_powered" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.90545, 0 )
 stream = ExtResource( 5 )
 unit_db = 5.0
