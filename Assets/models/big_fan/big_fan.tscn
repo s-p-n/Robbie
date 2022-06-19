@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/fan_spin.gd" type="Script" id=1]
+[ext_resource path="res://Assets/audio/CG_Icy_Wasteland_01.wav" type="AudioStream" id=2]
 
 [sub_resource type="ArrayMesh" id=16]
 resource_name = "bigFan_Cylinder003"
@@ -148,3 +149,10 @@ material/0 = null
 [node name="CollisionShape4" type="CollisionShape" parent="body"]
 transform = Transform( 4.53917, 0, 0, 0, 0.562624, 0, 0, 0, 0.239785, 0.348999, 4.72348, -1.92968 )
 shape = SubResource( 14 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 2 )
+attenuation_model = 2
+max_distance = 26.36
+attenuation_filter_cutoff_hz = 250.0
+attenuation_filter_db = -35.1

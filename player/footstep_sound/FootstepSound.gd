@@ -6,10 +6,7 @@ export (Resource) var footstep_sound3
 export (Resource) var footstep_sound4
 export (Resource) var footstep_sound5
 export (Resource) var footstep_sound6
-export (Resource) var footstep_sound7
-export (Resource) var footstep_sound8
-export (Resource) var footstep_sound9
-export (Resource) var footstep_sound10
+
 
 onready var footstep_sounds = [footstep_sound1, footstep_sound2, footstep_sound3, footstep_sound4, footstep_sound5, footstep_sound6, footstep_sound7, footstep_sound8, footstep_sound9, footstep_sound10]
 

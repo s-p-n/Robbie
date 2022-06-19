@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://player/crosshair/CenterDot.tscn" type="PackedScene" id=2]
@@ -29,6 +29,8 @@
 [ext_resource path="res://Scripts/pause_menu_exit.gd" type="Script" id=27]
 [ext_resource path="res://Assets/images/mouse_directions.png" type="Texture" id=28]
 [ext_resource path="res://Assets/images/keymap.png" type="Texture" id=29]
+[ext_resource path="res://Assets/audio/Ominous Background Track_01-01.wav" type="AudioStream" id=30]
+[ext_resource path="res://Assets/audio/Robbie Music_04.wav" type="AudioStream" id=31]
 
 [sub_resource type="StyleBoxEmpty" id=4]
 
@@ -306,8 +308,9 @@ text = "D"
 [node name="OmniLight" type="OmniLight" parent="Head"]
 transform = Transform( 0.993686, -0.0100615, -0.111745, 0.0593208, 0.892492, 0.447145, 0.095233, -0.450951, 0.887454, 0, 0, 0 )
 layers = 31
-light_color = Color( 1, 1, 0.8, 1 )
-light_indirect_energy = 16.0
+light_color = Color( 0.415686, 0.415686, 0.415686, 1 )
+light_energy = 1.469
+light_indirect_energy = 16.607
 omni_range = 20.5085
 
 [node name="Flashlight" parent="Head" instance=ExtResource( 4 )]
@@ -317,7 +320,9 @@ light_energy = 3.657
 light_size = 0.303
 light_specular = 25.0
 spot_range = 50.0
+spot_attenuation = 2.07053
 spot_angle = 60.6612
+spot_angle_attenuation = 2.07053
 
 [node name="Camera" type="Camera" parent="Head"]
 doppler_tracking = 2
@@ -386,6 +391,16 @@ autoplay = true
 
 [node name="PlacementAudio" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 18 )
+
+[node name="BackgroundAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 30 )
+volume_db = -24.033
+autoplay = true
+
+[node name="MusicAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 31 )
+volume_db = -12.672
+autoplay = true
 
 [connection signal="gui_input" from="Paused" to="Paused" method="_on_Paused_gui_input"]
 [connection signal="gui_input" from="Paused/pause_menu/Continue" to="Paused/pause_menu/Continue" method="_on_Continue_gui_input"]

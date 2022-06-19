@@ -28,5 +28,7 @@ material/0 = ExtResource( 2 )
 transform = Transform( 0.25, 0, 0, 0, -1.09278e-08, -0.05, 0, 0.25, -2.18557e-09, 0, 0, 0 )
 shape = SubResource( 8 )
 
+[node name="audio" type="AudioStreamPlayer3D" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_connection_home_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_connection_home_body_exited"]
