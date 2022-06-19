@@ -394,12 +394,12 @@ stream = ExtResource( 18 )
 
 [node name="BackgroundAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 30 )
-volume_db = -24.033
+volume_db = -15.731
 autoplay = true
 
 [node name="MusicAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 31 )
-volume_db = -12.672
+volume_db = -17.479
 autoplay = true
 
 [connection signal="gui_input" from="Paused" to="Paused" method="_on_Paused_gui_input"]
