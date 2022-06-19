@@ -182,11 +182,12 @@ margin_bottom = 276.0
 text = "Level 3"
 
 [node name="Level4" type="Button" parent="WorkshopCamera/Interfaces/View3"]
+visible = false
 margin_left = 552.0
 margin_top = 320.0
 margin_right = 610.0
 margin_bottom = 340.0
-text = "Level 4"
+text = "Level 4 "
 
 [node name="View4" type="Control" parent="WorkshopCamera/Interfaces"]
 visible = false
