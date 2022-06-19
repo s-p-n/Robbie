@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/models/battery/Material_001.material" type="Material" id=1]
 [ext_resource path="res://Assets/models/battery/Material_002.material" type="Material" id=2]
 [ext_resource path="res://Assets/models/battery/Material.material" type="Material" id=3]
 [ext_resource path="res://Scripts/battery.gd" type="Script" id=4]
+[ext_resource path="res://Assets/audio/CG_Electrical_Noise_Hum.wav" type="AudioStream" id=5]
 [ext_resource path="res://Assets/models/battery/progress_bar_red.tres" type="Material" id=6]
 
 [sub_resource type="ArrayMesh" id=1]
@@ -200,6 +201,7 @@ height = 0.0578669
 depth = 0.0252644
 
 [node name="audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
 pitch_scale = 1.7
 
 [connection signal="body_entered" from="." to="." method="_on_battery_body_entered"]
