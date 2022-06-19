@@ -186,7 +186,6 @@ transform = Transform( 0.78033, -0.624345, -0.0357491, 0.0498269, 0.0050889, 0.9
 stream = ExtResource( 5 )
 attenuation_model = 2
 unit_size = 10.0
-autoplay = true
 emission_angle_enabled = true
 emission_angle_degrees = 30.0
 attenuation_filter_db = -15.6
