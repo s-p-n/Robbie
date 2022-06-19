@@ -9,7 +9,6 @@ onready var blade = find_node("blade")
 export var is_spinning = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print('blade:', blade)
 	pass # Replace with function body.
 
 

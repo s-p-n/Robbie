@@ -90,7 +90,6 @@ func _physics_process(delta):
 	if !tool_menu.visible and Input.is_mouse_button_pressed(BUTTON_LEFT):
 		if time_since_mouse_down >= menu_wait_time:
 			time_since_mouse_down = 0
-			print("showing tool menu")
 			show_tool_menu()
 		time_since_mouse_down += delta
 	if wire_held:
@@ -107,13 +106,11 @@ func _physics_process(delta):
 			pass
 		else:
 			if mouse_visible:
-				#print(mouse_visible)
 				mouse_visible = false
 				pause_screen.visible = false
 				find_parent("Robbie").is_paused = false
 				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			else:
-				#print(mouse_visible)
 				mouse_visible = true
 				pause_screen.visible = true
 				find_parent("Robbie").is_paused = true
@@ -148,49 +145,27 @@ func _physics_process(delta):
 		#	show_tool_menu()
 		
 	if Input.is_action_just_released("leftclick"):
-		
-		var current_position = translation
-		#print("Drawing Intersect Line.\nFrom: ", start_pos.global_transform.origin, "\nTo ", stop_pos.global_transform.origin)
-		var space = get_viewport().world.direct_space_state
-		var results = space.intersect_ray(start_pos.global_transform.origin, stop_pos.global_transform.origin, [self])
-		
 		hide_tool_menu()
-		
-		# Checks for collision data
-		if results:
-			#print(results)
-			pass
-			
 
 		# Picks up object if claw is equipped and there is an object in the collider	
 		if tool_state == hand.CLAW:
 			if held_object:
-				#print("Dropping Held Object")
-				#held_object.mode = RigidBody.MODE_RIGID
 				held_object.set_linear_velocity(Vector3(0,-0.1,0))
 				held_object = null
 			else:
-				print(pickup_ray.get_collider())
 				if pickup_ray.get_collider():
-					#print("Picking up object")
 					held_object = pickup_ray.get_collider()
-					#held_object.mode = RigidBody.MODE_KINEMATIC
 		
 		elif tool_state == hand.BRUSH:
 			var dirty_object = brush_ray.get_collider()
-			print("attempt to clean")
-			print(dirty_object)
 			if dirty_object and dirty_object.has_method("clean"):
 				dirty_object.clean()
 				if dirty_object.get_health() > 0:
 					dirty_object.spawn_particle(brush_ray.get_collision_point())
-					print(brush_ray.get_collision_point())
 		
 		elif tool_state == hand.WIRE:
 			if wire_ray.get_collider():
-				print(wire_ray.get_collider())
 				if wire_held:
-					print("Placing end of wire")
 					# Set wire end point.
 					var wire_index = wires.get_child_count() - 1
 					var wire_end_pos = wire_hold_node.instance()
@@ -201,21 +176,18 @@ func _physics_process(delta):
 					wire_end_pos.transform.origin.x = 0
 					wire_end_pos.transform.origin.z = 0
 					wires.get_child(wire_index).stop_position.global_transform.origin = wire_end_pos.global_transform.origin
-					#print(wire_ray.get_collider().name)
-					#print(wires.get_child(wire_index).stop_position.global_transform.origin,' ',wire_ray.get_collision_point())
 					placement_audio.play()
 					wire_held = false
 				else:
 					var wire_index = wires.get_child_count()
 					# Set position of wire to new child node on pylon
-					print("Placing start of wire.")
-					# Spawn wire`
+					
+					# Spawn wire
 					var new_wire = wire.instance()
 					var wire_start_pos = wire_hold_node.instance()
 					wire_start_pos.index_id = wire_index
 					wire_ray.get_collider().get_parent().get_parent().start_points.add_child(wire_start_pos)
 					wire_start_pos.name = 'WirePositionStart'
-					#print(wire_ray.get_collision_point(), ' ', wire_start_pos.global_transform.origin)
 					wire_start_pos.global_transform.origin = wire_ray.get_collision_point()
 					wire_start_pos.transform.origin.x = 0
 					wire_start_pos.transform.origin.z = 0
@@ -224,13 +196,10 @@ func _physics_process(delta):
 					wire_held = true
 					new_wire.visible = true
 					placement_audio.play()
-					#print(wires.get_child_count())
 		elif tool_state == hand.SOLDER:
 			var solderable_object = solder_ray.get_collider()
-			print("attempt to solder")
-			print(solderable_object)
-			if solderable_object and solderable_object.has_method("heat"):
-				solderable_object.heat()
+			if solderable_object and solderable_object.has_method("solder"):
+				solderable_object.solder()
 				if solderable_object.damage > 0:
 					solderable_object.spawn_particle(brush_ray.get_collision_point())
 
@@ -249,19 +218,15 @@ func hide_tool_menu():
 func handle_tool_menu():
 	if tool_menu.visible:
 		if Input.is_action_just_released("up"):
-			print("Switched to Claw tool")
 			set_tool("claw")
 			hide_tool_menu()
 		elif Input.is_action_just_released("right"):
-			print("Switched to Solder tool")
 			set_tool("solder")
 			hide_tool_menu()
 		elif Input.is_action_just_released("down"):
-			print("Switched to Vacuum tool")
 			set_tool("brush")
 			hide_tool_menu()
 		elif Input.is_action_just_released("left"):
-			print("Switched to Wire tool")
 			set_tool("wire")
 			hide_tool_menu()
 		
@@ -305,12 +270,8 @@ func set_tool(tool_name):
 	elif tool_name.to_lower() == 'wire':
 		tool_state = hand.WIRE
 		tool_label.text = 'Wire'
-	print("Tool State: ", tool_state)
 
 func process_movement(delta):
-	var current_rotation = rotation
-	var current_pos = global_transform.origin #Vector3(global_transform.origin.x, global_transform.origin.y, global_transform.origin.z)
-	#print("global_transform.origin begin: ", current_pos)
 	var moved = false
 	# Look with the right analog of the joystick
 	if Input.get_joy_axis(0, 2) < -joystick_deadzone or Input.get_joy_axis(0, 2) > joystick_deadzone:
@@ -407,9 +368,6 @@ func process_movement(delta):
 		is_moving = true
 	else:
 		is_moving = false
-	#my headset died again
-	#print("current_pos end: ", global_transform.origin)
-	
 
 func land_animation():
 	var movement_y = clamp(falling_velocity, -20, 0) / 40
@@ -452,13 +410,7 @@ func get_wire_position():
 	
 func delete_wire(wire_id):
 	wires.get_child(wire_id).visible = false
-	print("A wire became snagged.")
 		
 func delete_held_wire():
 	velocity.x = 0
 	velocity.z = 0
-	#var wire_index = wires.get_child_count() - 1
-	#wires.get_child(wire_index).visible = false
-	#wire_held = false
-	print("Wire is snagged. Try again.")
-	

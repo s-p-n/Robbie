@@ -30,18 +30,21 @@ var vacuum_playing_for:float = 0.0
 const vacuum_play_time:float = 2.0
 
 onready var audio_after_solder = preload("res://Assets/audio/After Solder.wav")
-onready var audio_solder = [
+export(Array, AudioStream) var audio_solder = [
 	preload("res://Assets/audio/Solder 1.wav"),
 	preload("res://Assets/audio/Solder 2.wav")
 ]
-onready var audio_vacuum = preload("res://Assets/audio/CG_Modular_Vaccum.wav")
+
+export(Array, AudioStream) var audio_vacuum = [
+	preload("res://Assets/audio/CG_Modular_Vaccum.wav")
+]
+
 onready var audio_success = preload("res://Assets/audio/CG_GameSound_Puzzle_Solved-01.wav")
 onready var audio_error = preload("res://Assets/audio/alert.wav")
-onready var dust_particles = preload("res://scenes/particles/CleanParticle.tscn")
+onready var dust_particles = preload("res://Scenes/particles/CleanParticle.tscn")
 onready var player = find_parent("root").find_node("Player")
 onready var light = find_node("SpotLight")
 onready var audio = find_node("audio_static")
-onready var vacuum_stream = find_node("vacuum_stream")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -50,22 +53,9 @@ onready var vacuum_stream = find_node("vacuum_stream")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	setup_collisions()
-	vacuum_stream.stream = audio_vacuum
-	#vacuum_stream.play(0)
-	vacuum_stream.stream_paused = true
-	
-	
-	
-	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
-	if !vacuum_stream.stream_paused:
-		if vacuum_playing_for >= vacuum_play_time:
-			vacuum_stream.stream_paused = true
-			vacuum_playing_for = 0
-		else:
-			vacuum_playing_for += delta
 	
 	if is_solder_settling:
 		if solder_settling_for >= solder_settle_time:
@@ -148,44 +138,37 @@ func repair():
 	if damage > MIN_DAMAGE:
 		var surface = $MeshInstance.get_surface_material(0).duplicate()
 		damage -= 1
-		#print(surface)
-		print("damage: ", damage)
 		indicate_vacuum()
 		surface.roughness = damage / MAX_DAMAGE
 		surface.normal_scale = surface.roughness * 16
 		#surface.albedo_color = Color((35 + ((10 - damage) * 22))/255.0, (25 + ((10 - damage) * 23))/255.0, (25 + ((10 - damage) * 23))/255.0, 1)
 		$MeshInstance.set_surface_material(0, surface)
-		print(surface.roughness)
 		surface = $MeshInstance.get_active_material(0)
 	else:
 		var surface = $MeshInstance.get_active_material(0)
-		print(surface.roughness)
-		print("Cleaned!")
 	setup_collisions()
 
-func heat():
+func solder():
 	setup_collisions()
-	print("connection home: ", connection_home)
 	
 	if connection_home == null:
-		print("No connection to solder to.")
 		return
 	
 	if damage != 0:
 		if is_soldered:
-			print("Soldered in place but damaged, should remove")
+			#Soldered in place but damaged, should remove
 			return
-		print("Too damaged to solder")
+		#Too damaged to solder
 		return
 	
 	if is_soldered:
 		if is_powered:
-			print("Already in place and powered. Should work!")
+			#Already in place and powered. Should work!
 			return
 		else:
-			print("Already in place, you should wire this.")
+			#Already in place, you should wire this.
 			return
-	print("In place, not soldered, not damaged.")
+	#In place, not soldered, not damaged.
 	if heat == MAX_HEAT - 1:
 		heat += 1
 		is_solder_settling = true
@@ -193,13 +176,8 @@ func heat():
 		play_sound(audio_after_solder)
 	elif heat < MAX_HEAT:
 		heat += 1
-		play_sound(audio_solder[round(rand_range(0,1))])
-	
-	#if heat >= MAX_HEAT:
-	#	is_soldered = true
-		#print("Soldered in place")
-	#	setup_collisions()
-	#print("heat: ", heat)
+		play_sound(audio_solder[round(
+			rand_range(0,len(audio_solder) - 1))])
 
 func spawn_particle(pos):
 	var dust = dust_particles.instance()
@@ -214,34 +192,21 @@ func clean ():
 	repair()
 
 func connect_to_home(new_home):
-	print("Connecting to new home: ", new_home)
 	connection_home = new_home
 	setup_collisions()
 
 func disconnect_from_home(old_home):
-	print("Disconnecting from home: ", old_home)
 	if (connection_home == old_home):
 		connection_home = null
-		print("disconnected")
-	else:
-		print("failed to disconnect")
-		print(connection_home)
 	setup_collisions()
 
 func attempt_to_work():
-	print("Capacitor is Attempting to make something work")
-	
 	if connection_home:
 		var obj = get_node(connection_home.connected_object)
-		print("Path to object: ", connection_home.connected_object)
-		print("Object Capacitor should work with: ", obj)
 		if obj and obj.has_method("work"):
-			
 			obj.work(self)
 			indicate_working()
-			print("Obj is now working.")
 		else:
-			print("Invalid connection. Set the 'Connected Object' property of the 'connection_home'. Select the path to the object you want to connect to.")
 			display_error()
 
 func play_sound(stream):
@@ -259,9 +224,8 @@ func turn_off_light():
 	light.visible = false
 
 func indicate_vacuum():
-	vacuum_stream.stream_paused = false
-	vacuum_stream.play(vacuum_stream.get_playback_position())
-	vacuum_playing_for = 0
+	play_sound(audio_vacuum[round(
+			rand_range(0,len(audio_vacuum) - 1))])
 
 func indicate_working():
 	light.light_color = Color(0.7, 1, 0.7)

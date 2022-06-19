@@ -2,7 +2,7 @@ extends RigidBody
 onready var start_points = $StartPoints
 onready var end_points = $EndPoints
 onready var power_light = $PowerLight
-onready var audio = $audio
+onready var audio = get_node_or_null("audio")
 onready var wires
 var wires_attached = []
 var is_powered = false
@@ -22,7 +22,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if is_source:
 		if !power_source or !power_source.is_powered:
 			is_source = false
@@ -31,20 +31,16 @@ func _process(delta):
 	
 	if is_powered:
 		if audio and !audio.loop:
-			print("got power")
 			audio.play_stream()
 		power_light.visible = true
 	else:
 		if audio and audio.loop:
-			print("lost power")
 			audio.stop_stream()
 		power_light.visible = false
 	
 	var new_wires_attached = []
-	#set_linear_velocity(lerp(get_linear_velocity(), Vector3(0,0,0), delta))
 	set_linear_velocity(Vector3(0,0,0))
 	
-	#print('pylon vel: ', get_linear_velocity())
 	var wire_start_points = start_points.get_children()
 	for wire_point in wire_start_points:
 		var wire = wires.get_child(wire_point.index_id)
@@ -69,5 +65,3 @@ func set_power_source(source):
 
 func get_wires():
 	return wires_attached
-	#if len(wires_attached) > 0:
-	#	print(wires_attached)

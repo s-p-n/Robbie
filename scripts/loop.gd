@@ -6,7 +6,7 @@ func _ready():
 	if loop:
 		playing = true
 
-func _process(delta):
+func _process(_delta):
 	if loop and !playing:
 		play(0.0)
 

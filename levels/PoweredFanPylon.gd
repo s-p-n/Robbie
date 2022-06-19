@@ -22,8 +22,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	#print(fan.is_spinning)
+func _process(_delta):
 	if is_source:
 		if !power_source or !power_source.is_powered:
 			is_source = false
@@ -38,10 +37,8 @@ func _process(delta):
 		fan.is_spinning = true
 	
 	var new_wires_attached = []
-	#set_linear_velocity(lerp(get_linear_velocity(), Vector3(0,0,0), delta))
 	set_linear_velocity(Vector3(0,0,0))
 	
-	#print('pylon vel: ', get_linear_velocity())
 	var wire_start_points = start_points.get_children()
 	for wire_point in wire_start_points:
 		var wire = wires.get_child(wire_point.index_id)
@@ -66,5 +63,3 @@ func set_power_source(source):
 
 func get_wires():
 	return wires_attached
-	#if len(wires_attached) > 0:
-	#	print(wires_attached)

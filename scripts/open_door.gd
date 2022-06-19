@@ -25,13 +25,11 @@ func _ready():
 func _process(delta):
 	if should_open:
 		if !is_open:
-			print("opening ", get_target_translation(), " to ", open_position)
 			handle_work(delta)
 		else:
 			should_open = false
 	elif should_close:
 		if !is_closed:
-			print("closing ", delta)
 			handle_work_hault(delta)
 	
 	if (!source or !source.is_home):
@@ -61,7 +59,6 @@ func open_door(delta:float):
 		if cur > (open_position + threshold):
 			return lerp(cur, open_position, delta * open_speed)
 		else:
-			print("door open")
 			is_open = true
 	else:
 		#print(cur, " < ", open_position - threshold, " ", cur < (open_position - threshold))
@@ -77,7 +74,6 @@ func close_door(delta:float):
 		if cur < (home_position - threshold):
 			return lerp(cur, home_position, delta * open_speed)
 		else:
-			print("door closed")
 			is_closed = true
 	else:
 		if cur > (home_position + threshold):
@@ -87,8 +83,6 @@ func close_door(delta:float):
 	return home_position
 
 func work(new_source):
-	print("Hey I'm a door!!")
-	print("Door has source: ", new_source)
 	source = new_source
 	should_open = true
 	should_close = false

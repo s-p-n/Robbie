@@ -48,7 +48,6 @@ func restart_level():
 	load_level(cur_level)
 
 func next_level():
-	print("switching to level after this one: ", cur_level)
 	if cur_level == 'workshop':
 		cur_level = 'level1'
 	elif cur_level == 'level1':
@@ -59,7 +58,6 @@ func next_level():
 		cur_level = 'level4'
 	elif cur_level == 'level4':
 		cur_level = 'workshop'
-	print("next level is: ", cur_level)
 	load_level(cur_level)
 
 func load_level(level_name):
