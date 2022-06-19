@@ -388,18 +388,21 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.621345, 1.02263, -0.847026 
 
 [node name="WireReelAudio" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 17 )
+volume_db = -7.866
 autoplay = true
 
 [node name="PlacementAudio" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 18 )
+volume_db = -9.614
 
 [node name="BackgroundAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 30 )
+volume_db = -18.79
 autoplay = true
 
 [node name="MusicAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 31 )
-volume_db = -10.0
+volume_db = -19.22
 autoplay = true
 
 [node name="FootstepSound" parent="." instance=ExtResource( 32 )]
