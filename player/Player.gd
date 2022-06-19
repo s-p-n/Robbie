@@ -39,8 +39,8 @@ export var update_pos_time = .5
 
 # COLLISION LAYERS FOR EACH ITEM
 # Claw   = 4   Wire  = 6
-# Solder = 7   Brush = 5
-enum hand {CLAW, WIRE, SOLDER, BRUSH}
+# Solder = 7   Vacuum = 5
+enum hand {CLAW, WIRE, SOLDER, VACUUM}
 var tool_state = hand.CLAW
 var mouse_visible
 
@@ -52,7 +52,7 @@ var falling_velocity = 0
 onready	var start_pos = $Head/Camera/PositionStart
 onready	var stop_pos = $Head/Camera/PositionStop
 onready var pickup_ray = $Head/PickupRay
-onready var brush_ray = $Head/BrushRay
+onready var vacuum_ray = $Head/VacuumRay
 onready var wire_ray = $Head/WireRay
 onready var solder_ray = $Head/SolderRay
 onready var wire_position = $WirePosition
@@ -156,12 +156,12 @@ func _physics_process(delta):
 				if pickup_ray.get_collider():
 					held_object = pickup_ray.get_collider()
 		
-		elif tool_state == hand.BRUSH:
-			var dirty_object = brush_ray.get_collider()
+		elif tool_state == hand.VACUUM:
+			var dirty_object = vacuum_ray.get_collider()
 			if dirty_object and dirty_object.has_method("clean"):
 				dirty_object.clean()
 				if dirty_object.get_health() > 0:
-					dirty_object.spawn_particle(brush_ray.get_collision_point())
+					dirty_object.spawn_particle(vacuum_ray.get_collision_point())
 		
 		elif tool_state == hand.WIRE:
 			if wire_ray.get_collider():
@@ -201,7 +201,7 @@ func _physics_process(delta):
 			if solderable_object and solderable_object.has_method("solder"):
 				solderable_object.solder()
 				if solderable_object.damage > 0:
-					solderable_object.spawn_particle(brush_ray.get_collision_point())
+					solderable_object.spawn_particle(vacuum_ray.get_collision_point())
 
 func show_tool_menu():
 	#mouse_visible = true
@@ -236,7 +236,7 @@ func look_for_interactables():
 		pickup_ray.get_collider(),
 		wire_ray.get_collider(),
 		solder_ray.get_collider(),
-		brush_ray.get_collider()
+		vacuum_ray.get_collider()
 	]
 	
 func setup_interactable_notice(interactables):
@@ -247,10 +247,10 @@ func setup_interactable_notice(interactables):
 	var can_grab = !!interactables[0]
 	var can_wire = !!interactables[1]
 	var can_solder = !!interactables[2]
-	var can_brush = !!interactables[3]
+	var can_vacuum = !!interactables[3]
 	
 	var interacting = held_object
-	if (not interacting) and (can_grab or can_wire or can_solder or can_brush):
+	if (not interacting) and (can_grab or can_wire or can_solder or can_vacuum):
 		looking_at_interactable = true
 		interactable_notice.visible = true
 	else:
@@ -261,9 +261,9 @@ func set_tool(tool_name):
 	if tool_name.to_lower() == 'claw':
 		tool_state = hand.CLAW
 		tool_label.text = 'Claw'
-	elif tool_name.to_lower() == 'brush':
-		tool_state = hand.BRUSH
-		tool_label.text = 'Brush'
+	elif tool_name.to_lower() == 'vacuum':
+		tool_state = hand.VACUUM
+		tool_label.text = 'Vacuum'
 	elif tool_name.to_lower() == 'solder':
 		tool_state = hand.SOLDER
 		tool_label.text = 'Solder'
@@ -399,8 +399,8 @@ func _on_ClawButton_button_down():
 func _on_WireButton_button_down():
 	set_tool('wire')
 
-func _on_BrushButton_button_down():
-	set_tool('brush')
+func _on_VacuumButton_button_down():
+	set_tool('vacuum')
 
 func _on_SolderButton_button_down():
 	set_tool('solder')

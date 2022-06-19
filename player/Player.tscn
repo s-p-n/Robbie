@@ -238,7 +238,7 @@ margin_bottom = 218.354
 rect_rotation = -100.259
 text = "Wire"
 
-[node name="BrushButton" type="TextureButton" parent="Head/ToolMenu"]
+[node name="VacuumButton" type="TextureButton" parent="Head/ToolMenu"]
 margin_left = 150.0
 margin_top = 156.0
 margin_right = 370.0
@@ -248,7 +248,7 @@ texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 14 )
 texture_hover = ExtResource( 15 )
 
-[node name="BrushLabel" type="Label" parent="Head/ToolMenu"]
+[node name="VacuumLabel" type="Label" parent="Head/ToolMenu"]
 margin_left = 154.149
 margin_top = 261.63
 margin_right = 205.149
@@ -282,7 +282,7 @@ margin_bottom = 65.6189
 rect_rotation = -44.9999
 text = "W"
 
-[node name="BrushKeyLabel" type="Label" parent="Head/ToolMenu"]
+[node name="VacuumKeyLabel" type="Label" parent="Head/ToolMenu"]
 margin_left = 236.173
 margin_top = 241.831
 margin_right = 250.173
@@ -345,7 +345,7 @@ transform = Transform( 1, 0, 0, 0, -1.74846e-07, -1, 0, 3.01653, -3.29641e-08, 0
 enabled = true
 collision_mask = 8
 
-[node name="BrushRay" type="RayCast" parent="Head"]
+[node name="VacuumRay" type="RayCast" parent="Head"]
 transform = Transform( 1, 0, 0, 0, -1.31877e-07, -1, 0, 3.017, -4.37114e-08, 0, 0.00108147, -0.00108147 )
 enabled = true
 collision_mask = 16
@@ -412,5 +412,5 @@ autoplay = true
 [connection signal="gui_input" from="Paused/Exit" to="Paused/Exit" method="_on_Exit_gui_input"]
 [connection signal="button_down" from="Head/ToolMenu/ClawButton" to="." method="_on_ClawButton_button_down"]
 [connection signal="button_down" from="Head/ToolMenu/WireButton" to="." method="_on_WireButton_button_down"]
-[connection signal="button_down" from="Head/ToolMenu/BrushButton" to="." method="_on_BrushButton_button_down"]
+[connection signal="button_down" from="Head/ToolMenu/VacuumButton" to="." method="_on_BrushButton_button_down"]
 [connection signal="button_down" from="Head/ToolMenu/SolderButton" to="." method="_on_SolderButton_button_down"]

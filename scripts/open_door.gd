@@ -4,8 +4,8 @@ export(String, "X", "Y", "Z") var open_axis = "X"
 export var open_position:float = 0.0
 export(float, 0, 25) var open_speed:float = 0.5
 
-onready var audio_open = get_node("../DoorOpen")
-onready var audio_close = get_node("../DoorClose")
+onready var audio_open = get_node("../doorOpen")
+onready var audio_close = get_node("../doorClose")
 
 var should_open = false
 var should_close = false

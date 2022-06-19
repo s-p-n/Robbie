@@ -8,7 +8,7 @@ const MIN_HEAT:int = 0
 
 const LAYER_BIT_OBSTICLE = 1
 const LAYER_BIT_CLAW = 4
-const LAYER_BIT_BRUSH = 5
+const LAYER_BIT_VACUUM = 5
 const LAYER_BIT_SOLDER = 7
 
 export(int, 0, 10) var damage = 1
@@ -114,7 +114,7 @@ func setup_collisions():
 		if is_soldered:
 			active_layers.append(LAYER_BIT_SOLDER)
 		else:
-			active_layers.append(LAYER_BIT_BRUSH)
+			active_layers.append(LAYER_BIT_VACUUM)
 	elif !is_soldered: # if has no damage and is not soldered in place
 		active_layers.append(LAYER_BIT_SOLDER)
 	else: # if it is soldered in place and has no damage
