@@ -104,7 +104,7 @@ omni_attenuation = 9.18958
 [node name="play_when_powered" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.90545, 0 )
 stream = ExtResource( 5 )
-unit_db = 5.0
+unit_db = 4.292
 unit_size = 25.0
 max_distance = 25.0
 script = ExtResource( 4 )

@@ -182,8 +182,11 @@ material/0 = null
 [node name="EndPoints" type="Spatial" parent="."]
 
 [node name="Sound" type="AudioStreamPlayer3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.91139, 3.15701, 0.590887 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.91139, 3.15701, 0.997903 )
 stream = ExtResource( 5 )
+attenuation_model = 2
+emission_angle_degrees = 0.1
+attenuation_filter_db = -15.6
 script = ExtResource( 6 )
 loop = true
 
