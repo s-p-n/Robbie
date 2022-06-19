@@ -155,6 +155,7 @@ rect_scale = Vector2( 0.970524, 0.964772 )
 texture = ExtResource( 7 )
 
 [node name="View3" type="Control" parent="WorkshopCamera/Interfaces"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -208,7 +209,11 @@ Peter
 Dillon
 
 ---MODELS---
-Victor"
+Victor
+
+---SPECIAL THANKS---
+www.freepbr.com
+www.polyhaven.com"
 align = 1
 valign = 1
 
