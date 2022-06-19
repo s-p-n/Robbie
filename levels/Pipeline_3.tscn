@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Assets/models/big_fan/big_fan.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
@@ -11,8 +11,20 @@
 [ext_resource path="res://Assets/models/circuit_board/circuit_board.obj" type="ArrayMesh" id=9]
 [ext_resource path="res://Assets/audio/CG_Creepy_Electrical_Ambience.wav" type="AudioStream" id=10]
 [ext_resource path="res://Assets/models/circuit_board/circuit-board-low.tres" type="Material" id=11]
+[ext_resource path="res://Scripts/open_door.gd" type="Script" id=12]
+[ext_resource path="res://Assets/models/connection_home/connection_home.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/models/capacitor/capacitor.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Assets/audio/CG_Door_Close.wav" type="AudioStream" id=15]
+[ext_resource path="res://Assets/audio/CG_Door_Open.wav" type="AudioStream" id=16]
+[ext_resource path="res://levels/win_level_3.gd" type="Script" id=17]
 
-[sub_resource type="ConvexPolygonShape" id=1]
+[sub_resource type="ConcavePolygonShape" id=1]
+data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.133333, 0.709804, 0.0666667, 1 )
+
+[sub_resource type="ConvexPolygonShape" id=4]
 points = PoolVector3Array( -16, 0, -16, -16, 0.25, -16, 16, 0, -16, -16, 0, 16, -16, 0.25, 16, 16, 0.25, -16, 16, 0, 16, 16, 0.25, 16 )
 
 [sub_resource type="ConcavePolygonShape" id=2]
@@ -21,16 +33,40 @@ data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4
 [node name="Level2" type="Spatial"]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9891, 1.79444, 50.6716 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5532, 1.79444, 52.3225 )
 
 [node name="test2" type="Spatial" parent="."]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 24, 0, 90 )
+
+[node name="capacitor" parent="test2" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8147e-06, 2.05808, 39.2019 )
 
 [node name="block-441-wall" parent="test2" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 4, 45 )
 
 [node name="block-441-wall15" parent="test2" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, 45 )
+
+[node name="block-441-wall20" type="RigidBody" parent="test2"]
+transform = Transform( 1, -8.74228e-08, 8.74228e-08, 8.74228e-08, -4.37114e-08, -1, 8.74228e-08, 1, -4.37114e-08, 12.3251, -1.18455, 55.9576 )
+contacts_reported = 4
+contact_monitor = true
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource( 17 )
+
+[node name="block-441" type="MeshInstance" parent="test2/block-441-wall20"]
+transform = Transform( 3.5, 5.73206e-15, 2.18557e-07, 2.448e-15, 2.5, -6.55671e-08, 2.18557e-07, -6.55671e-08, 1, 0, 0, 0 )
+mesh = ExtResource( 8 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="test2/block-441-wall20"]
+transform = Transform( 3.5, 5.73206e-15, 2.18557e-07, 2.448e-15, 2.5, -6.55671e-08, 2.18557e-07, -6.55671e-08, 1, 0, 0, 0 )
+shape = SubResource( 1 )
 
 [node name="block-441-wall2" parent="test2" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4, 45 )
@@ -125,8 +161,36 @@ autoplay = true
 max_distance = 30.0
 doppler_tracking = 1
 
-[node name="block-441-wall19" parent="test2" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8503, 4, 45 )
+[node name="connection_home" parent="test2" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39005, 0.472353, 42.6053 )
+contacts_reported = 3
+connected_object = NodePath("../block-441-wall19")
+
+[node name="block-441-wall19" type="RigidBody" parent="test2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 4, 45 )
+mode = 1
+script = ExtResource( 12 )
+open_position = 8.1
+
+[node name="block-441" type="MeshInstance" parent="test2/block-441-wall19"]
+transform = Transform( 0.5, 0, 2.62268e-08, 0, 1, 0, 2.62268e-08, 0, 0.2, 0, 0, 0 )
+material_override = SubResource( 3 )
+mesh = ExtResource( 8 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="test2/block-441-wall19"]
+transform = Transform( 0.5, 0, 2.62268e-08, 0, 1, 0, 2.62268e-08, 0, 0.2, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="doorOpen" type="AudioStreamPlayer3D" parent="test2"]
+stream = ExtResource( 16 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="doorClose" type="AudioStreamPlayer3D" parent="test2"]
+stream = ExtResource( 15 )
+unit_size = 7.6
+max_db = 1.0
 
 [node name="Pipe" type="Spatial" parent="."]
 
@@ -150,7 +214,7 @@ material/0 = ExtResource( 11 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Pipe/circuit-board6"]
 transform = Transform( 1, 0, 0, 0, 1, 0, -7.10543e-15, 0, 1, 0, 0, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 4 )
 
 [node name="block-441-wall12" parent="Pipe" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 1.74846e-07, 0, 7.686, 0, -1.74846e-07, 0, 1, 38.1815, 17.3324, 81.2066 )
@@ -240,7 +304,7 @@ material/0 = ExtResource( 11 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Pipe/circuit-board10"]
 transform = Transform( 1, 0, 0, 0, 1, 0, -7.10543e-15, 0, 1, 0, 0, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 4 )
 
 [node name="block-441-wall31" parent="Pipe" instance=ExtResource( 5 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 7.686, 0, 8.74228e-08, 0, -1, 11.8508, 17.8559, 81.1103 )
@@ -260,7 +324,7 @@ material/0 = ExtResource( 11 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Pipe/circuit-board12"]
 transform = Transform( 1, 0, 0, -8.00342e-30, 1, -6.31089e-30, -1.42109e-14, 0, 1, 0, 0, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 4 )
 
 [node name="capacitor13" parent="Pipe" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 31.651, 18.6416, 111.818 )
@@ -277,7 +341,7 @@ material/0 = ExtResource( 11 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Pipe/circuit-board13"]
 transform = Transform( 1, 0, 0, 0, 1, 0, -7.10543e-15, 0, 1, 0, 0, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 4 )
 
 [node name="block-441-wall32" parent="Pipe" instance=ExtResource( 5 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1.35274, 0, -1, 0, -4.37114e-08, 49.2343, 13.1366, 108.207 )
@@ -410,3 +474,5 @@ transform = Transform( 1.19249e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, -1
 
 [node name="capacitor40" parent="Pipe" instance=ExtResource( 7 )]
 transform = Transform( 1.19249e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, -1.19249e-08, -5.21253e-16, 24.3937, 40.4552, 86.5222 )
+
+[connection signal="body_entered" from="test2/block-441-wall20" to="test2/block-441-wall20" method="_on_block441wall20_body_entered"]
