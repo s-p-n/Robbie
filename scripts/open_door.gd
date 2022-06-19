@@ -4,7 +4,7 @@ export(String, "X", "Y", "Z") var open_axis = "X"
 export var open_position:float = 0.0
 export(float, 0, 25) var open_speed:float = 0.5
 
-var audio = $audio
+onready var audio = $audio
 
 var should_open = false
 var should_close = false
