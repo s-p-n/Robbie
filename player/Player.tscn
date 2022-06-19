@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://player/crosshair/CenterDot.tscn" type="PackedScene" id=2]
@@ -20,21 +20,10 @@
 [ext_resource path="res://Assets/sounds/install.wav" type="AudioStream" id=18]
 [ext_resource path="res://Assets/images/interactable.png" type="Texture" id=19]
 [ext_resource path="res://Assets/themes/panel_theme.tres" type="Theme" id=20]
-[ext_resource path="res://Assets/themes/large_button.tres" type="Theme" id=21]
-[ext_resource path="res://Scripts/pause_menu_continue.gd" type="Script" id=22]
-[ext_resource path="res://singletons/Pause.gd" type="Script" id=23]
-[ext_resource path="res://Assets/themes/big_button_font.tres" type="Theme" id=24]
-[ext_resource path="res://Scripts/pause_menu_restart.gd" type="Script" id=25]
-[ext_resource path="res://Scripts/pause_menu_skip.gd" type="Script" id=26]
-[ext_resource path="res://Scripts/pause_menu_exit.gd" type="Script" id=27]
-[ext_resource path="res://Assets/images/mouse_directions.png" type="Texture" id=28]
-[ext_resource path="res://Assets/images/keymap.png" type="Texture" id=29]
 [ext_resource path="res://Assets/audio/Ominous Background Track_01-01.wav" type="AudioStream" id=30]
 [ext_resource path="res://Assets/audio/Robbie Music_04.wav" type="AudioStream" id=31]
 [ext_resource path="res://player/footstep_sound/FootstepSound.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Assets/audio/Cut_01-01.wav" type="AudioStream" id=33]
-
-[sub_resource type="StyleBoxEmpty" id=4]
 
 [sub_resource type="BoxShape" id=3]
 
@@ -52,113 +41,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
-
-[node name="Paused" type="Control" parent="."]
-pause_mode = 2
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.002
-margin_right = -1.0
-margin_bottom = -0.200073
-theme = ExtResource( 20 )
-script = ExtResource( 23 )
-
-[node name="pause_btn" type="Panel" parent="Paused"]
-pause_mode = 2
-margin_left = 441.0
-margin_top = 223.0
-margin_right = 583.0
-margin_bottom = 272.0
-
-[node name="Label" type="Label" parent="Paused/pause_btn"]
-pause_mode = 2
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = 1.0
-text = "Paused"
-align = 1
-valign = 1
-
-[node name="pause_menu" type="Panel" parent="Paused"]
-pause_mode = 2
-margin_left = 35.0
-margin_top = 57.0
-margin_right = 418.0
-margin_bottom = 565.0
-theme = ExtResource( 21 )
-
-[node name="Continue" type="Label" parent="Paused/pause_menu"]
-pause_mode = 2
-anchor_right = 1.0
-anchor_bottom = 0.264
-margin_right = 1.0
-margin_bottom = 0.0319977
-mouse_filter = 0
-mouse_default_cursor_shape = 2
-theme = ExtResource( 24 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_x = 3
-custom_constants/shadow_offset_y = 3
-custom_constants/shadow_as_outline = 5
-custom_styles/normal = SubResource( 4 )
-text = "Continue"
-align = 1
-valign = 1
-script = ExtResource( 22 )
-
-[node name="Restart" type="Label" parent="Paused/pause_menu"]
-pause_mode = 2
-anchor_top = 0.275
-anchor_right = 1.0
-anchor_bottom = 0.539
-margin_top = 41.3
-margin_right = 1.0
-margin_bottom = 41.332
-mouse_filter = 0
-mouse_default_cursor_shape = 2
-text = "Restart Level"
-align = 1
-valign = 1
-script = ExtResource( 25 )
-
-[node name="Skip" type="Label" parent="Paused/pause_menu"]
-pause_mode = 2
-anchor_top = 0.554
-anchor_right = 1.0
-anchor_bottom = 0.818
-margin_top = 93.568
-margin_right = 1.0
-margin_bottom = 93.6
-mouse_filter = 0
-mouse_default_cursor_shape = 2
-input_pass_on_modal_close_click = false
-text = "Skip  to Next Level"
-align = 1
-valign = 1
-script = ExtResource( 26 )
-
-[node name="Exit" type="Panel" parent="Paused"]
-margin_left = 868.0
-margin_top = 14.0
-margin_right = 998.0
-margin_bottom = 75.0
-mouse_default_cursor_shape = 2
-script = ExtResource( 27 )
-
-[node name="Exit" type="Label" parent="Paused/Exit"]
-margin_left = 42.0
-margin_top = 21.0
-margin_right = 87.0
-margin_bottom = 45.0
-text = "Exit"
-
-[node name="MouseDirections" type="Sprite" parent="Paused"]
-position = Vector2( 730, 143 )
-texture = ExtResource( 28 )
-
-[node name="Keymap" type="Sprite" parent="Paused"]
-position = Vector2( 728, 438 )
-texture = ExtResource( 29 )
 
 [node name="Head" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0 )
@@ -401,21 +283,16 @@ stream = ExtResource( 33 )
 
 [node name="BackgroundAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 30 )
-volume_db = -18.79
+volume_db = -7.0
 autoplay = true
 
 [node name="MusicAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 31 )
-volume_db = -19.22
+volume_db = -5.0
 autoplay = true
 
 [node name="FootstepSound" parent="." instance=ExtResource( 32 )]
 
-[connection signal="gui_input" from="Paused" to="Paused" method="_on_Paused_gui_input"]
-[connection signal="gui_input" from="Paused/pause_menu/Continue" to="Paused/pause_menu/Continue" method="_on_Continue_gui_input"]
-[connection signal="gui_input" from="Paused/pause_menu/Restart" to="Paused/pause_menu/Restart" method="_on_Restart_gui_input"]
-[connection signal="gui_input" from="Paused/pause_menu/Skip" to="Paused/pause_menu/Skip" method="_on_Skip_gui_input"]
-[connection signal="gui_input" from="Paused/Exit" to="Paused/Exit" method="_on_Exit_gui_input"]
 [connection signal="button_down" from="Head/ToolMenu/ClawButton" to="." method="_on_ClawButton_button_down"]
 [connection signal="button_down" from="Head/ToolMenu/WireButton" to="." method="_on_WireButton_button_down"]
 [connection signal="button_down" from="Head/ToolMenu/VacuumButton" to="." method="_on_BrushButton_button_down"]

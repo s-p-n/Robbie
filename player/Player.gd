@@ -1,15 +1,16 @@
 extends KinematicBody
 
 export var menu_wait_time:float = 0.25
-
 onready var tool_menu = $Head/ToolMenu
 onready var tool_label = $Head/ToolPanel/ToolLabel
-onready var pause_screen = $Paused
+onready var pause_screen = get_tree().root.find_node("Paused")
 onready var wire_reel_audio = $Sounds/WireReelAudio
 onready var placement_audio = $Sounds/PlacementAudio
 onready var clip_wire_audio = $Sounds/WireCutAudio
 var wire_hold_node = preload("res://Scenes/wires/WirePosition.tscn")
 
+const wire_max_health = 3
+var wire_health = wire_max_health
 
 var wire_held = false
 var mouse_sensitivity = 1
@@ -17,7 +18,7 @@ var joystick_deadzone = 0.2
 var looking_at_interactable = false
 # Movement
 var is_moving = false
-var run_speed = 16 # Running speed in m/s
+var run_speed = 8 # Running speed in m/s
 # Walk speed is actually run. Because peter said so.
 var walk_speed = run_speed * 2
 var crouch_speed = run_speed / 3
@@ -414,5 +415,21 @@ func delete_wire(wire_id):
 	wires.get_child(wire_id).visible = false
 		
 func delete_held_wire():
-	velocity.x = 0
-	velocity.z = 0
+	print("wire hp: ", wire_health)
+	wire_health -= 1
+	if wire_health <= 0:
+		wire_health = wire_max_health
+		var wire_index = wires.get_child_count() - 1
+		var wire_end_pos = wire_hold_node.instance()
+		var wire = wires.get_child(wire_index)
+		wire_end_pos.index_id = wire_index
+		wire_end_pos.global_transform.origin = global_transform.origin
+		wire_end_pos.transform.origin.x = 0
+		wire_end_pos.transform.origin.z = 0
+		wire.stop_position.global_transform.origin = wire_end_pos.global_transform.origin
+		wire_held = false
+		clip_wire_audio.play(0)
+		wire.visible = false
+	else:
+		velocity.x = 0
+		velocity.z = 0
