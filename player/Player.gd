@@ -224,7 +224,7 @@ func handle_tool_menu():
 			set_tool("solder")
 			hide_tool_menu()
 		elif Input.is_action_just_released("down"):
-			set_tool("brush")
+			set_tool("vacuum")
 			hide_tool_menu()
 		elif Input.is_action_just_released("left"):
 			set_tool("wire")
