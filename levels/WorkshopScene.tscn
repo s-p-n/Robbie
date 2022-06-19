@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/workshop_camera/InputListener.gd" type="Script" id=1]
 [ext_resource path="res://Assets/textures/painted-metal-shed.tres" type="Material" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/images/page1.png" type="Texture" id=6]
 [ext_resource path="res://Assets/images/page2.png" type="Texture" id=7]
 [ext_resource path="res://levels/ButtonManager.gd" type="Script" id=8]
+[ext_resource path="res://Assets/sounds/robiesong.mp3" type="AudioStream" id=9]
 [ext_resource path="res://levels/PylonManager.gd" type="Script" id=11]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -201,21 +202,26 @@ custom_styles/normal = SubResource( 1 )
 text = "ROBBIE THE GAME
 Official Credits
 
----PROGRAMMING---
-Spencer
-Peter
-
 ---AUDIO---
 Dillon
 
 ---MODELS---
 Victor
 
+---PROGRAMMING---
+Spencer
+Peter
+
 ---SPECIAL THANKS---
 www.freepbr.com
 www.polyhaven.com"
 align = 1
 valign = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -15.0
+autoplay = true
 
 [connection signal="pressed" from="WorkshopCamera/Interfaces/View3/Level1" to="." method="_on_Level1_pressed"]
 [connection signal="pressed" from="WorkshopCamera/Interfaces/View3/Level2" to="." method="_on_Level2_pressed"]

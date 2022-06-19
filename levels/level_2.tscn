@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=2]
+[gd_scene load_steps=83 format=2]
 
 [ext_resource path="res://Assets/models/capacitor/capacitor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/PylonPositioner.gd" type="Script" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Assets/models/battery/battery.tscn" type="PackedScene" id=21]
 [ext_resource path="res://levels/FanInputCheckInverse.gd" type="Script" id=22]
 [ext_resource path="res://Assets/models/block-441/block-441.obj" type="ArrayMesh" id=23]
+[ext_resource path="res://levels/win_level_2.gd" type="Script" id=24]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -285,6 +286,9 @@ surfaces/0 = {
 
 [sub_resource type="ConcavePolygonShape" id=38]
 data = PoolVector3Array( -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, -1, 1, -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, -1, -1, -1, 1, 1, -1, 1, -1, 1, -1, 1, 1, 1, -1, 1, 1 )
+
+[sub_resource type="BoxShape" id=67]
+extents = Vector3( 0.999901, 1, 1 )
 
 [node name="WorkshopScene" type="Spatial"]
 
@@ -863,9 +867,6 @@ material/0 = SubResource( 65 )
 transform = Transform( 0.673154, 0, -1.10401e-08, 0, 0.984349, 0, 2.761e-08, 0, 0.269167, -2.0458, 0, -2.38419e-07 )
 shape = SubResource( 66 )
 
-[node name="Source3" parent="Pylons" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.97999, 0.488837, -12.2898 )
-
 [node name="Objects" type="Spatial" parent="."]
 
 [node name="Walls" type="Spatial" parent="Objects"]
@@ -1376,7 +1377,7 @@ transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 31.5966
 connected_object = NodePath("../../Pylons/BatteryPylon")
 
 [node name="capacitor2" parent="Objects" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5054, 1.90084, 21.5023 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.4574, 1.15017, -2.69428 )
 
 [node name="StaticCapacitors" type="Spatial" parent="Objects"]
 
@@ -1483,3 +1484,13 @@ shape = SubResource( 38 )
 
 [node name="battery" parent="Objects" instance=ExtResource( 21 )]
 transform = Transform( -0.699027, 0, -0.715095, 0, 1, 0, 0.715095, 0, -0.699027, -18.9128, 2.13243, 27.5946 )
+
+[node name="Area" type="Area" parent="Objects"]
+transform = Transform( 1.01417, 0, 0, 0, 1, 0, 0, 0, 5.34547, 13.6126, 2.82512, 26.4248 )
+script = ExtResource( 24 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Area"]
+transform = Transform( 8.79213, 0, 0, 0, 4.31011, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 67 )
+
+[connection signal="body_entered" from="Objects/Area" to="Objects/Area" method="_on_Area_body_entered"]
