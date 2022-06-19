@@ -402,7 +402,7 @@ autoplay = true
 
 [node name="MusicAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 31 )
-volume_db = -19.227
+volume_db = -19.22
 autoplay = true
 
 [node name="FootstepSound" parent="." instance=ExtResource( 32 )]
