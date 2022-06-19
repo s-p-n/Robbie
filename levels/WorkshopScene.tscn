@@ -270,5 +270,8 @@ shadow_bias = 0.578
 shadow_reverse_cull_face = true
 omni_range = 26.8498
 
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.650191, -0.379885, 0.657981, -0.0106346, 0.86139, 0.507833, -0.759696, -0.337186, 0.556028, 154.921, 25.5002, 242.717 )
+
 [connection signal="body_entered" from="Objects/connection_home4" to="Objects/connection_home4" method="_on_connection_home_body_entered"]
 [connection signal="body_exited" from="Objects/connection_home4" to="Objects/connection_home4" method="_on_connection_home_body_exited"]
