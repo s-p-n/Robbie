@@ -1,5 +1,7 @@
 extends AudioStreamPlayer3D
 
+export(Array, AudioStream) var sounds = []
+
 export var loop = false
 
 func _ready():
