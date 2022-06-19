@@ -11,6 +11,9 @@ height = 1.62409
 
 [node name="capacitor" type="RigidBody"]
 gravity_scale = 7.0
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 script = ExtResource( 1 )
 damage = 10
 
