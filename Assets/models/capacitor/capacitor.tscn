@@ -1,9 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/breakable.gd" type="Script" id=1]
 [ext_resource path="res://Assets/textures/aluminum-scuffed.tres" type="Material" id=2]
 [ext_resource path="res://Assets/models/capacitor/Material_001.material" type="Material" id=3]
 [ext_resource path="res://Assets/models/capacitor/capacitor.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://Assets/audio/CG_Modular_Vaccum-cm_02.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/audio/CG_Modular_Vaccum-cm_01.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/audio/CG_Modular_Vaccum-cm_03.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/audio/CG_Modular_Vaccum_01.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/audio/CG_Modular_Vaccum-cm.wav" type="AudioStream" id=9]
 
 [sub_resource type="CylinderShape" id=1]
 radius = 1.02487
@@ -15,7 +20,8 @@ axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource( 1 )
-damage = 10
+heat = 2
+audio_vacuum = [ ExtResource( 9 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ) ]
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = ExtResource( 4 )
@@ -37,7 +43,7 @@ spot_range = 25.0
 spot_angle = 38.33
 
 [node name="audio_static" type="AudioStreamPlayer" parent="."]
-volume_db = -10.487
+volume_db = -3.436
 
 [node name="vacuum_stream" type="AudioStreamPlayer" parent="."]
 volume_db = -5.244

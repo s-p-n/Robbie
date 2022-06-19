@@ -7,6 +7,7 @@ onready var tool_label = $Head/ToolPanel/ToolLabel
 onready var pause_screen = $Paused
 onready var wire_reel_audio = $Sounds/WireReelAudio
 onready var placement_audio = $Sounds/PlacementAudio
+onready var clip_wire_audio = $Sounds/WireCutAudio
 var wire_hold_node = preload("res://Scenes/wires/WirePosition.tscn")
 
 
@@ -409,6 +410,7 @@ func get_wire_position():
 	return wire_position.global_transform.origin
 	
 func delete_wire(wire_id):
+	clip_wire_audio.play(0)
 	wires.get_child(wire_id).visible = false
 		
 func delete_held_wire():
