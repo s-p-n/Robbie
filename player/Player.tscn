@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://player/crosshair/CenterDot.tscn" type="PackedScene" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://Assets/images/keymap.png" type="Texture" id=29]
 [ext_resource path="res://Assets/audio/Ominous Background Track_01-01.wav" type="AudioStream" id=30]
 [ext_resource path="res://Assets/audio/Robbie Music_04.wav" type="AudioStream" id=31]
+[ext_resource path="res://player/footstep_sound/FootstepSound.tscn" type="PackedScene" id=32]
 
 [sub_resource type="StyleBoxEmpty" id=4]
 
@@ -401,6 +402,8 @@ autoplay = true
 stream = ExtResource( 31 )
 volume_db = -17.479
 autoplay = true
+
+[node name="FootstepSound" parent="." instance=ExtResource( 32 )]
 
 [connection signal="gui_input" from="Paused" to="Paused" method="_on_Paused_gui_input"]
 [connection signal="gui_input" from="Paused/pause_menu/Continue" to="Paused/pause_menu/Continue" method="_on_Continue_gui_input"]

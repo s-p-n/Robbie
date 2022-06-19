@@ -182,13 +182,15 @@ material/0 = null
 [node name="EndPoints" type="Spatial" parent="."]
 
 [node name="Sound" type="AudioStreamPlayer3D" parent="."]
-transform = Transform( 0.78033, -0.624345, -0.0357491, 0.0498269, 0.0050889, 0.998745, -0.62338, -0.781132, 0.0350802, 6.91139, 4.29384, 0.85654 )
+transform = Transform( 0.78033, -0.624345, -0.0357491, 0.620892, 0.780305, -0.074942, 0.0746849, 0.0362831, 0.996547, 6.91139, 4.29384, 0.85654 )
 stream = ExtResource( 5 )
 attenuation_model = 2
 unit_size = 10.0
+max_db = -1.0
+max_distance = 50.0
 emission_angle_enabled = true
-emission_angle_degrees = 30.0
-attenuation_filter_db = -15.6
+emission_angle_degrees = 17.0
+attenuation_filter_db = -20.0
 script = ExtResource( 6 )
 loop = true
 
@@ -243,7 +245,7 @@ transform = Transform( 0.398623, 0, 0, 0, -0.000746594, -0.398624, 0, 1.84582, -
 shape = SubResource( 12 )
 
 [node name="Cube" type="MeshInstance" parent="bigFan/body"]
-transform = Transform( 4.53917, 0, 0, 0, 0.562624, 0, 0, 0, 0.239785, 0.348999, 4.72348, 1.79341 )
+transform = Transform( 4.53916, 0.00111197, 0.000109931, -0.00897194, 0.562623, 8.4722e-05, -0.00207781, -0.000199304, 0.239785, 0.348999, 4.72348, 1.79341 )
 mesh = SubResource( 18 )
 skeleton = NodePath("../..")
 material/0 = null
