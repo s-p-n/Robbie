@@ -9,7 +9,6 @@ var is_powered = false
 var is_source
 var power_source = null
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	power_light.visible = false
