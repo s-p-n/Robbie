@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/pylons/Pylon.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/PylonPositioner.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/LerpVelocityToZero.gd" type="Script" id=3]
 [ext_resource path="res://Assets/models/connection_home/connection_home.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/audio/Connected electronic_01.wav" type="AudioStream" id=5]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -130,4 +131,16 @@ material/0 = null
 
 [node name="StartPoints" type="Spatial" parent="."]
 
+[node name="CableConnection" type="AudioStreamPlayer3D" parent="StartPoints"]
+stream = ExtResource( 5 )
+attenuation_model = 2
+unit_db = -5.0
+max_db = 0.0
+
 [node name="EndPoints" type="Spatial" parent="."]
+
+[node name="CableConnection" type="AudioStreamPlayer3D" parent="EndPoints"]
+stream = ExtResource( 5 )
+attenuation_model = 2
+unit_db = -5.0
+max_db = 0.0
