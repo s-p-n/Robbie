@@ -88,7 +88,7 @@ albedo_color = Color( 0.254902, 0.262745, 0.278431, 1 )
 [node name="Level" type="Spatial"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12.0154, -6.20854, 36.0312 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12.0154, 3.05467, 30.9827 )
 
 [node name="Objects" type="Spatial" parent="."]
 

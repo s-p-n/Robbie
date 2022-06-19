@@ -12,7 +12,7 @@ func _input(_event):
 		visible = !visible
 
 func _process(_delta):
-	if visible:
+	if visible or get_parent().cur_level == "workshop":
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
