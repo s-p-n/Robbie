@@ -147,8 +147,8 @@ func repair():
 		#surface.albedo_color = Color((35 + ((10 - damage) * 22))/255.0, (25 + ((10 - damage) * 23))/255.0, (25 + ((10 - damage) * 23))/255.0, 1)
 		$MeshInstance.set_surface_material(0, surface)
 		surface = $MeshInstance.get_active_material(0)
-	else:
-		var surface = $MeshInstance.get_active_material(0)
+	#else:
+		#var surface = $MeshInstance.get_active_material(0)
 	setup_collisions()
 
 func solder():

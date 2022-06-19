@@ -14,8 +14,8 @@ func clean():
 		surface.albedo_color = Color((35 + ((10 - health) * 22))/255.0, (25 + ((10 - health) * 23))/255.0, (25 + ((10 - health) * 23))/255.0, 1)
 		$MeshInstance.set_surface_material(0, surface)
 		surface = $MeshInstance.get_active_material(0)
-	else:
-		var surface = $MeshInstance.get_active_material(0)
+	#else:
+		#var surface = $MeshInstance.get_active_material(0)
 		
 func spawn_particle(pos):
 	var dust = dust_particles.instance()

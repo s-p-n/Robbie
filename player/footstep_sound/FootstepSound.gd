@@ -10,8 +10,8 @@ func _ready():
 		set_player()
 	
 func _process(_delta):
+	set_player()
 	if $Timer.is_stopped():
-		set_player()
 		if !player:
 			print("player is falsey")
 			return
@@ -30,9 +30,9 @@ func _process(_delta):
 		play_sound(-10)
 
 func set_player():
-	var active_level = root.get_node("Robbie/ActiveLevel").get_child(0)
-	if active_level:
-		player = active_level.get_node_or_null("Player")
+	var level = root.get_node("Robbie/ActiveLevel").get_child(0)
+	if level:
+		player = level.get_node_or_null("Player")
 	else:
 		player = null
 
