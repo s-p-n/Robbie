@@ -31,8 +31,10 @@ const vacuum_play_time:float = 2.0
 
 onready var audio_after_solder = preload("res://Assets/audio/After Solder.wav")
 export(Array, AudioStream) var audio_solder = [
-	preload("res://Assets/audio/Solder 1.wav"),
-	preload("res://Assets/audio/Solder 2.wav")
+	preload("res://Assets/audio/Mouth Solder-cm.wav"),
+	preload("res://Assets/audio/Mouth Solder-cm_01.wav")
+	preload("res://Assets/audio/Mouth Solder-cm_02.wav")
+	preload("res://Assets/audio/Mouth Solder-cm_03.wav")
 ]
 
 export(Array, AudioStream) var audio_vacuum = [
