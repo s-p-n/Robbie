@@ -67,7 +67,7 @@ var last_valid_pos: Vector3
 var time_since_mouse_down:float = 0.0
 # Shooting
 onready var marker = preload("res://Scenes/marker.tscn")
-onready var wire = preload("res://Scenes/Wire.tscn")
+onready var wire = preload("res://scenes/Wire.tscn")
 
 func _ready():
 	last_valid_pos = global_transform.origin

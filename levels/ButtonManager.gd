@@ -32,4 +32,5 @@ func _on_Level3_pressed():
 
 
 func _on_Level4_pressed():
-	load_level('level4')
+	pass
+	#load_level('level4')

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/workshop_camera/InputListener.gd" type="Script" id=1]
 [ext_resource path="res://Assets/textures/painted-metal-shed.tres" type="Material" id=2]
@@ -9,19 +9,6 @@
 [ext_resource path="res://Assets/images/page2.png" type="Texture" id=7]
 [ext_resource path="res://levels/ButtonManager.gd" type="Script" id=8]
 [ext_resource path="res://levels/PylonManager.gd" type="Script" id=11]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.0588235, 0.0470588, 0.0470588, 0.466667 )
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color( 0.117647, 0.054902, 0.054902, 1 )
-border_blend = true
-expand_margin_left = 20.0
-expand_margin_right = 20.0
-expand_margin_top = 20.0
-expand_margin_bottom = 20.0
 
 [node name="WorkshopScene" type="Spatial"]
 script = ExtResource( 8 )
@@ -197,7 +184,6 @@ margin_left = 472.0
 margin_top = 152.0
 margin_right = 615.0
 margin_bottom = 363.0
-custom_styles/normal = SubResource( 1 )
 text = "ROBBIE THE GAME
 Official Credits
 
