@@ -4,7 +4,8 @@ export(String, "X", "Y", "Z") var open_axis = "X"
 export var open_position:float = 0.0
 export(float, 0, 25) var open_speed:float = 0.5
 
-onready var audio = $audio
+onready var audio_open = get_node("../DoorOpen")
+onready var audio_close = get_node("../DoorClose")
 
 var should_open = false
 var should_close = false
@@ -86,7 +87,8 @@ func close_door(delta:float):
 	return home_position
 
 func work(new_source):
-	audio.play(0.0)
+	audio_open.play(0.0)
+	audio_close.stop()
 	source = new_source
 	should_open = true
 	should_close = false
@@ -101,6 +103,8 @@ func handle_work_hault(delta):
 	should_open = false
 	is_open = false
 	source = null
+	audio_open.stop()
+	audio_close.play(0.0)
 	set_target_translation(
 		close_door(delta)
 	)
