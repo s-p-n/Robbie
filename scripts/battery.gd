@@ -15,7 +15,7 @@ var is_home = false
 
 var active_layers = []
 var connection_home = null
-
+var last_number_of_green:int = 0
 onready var audio = find_node("audio")
 onready var dust_particles = preload("res://Scenes/particles/CleanParticle.tscn")
 onready var green_light = preload("res://Assets/models/battery/progress_bar_green.tres")
@@ -71,15 +71,23 @@ func _process(delta):
 func update_lights():
 	var total_lights = get_node('level').get_child_count()
 	var power_level:float = float(power) / 100
+	var number_of_green = 0
 	for i in range(total_lights):
 		if power_level > float(i) / total_lights:
 			level.get_child(i).material_override = green_light
+			number_of_green += 1
 		else:
-			if level.get_child(i).material_override == green_light:
-				audio.pitch_scale -= .1
-				audio.play(0)
 			level.get_child(i).material_override = red_light
-	setup_collisions()
+	print(number_of_green)
+	if is_near_home():
+		if number_of_green != last_number_of_green:
+			last_number_of_green = number_of_green
+			if number_of_green == 0:
+				audio.stop()
+			else:
+				audio.pitch_scale = number_of_green * 0.1
+				audio.play()
+		setup_collisions()
 		
 
 func is_near_home():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://player/crosshair/CenterDot.tscn" type="PackedScene" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://Assets/audio/Ominous Background Track_01-01.wav" type="AudioStream" id=30]
 [ext_resource path="res://Assets/audio/Robbie Music_04.wav" type="AudioStream" id=31]
 [ext_resource path="res://player/footstep_sound/FootstepSound.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Assets/audio/Cut_01-01.wav" type="AudioStream" id=33]
 
 [sub_resource type="StyleBoxEmpty" id=4]
 
@@ -394,6 +395,9 @@ autoplay = true
 [node name="PlacementAudio" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 18 )
 volume_db = -9.614
+
+[node name="WireCutAudio" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 33 )
 
 [node name="BackgroundAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 30 )

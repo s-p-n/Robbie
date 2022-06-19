@@ -1,10 +1,9 @@
 extends RigidBody
 
 const MIN_DAMAGE:int = 0
-const MAX_DAMAGE:int = 10
-const MAX_HEAT:int = 10
 const MIN_HEAT:int = 0
-
+var MAX_DAMAGE = 1
+var MAX_HEAT = 1
 
 const LAYER_BIT_OBSTICLE = 1
 const LAYER_BIT_CLAW = 4
@@ -54,6 +53,8 @@ onready var audio = find_node("audio_static")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	MAX_HEAT = heat
+	MAX_DAMAGE = damage
 	setup_collisions()
 
 
@@ -146,8 +147,8 @@ func repair():
 		#surface.albedo_color = Color((35 + ((10 - damage) * 22))/255.0, (25 + ((10 - damage) * 23))/255.0, (25 + ((10 - damage) * 23))/255.0, 1)
 		$MeshInstance.set_surface_material(0, surface)
 		surface = $MeshInstance.get_active_material(0)
-	else:
-		var surface = $MeshInstance.get_active_material(0)
+	#else:
+		#var surface = $MeshInstance.get_active_material(0)
 	setup_collisions()
 
 func solder():
@@ -213,6 +214,13 @@ func attempt_to_work():
 
 func play_sound(stream):
 	audio.stream = stream
+	if audio_vacuum.has(stream):
+		audio.volume_db = -5.244
+	elif audio_after_solder == stream:
+		audio.volume_db = -7
+	elif audio_solder.has(stream):
+		audio.volume_db = 0
+		#print("filename has Vacuum in it")
 	audio.play(0)
 
 func display_error():
