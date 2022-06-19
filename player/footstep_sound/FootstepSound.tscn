@@ -10,12 +10,7 @@
 
 [node name="FootstepSound" type="Spatial"]
 script = ExtResource( 1 )
-footstep_sound1 = ExtResource( 2 )
-footstep_sound2 = ExtResource( 5 )
-footstep_sound3 = ExtResource( 6 )
-footstep_sound4 = ExtResource( 4 )
-footstep_sound5 = ExtResource( 3 )
-footstep_sound6 = ExtResource( 7 )
+footstep_sounds = [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 7 ) ]
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
