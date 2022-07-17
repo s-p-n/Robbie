@@ -15,7 +15,6 @@ attach_end_to = NodePath("StopPosition")
 rope_length = 1.0
 simulation_particles = 20
 stiffness = 1.409
-draw = false
 gravity = Vector3( 0, -2, 0 )
 apply_collision = true
 collision_mask = 512
