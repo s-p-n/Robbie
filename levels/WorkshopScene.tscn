@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/workshop_camera/InputListener.gd" type="Script" id=1]
 [ext_resource path="res://Assets/textures/painted-metal-shed.tres" type="Material" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://Assets/images/page2.png" type="Texture" id=7]
 [ext_resource path="res://levels/ButtonManager.gd" type="Script" id=8]
 [ext_resource path="res://Assets/sounds/robiesong.mp3" type="AudioStream" id=9]
-[ext_resource path="res://levels/PylonManager.gd" type="Script" id=11]
 
 [node name="WorkshopScene" type="Spatial"]
 script = ExtResource( 8 )
@@ -47,7 +46,6 @@ material = ExtResource( 3 )
 
 [node name="Pylons" type="Spatial" parent="."]
 visible = false
-script = ExtResource( 11 )
 
 [node name="Objects" type="Spatial" parent="."]
 visible = false

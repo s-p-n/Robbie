@@ -22,7 +22,7 @@ func _process(_delta):
 
 func get_source_wires():
 	var active_sources = []
-	for pylon in get_children():
+	for pylon in get_child(0).get_children():
 		if pylon.is_source:
 			var source_wires = pylon.get_wires()
 			if len(source_wires) > 0:

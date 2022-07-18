@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Scripts/breakable.gd" type="Script" id=1]
+[ext_resource path="res://scripts/breakable.gd" type="Script" id=1]
 [ext_resource path="res://Assets/textures/aluminum-scuffed.tres" type="Material" id=2]
 [ext_resource path="res://Assets/models/capacitor/Material_001.material" type="Material" id=3]
 [ext_resource path="res://Assets/models/capacitor/capacitor.obj" type="ArrayMesh" id=4]
@@ -15,12 +15,12 @@ radius = 1.02487
 height = 1.62409
 
 [node name="capacitor" type="RigidBody"]
+collision_layer = 9
+mass = 4.16667
 gravity_scale = 7.0
 axis_lock_angular_x = true
-axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource( 1 )
-heat = 2
 audio_vacuum = [ ExtResource( 9 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ) ]
 
 [node name="MeshInstance" type="MeshInstance" parent="."]

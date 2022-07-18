@@ -1,5 +1,7 @@
 extends RigidBody
 
+signal force(state)
+
 const MIN_DAMAGE:int = 0
 const MIN_HEAT:int = 0
 var MAX_DAMAGE = 1
@@ -12,6 +14,7 @@ const LAYER_BIT_SOLDER = 7
 
 export(int, 0, 10) var damage = 1
 export(int, 0, 10) var heat = 0
+export(NodePath) var connection_home_path
 export var is_soldered:bool = false
 export var is_working:bool = false
 
@@ -42,7 +45,7 @@ export(Array, AudioStream) var audio_vacuum = [
 
 onready var audio_success = preload("res://Assets/audio/CG_GameSound_Puzzle_Solved-01.wav")
 onready var audio_error = preload("res://Assets/audio/alert.wav")
-onready var dust_particles = preload("res://Scenes/particles/CleanParticle.tscn")
+onready var dust_particles = preload("res://scenes/particles/CleanParticle.tscn")
 onready var player = find_parent("root").find_node("Player")
 onready var light = find_node("SpotLight")
 onready var audio = find_node("audio_static")
@@ -55,8 +58,18 @@ onready var audio = find_node("audio_static")
 func _ready():
 	MAX_HEAT = heat
 	MAX_DAMAGE = damage
-	setup_collisions()
+	
+	if connection_home_path:
+		connection_home = get_node(connection_home_path)
+		damage = 0
+		is_soldered = true
+		is_home = true
+		print(is_near_home())
+	else:
+		setup_collisions()
 
+func _integrate_forces(state):
+	emit_signal("force", state)
 
 func _process(delta):
 	
@@ -70,17 +83,24 @@ func _process(delta):
 			solder_settling_for += delta
 	
 	if connection_home and !is_home:
-		var dest = connection_home.get_transform()
-		transform.origin = lerp(transform.origin, dest.origin, delta*5)
-		rotation = lerp(rotation, connection_home.rotation, delta*5)
+		var pos = global_transform.origin
+		var to = connection_home.global_transform.origin
+		var distance = pos.distance_to(to)
+		var direction = pos.direction_to(to)
+		var thrust_vector = direction * distance * 20 * delta
+		
+		apply_central_impulse(thrust_vector)
+		#transform.origin = lerp(transform.origin, dest.origin, delta*5)
+		#rotation = lerp(rotation, connection_home.rotation, delta*5)
 		
 		if is_near_home():
-			transform = dest
+			global_transform.origin = to
+			linear_velocity = Vector3(0,0,0)
 			is_home = true
 			setup_collisions()
 		else:
 			gravity_scale = 0
-			linear_velocity = Vector3(0, 0, 0)
+			#linear_velocity = Vector3(0, 0, 0)
 	elif !connection_home and is_home:
 		is_home = false
 	elif connection_home and is_home:
@@ -102,6 +122,11 @@ func is_near_home():
 	return diff < Vector3(0.1, 0.1, 0.1)
 
 func setup_collisions():
+	if is_near_home():
+		attempt_to_work()
+	else:
+		turn_off_light()
+	"""
 	var result = 0
 	is_working = false
 	
@@ -134,9 +159,15 @@ func setup_collisions():
 	
 	for bit in active_layers:
 		result += pow(2, bit - 1)
-		
+	
+	print("\nsetup collisions:")
+	print("damage ", damage)
+	print("is_home ", is_home)
+	print("is_soldered ", is_soldered)
+	print("is_working ", is_working)
+	
 	collision_layer = result
-
+	"""
 func repair():
 	if damage > MIN_DAMAGE:
 		var surface = $MeshInstance.get_surface_material(0).duplicate()
@@ -204,8 +235,10 @@ func disconnect_from_home(old_home):
 	setup_collisions()
 
 func attempt_to_work():
+	print("Capacitor attempting to work")
+	print(connection_home)
 	if connection_home:
-		var obj = get_node(connection_home.connected_object)
+		var obj = get_node_or_null(connection_home.connected_object)
 		if obj and obj.has_method("work"):
 			obj.work(self)
 			indicate_working()
@@ -240,5 +273,6 @@ func indicate_vacuum():
 func indicate_working():
 	light.light_color = Color(0.7, 1, 0.7)
 	play_sound(audio_success)
+	light.visible = true
 	
 

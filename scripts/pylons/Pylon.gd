@@ -1,6 +1,7 @@
 extends RigidBody
 onready var points = get_parent().get_parent().get_child(3)
 
+onready var pylon = get_parent().get_parent()
 
 # Declare member variables here. Examples:
 # var a = 2

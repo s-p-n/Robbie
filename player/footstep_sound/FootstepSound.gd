@@ -1,40 +1,32 @@
 extends Spatial
 
 export(Array, AudioStream) var footstep_sounds = []
-onready var root = get_tree().get_root()
-onready var active_level = root.get_node("Robbie/ActiveLevel").get_child(0)
-var player
+export var timer_path:NodePath
 
-func _ready():
-	if active_level:
-		set_player()
-	
-func _process(_delta):
-	set_player()
-	if $Timer.is_stopped():
-		if !player:
-			print("player is falsey")
-			return
-		if player.is_on_floor() and player.player_speed >= 2:
-			var animation_speed = 1.0 / (player.player_speed / 2)
-			if round(player.player_speed) > 3:
-				play_sound(-20)
-			elif round(player.player_speed) == 3:
-				play_sound(-30)
-			else:
-				play_sound(-40)
-			$Timer.wait_time = animation_speed
-			$Timer.start()
-	
-	if player.is_on_floor() and player.snapped == false:
+var timer:Timer
+var movement:Node
+
+var move_connection
+
+func set_movement(new_movement):
+	movement = new_movement
+	timer = get_node_or_null(timer_path)
+	move_connection = movement.connect("move_on_floor", self, "handle_footstep")
+	print("move_connection: ", move_connection)
+
+func handle_footstep():
+	if timer.is_stopped():
+		var animation_speed = 1.0 / (movement.player_speed / 2)
+		if round(movement.player_speed) > 3:
+			play_sound(-20)
+		elif round(movement.player_speed) == 3:
+			play_sound(-30)
+		else:
+			play_sound(-40)
+		timer.wait_time = animation_speed
+		timer.start()
+	if !movement.snapped:
 		play_sound(-10)
-
-func set_player():
-	var level = root.get_node("Robbie/ActiveLevel").get_child(0)
-	if level:
-		player = level.get_node_or_null("Player")
-	else:
-		player = null
 
 func play_sound(volume): # To avoid the sound from clipping, we generate a new audio node each time then we delete it
 	var audio_node = AudioStreamPlayer.new()

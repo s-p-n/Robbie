@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/models/circuit_board/circuit-board-low.tscn" type="PackedScene" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://Assets/models/connection_home/connection_home.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/models/battery/battery.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/pylon.tscn" type="PackedScene" id=10]
-[ext_resource path="res://levels/PylonManager.gd" type="Script" id=11]
 [ext_resource path="res://Scenes/connection_home_pylon.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scripts/pylons/Pylon.gd" type="Script" id=13]
 [ext_resource path="res://Scenes/PylonPositioner.gd" type="Script" id=14]
@@ -567,7 +566,6 @@ unit_size = 7.6
 max_db = 1.0
 
 [node name="Pylons" type="Spatial" parent="."]
-script = ExtResource( 11 )
 
 [node name="InputPylon" parent="Pylons" instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 18.892, -11.9428, 46.334 )

@@ -11,17 +11,23 @@ config_version=4
 [application]
 
 config/name="Robbie"
-run/main_scene="res://Scenes/Robbie.tscn"
+run/main_scene="res://scenes/Robbie.tscn"
 config/icon="res://icon.png"
 
 [display]
 
+window/size/width=1920
+window/size/height=1080
+window/size/resizable=false
+window/size/test_width=1280
+window/size/test_height=720
+window/dpi/allow_hidpi=true
 window/stretch/mode="viewport"
-window/stretch/aspect="keep"
+window/stretch/aspect="keep_width"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/verlet_rope_gd/plugin.cfg" )
+enabled=PoolStringArray(  )
 
 [global]
 
@@ -91,6 +97,28 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+quality/filters/sharpen_intensity=0.5
 quality/intended_usage/framebuffer_allocation.mobile=2
+threads/thread_model=2
+threads/thread_safe_bvh=true
+quality/shadow_atlas/quadrant_0_subdiv=2
+quality/shadow_atlas/quadrant_1_subdiv=3
+quality/shadow_atlas/quadrant_2_subdiv=4
+quality/shadow_atlas/quadrant_3_subdiv=5
+quality/shadows/filter_mode=2
+quality/reflections/irradiance_max_size=256
+quality/shading/force_vertex_shading.mobile=false
+quality/shading/force_lambert_over_burley.mobile=false
+quality/shading/force_blinn_over_ggx.mobile=false
 quality/shading/use_physical_light_attenuation=true
-environment/default_environment="res://Scenes/environment_foggy.tres"
+quality/depth_prepass/enable=false
+quality/skinning/software_skinning_fallback=false
+quality/spatial_partitioning/use_bvh=false
+quality/subsurface_scattering/quality=2
+quality/subsurface_scattering/scale=4
+quality/subsurface_scattering/follow_surface=true
+quality/voxel_cone_tracing/high_quality=true
+quality/filters/msaa=3
+quality/filters/use_fxaa=true
+quality/filters/use_debanding=true
+environment/default_environment="res://scenes/environment_foggy.tres"

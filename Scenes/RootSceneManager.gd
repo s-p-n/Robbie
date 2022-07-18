@@ -1,9 +1,9 @@
 extends Spatial
 onready var active_level = $ActiveLevel
-onready var wires = $Wires
+onready var wires = $PowerLines
 var update_time = 0
 var is_paused = false
-var cur_level = "level1"
+var cur_level = "level4"
 #var workshop_camera = preload("res://scenes/WorkshopCamera.tscn")
 var workshop = preload("res://levels/WorkshopScene.tscn")
 var level_1 = preload("res://levels/first_1.tscn")

@@ -30,11 +30,11 @@ func _process(delta):
 		time_since = 0.0
 		open = false
 	
-	print("Parent has power: ", pylon.is_powered, "      Open: ", open, "\nTime Since: ", time_since)
+	#print("Parent has power: ", pylon.is_powered, "      Open: ", open, "\nTime Since: ", time_since)
 	
 	
 	if open and !at_limit:
-		print("Open!")
+		#print("Open!")
 		move_to_open(delta)
 		
 	if (global_transform.origin.z <= z_closed_lim) or (global_transform.origin.z >= z_open_lim):

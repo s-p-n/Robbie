@@ -1,30 +1,62 @@
 extends RigidBody
-onready var start_points = $StartPoints
-onready var end_points = $EndPoints
+
+signal power_obtained(partner)
+signal power_lost(partner)
+
+export var is_source:bool
+
 onready var power_light = $PowerLight
 onready var audio = get_node_or_null("play_when_powered")
-onready var wires
-var wires_attached = []
+
+var partners = []
+var wires = []
+
 var is_powered = false
-var is_source
-var power_source = null
+var obtained_power_from = null
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	power_light.visible = false
-	is_powered = false
-	is_source = false
-	wires = get_tree().current_scene.find_node('Wires')
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
 	if is_source:
-		if !power_source or !power_source.is_powered:
-			is_source = false
+		is_powered = true
+	else:
+		is_powered = false
+	set_visuals()
+
+func connect_wire_to(powerline, partner):
+	if !(partner in partners):
+		partners.append(partner)
+		wires.append(powerline)
+		partner.connect("power_lost", self, "update_power_status")
+		partner.connect("power_obtained", self, "update_power_status")
+		update_power_status()
+	else:
+		powerline.destroy()
+		
+func disconnect_wire_from(powerline, partner):
+	if partner in partners:
+		partners.erase(partner)
+		partner.disconnect("power_lost", self, "update_power_status")
+		partner.disconnect("power_obtained", self, "update_power_status")
+		wires.erase(powerline)
+		if is_instance_valid(powerline):
+			powerline.destroy()
+			
+		update_power_status()
+
+
+func update_power_status():
+	var power_status = is_powered
+	var source = deep_search_for_source([self])
+	is_powered = is_instance_valid(source)
+	if is_powered != power_status:
+		if is_powered:
+			obtain_power_from(source)
+			emit_signal("power_obtained")
+			
 		else:
-			is_powered = true
-	
+			emit_signal("power_lost")
+	set_visuals()
+
+func set_visuals():
 	if is_powered:
 		if audio and !audio.loop:
 			audio.play_stream()
@@ -33,31 +65,24 @@ func _process(_delta):
 		if audio and audio.loop:
 			audio.stop_stream()
 		power_light.visible = false
-	
-	var new_wires_attached = []
-	set_linear_velocity(Vector3(0,0,0))
-	
-	var wire_start_points = start_points.get_children()
-	for wire_point in wire_start_points:
-		var wire = wires.get_child(wire_point.index_id)
-		if wire.visible:
-			new_wires_attached.append(wire_point.index_id)
-			wire.set_translation(wire_point.global_transform.origin)
-		
-	var wire_end_points = end_points.get_children()
-	for wire_point in wire_end_points:
-		var wire = wires.get_child(wire_point.index_id)
-		if wire.visible:
-			if not wire_point.index_id in new_wires_attached:
-				new_wires_attached.append(wire_point.index_id)
-			wire.stop_position.global_transform.origin = (wire_point.global_transform.origin)
-	
-	wires_attached = new_wires_attached
 
-func set_power_source(source):
-	if source and source.is_powered:
-		power_source = source
-		is_source = true;
+func obtain_power_from(partner):
+	if is_instance_valid(partner) and partner.has_signal("power_lost"):
+		if !partner.is_connected("power_lost", self, "update_power_status"):
+			partner.connect("power_lost", self, "update_power_status")
+			obtained_power_from = partner
 
-func get_wires():
-	return wires_attached
+func deep_search_for_source(ignore):
+	if is_source:
+		return self
+	if !(self in ignore):
+		ignore.append(self)
+	for partner in partners:
+		if !(partner in ignore):
+			ignore.append(partner)
+		else:
+			continue
+		var result = partner.deep_search_for_source(ignore)
+		if result:
+			return result
+	return null

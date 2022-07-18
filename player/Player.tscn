@@ -1,6 +1,6 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
-[ext_resource path="res://player/Player.gd" type="Script" id=1]
+[ext_resource path="res://player/Player2.gd" type="Script" id=1]
 [ext_resource path="res://player/crosshair/CenterDot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/images/red_wheel_button.png" type="Texture" id=3]
 [ext_resource path="res://player/flashlight/Flashlight.tscn" type="PackedScene" id=4]
@@ -15,14 +15,16 @@
 [ext_resource path="res://Assets/images/blue_wheel_button_pressed.png" type="Texture" id=13]
 [ext_resource path="res://Assets/images/cyan_wheel_button_pressed.png" type="Texture" id=14]
 [ext_resource path="res://Assets/images/cyan_wheel_button_hover.png" type="Texture" id=15]
-[ext_resource path="res://Scripts/ClippedCamera.gd" type="Script" id=16]
+[ext_resource path="res://scripts/ClippedCamera.gd" type="Script" id=16]
 [ext_resource path="res://Assets/sounds/wire_reel.wav" type="AudioStream" id=17]
 [ext_resource path="res://Assets/sounds/install.wav" type="AudioStream" id=18]
 [ext_resource path="res://Assets/images/interactable.png" type="Texture" id=19]
 [ext_resource path="res://Assets/themes/panel_theme.tres" type="Theme" id=20]
+[ext_resource path="res://player/plugins/movement.gd" type="Script" id=21]
+[ext_resource path="res://player/plugins/interact.gd" type="Script" id=22]
+[ext_resource path="res://Assets/audio/small-explosion-sound-effect.mp3" type="AudioStream" id=23]
 [ext_resource path="res://Assets/audio/Ominous Background Track_01-01.wav" type="AudioStream" id=30]
 [ext_resource path="res://Assets/audio/Robbie Music_04.wav" type="AudioStream" id=31]
-[ext_resource path="res://player/footstep_sound/FootstepSound.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Assets/audio/Cut_01-01.wav" type="AudioStream" id=33]
 
 [sub_resource type="BoxShape" id=3]
@@ -41,6 +43,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
+plugin_scripts = [ ExtResource( 21 ), ExtResource( 22 ) ]
 
 [node name="Head" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0 )
@@ -57,16 +60,18 @@ script = ExtResource( 16 )
 min_zoom = 1.0
 
 [node name="CenterDot" parent="Head" instance=ExtResource( 2 )]
-position = Vector2( 510, 332 )
+position = Vector2( 960.303, 538 )
 
 [node name="Interactable" type="Sprite" parent="Head/CenterDot"]
+visible = false
 texture = ExtResource( 19 )
 
 [node name="ToolPanel" type="Panel" parent="Head"]
-margin_left = 453.0
-margin_top = 508.0
-margin_right = 551.0
-margin_bottom = 552.0
+visible = false
+margin_left = 903.303
+margin_top = 714.0
+margin_right = 1001.3
+margin_bottom = 758.0
 theme = ExtResource( 20 )
 
 [node name="ToolLabel" type="Label" parent="Head/ToolPanel"]
@@ -79,10 +84,10 @@ valign = 1
 
 [node name="ToolMenu" type="Control" parent="Head"]
 visible = false
-margin_left = 508.0
-margin_top = 123.0
-margin_right = 831.0
-margin_bottom = 419.0
+margin_left = 958.303
+margin_top = 329.0
+margin_right = 1281.3
+margin_bottom = 625.0
 rect_rotation = 44.9999
 
 [node name="ClawButton" type="TextureButton" parent="Head/ToolMenu"]
@@ -198,7 +203,7 @@ light_indirect_energy = 16.607
 omni_range = 20.5085
 
 [node name="Flashlight" parent="Head" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.04497 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.273652 )
 light_color = Color( 1, 1, 0.8, 1 )
 light_energy = 3.657
 light_size = 0.303
@@ -207,6 +212,9 @@ spot_range = 50.0
 spot_attenuation = 2.07053
 spot_angle = 60.6612
 spot_angle_attenuation = 2.07053
+
+[node name="HoldPosition" type="Position3D" parent="Head"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.04256 )
 
 [node name="Camera" type="Camera" parent="Head"]
 doppler_tracking = 2
@@ -228,20 +236,15 @@ transform = Transform( 1, 0, 0, 0, -1.74846e-07, -1, 0, 3.01653, -3.29641e-08, 0
 enabled = true
 collision_mask = 8
 
-[node name="VacuumRay" type="RayCast" parent="Head"]
-transform = Transform( 1, 0, 0, 0, -1.31877e-07, -1, 0, 3.017, -4.37114e-08, 0, 0.00108147, -0.00108147 )
-enabled = true
-collision_mask = 16
-
 [node name="WireRay" type="RayCast" parent="Head"]
 transform = Transform( 0.073483, 0, 0, 0, -1.08311e-08, -0.0821306, 0, 4.0184, -5.82201e-08, 0, 8.88109e-05, 0.00604153 )
 enabled = true
 collision_mask = 32
 
-[node name="SolderRay" type="RayCast" parent="Head"]
+[node name="ClipRay" type="RayCast" parent="Head"]
 transform = Transform( 0.073483, 0, 0, 0, -1.08311e-08, -0.0821306, 0, 4.0184, -5.82201e-08, 0, 8.88109e-05, 0.00604153 )
 enabled = true
-collision_mask = 64
+collision_mask = 512
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.875, 0 )
@@ -264,9 +267,6 @@ material/0 = null
 
 [node name="LandTween" type="Tween" parent="."]
 
-[node name="WirePosition" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.621345, 1.02263, -0.847026 )
-
 [node name="Sounds" type="Spatial" parent="."]
 
 [node name="WireReelAudio" type="AudioStreamPlayer" parent="Sounds"]
@@ -281,6 +281,9 @@ volume_db = -9.614
 [node name="WireCutAudio" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 33 )
 
+[node name="Explosion" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 23 )
+
 [node name="BackgroundAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 30 )
 volume_db = -7.0
@@ -290,8 +293,6 @@ autoplay = true
 stream = ExtResource( 31 )
 volume_db = -5.0
 autoplay = true
-
-[node name="FootstepSound" parent="." instance=ExtResource( 32 )]
 
 [connection signal="button_down" from="Head/ToolMenu/ClawButton" to="." method="_on_ClawButton_button_down"]
 [connection signal="button_down" from="Head/ToolMenu/WireButton" to="." method="_on_WireButton_button_down"]

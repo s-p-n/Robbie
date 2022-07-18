@@ -1,11 +1,11 @@
-extends "res://Scenes/LerpVelocityToZero.gd"
+extends Spatial
 
 export(String, "X", "Y", "Z") var open_axis = "X"
 export var open_position:float = 0.0
 export(float, 0, 25) var open_speed:float = 0.5
 
-onready var audio_open = get_node("doorOpen")
-onready var audio_close = get_node("doorClose")
+onready var audio_open = get_node("Source/doorOpen")
+onready var audio_close = get_node("Source/doorClose")
 
 var should_open = false
 var should_close = false
@@ -15,6 +15,7 @@ var open_direction
 var source = null
 var home_position:float = 0.0
 var threshold = 0.05
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	home_position = get_target_translation()
