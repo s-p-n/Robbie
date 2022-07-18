@@ -17,6 +17,9 @@ var lowest_y = 0
 var old_transform_a
 var old_transform_b
 
+var throttle:float = 0.2
+var time:float = 0
+
 func set_interact(new_interact):
 	interact = new_interact
 	player = interact.player
@@ -32,7 +35,7 @@ func begin(new_ray):
 	ray = new_ray
 	pair[0] = ray.get_collider()
 	global_transform.origin = pair[0].global_transform.origin
-	lowest_y = pair[0].global_transform.origin.y - 0.75
+	update_lowest_y()
 	add_wire()
 
 func add_wire():
@@ -41,6 +44,11 @@ func add_wire():
 	adjust_wires()
 
 func update_wires(delta):
+	time += delta
+	if time < throttle:
+		return
+	time = 0
+	
 	if !pair[1]:
 		player_pos = player.get_node("Head").global_transform.origin + head_offset
 		
@@ -48,7 +56,6 @@ func update_wires(delta):
 			var new_transform_a = pair[0].global_transform.origin
 			var new_transform_b = player_pos
 			if old_transform_a != new_transform_a or old_transform_b != new_transform_b:
-				print("changed")
 				global_transform.origin = new_transform_a
 				update_num_wires(player_pos)
 				emit_signal("move", delta)
@@ -62,8 +69,8 @@ func update_wires(delta):
 		
 		if old_transform_a != new_transform_a or old_transform_b != new_transform_b:
 			global_transform.origin = new_transform_a
-			print("changed")
-			lowest_y = pair[0].global_transform.origin.y - 0.5
+			#print("changed")
+			update_lowest_y()
 			update_num_wires(new_transform_b)
 			emit_signal("move", delta)
 				
@@ -107,9 +114,9 @@ func connect_pair():
 			pair[0].pylon.connect_wire_to(self, pair[1].pylon)
 			pair[1].pylon.connect_wire_to(self, pair[0].pylon)
 			return
-	print(pair)
-	print(pair[0].pylon and pair[0].pylon.has_method("connect_wire_to"))
-	print(pair[1].pylon and pair[1].pylon.has_method("connect_wire_to"))
+	#print(pair)
+	#print(pair[0].pylon and pair[0].pylon.has_method("connect_wire_to"))
+	#print(pair[1].pylon and pair[1].pylon.has_method("connect_wire_to"))
 
 func disconnect_pair():
 	if pair[0] and pair[0].pylon and pair[0].pylon.has_method("disconnect_wire_from"):
@@ -127,3 +134,6 @@ func destroy():
 
 func calculate_total_wires(end_point) -> int:
 	return int(1 + floor((global_transform.origin.distance_to(end_point) / WIRE_LENGTH) * 1.1))
+
+func update_lowest_y():
+	lowest_y = pair[0].global_transform.origin.y - 2

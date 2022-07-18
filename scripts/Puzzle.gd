@@ -18,7 +18,7 @@ func _ready():
 			pieces.append(piece)
 			piece.connect("activated", self, "_handle_activation")
 			piece.connect("deactivated", self, "_handle_deactivation")
-			print("Setup piece: ", piece)
+			#print("Setup piece: ", piece)
 
 func _handle_activation(_piece):
 	num_activated += 1
@@ -29,11 +29,11 @@ func _handle_deactivation(_piece):
 	attempt_to_solve()
 
 func attempt_to_solve():
-	print("attempting to work...")
-	print("num activated right: ", num_activated == len(pieces))
-	print(num_activated)
-	print(len(pieces))
-	print("connected node: ", connected_node)
+	#print("attempting to work...")
+	#print("num activated right: ", num_activated == len(pieces))
+	#print(num_activated)
+	#print(len(pieces))
+	#print("connected node: ", connected_node)
 	
 	if num_activated == len(pieces) and is_instance_valid(connected_node):
 		connected_node.work(self)

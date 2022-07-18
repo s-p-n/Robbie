@@ -31,7 +31,7 @@ func look_at_target(_delta):
 		var collider = collision.get_collider()
 		
 		if !(collider is KinematicBody) and parent.pair[0].pylon != collider and (!parent.pair[1] or parent.pair[1].pylon != collider):
-			print('wire collision: ', collider)
+			#print('wire collision: ', collider)
 			parent.disconnect_pair()
 	
 	look_at(target, Vector3(0,1,0))
@@ -82,8 +82,9 @@ func find_ideal_position():
 		b = parent.player_pos
 
 	var my_bias = float(get_index()) / float(parent.get_child_count())
-	
-	var sag = Vector3(0, abs(0.5 - my_bias) * abs(0.5 - my_bias), 0)
+	var sag_bias = pow(abs(0.5 - my_bias), 2)
+	sag_bias = (0.25 - sag_bias) * parent.lowest_y
+	var sag = Vector3(0, sag_bias, 0)
 	
 	var ideal_pos = (a - (a - b) * my_bias)
 	return ideal_pos + sag

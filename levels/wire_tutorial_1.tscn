@@ -339,7 +339,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.33154, -3.796, -12.0477 )
 transform = Transform( 0.866025, -0.5, -8.74228e-08, -0.5, -0.866025, -1.50996e-07, -2.12438e-10, 1.74478e-07, -1, 12.7507, -3.09619, -8.86798 )
 
 [node name="PylonStatic2" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 11.4127, -4.94738, -22.6121 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 11.4127, -2.84511, -22.6121 )
 
 [node name="PylonStatic3" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.37782, -4.19634, -19.5818 )

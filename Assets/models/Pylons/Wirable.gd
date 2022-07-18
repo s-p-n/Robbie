@@ -27,8 +27,9 @@ func connect_wire_to(powerline, partner):
 	if !(partner in partners):
 		partners.append(partner)
 		wires.append(powerline)
-		partner.connect("deactivated", self, "update_power_status")
-		partner.connect("activated", self, "update_power_status")
+		if !partner.is_connected("deactivated", self, "update_power_status"):
+			partner.connect("deactivated", self, "update_power_status")
+			partner.connect("activated", self, "update_power_status")
 		update_power_status(self)
 	else:
 		powerline.destroy()
@@ -53,11 +54,11 @@ func update_power_status(_partner):
 		if is_powered:
 			obtain_power_from(source)
 			emit_signal("activated", self)
-			print("wirable activated")
+			#print("wirable activated")
 			
 		else:
 			emit_signal("deactivated", self)
-			print("wirable deactivated")
+			#print("wirable deactivated")
 	set_visuals()
 
 func set_visuals():

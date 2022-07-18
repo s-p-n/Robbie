@@ -2,7 +2,7 @@ extends Spatial
 
 export(String, "X", "Y", "Z") var open_axis = "X"
 export var open_position:float = 0.0
-export(float, 0, 25) var open_speed:float = 0.5
+export(float, 0, 25) var open_speed:float = 2.5
 
 onready var audio_open = $doorOpen
 onready var audio_close = $doorClose
