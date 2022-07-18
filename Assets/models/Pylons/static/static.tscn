@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://scripts/pylons/Pylon.gd" type="Script" id=1]
+[ext_resource path="res://Assets/models/Pylons/Wirable.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/PylonPositioner.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/SourcePylon.gd" type="Script" id=3]
+[ext_resource path="res://scripts/pylons/Pylon.gd" type="Script" id=3]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -22,14 +22,13 @@ albedo_color = Color( 0.317647, 0.329412, 0.360784, 1 )
 
 [sub_resource type="CylinderMesh" id=9]
 
-[node name="Source" type="RigidBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00810051, 9.53674e-07, 0.0327435 )
+[node name="PylonStatic" type="RigidBody"]
 mode = 1
 axis_lock_linear_y = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
-script = ExtResource( 3 )
+script = ExtResource( 1 )
 
 [node name="Parts" type="Spatial" parent="."]
 script = ExtResource( 2 )
@@ -42,7 +41,7 @@ mode = 1
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
-script = ExtResource( 1 )
+script = ExtResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Parts/Input"]
 transform = Transform( 0.816953, 0, 0, 0, 0.508062, 0, 0, 0, 0.816953, 0, 0, 0 )
@@ -63,7 +62,7 @@ mode = 1
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
-script = ExtResource( 1 )
+script = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Parts/Pole"]
 transform = Transform( 0.131644, 0, 0, 0, 0.928891, 0, 0, 0, 0.131644, 0, 0.548877, 0 )
@@ -83,7 +82,7 @@ mode = 1
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
-script = ExtResource( 1 )
+script = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Parts/RigidBody"]
 transform = Transform( 1.50226, 0, 0, 0, 0.142335, 0, 0, 0, 1.50226, 0, -2.32084, 0 )
@@ -112,7 +111,7 @@ material/0 = null
 
 [node name="EndPoints" type="Spatial" parent="."]
 
-[node name="OmniLight" type="OmniLight" parent="."]
+[node name="PowerLight" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.81455, 0 )
 light_color = Color( 0.156863, 0.454902, 0.0235294, 1 )
 light_energy = 1.216

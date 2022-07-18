@@ -1,11 +1,11 @@
-extends RigidBody
+extends Spatial
 
 export(String, "X", "Y", "Z") var open_axis = "X"
 export var open_position:float = 0.0
 export(float, 0, 25) var open_speed:float = 0.5
 
-onready var audio_open = get_node("../doorOpen")
-onready var audio_close = get_node("../doorClose")
+onready var audio_open = $doorOpen
+onready var audio_close = $doorClose
 
 var should_open = false
 var should_close = false
@@ -36,9 +36,9 @@ func _process(delta):
 		if !is_closed:
 			handle_work_hault(delta)
 	
-	if (!source or !source.is_home):
+	if (!is_instance_valid(source) or !source.is_working):
 		should_close = true
-	#print("source is at home: ", (!source or !source.is_home))
+	#print("source is at home: ", (!source or !source.is_working))
 
 func get_target_translation():
 	if open_axis == 'X':
@@ -92,6 +92,7 @@ func work(new_source):
 	source = new_source
 	should_open = true
 	should_close = false
+	print("working..")
 
 func handle_work(delta):
 	is_closed = false

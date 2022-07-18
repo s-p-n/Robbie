@@ -7,17 +7,20 @@ onready var parent = get_parent()
 onready var player = parent.player
 
 func _ready():
-	player.connect("process", self, "look_at_target")
+	parent.connect("move", self, "handle_move")
+
+func handle_move(delta):
+	look_at_target(delta)
 
 func look_at_target(_delta):
 	if !is_instance_valid(parent):
 		#print("Wire lost Powerline, disabling tick listener.")
-		player.disconnect("process", self, "look_at_target")
+		#player.disconnect("process", self, "look_at_target")
 		return
 	
 	if !is_inside_tree():
 		#print("Wire lost Powerline, disabling tick listener.")
-		player.disconnect("process", self, "look_at_target")
+		#player.disconnect("process", self, "look_at_target")
 		return
 	
 	var target = get_next()
@@ -36,7 +39,8 @@ func look_at_target(_delta):
 	if is_instance_valid(parent.pair[1]):
 		if global_transform.is_equal_approx(looking_at):
 			#print("Wires in place, disabling tick listener.")
-			player.disconnect("process", self, "look_at_target")
+			#player.disconnect("process", self, "look_at_target")
+			pass
 
 func get_prev():
 	var prev = get_prev_wire()

@@ -3,10 +3,10 @@ onready var active_level = $ActiveLevel
 onready var wires = $PowerLines
 var update_time = 0
 var is_paused = false
-var cur_level = "level4"
+var cur_level = "level1"
 #var workshop_camera = preload("res://scenes/WorkshopCamera.tscn")
 var workshop = preload("res://levels/WorkshopScene.tscn")
-var level_1 = preload("res://levels/first_1.tscn")
+var level_1 = preload("res://levels/wire_tutorial_1.tscn")
 var level_2 = preload("res://levels/level_2.tscn")
 var level_3 = preload("res://levels/Pipeline_3.tscn")
 var level_4 = preload("res://levels/Capacity_4.tscn")
@@ -24,7 +24,7 @@ func _ready():
 	#$Cameras/WorkshopCamera/Camera.current = true	
 	
 	# LOADS WORKSHOP SCENE
-	load_level('level4')
+	load_level('level1')
 	
 	# LOADS LEVEL 1
 	#load_level('level1')

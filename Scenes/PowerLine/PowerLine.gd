@@ -1,5 +1,7 @@
 extends Spatial
 
+signal move(delta)
+
 const WIRE_LENGTH = 0.2
 
 export var WireScene:PackedScene
@@ -12,6 +14,8 @@ var clip_wire_audio:AudioStreamPlayer
 var pair = [null, null]
 var player_pos:Vector3
 var lowest_y = 0
+var old_transform_a
+var old_transform_b
 
 func set_interact(new_interact):
 	interact = new_interact
@@ -27,9 +31,8 @@ func set_interact(new_interact):
 func begin(new_ray):
 	ray = new_ray
 	pair[0] = ray.get_collider()
-	global_transform.origin = ray.get_collision_point()
-	lowest_y = pair[0].global_transform.origin.y - 0.5
-	print("lowest y:", lowest_y)
+	global_transform.origin = pair[0].global_transform.origin
+	lowest_y = pair[0].global_transform.origin.y - 0.75
 	add_wire()
 
 func add_wire():
@@ -37,17 +40,39 @@ func add_wire():
 	add_child(wire)
 	adjust_wires()
 
-func update_wires(_delta):
+func update_wires(delta):
 	if !pair[1]:
 		player_pos = player.get_node("Head").global_transform.origin + head_offset
-		update_num_wires(player.global_transform.origin)
-	else:
-		print("Powerline in place, disabling tick listener.")
-		interact.disconnect("tick", self, "update_wires")
+		
+		if pair[0]:
+			var new_transform_a = pair[0].global_transform.origin
+			var new_transform_b = player_pos
+			if old_transform_a != new_transform_a or old_transform_b != new_transform_b:
+				print("changed")
+				global_transform.origin = new_transform_a
+				update_num_wires(player_pos)
+				emit_signal("move", delta)
+				old_transform_a = new_transform_a
+				old_transform_b = player_pos
+				
+				
+	elif pair[0] and pair[1]:
+		var new_transform_a = pair[0].global_transform.origin
+		var new_transform_b = pair[1].global_transform.origin
+		
+		if old_transform_a != new_transform_a or old_transform_b != new_transform_b:
+			global_transform.origin = new_transform_a
+			print("changed")
+			lowest_y = pair[0].global_transform.origin.y - 0.5
+			update_num_wires(new_transform_b)
+			emit_signal("move", delta)
+				
+		old_transform_a = new_transform_a
+		old_transform_b = new_transform_b
 	
 func end(_ray):
-	var end_point = _ray.get_collision_point()
 	pair[1] = _ray.get_collider()
+	var end_point = pair[1].global_transform.origin
 	update_num_wires(end_point)
 	setup_powerline_collision()
 	connect_pair()
