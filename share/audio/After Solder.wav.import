@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/After Solder.wav-5c613e5800eb40ebd6a981cf30e06b3f.sample"
+
+[deps]
+
+source_file="res://share/audio/After Solder.wav"
+dest_files=[ "res://.import/After Solder.wav-5c613e5800eb40ebd6a981cf30e06b3f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

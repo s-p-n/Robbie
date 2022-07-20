@@ -1,0 +1,20 @@
+[gd_resource type="SpatialMaterial" load_steps=6 format=2]
+
+[ext_resource path="res://modules/Structures/circuitBoard/med/Roughness-med.png" type="Texture" id=1]
+[ext_resource path="res://modules/Structures/circuitBoard/med/AO-med.png" type="Texture" id=2]
+[ext_resource path="res://modules/Structures/circuitBoard/med/Normal-med.png" type="Texture" id=3]
+[ext_resource path="res://modules/Structures/circuitBoard/med/Albido-med.png" type="Texture" id=4]
+[ext_resource path="res://modules/Structures/circuitBoard/med/Metallic-med.png" type="Texture" id=5]
+
+[resource]
+albedo_texture = ExtResource( 4 )
+metallic_texture = ExtResource( 5 )
+roughness_texture = ExtResource( 1 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 3 )
+ao_enabled = true
+ao_light_affect = 0.0
+ao_texture = ExtResource( 2 )
+ao_on_uv2 = true
+ao_texture_channel = 0

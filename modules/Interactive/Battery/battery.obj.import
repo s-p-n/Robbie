@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/battery.obj-7545f2ed39a63e9f0ced546fba595cbe.mesh"
+
+[deps]
+
+files=[ "res://.import/battery.obj-7545f2ed39a63e9f0ced546fba595cbe.mesh" ]
+
+source_file="res://modules/Interactive/Battery/battery.obj"
+dest_files=[ "res://.import/battery.obj-7545f2ed39a63e9f0ced546fba595cbe.mesh", "res://.import/battery.obj-7545f2ed39a63e9f0ced546fba595cbe.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

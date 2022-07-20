@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://modules/Powerlines/PowerLine/PowerLine.gd" type="Script" id=1]
+[ext_resource path="res://modules/Powerlines/Wire/Wire.tscn" type="PackedScene" id=2]
+
+[node name="PowerLine" type="Spatial"]
+script = ExtResource( 1 )
+WireScene = ExtResource( 2 )

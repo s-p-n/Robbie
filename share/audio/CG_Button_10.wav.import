@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/CG_Button_10.wav-1ac31dd04b2f0359d68e8c6d1ec0a988.sample"
+
+[deps]
+
+source_file="res://share/audio/CG_Button_10.wav"
+dest_files=[ "res://.import/CG_Button_10.wav-1ac31dd04b2f0359d68e8c6d1ec0a988.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

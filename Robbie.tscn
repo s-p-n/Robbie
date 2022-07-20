@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://modules/SceneManager/SceneManager.gd" type="Script" id=1]
+[ext_resource path="res://modules/Levels/wire_tutorial_1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://modules/Pause/Paused.tscn" type="PackedScene" id=3]
+
+[node name="Robbie" type="Spatial"]
+script = ExtResource( 1 )
+levels = [ ExtResource( 2 ) ]
+
+[node name="PowerLines" type="Spatial" parent="."]
+
+[node name="ActiveLevel" type="Spatial" parent="."]
+
+[node name="Paused" parent="." instance=ExtResource( 3 )]
+visible = false

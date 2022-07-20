@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Electrical Loop_02_01.wav-7c617364e5ff4916f4489bc9467dd759.sample"
+
+[deps]
+
+source_file="res://share/audio/Electrical Loop_02_01.wav"
+dest_files=[ "res://.import/Electrical Loop_02_01.wav-7c617364e5ff4916f4489bc9467dd759.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

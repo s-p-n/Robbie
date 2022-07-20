@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/CG_Modular_Vaccum-cm.wav-981d3cdfb948640062e84b4cd33764cd.sample"
+
+[deps]
+
+source_file="res://share/audio/CG_Modular_Vaccum-cm.wav"
+dest_files=[ "res://.import/CG_Modular_Vaccum-cm.wav-981d3cdfb948640062e84b4cd33764cd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

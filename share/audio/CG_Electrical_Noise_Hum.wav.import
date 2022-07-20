@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/CG_Electrical_Noise_Hum.wav-51db160b0c4f2c73f1e7430801f7b03a.sample"
+
+[deps]
+
+source_file="res://share/audio/CG_Electrical_Noise_Hum.wav"
+dest_files=[ "res://.import/CG_Electrical_Noise_Hum.wav-51db160b0c4f2c73f1e7430801f7b03a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
