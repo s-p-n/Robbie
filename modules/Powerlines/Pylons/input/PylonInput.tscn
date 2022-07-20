@@ -61,7 +61,7 @@ skeleton = NodePath("")
 material/0 = SubResource( 7 )
 
 [node name="PowerLight" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8066, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.45745, 0 )
 light_color = Color( 0.156863, 0.454902, 0.0235294, 1 )
 light_energy = 1.216
 omni_attenuation = 9.18958

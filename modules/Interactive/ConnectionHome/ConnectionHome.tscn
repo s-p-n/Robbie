@@ -9,7 +9,7 @@ points = PoolVector3Array( 4, 4, 1, 4, 4, -1, -4, 4, 1, 4, -4, 1, 4, -4, -1, -4,
 
 [node name="connection_home" type="RigidBody"]
 collision_layer = 65
-contacts_reported = 1
+contacts_reported = 5
 contact_monitor = true
 axis_lock_linear_x = true
 axis_lock_linear_y = true
