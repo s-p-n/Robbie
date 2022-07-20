@@ -30,7 +30,13 @@ func _process(_delta):
 		
 func set_power_source(source):
 	connected_node = source
-	
+	is_source = true
+	update_power_status(self)
+
+func unset_power_source():
+	connected_node = null
+	is_source = false
+	update_power_status(self)
 
 func connect_wire_to(powerline, partner):
 	if !(partner in partners):

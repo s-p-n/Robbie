@@ -1,5 +1,11 @@
 extends Spatial
 
+#
+# Travel Station new features:
+# - Needs power.
+# - Directional buttons. ( <--- )
+#                        ( ---> )
+
 export(String, "X", "Y", "Z") var open_axis = "X"
 export var open_position:float = 0.0
 export(float, 0, 25) var open_speed:float = 2.5
@@ -7,6 +13,10 @@ export(Array, NodePath) var bring_with
 
 onready var audio_open = $doorOpen
 onready var audio_close = $doorClose
+onready var level:Spatial = find_parent("Level")
+
+var player:KinematicBody
+var player_parent:Spatial
 
 var should_open = false
 var should_close = false
@@ -18,6 +28,10 @@ var home_position:float = 0.0
 var threshold = 0.05
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if is_instance_valid(level):
+		player = level.find_node("player")
+		if is_instance_valid(player):
+			player_parent = player.get_parent()
 	home_position = get_target_translation()
 	if open_position < home_position:
 		open_direction = true # should move number up
@@ -88,6 +102,7 @@ func close_door(delta:float):
 	return home_position
 
 func work(new_source):
+	reparent_player()
 	audio_open.play(0.0)
 	audio_close.stop()
 	source = new_source
@@ -110,3 +125,16 @@ func handle_work_hault(delta):
 	set_target_translation(
 		close_door(delta)
 	)
+
+func reparent_player():
+	if player.get_parent() != self:
+		var player_global_pos = player.global_transform.origin
+		player.get_parent().remove_child(player)
+		add_child(player)
+		player.set_owner(self)
+		player.global_transform.origin = player_global_pos
+	#else:
+	#	player_parent = player.get_parent()
+	#	player_parent.remove_child(player)
+	#	add_child(player)
+	#	player.set_owner(self)

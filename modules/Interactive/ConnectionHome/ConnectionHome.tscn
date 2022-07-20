@@ -4,7 +4,7 @@
 [ext_resource path="res://modules/Interactive/ConnectionHome/ConnectionHome.tres" type="Material" id=2]
 [ext_resource path="res://modules/Interactive/ConnectionHome/connectionHome.gd" type="Script" id=3]
 
-[sub_resource type="ConvexPolygonShape" id=8]
+[sub_resource type="ConvexPolygonShape" id=1]
 points = PoolVector3Array( 4, 4, 1, 4, 4, -1, -4, 4, 1, 4, -4, 1, 4, -4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1 )
 
 [node name="connection_home" type="RigidBody"]
@@ -25,8 +25,8 @@ mesh = ExtResource( 1 )
 material/0 = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 0.25, 0, 0, 0, -1.09278e-08, -0.05, 0, 0.25, -2.18557e-09, 0, 0, 0 )
-shape = SubResource( 8 )
+transform = Transform( 0.25, 0, 0, 0, -1.09278e-08, -0.125, 0, 0.25, -5.46392e-09, 0, 0, 0 )
+shape = SubResource( 1 )
 
 [node name="audio" type="AudioStreamPlayer3D" parent="."]
 

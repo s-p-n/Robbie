@@ -152,8 +152,8 @@ func handle_pickup_action():
 	if is_instance_valid(held_object):
 		# dereference to drop object
 		#held_object.mode = held_object.MODE_RIGID
-		if held_object.is_connected("force", self, "handle_held_object"):
-			held_object.disconnect("force", self, "handle_held_object")
+		#if held_object.is_connected("force", self, "handle_held_object"):
+		#	held_object.disconnect("force", self, "handle_held_object")
 		held_object = null
 		return true
 	elif collider:

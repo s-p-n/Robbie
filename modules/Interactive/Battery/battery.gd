@@ -1,6 +1,6 @@
 extends RigidBody
 
-signal power_lost
+#signal power_lost
 
 const LAYER_BIT_OBSTICLE = 1
 const LAYER_BIT_CLAW = 4
@@ -37,8 +37,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if find_parent("Robbie").is_paused:
-		return
 	if is_powered:
 		drain += delta
 		if drain >= drain_time:
@@ -50,7 +48,7 @@ func _process(delta):
 		var dest = connection_home.get_transform()
 		transform.origin = lerp(transform.origin, dest.origin, delta*5)
 		rotation = lerp(rotation, connection_home.rotation, delta*5)
-		
+		#print('a')
 		if is_near_home():
 			transform = dest
 			is_home = true
@@ -60,7 +58,9 @@ func _process(delta):
 			linear_velocity = Vector3(0, 0, 0)
 	elif !connection_home and is_home:
 		is_home = false
+		#print('b')
 	elif connection_home and is_home:
+		#print('c')
 		if is_near_home():
 			gravity_scale = 0
 			linear_velocity = Vector3(0, 0, 0)
@@ -68,6 +68,7 @@ func _process(delta):
 			setup_collisions()
 			is_home = false
 	else:
+		#print('d')
 		gravity_scale = 7
 
 func update_lights():
@@ -80,7 +81,6 @@ func update_lights():
 			number_of_green += 1
 		else:
 			level.get_child(i).material_override = red_light
-	print(number_of_green)
 	if is_near_home():
 		if number_of_green != last_number_of_green:
 			last_number_of_green = number_of_green
@@ -109,10 +109,11 @@ func setup_collisions():
 	if is_home and is_near_home() and power > 0:
 		is_powered = true
 		find_node("SpotLight").visible = true
-		attempt_to_power_circuit()
+		attempt_to_power_object()
 	else:
 		is_powered = false
 		find_node("SpotLight").visible = false
+		attempt_to_shutdown_object()
 	
 	for bit in active_layers:
 		result += pow(2, bit - 1)
@@ -128,8 +129,14 @@ func disconnect_from_home(old_home):
 		connection_home = null
 	setup_collisions()
 
-func attempt_to_power_circuit():
+func attempt_to_power_object():
 	if connection_home:
-		var pylon = get_node_or_null(connection_home.connected_object)
-		if pylon and pylon.has_method("set_power_source"):
-			pylon.set_power_source(self)
+		var object = get_node_or_null(connection_home.connected_object)
+		if object and object.has_method("set_power_source"):
+			object.set_power_source(self)
+
+func attempt_to_shutdown_object():
+	if connection_home:
+		var object = get_node_or_null(connection_home.connected_object)
+		if object and object.has_method("unset_power_source"):
+			object.unset_power_source()
