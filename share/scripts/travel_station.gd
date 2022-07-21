@@ -127,6 +127,8 @@ func handle_work_hault(delta):
 	)
 
 func reparent_player():
+	if !is_instance_valid(player):
+		player = find_parent("Objects").find_node("Player")
 	if player.get_parent() != self:
 		var player_global_pos = player.global_transform.origin
 		player.get_parent().remove_child(player)

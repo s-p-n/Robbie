@@ -5,6 +5,9 @@ signal move(delta)
 const WIRE_LENGTH = 0.2
 
 export var WireScene:PackedScene
+
+onready var wireWhole = get_node("WireWhole")
+
 var head_offset =  Vector3(0, -0.6, 0)
 var PowerLines:Spatial
 var interact:Node
@@ -37,7 +40,7 @@ func begin(new_ray):
 	global_transform.origin = pair[0].global_transform.origin
 	
 	#update_lowest_y()
-	add_wire()
+	#add_wire()
 
 func add_wire():
 	var wire = WireScene.instance()
@@ -45,6 +48,28 @@ func add_wire():
 	adjust_wires()
 
 func update_wires(delta):
+	if pair[0]:
+		var up = Vector3(0,1,0)
+		var start_pos
+		var end_pos
+		
+		wireWhole.global_transform.origin = pair[0].global_transform.origin
+		
+		if !is_instance_valid(pair[1]):
+			start_pos = wireWhole.global_transform.origin
+			end_pos = player.global_transform.origin
+		else:
+			start_pos = wireWhole.global_transform.origin
+			end_pos = pair[1].global_transform.origin
+			
+		wireWhole.look_at(end_pos, up)
+		var size = sqrt(start_pos.distance_to(end_pos) - 6)
+		if size < 1 or is_nan(size):
+			size = 1
+		wireWhole.scale = Vector3(1,1,size)
+		#print('size: ', size)
+
+func update_wires_old(delta):
 	time += delta
 	if time < throttle:
 		return
@@ -80,9 +105,10 @@ func update_wires(delta):
 	
 func end(_ray):
 	pair[1] = _ray.get_collider()
-	var end_point = pair[1].global_transform.origin
-	update_num_wires(end_point)
-	setup_powerline_collision()
+	wireWhole.set_collision_layer_bit(0, true)
+	#var end_point = pair[1].global_transform.origin
+	#update_num_wires(end_point)
+	#setup_powerline_collision()
 	connect_pair()
 
 func update_num_wires(end_point):
