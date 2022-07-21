@@ -7,7 +7,7 @@
 [ext_resource path="res://modules/Structures/circuitBoard/low/CircuitBoardLow.tscn" type="PackedScene" id=5]
 [ext_resource path="res://modules/Powerlines/Pylons/input/PylonInput.tscn" type="PackedScene" id=6]
 
-[node name="Puzzle" type="Spatial"]
+[node name="Doorway" type="Spatial"]
 script = ExtResource( 4 )
 activate_node = NodePath("Door")
 piece_paths = [ NodePath("Door/InputPylon") ]
