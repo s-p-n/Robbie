@@ -9,3 +9,5 @@ script = ExtResource( 1 )
 WireScene = ExtResource( 2 )
 
 [node name="WireWhole" parent="." instance=ExtResource( 3 )]
+collision_layer = 512
+mode = 1

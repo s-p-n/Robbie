@@ -53,12 +53,14 @@ func update_wires(delta):
 		var start_pos
 		var end_pos
 		
-		wireWhole.global_transform.origin = pair[0].global_transform.origin
+		wireWhole.global_transform.origin = lerp(wireWhole.global_transform.origin, pair[0].global_transform.origin, delta)
 		
 		if !is_instance_valid(pair[1]):
 			start_pos = wireWhole.global_transform.origin
 			end_pos = player.global_transform.origin
+			
 		else:
+			#print('powerline collisions: ', wireWhole.get_colliding_bodies())
 			start_pos = wireWhole.global_transform.origin
 			end_pos = pair[1].global_transform.origin
 			
@@ -66,8 +68,8 @@ func update_wires(delta):
 		var size = sqrt(start_pos.distance_to(end_pos) - 6)
 		if size < 1 or is_nan(size):
 			size = 1
-		wireWhole.scale = Vector3(1,1,size)
-		#print('size: ', size)
+		wireWhole.scale = lerp(wireWhole.scale, Vector3(1,1,size), delta)
+		
 
 func update_wires_old(delta):
 	time += delta
@@ -106,6 +108,7 @@ func update_wires_old(delta):
 func end(_ray):
 	pair[1] = _ray.get_collider()
 	wireWhole.set_collision_layer_bit(0, true)
+	#interact.disconnect("tick", self, "update_wires")
 	#var end_point = pair[1].global_transform.origin
 	#update_num_wires(end_point)
 	#setup_powerline_collision()
