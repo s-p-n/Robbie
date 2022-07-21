@@ -25,13 +25,10 @@ func load_level(idx):
 	# Delete the Workshop Scene
 	var old_level_members = active_level.get_children()
 	var old_wires = wires.get_children()
-	var old_checkpoints = checkpoints.get_children()
+	checkpoints.checkpoints_in_level = []
 	
 	for wire in old_wires:
 		wire.queue_free()
-	
-	for checkpoint in old_checkpoints:
-		checkpoint.queue_free()
 	
 	for active_scene_member in old_level_members:
 		active_scene_member.queue_free()

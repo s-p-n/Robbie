@@ -4,39 +4,40 @@ export var flag_unset:Material
 export var flag_set:Material
 
 onready var checkpoint_pos = global_transform.origin
-onready var player = find_parent("Level").find_node("Player")
 onready var checkpoints = find_parent("Robbie").get_node("Checkpoints")
 onready var mesh = $Mesh
 
 var is_preloaded = false
 
+var player:KinematicBody = null
+
 func _ready():
-	mesh.set_surface_material(1, flag_unset)
-	call_deferred("setup")
-	preload_flag()
+	var level = find_parent("Level")
+	if is_instance_valid(level):
+		player = level.find_node("Player")
+		mesh.set_surface_material(1, flag_unset)
+		call_deferred("setup")
+		print('checkpoint ready')
+	else:
+		print("Checkpoint cannot be setup outside of a level.")
 
 func setup():
-	get_parent().remove_child(self)
-	checkpoints.add_child(self)
-	set_owner(checkpoints)
+	checkpoints.checkpoints_in_level.append(self)
 
 func _on_Checkpoint_body_entered(body):
 	if body == player:
 		set_this_checkpoint()
 
 func set_this_checkpoint():
-	if mesh.mesh.surface_get_material(1) != flag_set:
+	if is_instance_valid(player) and player.last_checkpoint != self:
 		#print("Setting this checkpoint: ", self)
 		var siblings = checkpoints.get_children()
-		player.checkpoint()
+		player.checkpoint(self)
 		for sibling in siblings:
 			sibling.mesh.set_surface_material(1, flag_unset)
 		mesh.set_surface_material(1, flag_set)
-
-func preload_flag():
-	if !is_preloaded:
-		is_preloaded = true
-		mesh.set_surface_material(1, flag_set)
-		call_deferred("preload_flag")
+		print("Set checkpoint to self: ", self)
 	else:
-		mesh.set_surface_material(1, flag_unset)
+		print("Cannot set checkpoint")
+		print('player valid? ', is_instance_valid(player))
+		print(player.last_checkpoint, " != ", self, '? ', player.last_checkpoint != self)

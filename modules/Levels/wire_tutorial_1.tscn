@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://modules/Interactive/Checkpoint/Checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://modules/Player/Player.tscn" type="PackedScene" id=2]
@@ -14,13 +14,11 @@
 [ext_resource path="res://modules/Powerlines/Pylons/static/PylonStatic.tscn" type="PackedScene" id=13]
 [ext_resource path="res://modules/Structures/block/block.tscn" type="PackedScene" id=14]
 [ext_resource path="res://modules/Structures/circuitBoard/low/CircuitBoardLow.tscn" type="PackedScene" id=15]
-[ext_resource path="res://modules/Interactive/ConnectionHome/ConnectionHome.tscn" type="PackedScene" id=16]
 [ext_resource path="res://modules/Powerlines/Pylons/input/PylonInput.tscn" type="PackedScene" id=17]
 [ext_resource path="res://share/scripts/travel_station.gd" type="Script" id=18]
 [ext_resource path="res://share/scripts/Puzzle.gd" type="Script" id=19]
 [ext_resource path="res://modules/Structures/wall/Wall.tscn" type="PackedScene" id=20]
 [ext_resource path="res://modules/Structures/block/platform.tscn" type="PackedScene" id=21]
-[ext_resource path="res://modules/Structures/wall/wall.obj" type="ArrayMesh" id=22]
 
 [sub_resource type="ConcavePolygonShape" id=1]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
@@ -34,20 +32,16 @@ points = PoolVector3Array( 1, -1, 1, 1, 1, -1.00024, -1, -1, 1, 1, -1, -2.27423,
 [sub_resource type="ConcavePolygonShape" id=6]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
 
-[sub_resource type="SpatialMaterial" id=7]
-albedo_color = Color( 0.168627, 0.168627, 0.168627, 1 )
-subsurf_scatter_enabled = true
-subsurf_scatter_strength = 0.63
-
-[sub_resource type="ConcavePolygonShape" id=8]
-data = PoolVector3Array( -0.0688, 6.3839, 11.7301, -0.0688, 6.3839, -11.7301, 0.0688, 6.3839, 11.7301, 0.0688, 6.3839, 11.7301, -0.0688, 6.3839, -11.7301, 0.0688, 6.3839, -11.7301, 0.0688, -6.3839, 11.7301, -0.0688, -6.3839, 11.7301, 0.0688, 6.3839, 11.7301, 0.0688, 6.3839, 11.7301, -0.0688, -6.3839, 11.7301, -0.0688, 6.3839, 11.7301, 0.0688, -6.3839, -11.7301, 0.0688, -6.3839, 11.7301, 0.0688, 6.3839, -11.7301, 0.0688, 6.3839, -11.7301, 0.0688, -6.3839, 11.7301, 0.0688, 6.3839, 11.7301, 0.0688, -6.3839, 11.7301, 0.0688, -6.3839, -11.7301, -0.0688, -6.3839, 11.7301, -0.0688, -6.3839, 11.7301, 0.0688, -6.3839, -11.7301, -0.0688, -6.3839, -11.7301, -0.0688, -6.3839, 11.7301, -0.0688, -6.3839, -11.7301, -0.0688, 6.3839, 11.7301, -0.0688, 6.3839, 11.7301, -0.0688, -6.3839, -11.7301, -0.0688, 6.3839, -11.7301, -0.0688, -6.3839, -11.7301, 0.0688, -6.3839, -11.7301, -0.0688, 6.3839, -11.7301, -0.0688, 6.3839, -11.7301, 0.0688, -6.3839, -11.7301, 0.0688, 6.3839, -11.7301 )
-
 [node name="Level" type="Spatial"]
 
 [node name="Objects" type="Spatial" parent="."]
 
+[node name="Checkpoint" parent="Objects" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -4, -10 )
+
 [node name="Player" parent="Objects" instance=ExtResource( 2 )]
-transform = Transform( 0.999999, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 0.999999, -3.61493, -1.27199, 0 )
+transform = Transform( 0.999999, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 0.999999, 51.4776, -52.7661, -546.971 )
+starting_checkpoint = NodePath("../Checkpoint")
 
 [node name="Stage1" type="Spatial" parent="Objects"]
 
@@ -160,12 +154,8 @@ open_position = 4.0
 [node name="CircuitBoard" parent="Objects/Stage1/Puzzle/Door" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 
-[node name="Source" parent="Objects/Stage1/Puzzle/Door" instance=ExtResource( 13 )]
-transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -4.37069, -1.85422, 1.8754 )
-is_source = true
-
 [node name="InputPylon" parent="Objects/Stage1/Puzzle/Door" instance=ExtResource( 17 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 4.4016, -1.78122, 1.87597 )
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -0.0457392, -1.78122, -0.110047 )
 
 [node name="doorOpen" type="AudioStreamPlayer3D" parent="Objects/Stage1/Puzzle/Door"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 8.75 )
@@ -182,13 +172,6 @@ max_db = 1.0
 [node name="PylonStatic4" parent="Objects/Stage1/Puzzle/Door" instance=ExtResource( 13 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.26421, -8.25688, -0.918 )
 is_source = true
-
-[node name="Checkpoint" parent="Objects/Stage1" instance=ExtResource( 1 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.44424, -4.02314, -10.7489 )
-
-[node name="Checkpoint2" parent="Objects/Stage1" instance=ExtResource( 1 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.44424, -4.02314, -12.8255 )
-flag_set = ExtResource( 8 )
 
 [node name="Stage2" type="Spatial" parent="Objects"]
 
@@ -446,21 +429,34 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 11.4127
 [node name="PylonStatic3" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.27694, -4.76343, -20.6002 )
 
-[node name="PylonStatic4" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.39649, -4.36588, 2.0986 )
-
-[node name="PylonStatic5" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.39649, -4.36588, -6.01035 )
-
 [node name="InputPylon" parent="Objects/Stage2/Puzzle" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 26.9504, -13.3441, -12.4847 )
+
+[node name="PylonStatic5" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -9.10024, -4.20308, -4.78597 )
+is_source = true
+
+[node name="PylonStatic6" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -9.10024, -4.20308, 9.142 )
+
+[node name="PylonStatic7" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.316364, -4.20308, 1.32601 )
+
+[node name="PylonStatic8" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 9.52351, -4.20308, 9.11384 )
+
+[node name="PylonStatic9" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 9.52351, -4.20308, -3.74178 )
+
+[node name="PylonStatic10" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.43042, -4.20308, 2.76419 )
 
 [node name="Door" type="Spatial" parent="Objects/Stage2/Puzzle"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42, -14.5, -22 )
 script = ExtResource( 9 )
 open_axis = "Z"
 open_position = -15.0
-open_speed = 0.25
+open_speed = 25.0
 
 [node name="block-441-wall5" type="RigidBody" parent="Objects/Stage2/Puzzle/Door"]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.23083, 10.076, 14.135 )
@@ -491,9 +487,40 @@ stream = ExtResource( 5 )
 unit_size = 7.6
 max_db = 1.0
 
+[node name="Checkpoint" parent="Objects/Stage2" instance=ExtResource( 1 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.44424, -4.02314, -10.7489 )
+
+[node name="Checkpoint2" parent="Objects/Stage2" instance=ExtResource( 1 )]
+transform = Transform( -0.965926, 0.258819, 8.74228e-08, 0.258819, 0.965926, 0, -8.44439e-08, 2.26267e-08, -1, 42.4389, -17.0314, -8.43078 )
+flag_set = ExtResource( 8 )
+
+[node name="Checkpoint3" parent="Objects/Stage2" instance=ExtResource( 1 )]
+transform = Transform( -0.965926, 0.258819, 8.74228e-08, 0.258819, 0.965926, 0, -8.44439e-08, 2.26267e-08, -1, 54.195, -15.9898, -35.8301 )
+flag_set = ExtResource( 8 )
+
+[node name="Checkpoint4" parent="Objects/Stage2" instance=ExtResource( 1 )]
+transform = Transform( 0.965926, 0.22414, 0.129413, -0.258817, 0.836518, 0.482962, -5.1856e-06, -0.499999, 0.866026, 41.9467, -22.016, -67.9193 )
+flag_set = ExtResource( 8 )
+
 [node name="Stage3" type="Spatial" parent="Objects"]
 
 [node name="Walls" type="Spatial" parent="Objects/Stage3"]
+
+[node name="block-441" type="RigidBody" parent="Objects/Stage3/Walls"]
+transform = Transform( 1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, 54.8416, -39.1658, -111.159 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/Stage3/Walls/block-441"]
+transform = Transform( 3.9, 2.16316e-14, -1.80328e-22, -2.16316e-14, 3.9, -3.25117e-08, -2.46125e-28, 1.26796e-07, 1, 0, 0, 0 )
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Stage3/Walls/block-441"]
+transform = Transform( 3.9, 2.16316e-14, -1.80328e-22, -2.16316e-14, 3.9, -3.25117e-08, -2.46125e-28, 1.26796e-07, 1, 0, 0, 0 )
+shape = SubResource( 1 )
 
 [node name="Puzzle" type="Spatial" parent="Objects/Stage3"]
 script = ExtResource( 19 )
@@ -534,19 +561,8 @@ light_color = Color( 0.12549, 0.501961, 0.72549, 1 )
 light_energy = 8.704
 omni_range = 100.0
 
-[node name="connection_home" parent="Objects/Stage3/Puzzle/TravelStation" instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4485, -0.328297, 8.4603 )
-contacts_reported = 4
-connected_object = NodePath("../InputPylon2")
-
 [node name="InputPylon" parent="Objects/Stage3/Puzzle/TravelStation" instance=ExtResource( 17 )]
-transform = Transform( 1, 1.19209e-07, 0, -1.19209e-07, 1, 0, 0, 0, 1, 0.121216, -0.623356, 11.7863 )
-
-[node name="battery" parent="Objects/Stage3/Puzzle/TravelStation" instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.40709, 0.272354, 3.85487 )
-
-[node name="InputPylon2" parent="Objects/Stage3/Puzzle/TravelStation" instance=ExtResource( 17 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 14.0082, 4.18158, 11.7711 )
+transform = Transform( 1, 1.19209e-07, 0, -1.19209e-07, 1, 0, 0, 0, 1, 0.121216, -0.852993, 11.7863 )
 
 [node name="doorOpen" type="AudioStreamPlayer3D" parent="Objects/Stage3/Puzzle/TravelStation"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
@@ -559,6 +575,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
 stream = ExtResource( 5 )
 unit_size = 7.6
 max_db = 1.0
+
+[node name="Checkpoint5" parent="Objects/Stage3/Puzzle/TravelStation" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.36594, -0.413105, 5.88289 )
+flag_set = ExtResource( 8 )
+
+[node name="PylonStatic" parent="Objects/Stage3/Puzzle/TravelStation" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.6604, -0.620735, 3.20612 )
+is_source = true
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, -0.160467, 0.987041, 0, -0.987041, -0.160467, 0, 30.9096, 8.28221 )
@@ -617,6 +641,10 @@ transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, -6.3
 
 [node name="Source" parent="Objects/Stage4/hallway" instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8072, -6.32359, 11.0688 )
+
+[node name="Source2" parent="Objects/Stage4/hallway" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, -2.98023e-08, 2.38419e-07, 1, -1.49012e-07, 3.57628e-07, -1.19209e-07, 1, 4.78433, -6.72581, -38.2503 )
+is_source = true
 
 [node name="SpotLight" type="SpotLight" parent="Objects/Stage4/hallway"]
 transform = Transform( -0.996742, -0.0806514, -3.56683e-15, -3.52539e-09, 4.3569e-08, 1, -0.0806514, 0.996742, -4.37114e-08, 0, 19.2543, 0 )
@@ -705,24 +733,6 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="Objects/Stage4/Walls/block-445"]
 transform = Transform( 2.51995, 0, 0, 0, 6.13043, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 6 )
-
-[node name="wall" type="RigidBody" parent="Objects/Stage4/Walls"]
-transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 0.660088, -26.9812, -78.9586 )
-collision_layer = 513
-collision_mask = 513
-mode = 1
-
-[node name="wall-mesh" type="MeshInstance" parent="Objects/Stage4/Walls/wall"]
-transform = Transform( 5, 0, 0, 0, 2, 0, 0, 0, 1.2, 0, 0, 0 )
-use_in_baked_light = true
-generate_lightmap = false
-lightmap_scale = 3
-mesh = ExtResource( 22 )
-material/0 = SubResource( 7 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Objects/Stage4/Walls/wall"]
-transform = Transform( 5, 0, 0, 0, 2, 0, 0, 0, 1.2, 0, 0, 0 )
-shape = SubResource( 8 )
 
 [node name="block-446" type="RigidBody" parent="Objects/Stage4/Walls"]
 transform = Transform( 1, 0, 0, 0, 1, 6.3573e-08, 0, -6.3573e-08, 1, 11.5, -19.72, -90.935 )
@@ -824,3 +834,165 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5931, -24.8132, -93.9478 )
 
 [node name="platform18" parent="Objects/Stage4/platforms" instance=ExtResource( 21 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.59307, -24.8132, -93.9478 )
+
+[node name="Puzzle" type="Spatial" parent="Objects/Stage4"]
+transform = Transform( 0.952025, 0.296488, -0.0757836, -0.226196, 0.84857, 0.478294, 0.206116, -0.438206, 0.874924, 0, -7.239, -1.13531 )
+script = ExtResource( 19 )
+activate_node = NodePath("Door")
+piece_paths = [ NodePath("Door/PylonInput") ]
+
+[node name="Door" type="Spatial" parent="Objects/Stage4/Puzzle"]
+transform = Transform( 1, 0, -1.49012e-08, -7.45058e-09, 1, -5.96046e-08, 1.49012e-08, -5.96046e-08, 1, 0, 0, -16 )
+script = ExtResource( 9 )
+open_axis = "Y"
+open_position = 10.0
+
+[node name="Obj" parent="Objects/Stage4/Puzzle/Door" instance=ExtResource( 20 )]
+transform = Transform( -5.96046e-08, -7.45058e-09, 1, -5.96046e-08, 1, 1.2666e-07, -1, -5.66244e-07, 1.78814e-07, -3.8147e-06, -3.05176e-05, -3.05176e-05 )
+
+[node name="PylonInput" parent="Objects/Stage4/Puzzle/Door" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 2.98023e-08, -3.72529e-08, 2.98023e-08, -1, 2.98023e-08, 1, -5.96046e-08, 0, 0, 0 )
+
+[node name="doorOpen" type="AudioStreamPlayer3D" parent="Objects/Stage4/Puzzle/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 6 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="doorClose" type="AudioStreamPlayer3D" parent="Objects/Stage4/Puzzle/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 5 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="Puzzle2" type="Spatial" parent="Objects/Stage4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14441e-05, -17.3596, -23.9119 )
+script = ExtResource( 19 )
+activate_node = NodePath("Door")
+piece_paths = [ NodePath("Door/PylonInput") ]
+
+[node name="Door" type="Spatial" parent="Objects/Stage4/Puzzle2"]
+transform = Transform( -1, 5.2108e-15, -7.25216e-08, -7.45058e-09, 1, -5.96046e-08, 7.25216e-08, 5.96046e-08, -1, 3.8147e-06, -3.78236, -16 )
+script = ExtResource( 9 )
+open_axis = "Y"
+open_position = -12.0
+
+[node name="Obj" parent="Objects/Stage4/Puzzle2/Door" instance=ExtResource( 20 )]
+transform = Transform( -5.96046e-08, -7.45058e-09, 1, -5.96046e-08, 1, 1.2666e-07, -1, -5.66244e-07, 1.78814e-07, -3.8147e-06, -3.05176e-05, -3.05176e-05 )
+
+[node name="PylonInput" parent="Objects/Stage4/Puzzle2/Door" instance=ExtResource( 17 )]
+transform = Transform( 1, -1.42109e-14, 2.98023e-08, -3.72529e-08, 2.98023e-08, -1, 2.98023e-08, 1, -5.96046e-08, 3.08794, 0, 0 )
+
+[node name="doorOpen" type="AudioStreamPlayer3D" parent="Objects/Stage4/Puzzle2/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 6 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="doorClose" type="AudioStreamPlayer3D" parent="Objects/Stage4/Puzzle2/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 5 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="Puzzle3" type="Spatial" parent="Objects/Stage4"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 12.2785, -23.4466, -69.0232 )
+script = ExtResource( 19 )
+activate_node = NodePath("Door")
+piece_paths = [ NodePath("PylonInput") ]
+
+[node name="PylonInput" parent="Objects/Stage4/Puzzle3" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.90674, -11.4099, -18.5053 )
+
+[node name="PylonInput2" parent="Objects/Stage4/Puzzle3" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, -1.77636e-15, 0.999998, 1.42108e-14, 0, 0, 1, -5.84781, 0.0603867, -6.21136 )
+
+[node name="Door" type="Spatial" parent="Objects/Stage4/Puzzle3"]
+transform = Transform( -1, 5.32907e-15, -8.9407e-08, -7.45058e-09, 1, -5.96046e-08, 8.9407e-08, 5.96046e-08, -1, 0, -4, -16 )
+script = ExtResource( 9 )
+open_axis = "Y"
+open_position = -12.0
+
+[node name="doorOpen" type="AudioStreamPlayer3D" parent="Objects/Stage4/Puzzle3/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 6 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="doorClose" type="AudioStreamPlayer3D" parent="Objects/Stage4/Puzzle3/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 5 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="Puzzle" type="Spatial" parent="Objects/Stage4/Puzzle3/Door"]
+transform = Transform( 1, 0, 0, -1.77636e-15, 1, 1.77636e-15, 0, -3.55271e-15, 1, 0, 0, 0 )
+script = ExtResource( 19 )
+activate_node = NodePath("Door2")
+piece_paths = [ NodePath("../../PylonInput2") ]
+
+[node name="Door2" type="Spatial" parent="Objects/Stage4/Puzzle3/Door/Puzzle"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 1.77636e-15, 1, 0, 0, 0 )
+script = ExtResource( 9 )
+open_axis = "Y"
+open_position = -12.0
+
+[node name="Obj2" parent="Objects/Stage4/Puzzle3/Door/Puzzle/Door2" instance=ExtResource( 20 )]
+transform = Transform( -8.9407e-08, -7.45058e-09, 1, -5.96046e-08, 1, 1.2666e-07, -1, -5.66244e-07, 1.78814e-07, 0, 13, -3.05176e-05 )
+
+[node name="Obj" parent="Objects/Stage4/Puzzle3/Door/Puzzle/Door2" instance=ExtResource( 20 )]
+transform = Transform( -8.9407e-08, -7.45058e-09, 1, -5.96046e-08, 1, 1.2666e-07, -1, -5.66244e-07, 1.78814e-07, 0, -3.05176e-05, -3.05176e-05 )
+
+[node name="Obj3" parent="Objects/Stage4/Puzzle3/Door/Puzzle/Door2" instance=ExtResource( 20 )]
+transform = Transform( -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 3.55271e-15, -4.44089e-16, 0, 0.5, -7.98215, 10.8684, -2.63846 )
+
+[node name="Obj4" parent="Objects/Stage4/Puzzle3/Door/Puzzle/Door2" instance=ExtResource( 20 )]
+transform = Transform( -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 3.55271e-15, -4.44089e-16, 0, 0.5, -1.25546, 22.7702, 4.73114 )
+
+[node name="Source9" parent="Objects/Stage4/Puzzle3/Door/Puzzle/Door2" instance=ExtResource( 13 )]
+transform = Transform( -0.707107, 1.78814e-07, -0.707107, 0.707106, -1.90221e-08, -0.707106, -3.57628e-07, -0.999998, 5.96046e-08, -8.75049, 12.3284, 0.373901 )
+
+[node name="doorOpen" type="AudioStreamPlayer3D" parent="Objects/Stage4/Puzzle3/Door/Puzzle/Door2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 6 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="doorClose" type="AudioStreamPlayer3D" parent="Objects/Stage4/Puzzle3/Door/Puzzle/Door2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 5 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="Source2" parent="Objects/Stage4/Puzzle3" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 2.38418e-07, 0.999999, -1.49012e-07, 2.98023e-07, -1.19209e-07, 1, -10.1991, -11.3455, 4.16357 )
+
+[node name="Source3" parent="Objects/Stage4/Puzzle3" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 2.38418e-07, 0.999999, -1.49012e-07, 2.98023e-07, -1.19209e-07, 1, -0.140472, -11.3455, -12.144 )
+
+[node name="Source4" parent="Objects/Stage4/Puzzle3" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 2.38418e-07, 0.999998, -1.49012e-07, 2.98023e-07, -1.19209e-07, 1, 16.1681, -5.80117, -8.30597 )
+
+[node name="Source5" parent="Objects/Stage4/Puzzle3" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 2.38418e-07, 0.999997, -1.49012e-07, 2.98023e-07, -1.19209e-07, 1, 1.013, -0.720917, 0.291229 )
+
+[node name="Source6" parent="Objects/Stage4/Puzzle3" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 2.38418e-07, 0.999997, -1.49012e-07, 2.98023e-07, -1.19209e-07, 1, 10.0393, -0.720917, 9.31757 )
+
+[node name="Source7" parent="Objects/Stage4/Puzzle3" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 2.38418e-07, 0.999996, -1.49012e-07, 2.98023e-07, -1.19209e-07, 1, 28.9608, -0.720917, -9.60397 )
+
+[node name="Source8" parent="Objects/Stage4/Puzzle3" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 2.38418e-07, 0.999996, -1.49012e-07, 2.98023e-07, -1.19209e-07, 1, 14.2834, -0.720917, -24.2813 )
+
+[node name="Checkpoint" parent="Objects/Stage4/Puzzle3" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8854, -5.36655, -8.11758 )
+
+[node name="battery" parent="Objects/Stage4" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.94399, -22.9685, -37.3395 )
+
+[node name="battery2" parent="Objects/Stage4" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.10577, -22.9685, -44.948 )
+
+[node name="battery3" parent="Objects/Stage4" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.26186, -34.4014, -48.0346 )
