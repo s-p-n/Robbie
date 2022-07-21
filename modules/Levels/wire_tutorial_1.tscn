@@ -40,7 +40,7 @@ data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -4, -10 )
 
 [node name="Player" parent="Objects" instance=ExtResource( 2 )]
-transform = Transform( 0.999999, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 0.999999, 51.4776, -52.7661, -546.971 )
+transform = Transform( 0.999999, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 0.999999, -5, -2, -10 )
 starting_checkpoint = NodePath("../Checkpoint")
 
 [node name="Stage1" type="Spatial" parent="Objects"]
@@ -895,6 +895,9 @@ stream = ExtResource( 5 )
 unit_size = 7.6
 max_db = 1.0
 
+[node name="Obj5" parent="Objects/Stage4/Puzzle2/Door" instance=ExtResource( 20 )]
+transform = Transform( -3.35102e-08, -0.5, 1.92386e-09, 0.473471, -3.25481e-08, -0.160703, 0.160703, -7.7512e-09, 0.473471, 0.733807, -1.96221, -5.64899 )
+
 [node name="Puzzle3" type="Spatial" parent="Objects/Stage4"]
 transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 12.2785, -23.4466, -69.0232 )
 script = ExtResource( 19 )
@@ -945,6 +948,12 @@ transform = Transform( -8.9407e-08, -7.45058e-09, 1, -5.96046e-08, 1, 1.2666e-07
 
 [node name="Obj3" parent="Objects/Stage4/Puzzle3/Door/Puzzle/Door2" instance=ExtResource( 20 )]
 transform = Transform( -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 3.55271e-15, -4.44089e-16, 0, 0.5, -7.98215, 10.8684, -2.63846 )
+
+[node name="Obj5" parent="Objects/Stage4/Puzzle3/Door/Puzzle/Door2" instance=ExtResource( 20 )]
+transform = Transform( -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 3.55271e-15, -4.44089e-16, 0, 0.5, -3.73386, 6.77815, 4.45166 )
+
+[node name="Obj6" parent="Objects/Stage4/Puzzle3/Door/Puzzle/Door2" instance=ExtResource( 20 )]
+transform = Transform( 0.246171, -0.434241, 0.0288919, 0.43518, 0.245293, -0.0211948, 0.00423332, 0.0355815, 0.498715, -9.18546, 9.8704, 4.69839 )
 
 [node name="Obj4" parent="Objects/Stage4/Puzzle3/Door/Puzzle/Door2" instance=ExtResource( 20 )]
 transform = Transform( -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 3.55271e-15, -4.44089e-16, 0, 0.5, -1.25546, 22.7702, 4.73114 )
