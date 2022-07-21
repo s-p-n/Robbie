@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://modules/Interactive/Checkpoint/Checkpoint.tres" type="ArrayMesh" id=1]
+[ext_resource path="res://modules/Interactive/Checkpoint/Checkpoint.gd" type="Script" id=2]
+[ext_resource path="res://modules/Interactive/Checkpoint/flag_circuit_green.tres" type="Material" id=3]
+[ext_resource path="res://modules/Interactive/Checkpoint/flag_undiscoverred.tres" type="Material" id=4]
+
+[sub_resource type="CylinderShape" id=1]
+radius = 0.1
+
+[node name="Checkpoint" type="RigidBody"]
+contacts_reported = 3
+contact_monitor = true
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource( 2 )
+flag_unset = ExtResource( 4 )
+flag_set = ExtResource( 3 )
+
+[node name="Mesh" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+material/2 = null
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( -0.199453, -0.475667, 0.856714, 0, 0.874281, 0.48542, -0.979907, 0.0968187, -0.174378, 0, 4.69327, -0.825953 )
+editor_only = true
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_Checkpoint_body_entered"]

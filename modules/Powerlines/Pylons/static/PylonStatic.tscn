@@ -22,6 +22,7 @@ extents = Vector3( 0.80597, 0.505046, 0.800457 )
 albedo_color = Color( 0.317647, 0.329412, 0.360784, 1 )
 
 [node name="PylonStatic" type="RigidBody"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
 mode = 1
 axis_lock_linear_y = true
 axis_lock_angular_x = true

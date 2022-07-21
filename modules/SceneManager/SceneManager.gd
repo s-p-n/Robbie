@@ -1,6 +1,7 @@
 extends Spatial
 onready var active_level = $ActiveLevel
 onready var wires = $PowerLines
+onready var checkpoints = $Checkpoints
 
 var is_paused = false
 var cur_level = 0
@@ -24,9 +25,13 @@ func load_level(idx):
 	# Delete the Workshop Scene
 	var old_level_members = active_level.get_children()
 	var old_wires = wires.get_children()
+	var old_checkpoints = checkpoints.get_children()
 	
 	for wire in old_wires:
 		wire.queue_free()
+	
+	for checkpoint in old_checkpoints:
+		checkpoint.queue_free()
 	
 	for active_scene_member in old_level_members:
 		active_scene_member.queue_free()

@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/checkpoint.obj-df6a4592708c23bb34dbbc179f27137d.mesh"
+
+[deps]
+
+files=[ "res://.import/checkpoint.obj-df6a4592708c23bb34dbbc179f27137d.mesh" ]
+
+source_file="res://modules/Interactive/Checkpoint/checkpoint.obj"
+dest_files=[ "res://.import/checkpoint.obj-df6a4592708c23bb34dbbc179f27137d.mesh", "res://.import/checkpoint.obj-df6a4592708c23bb34dbbc179f27137d.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
