@@ -555,7 +555,7 @@ piece_paths = [ NodePath("TravelStation/InputPylon") ]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 57.5, -37.5, -110.25 )
 script = ExtResource( 18 )
 open_axis = "Z"
-open_position = -500.0
+open_position = -470.0
 open_speed = 5.0
 
 [node name="circuit-board" parent="Objects/Stage3/Puzzle/TravelStation" instance=ExtResource( 15 )]
