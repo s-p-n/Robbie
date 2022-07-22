@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://modules/Interactive/Checkpoint/Checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://modules/Player/Player.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://modules/Powerlines/Pylons/static/PylonStatic.tscn" type="PackedScene" id=13]
 [ext_resource path="res://modules/Structures/block/block.tscn" type="PackedScene" id=14]
 [ext_resource path="res://modules/Structures/circuitBoard/low/CircuitBoardLow.tscn" type="PackedScene" id=15]
+[ext_resource path="res://modules/Structures/wall/wall.obj" type="ArrayMesh" id=16]
 [ext_resource path="res://modules/Powerlines/Pylons/input/PylonInput.tscn" type="PackedScene" id=17]
 [ext_resource path="res://share/scripts/travel_station.gd" type="Script" id=18]
 [ext_resource path="res://share/scripts/Puzzle.gd" type="Script" id=19]
@@ -29,6 +30,9 @@ data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4
 
 [sub_resource type="ConvexPolygonShape" id=3]
 points = PoolVector3Array( 1, -1, 1, 1, 1, -1.00024, -1, -1, 1, 1, -1, -2.27423, -1, 1, -1.00024, 1, 1, -2.27423, -1, -1, -2.27423, -1, 1, -2.27423 )
+
+[sub_resource type="ConvexPolygonShape" id=7]
+points = PoolVector3Array( -0.068783, -6.38385, -11.7301, 0.0687695, -6.38385, -11.7301, -0.068783, -6.38385, 11.7301, -0.068783, 6.38385, -11.7301, 0.0687695, 6.38385, -11.7301, 0.0687695, -6.38385, 11.7301, -0.068783, 6.38385, 11.7301, 0.0687695, 6.38385, 11.7301 )
 
 [sub_resource type="ConcavePolygonShape" id=6]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
@@ -478,7 +482,7 @@ flag_set = ExtResource( 8 )
 [node name="Walls" type="Spatial" parent="Objects/Stage3"]
 
 [node name="block-441" type="RigidBody" parent="Objects/Stage3/Walls"]
-transform = Transform( 1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, 54.8416, -39.1658, -111.159 )
+transform = Transform( 1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, 54.8416, -39.1658, -112.38 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -493,7 +497,56 @@ material/0 = null
 transform = Transform( 3.9, 2.16316e-14, -1.80328e-22, -2.16316e-14, 3.9, -3.25117e-08, -2.46125e-28, 1.26796e-07, 1, 0, 0, 0 )
 shape = SubResource( 1 )
 
+[node name="block-442" type="RigidBody" parent="Objects/Stage3/Walls"]
+transform = Transform( 1.91069e-15, -1, -4.37114e-08, 0.99948, 1.40885e-09, -0.0322306, 0.0322306, -4.36887e-08, 0.99948, 54.6751, -24.5113, -109.99 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/Stage3/Walls/block-442"]
+transform = Transform( 3.9, 2.16316e-14, -1.80328e-22, -2.16316e-14, 3.9, -3.25117e-08, -2.46125e-28, 1.26796e-07, 1, 0, 0, 0 )
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Stage3/Walls/block-442"]
+transform = Transform( 3.9, 2.16316e-14, -1.80328e-22, -2.16316e-14, 3.9, -3.25117e-08, -2.46125e-28, 1.26796e-07, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-443" type="RigidBody" parent="Objects/Stage3/Walls"]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 70.5977, -24.5102, -112.263 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/Stage3/Walls/block-443"]
+transform = Transform( 3.9, 2.16316e-14, -1.80328e-22, -2.16316e-14, 3.9, -3.25117e-08, -2.46125e-28, 1.26796e-07, 1, 0, 0, 0 )
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Stage3/Walls/block-443"]
+transform = Transform( 3.9, 2.16316e-14, -1.80328e-22, -2.16316e-14, 3.9, -3.25117e-08, -2.46125e-28, 1.26796e-07, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-444" type="RigidBody" parent="Objects/Stage3/Walls"]
+transform = Transform( 1.91069e-15, -1, -4.37114e-08, 0.99948, 1.40885e-09, -0.0322306, 0.0322306, -4.36887e-08, 0.99948, 55.1464, -16.7634, -127.199 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/Stage3/Walls/block-444"]
+transform = Transform( 3.9, 2.16316e-14, -1.80328e-22, -2.16316e-14, 3.9, -3.25117e-08, -2.46125e-28, 1.26796e-07, 1, 0, 0, 0 )
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Stage3/Walls/block-444"]
+transform = Transform( 3.9, 2.16316e-14, -1.80328e-22, -2.16316e-14, 3.9, -3.25117e-08, -2.46125e-28, 1.26796e-07, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
 [node name="Puzzle" type="Spatial" parent="Objects/Stage3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -32.0177 )
 script = ExtResource( 19 )
 activate_node = NodePath("TravelStation")
 piece_paths = [ NodePath("TravelStation/InputPylon") ]
@@ -554,6 +607,148 @@ flag_set = ExtResource( 8 )
 [node name="PylonStatic" parent="Objects/Stage3/Puzzle/TravelStation" instance=ExtResource( 13 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.6604, -0.620735, 3.20612 )
 is_source = true
+
+[node name="Obj4" parent="Objects/Stage3/Puzzle" instance=ExtResource( 20 )]
+transform = Transform( 0.241075, -0.970507, 0, 0.970507, 0.241075, 0, 0, 0, 1, 65.7642, -17.1336, -84.2851 )
+
+[node name="platform14" parent="Objects/Stage3" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.031, -0.220778, -69.713 )
+
+[node name="Obj" parent="Objects/Stage3" instance=ExtResource( 20 )]
+transform = Transform( 0.467837, -0.883815, 0, 0.883815, 0.467837, 0, 0, 0, 1, 45.7933, -35.3178, -112.757 )
+
+[node name="Obj2" parent="Objects/Stage3" instance=ExtResource( 20 )]
+transform = Transform( -0.435105, -0.90038, 0, 0.90038, -0.435105, 0, 0, 0, 1, 64.0145, -31.3256, -112.823 )
+
+[node name="Obj3" parent="Objects/Stage3" instance=ExtResource( 20 )]
+transform = Transform( 0.467837, -0.883815, 0, 0.883815, 0.467837, 0, 0, 0, 1, 45.2044, -27.2868, -112.757 )
+
+[node name="block-443" type="RigidBody" parent="Objects/Stage3"]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 40.1263, -17.2063, -112.263 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/Stage3/block-443"]
+transform = Transform( 3.9, 2.16316e-14, -1.80328e-22, -2.16316e-14, 3.9, -3.25117e-08, -2.46125e-28, 1.26796e-07, 1, 0, 0, 0 )
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Stage3/block-443"]
+transform = Transform( 3.9, 2.16316e-14, -1.80328e-22, -2.16316e-14, 3.9, -3.25117e-08, -2.46125e-28, 1.26796e-07, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall4" type="RigidBody" parent="Objects/Stage3"]
+transform = Transform( -1.48175e-08, -0.940792, 0.338984, -4.11233e-08, 0.338984, 0.940792, -1, 0, -4.37114e-08, 50.6171, -13.3958, -109.072 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/Stage3/block-441-wall4"]
+transform = Transform( 3, -3.08308e-15, 0, -9.24925e-15, 2.6136, 7.05327e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Stage3/block-441-wall4"]
+transform = Transform( 3, -3.08308e-15, 0, -9.24925e-15, 2.6136, 7.05327e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-442" type="RigidBody" parent="Objects/Stage3"]
+transform = Transform( 1.91069e-15, -1, -4.37114e-08, 0.99948, 1.40885e-09, -0.0322306, 0.0322306, -4.36887e-08, 0.99948, 37.8618, -24.5113, -109.99 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/Stage3/block-442"]
+transform = Transform( 3.9, 2.16316e-14, -1.80328e-22, -2.16316e-14, 3.9, -3.25117e-08, -2.46125e-28, 1.26796e-07, 1, 0, 0, 0 )
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Stage3/block-442"]
+transform = Transform( 3.9, 2.16316e-14, -1.80328e-22, -2.16316e-14, 3.9, -3.25117e-08, -2.46125e-28, 1.26796e-07, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="Obj5" parent="Objects/Stage3" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.043, -45.5835, -110.683 )
+
+[node name="Obj6" parent="Objects/Stage3" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5783, -45.5835, -110.683 )
+
+[node name="Obj7" parent="Objects/Stage3" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6665, -45.5835, -110.683 )
+
+[node name="Checkpoint" parent="Objects/Stage3" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55.1744, -38.1658, -99.3306 )
+
+[node name="PylonStatic" parent="Objects/Stage3" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 54.5949, -38.1658, -106.869 )
+is_source = true
+
+[node name="block-441" type="RigidBody" parent="Objects/Stage3"]
+transform = Transform( -1.10936e-08, -0.967259, 0.253792, -4.22802e-08, 0.253792, 0.967259, -1, 0, -4.37114e-08, 55.5056, -4.93937, -112.38 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/Stage3/block-441"]
+transform = Transform( 3.9, 2.16316e-14, -1.80328e-22, -2.16316e-14, 3.9, -3.25117e-08, -2.46125e-28, 1.26796e-07, 1, 0, 0, 0 )
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Stage3/block-441"]
+transform = Transform( 3.9, 2.16316e-14, -1.80328e-22, -2.16316e-14, 3.9, -3.25117e-08, -2.46125e-28, 1.26796e-07, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="Checkpoint2" parent="Objects/Stage3" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.6189, -8.9534, -109.603 )
+
+[node name="Puzzle2" type="Spatial" parent="Objects/Stage3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -32.0177 )
+script = ExtResource( 19 )
+activate_node = NodePath("Obj4")
+piece_paths = [ NodePath("PylonInput") ]
+
+[node name="Obj4" type="RigidBody" parent="Objects/Stage3/Puzzle2"]
+transform = Transform( -0.435105, -0.90038, 0, 0.90038, -0.435105, 0, 0, 0, 1, 54, -22.548, -80.806 )
+mode = 1
+script = ExtResource( 9 )
+open_position = 64.0
+open_speed = 1.0
+
+[node name="wall" type="MeshInstance" parent="Objects/Stage3/Puzzle2/Obj4"]
+mesh = ExtResource( 16 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Stage3/Puzzle2/Obj4"]
+shape = SubResource( 7 )
+
+[node name="doorOpen" type="AudioStreamPlayer3D" parent="Objects/Stage3/Puzzle2/Obj4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 6 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="doorClose" type="AudioStreamPlayer3D" parent="Objects/Stage3/Puzzle2/Obj4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 5 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="PylonInput" parent="Objects/Stage3/Puzzle2" instance=ExtResource( 17 )]
+transform = Transform( -0.934515, -0.355923, 0, 0.355923, -0.934515, 0, 0, 0, 1, 56.921, -16.4338, -71.6608 )
+
+[node name="Obj8" parent="Objects/Stage3" instance=ExtResource( 20 )]
+transform = Transform( 0.241075, -0.970507, 0, 0.970507, 0.241075, 0, 0, 0, 1, 65.7642, -17.1336, -116.303 )
+
+[node name="PylonStatic2" parent="Objects/Stage3" instance=ExtResource( 13 )]
+transform = Transform( 0.446639, -0.224753, 0, 0.224753, 0.446639, 0, 0, 0, 0.5, 59.1025, -33.8079, -105.998 )
+
+[node name="PylonStatic3" parent="Objects/Stage3" instance=ExtResource( 13 )]
+transform = Transform( 0.438384, 0.240456, 0, -0.240456, 0.438384, 0, 0, 0, 0.5, 42.2821, -25.835, -105.998 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, -0.160467, 0.987041, 0, -0.987041, -0.160467, 0, 30.9096, 8.28221 )
