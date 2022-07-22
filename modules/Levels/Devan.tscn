@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://modules/Interactive/Checkpoint/Checkpoint.tscn" type="PackedScene" id=1]
+[ext_resource path="res://modules/Structures/wall/Wall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://modules/Player/Player.tscn" type="PackedScene" id=3]
+
+[node name="Level" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0108805, -0.000118077 )
+
+[node name="Objects" type="Spatial" parent="."]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -2.89819, 0.335368, 0.538035 )
+
+[node name="Wall" parent="Objects" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21108, -4.2285, -3.83867 )
+
+[node name="Checkpoint" parent="Objects" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.335368, -2.89819, -0.538035 )
+
+[node name="Player" parent="Objects" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.335368, -2.89819, -0.538035 )
+starting_checkpoint = NodePath("../Checkpoint")
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Objects"]
+transform = Transform( -0.173916, -0.283588, 0.943044, 0.580025, 0.744399, 0.33082, -0.795817, 0.604523, 0.0350253, 5.6706, -0.360898, 1.46498 )
+
+[node name="SpotLight" type="SpotLight" parent="Objects"]
+transform = Transform( 0.276128, -0.442456, 0.853221, 0.559573, 0.795772, 0.23157, -0.781429, 0.413496, 0.467322, 3.24515, 0.0634191, 4.07045 )
+visible = false
+light_energy = 12.737
+spot_range = 7.38
+spot_attenuation = 0.0131391
+spot_angle = 38.39
+spot_angle_attenuation = 0.392292
+
+[node name="Spatial" type="Spatial" parent="Objects"]
+transform = Transform( 0.912642, 3.81856e-09, 0.408761, 3.81856e-09, 1, -1.78675e-08, -0.408761, 1.78675e-08, 0.912642, -6.85756, 10.4835, -19.6748 )
+
+[node name="Wall5" parent="Objects/Spatial" instance=ExtResource( 2 )]
+transform = Transform( 0.67172, -0.740804, 0, 0.740804, 0.67172, 0, 0, 0, 1, -0.829319, -9.86858, -73.9991 )
+
+[node name="Wall4" parent="Objects/Spatial" instance=ExtResource( 2 )]
+transform = Transform( 0.67172, -0.740804, 0, 0.740804, 0.67172, 0, 0, 0, 1, -0.829319, -9.86858, -50.6276 )
+
+[node name="Wall3" parent="Objects/Spatial" instance=ExtResource( 2 )]
+transform = Transform( 0.67172, -0.740804, 0, 0.740804, 0.67172, -1.77636e-15, 0, 0, 1, -0.829318, -9.86858, -27.2946 )
+
+[node name="Wall2" parent="Objects/Spatial" instance=ExtResource( 2 )]
+transform = Transform( 0.67172, -0.740804, 0, 0.740804, 0.67172, -5.32907e-15, 0, -2.98023e-08, 1, -0.965869, -9.79991, -3.93459 )
+
+[node name="Spatial2" type="Spatial" parent="Objects"]
+transform = Transform( 0.912642, -8.30994e-08, 0.408761, 0.0619422, -0.988452, -0.138299, 0.40404, 0.151537, -0.902102, -6.85756, 10.4835, -19.6748 )
+
+[node name="Wall5" parent="Objects/Spatial2" instance=ExtResource( 2 )]
+transform = Transform( 0.67172, -0.740804, 0, 0.740804, 0.67172, 0, 0, 0, 1, -0.829319, -9.86858, -73.9991 )
+
+[node name="Wall4" parent="Objects/Spatial2" instance=ExtResource( 2 )]
+transform = Transform( 0.67172, -0.740804, 0, 0.740804, 0.67172, 0, 0, 0, 1, -0.829319, -9.86858, -50.6276 )
+
+[node name="Wall3" parent="Objects/Spatial2" instance=ExtResource( 2 )]
+transform = Transform( 0.67172, -0.740804, 0, 0.740804, 0.67172, -1.77636e-15, 0, 0, 1, -0.829318, -9.86858, -27.2946 )
+
+[node name="Wall2" parent="Objects/Spatial2" instance=ExtResource( 2 )]
+transform = Transform( 0.67172, -0.740804, 0, 0.740804, 0.67172, -5.32907e-15, 0, -2.98023e-08, 1, -0.965869, -9.79991, -3.93459 )

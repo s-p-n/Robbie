@@ -1185,7 +1185,6 @@ transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 1
 transform = Transform( 0.75, -0.433013, 0.5, 0.216506, 0.875, 0.433013, -0.625, -0.216506, 0.75, 156.63, 48.9435, 56.5491 )
 
 [node name="Tunnel" parent="Objects/Stage5/EntryTunnel" instance=ExtResource( 24 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="Tunnel2" parent="Objects/Stage5/EntryTunnel" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0 )
