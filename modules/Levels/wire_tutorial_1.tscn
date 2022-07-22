@@ -1185,7 +1185,6 @@ transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 1
 transform = Transform( 0.75, -0.433013, 0.5, 0.216506, 0.875, 0.433013, -0.625, -0.216506, 0.75, 156.63, 48.9435, 56.5491 )
 
 [node name="Tunnel" parent="Objects/Stage5/EntryTunnel" instance=ExtResource( 24 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="Tunnel2" parent="Objects/Stage5/EntryTunnel" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0 )
@@ -1339,5 +1338,74 @@ transform = Transform( 0.375, -0.25, 0.216506, 0.216506, 0.433013, 0.125, -0.25,
 [node name="platform16" parent="Objects/Stage5/Tunnel3Platforms" instance=ExtResource( 21 )]
 transform = Transform( 0.375, -0.25, 0.216506, 0.216506, 0.433013, 0.125, -0.25, 0, 0.433013, 84.3158, 12.1824, 162.314 )
 
+[node name="platform17" parent="Objects/Stage5/Tunnel3Platforms" instance=ExtResource( 21 )]
+transform = Transform( 0.375, 0.25, 0.216506, -0.216506, 0.433013, -0.125, -0.25, 0, 0.433013, 80.839, 9.57835, 164.474 )
+
+[node name="platform18" parent="Objects/Stage5/Tunnel3Platforms" instance=ExtResource( 21 )]
+transform = Transform( 0.433096, 0.133228, 0.211373, -0.167446, 0.468711, 0.0476626, -0.185445, -0.112072, 0.450611, 83.1806, 7.57835, 164.474 )
+
+[node name="platform19" parent="Objects/Stage5/Tunnel3Platforms" instance=ExtResource( 21 )]
+transform = Transform( 0.433096, 0.133228, 0.211373, -0.167446, 0.468711, 0.0476626, -0.185445, -0.112072, 0.450611, 82.1806, 5.57835, 163.474 )
+
+[node name="platform20" parent="Objects/Stage5/Tunnel3Platforms" instance=ExtResource( 21 )]
+transform = Transform( 0.433096, 0.133228, 0.211373, -0.167446, 0.468711, 0.0476626, -0.185445, -0.112072, 0.450611, 85.1806, 2.57835, 161.474 )
+
+[node name="platform21" parent="Objects/Stage5/Tunnel3Platforms" instance=ExtResource( 21 )]
+transform = Transform( 0.433096, 0.133228, 0.211373, -0.167446, 0.468711, 0.0476626, -0.185445, -0.112072, 0.450611, 84.1806, 2.57835, 165.474 )
+
+[node name="platform22" parent="Objects/Stage5/Tunnel3Platforms" instance=ExtResource( 21 )]
+transform = Transform( 0.433096, 0.133228, 0.211373, -0.167446, 0.468711, 0.0476626, -0.185445, -0.112072, 0.450611, 80.1806, 4.10805, 166.474 )
+
+[node name="platform23" parent="Objects/Stage5/Tunnel3Platforms" instance=ExtResource( 21 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 77.1806, 3.10805, 164.474 )
+
+[node name="platform24" parent="Objects/Stage5/Tunnel3Platforms" instance=ExtResource( 21 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 76.1806, 2.10805, 163.474 )
+
+[node name="platform25" parent="Objects/Stage5/Tunnel3Platforms" instance=ExtResource( 21 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 75.1806, 1.10805, 162.474 )
+
+[node name="platform26" parent="Objects/Stage5/Tunnel3Platforms" instance=ExtResource( 21 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 76.1806, 0.108047, 159.474 )
+
+[node name="platform27" parent="Objects/Stage5/Tunnel3Platforms" instance=ExtResource( 21 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 77.1806, -0.891953, 158.474 )
+
+[node name="platform28" parent="Objects/Stage5/Tunnel3Platforms" instance=ExtResource( 21 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 78.1806, -1.89195, 158.474 )
+
+[node name="platform29" parent="Objects/Stage5/Tunnel3Platforms" instance=ExtResource( 21 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 79.1806, -2.89195, 158.474 )
+
+[node name="platform30" parent="Objects/Stage5/Tunnel3Platforms" instance=ExtResource( 21 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 79.1806, -3.89195, 159.474 )
+
+[node name="platform31" parent="Objects/Stage5/Tunnel3Platforms" instance=ExtResource( 21 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 79.1806, -4.89195, 167.474 )
+
+[node name="platform32" parent="Objects/Stage5/Tunnel3Platforms" instance=ExtResource( 21 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 78.1806, -5.89195, 168.474 )
+
+[node name="platform33" parent="Objects/Stage5/Tunnel3Platforms" instance=ExtResource( 21 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 77.1806, -6.89195, 169.474 )
+
+[node name="platform34" parent="Objects/Stage5/Tunnel3Platforms" instance=ExtResource( 21 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 77.1806, -7.89195, 168.474 )
+
+[node name="platform35" parent="Objects/Stage5/Tunnel3Platforms" instance=ExtResource( 21 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 76.1806, -8.89195, 167.474 )
+
 [node name="platform3" parent="Objects/Stage5/Tunnel3Platforms" instance=ExtResource( 21 )]
 transform = Transform( 0.433013, -0.125, 0.216506, 0, 0.433013, 0.25, -0.25, -0.216506, 0.375, 93.731, 29.1979, 155.314 )
+
+[node name="platform2" parent="Objects/Stage5" instance=ExtResource( 21 )]
+transform = Transform( 3, 0, 0, 0, 0.2, 0, 0, 0, 3, 79.8404, -22.8171, 161.646 )
+
+[node name="platform3" parent="Objects/Stage5" instance=ExtResource( 21 )]
+transform = Transform( 3, 0, 0, 0, 0.2, 0, 0, 0, 3, 79.8404, -22.8171, 185.646 )
+
+[node name="platform4" parent="Objects/Stage5" instance=ExtResource( 21 )]
+transform = Transform( 3, 0, 0, 0, 0.2, 0, 0, 0, 3, 55.8404, -22.8171, 161.646 )
+
+[node name="platform5" parent="Objects/Stage5" instance=ExtResource( 21 )]
+transform = Transform( 3, 0, 0, 0, 0.2, 0, 0, 0, 3, 55.8404, -22.8171, 185.646 )
