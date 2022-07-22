@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://modules/SceneManager/SceneManager.gd" type="Script" id=1]
-[ext_resource path="res://modules/Levels/wire_tutorial_1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://modules/Pause/Paused.tscn" type="PackedScene" id=3]
 [ext_resource path="res://respawn.gd" type="Script" id=4]
 [ext_resource path="res://modules/Structures/block/block.obj" type="ArrayMesh" id=5]
 [ext_resource path="res://modules/SceneManager/Checkpoints.gd" type="Script" id=6]
+[ext_resource path="res://modules/Levels/Devan.tscn" type="PackedScene" id=7]
 
 [sub_resource type="SpatialMaterial" id=1]
 emission_enabled = true
@@ -19,7 +19,7 @@ points = PoolVector3Array( 4, 4, 1, 4, 4, -1, -4, 4, 1, 4, -4, 1, 4, -4, -1, -4,
 
 [node name="Robbie" type="Spatial"]
 script = ExtResource( 1 )
-levels = [ ExtResource( 2 ) ]
+levels = [ ExtResource( 7 ), ExtResource( 7 ) ]
 
 [node name="PowerLines" type="Spatial" parent="."]
 
