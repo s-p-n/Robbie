@@ -13,6 +13,7 @@ var center_dot:Sprite
 var pickup_ray:RayCast
 var wire_ray:RayCast
 var clip_ray:RayCast
+var drop_ray:RayCast
 var wire_reel_audio:AudioStreamPlayer
 var wire_place_audio:AudioStreamPlayer
 var wire_clip_audio:AudioStreamPlayer
@@ -21,8 +22,8 @@ var looking_at_interactable = false
 var powerline:Node = null
 var is_moving = false
 var last_pos = Vector3(0,0,0)
-var hold_position:Position3D
-
+var hold_position:Vector3 = Vector3.ZERO
+var hold_rotation:Vector3 = Vector3.ZERO
 func _ready():
 	set_player(find_parent("Player"))
 
@@ -31,12 +32,11 @@ func set_player(new_player):
 	pickup_ray = $PickupRay
 	wire_ray = $WireRay
 	clip_ray = $ClipRay
+	drop_ray = $DropRay
 	center_dot = $CenterDot
 	wire_reel_audio = $Sounds/WireReelAudio
 	wire_place_audio = $Sounds/WirePlaceAudio
 	wire_clip_audio = $Sounds/WireClipAudio
-	hold_position = $HoldPosition
-	
 	center_dot.visible = false
 	
 	#if !player.connect("input", self, "process_input"):
@@ -73,7 +73,8 @@ func look_for_interactables():
 	return [
 		pickup_ray.get_collider(),
 		wire_ray.get_collider(),
-		clip_ray.get_collider()
+		clip_ray.get_collider(),
+		drop_ray.get_collider()
 	]
 
 func setup_center_dot(interactables):
@@ -84,8 +85,9 @@ func setup_center_dot(interactables):
 	var can_grab = !!interactables[0]
 	var can_wire = !!interactables[1]
 	var can_clip = !!interactables[2]
+	var can_drop = !!interactables[3] and is_instance_valid(held_object)
 	var interacting = held_object
-	if (not interacting) and (can_grab or can_wire or can_clip):
+	if (not interacting) and (can_grab or can_wire or can_clip or can_drop):
 		looking_at_interactable = true
 		center_dot.visible = true
 	else:
@@ -138,28 +140,43 @@ func handle_wire_action():
 	return false
 
 func handle_held_object(delta):
+	var drop_pos = drop_ray.get_collision_point()
 	if is_instance_valid(held_object):
 		var pos = held_object.global_transform.origin
-		var to = player.global_transform.origin + Vector3(0,1,0)
-		var distance = pos.distance_to(to)
-		var direction = pos.direction_to(to)
-		var thrust_vector = (direction * (distance * 50)) * delta
-		#held_object.global_transform.origin.y = to.y + 1
-		held_object.apply_central_impulse(thrust_vector)
+		var rot = held_object.global_transform.basis.get_euler()
+		var collider:Spatial = drop_ray.get_collider()
+		
+		if collider:
+			hold_position = drop_pos
+		
+		held_object.global_transform.origin = lerp(pos, hold_position, delta*5)
+		held_object.linear_velocity = Vector3(0,0,0)
+		held_object.set_collision_layer_bit(0, false)
+	
 func handle_pickup_action():
 	var collider = pickup_ray.get_collider()
-	
-	if is_instance_valid(held_object):
+	var drop_pos = drop_ray.get_collision_point()
+	if drop_pos and is_instance_valid(held_object):
 		# dereference to drop object
 		#held_object.mode = held_object.MODE_RIGID
 		#if held_object.is_connected("force", self, "handle_held_object"):
 		#	held_object.disconnect("force", self, "handle_held_object")
+		drop_pos.y = player.global_transform.origin.y + 1
+		print("drop at: ", drop_pos)
+		print("player pos: ", player.global_transform.origin)
+		#held_object.scale = Vector3(1,1,1)
+		held_object.global_transform.origin = drop_pos
+		held_object.linear_velocity = Vector3(0,0,0)
+		held_object.set_collision_layer_bit(0,true)
 		held_object = null
 		return true
 	elif collider:
 		print("should pick something up")
 		print(collider)
 		held_object = collider
+		#held_object.scale = Vector3(0.1,0.1,0.1)
+		held_object.set_collision_layer_bit(0,false)
+		
 		#held_object.connect("force", self, "handle_held_object")
 		#held_object.mode = held_object.MODE_STATIC
 		return true
