@@ -45,12 +45,12 @@ func _process(delta):
 			update_lights()
 			
 	if connection_home and !is_home:
-		var dest = connection_home.get_transform()
-		transform.origin = lerp(transform.origin, dest.origin, delta*5)
-		rotation = lerp(rotation, connection_home.rotation, delta*5)
-		#print('a')
+		var dest = connection_home.global_transform.origin
+		global_transform.origin = lerp(global_transform.origin, dest, delta*5)
+		#rotation = lerp(rotation, connection_home.rotation, delta*5)
+		print('a')
 		if is_near_home():
-			transform = dest
+			#transform = dest
 			is_home = true
 			setup_collisions()
 		else:
@@ -58,9 +58,9 @@ func _process(delta):
 			linear_velocity = Vector3(0, 0, 0)
 	elif !connection_home and is_home:
 		is_home = false
-		#print('b')
+		print('b')
 	elif connection_home and is_home:
-		#print('c')
+		print('c')
 		if is_near_home():
 			gravity_scale = 0
 			linear_velocity = Vector3(0, 0, 0)
@@ -69,7 +69,7 @@ func _process(delta):
 			is_home = false
 	else:
 		#print('d')
-		gravity_scale = 7
+		gravity_scale = 1
 
 func update_lights():
 	var total_lights = get_node('level').get_child_count()
@@ -95,8 +95,8 @@ func update_lights():
 func is_near_home():
 	if !connection_home:
 		return false
-	var dest = connection_home.get_transform()
-	var diff = transform.origin - dest.origin
+	var dest = connection_home.global_transform.origin
+	var diff = global_transform.origin - dest
 	diff = Vector3(abs(diff.x), abs(diff.y), abs(diff.z))
 	return diff < Vector3(0.1, 0.1, 0.1)
 
@@ -131,12 +131,14 @@ func disconnect_from_home(old_home):
 
 func attempt_to_power_object():
 	if connection_home:
-		var object = get_node_or_null(connection_home.connected_object)
+		var object = connection_home.connected_object
+		print("Attempting to power object: ", object)
 		if object and object.has_method("set_power_source"):
 			object.set_power_source(self)
 
 func attempt_to_shutdown_object():
 	if connection_home:
-		var object = get_node_or_null(connection_home.connected_object)
+		var object = connection_home.connected_object
+		print("Attempting to shut down object: ", object)
 		if object and object.has_method("unset_power_source"):
 			object.unset_power_source()

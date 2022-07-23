@@ -1,4 +1,4 @@
-extends Node
+extends Spatial
 
 # Emits tick(delta) for player's process.
 # See PowerLine.tscn and the script there for 
@@ -143,11 +143,10 @@ func handle_held_object(delta):
 	var drop_pos = drop_ray.get_collision_point()
 	if is_instance_valid(held_object):
 		var pos = held_object.global_transform.origin
-		var rot = held_object.global_transform.basis.get_euler()
 		var collider:Spatial = drop_ray.get_collider()
 		
 		if collider:
-			hold_position = drop_pos
+			hold_position = drop_pos + (drop_pos.direction_to(global_transform.origin) * 2)
 		
 		held_object.global_transform.origin = lerp(pos, hold_position, delta*5)
 		held_object.linear_velocity = Vector3(0,0,0)
@@ -161,11 +160,11 @@ func handle_pickup_action():
 		#held_object.mode = held_object.MODE_RIGID
 		#if held_object.is_connected("force", self, "handle_held_object"):
 		#	held_object.disconnect("force", self, "handle_held_object")
-		drop_pos.y = player.global_transform.origin.y + 1
+		#drop_pos.y = player.global_transform.origin.y + 1
 		print("drop at: ", drop_pos)
 		print("player pos: ", player.global_transform.origin)
 		#held_object.scale = Vector3(1,1,1)
-		held_object.global_transform.origin = drop_pos
+		held_object.global_transform.origin = drop_pos + (drop_pos.direction_to(global_transform.origin) * 2)
 		held_object.linear_velocity = Vector3(0,0,0)
 		held_object.set_collision_layer_bit(0,true)
 		held_object = null
