@@ -5,11 +5,17 @@ signal deactivated(obj)
 
 export var is_source:bool
 
+export var input_color:Color
+export var output_color:Color
+
 onready var power_light = $PowerLight
 onready var audio = get_node_or_null("play_when_powered")
+onready var inputMesh:MeshInstance = get_node_or_null("Input/MeshInstance")
 
 var partners = []
 var wires = []
+
+var material:SpatialMaterial = SpatialMaterial.new()
 
 var is_powered = false
 var obtained_power_from = null
@@ -17,6 +23,10 @@ var obtained_power_from = null
 var connected_node:Node
 
 func _ready():
+	inputMesh.set_surface_material(0, material)
+	material.albedo_color = input_color
+	material.emission = input_color
+	power_light.light_color = output_color
 	if is_source:
 		is_powered = true
 	else:
@@ -48,7 +58,7 @@ func connect_wire_to(powerline, partner):
 		update_power_status(self)
 	else:
 		powerline.destroy()
-		
+
 func disconnect_wire_from(powerline, partner):
 	if partner in partners:
 		partners.erase(partner)
@@ -80,10 +90,12 @@ func set_visuals():
 	if is_powered:
 		if audio and !audio.loop:
 			audio.play_stream()
+		material.emission_enabled = true
 		power_light.visible = true
 	else:
 		if audio and audio.loop:
 			audio.stop_stream()
+		material.emission_enabled = false
 		power_light.visible = false
 
 func obtain_power_from(partner):

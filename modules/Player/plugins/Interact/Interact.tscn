@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://modules/Powerlines/PowerLine/PowerLine.tscn" type="PackedScene" id=1]
 [ext_resource path="res://modules/Player/plugins/Interact/interact.gd" type="Script" id=2]
 [ext_resource path="res://modules/Player/plugins/Interact/interactable.png" type="Texture" id=3]
+[ext_resource path="res://share/audio/Cut_01-01.wav" type="AudioStream" id=4]
+[ext_resource path="res://share/audio/Connected electronic_01.wav" type="AudioStream" id=5]
+[ext_resource path="res://share/audio/Reel Loop-Dn_01-01.wav" type="AudioStream" id=6]
 
 [node name="Interact" type="Spatial"]
 script = ExtResource( 2 )
@@ -37,7 +40,10 @@ texture = ExtResource( 3 )
 [node name="Sounds" type="Node" parent="."]
 
 [node name="WireReelAudio" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 6 )
 
 [node name="WirePlaceAudio" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 5 )
 
 [node name="WireClipAudio" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 4 )

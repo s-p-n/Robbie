@@ -122,7 +122,6 @@ func handle_wire_action():
 				# Handle: Click on something wirable, but different than what we're holding
 				powerline.end(wire_ray)
 				powerline = null
-				wire_place_audio.play(0.0)
 				return true
 		else:
 			# Handle: Click wirable area, but we aren't holding a wire
@@ -146,12 +145,17 @@ func handle_held_object(delta):
 		var collider:Spatial = drop_ray.get_collider()
 		
 		if collider:
-			hold_position = drop_pos + (drop_pos.direction_to(global_transform.origin) * 2)
+			var adjustment = global_transform.origin
+			adjustment.y = pos.y
+			hold_position = drop_pos + ((drop_pos.direction_to(adjustment) * 2))
 		
 		held_object.global_transform.origin = lerp(pos, hold_position, delta*5)
 		held_object.linear_velocity = Vector3(0,0,0)
 		held_object.set_collision_layer_bit(0, false)
-	
+		if global_transform.origin.distance_to(hold_position) < 2:
+			held_object.visible = true#false
+		else:
+			held_object.visible = true
 func handle_pickup_action():
 	var collider = pickup_ray.get_collider()
 	var drop_pos = drop_ray.get_collision_point()
@@ -166,6 +170,7 @@ func handle_pickup_action():
 		#held_object.scale = Vector3(1,1,1)
 		held_object.global_transform.origin = drop_pos + (drop_pos.direction_to(global_transform.origin) * 2)
 		held_object.linear_velocity = Vector3(0,0,0)
+		held_object.visible = true
 		held_object.set_collision_layer_bit(0,true)
 		held_object = null
 		return true

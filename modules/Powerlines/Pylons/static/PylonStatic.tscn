@@ -4,12 +4,10 @@
 [ext_resource path="res://modules/Powerlines/Pylons/WireReceiver.gd" type="Script" id=2]
 [ext_resource path="res://share/scripts/loop.gd" type="Script" id=3]
 [ext_resource path="res://share/audio/CG_Electrical_Disturbance_Loop.wav" type="AudioStream" id=4]
+[ext_resource path="res://modules/Powerlines/Pylons/static/PowerLight.gd" type="Script" id=5]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 1.6, 1, 1.6 )
-
-[sub_resource type="SpatialMaterial" id=4]
-albedo_color = Color( 0.188235, 0.211765, 0.356863, 1 )
 
 [sub_resource type="BoxShape" id=8]
 extents = Vector3( 0.80597, 0.505046, 0.800457 )
@@ -29,6 +27,8 @@ axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource( 1 )
+input_color = Color( 0, 0.666667, 1, 1 )
+output_color = Color( 0, 0.666667, 1, 1 )
 
 [node name="Input" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.86208, 0 )
@@ -44,7 +44,7 @@ script = ExtResource( 2 )
 layers = 4105
 mesh = SubResource( 1 )
 skeleton = NodePath("../CollisionShape")
-material/0 = SubResource( 4 )
+material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Input"]
 shape = SubResource( 8 )
@@ -81,12 +81,24 @@ script = ExtResource( 3 )
 loop = true
 
 [node name="PowerLight" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.65046, 0 )
-light_color = Color( 0.156863, 0.454902, 0.0235294, 1 )
-light_energy = 2.684
-omni_attenuation = 9.18958
+transform = Transform( 2, 0, 0, 0, -8.74228e-08, 2, 0, -2, -8.74228e-08, 0, 4.09863, -0.00267696 )
+light_color = Color( 0.85098, 1, 0.784314, 1 )
+shadow_enabled = true
+omni_range = 25.0
+omni_attenuation = 0.933032
+omni_shadow_mode = 0
+script = ExtResource( 5 )
+
+[node name="vertical" type="OmniLight" parent="PowerLight"]
+transform = Transform( 1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 1.86265e-09, 0 )
+visible = false
+light_color = Color( 0.85098, 1, 0.784314, 1 )
+shadow_enabled = true
+omni_range = 25.0
+omni_attenuation = 0.933032
 omni_shadow_mode = 0
 omni_shadow_detail = 0
+script = ExtResource( 5 )
 
 [node name="PowerLight2" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30135, 3.24752, 0 )

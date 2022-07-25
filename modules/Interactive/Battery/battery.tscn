@@ -58,45 +58,46 @@ surfaces/0 = {
 [sub_resource type="ConvexPolygonShape" id=6]
 points = PoolVector3Array( -1, -1, -0.86433, -0.985904, -1, -0.985709, -1, -1, 0.771143, -1, 1.01671, -1, -0.846907, -1, -1, -0.9861, -1, 0.958888, -1, 1.01671, 1, -1, 1.06745, -1, 0.883908, -1, -1, -0.843383, -1, 1, -1, 1.06745, 1, -0.895458, 1.07313, -0.895458, 1, 1.06745, -1, 0.988058, -1, -0.963782, 1, 1.01671, -1, 0.848669, -1, 1, 1, 1.06745, 1, -0.895458, 1.07313, 0.895262, 0.895262, 1.07313, -0.895458, 1, -1, -0.790916, 0.984143, -1, 0.96437, 1, 1.01671, 1, 0.895262, 1.07313, 0.895262, 1, -1, 0.868442 )
 
-[node name="battery" type="RigidBody"]
+[node name="battery" type="KinematicBody"]
+visible = false
 script = ExtResource( 4 )
 
 [node name="Cube" type="MeshInstance" parent="."]
-transform = Transform( 0.626741, 0, 0, 0, 1, 0, 0, 0, 0.359822, 0, 1.03037, 0 )
+transform = Transform( 0.438653, 0, 0, 0, 0.648, 0, 0, 0, 0.215893, -0.0885611, -0.12549, 0.241278 )
 mesh = SubResource( 1 )
 material/0 = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 0.626741, 0, 0, 0, 1, 0, 0, 0, 0.359822, 0, 1.03037, 0 )
+transform = Transform( 0.438653, 0, 0, 0, 0.648, 0, 0, 0, 0.215893, -0.0885611, -0.134273, 0.241278 )
 shape = SubResource( 4 )
 
 [node name="Cube002" type="MeshInstance" parent="."]
-transform = Transform( 0.558856, 0, 0, 0, 0.891686, 0, 0, 0, 0.320848, -0.590201, 1.23023, -0.00976056 )
+transform = Transform( 0.39114, 0, 0, 0, 0.577813, 0, 0, 0, 0.192509, -0.50164, -0.00476384, 0.235422 )
 mesh = SubResource( 2 )
 material/0 = ExtResource( 3 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="."]
-transform = Transform( 0.558856, 0, 0, 0, 0.891686, 0, 0, 0, 0.320848, -0.590201, 1.23023, -0.00976056 )
+transform = Transform( 0.39114, 0, 0, 0, 0.577813, 0, 0, 0, 0.192509, -0.50164, -0.00476384, 0.235422 )
 shape = SubResource( 5 )
 
 [node name="Cube003" type="MeshInstance" parent="."]
-transform = Transform( 0.639235, 0, 0, 0, 1, 0, 0, 0, 0.374775, 0, 1.03037, 0 )
+transform = Transform( 0.447397, 0, 0, 0, 0.648, 0, 0, 0, 0.224865, -0.0885611, -0.134273, 0.241278 )
 mesh = SubResource( 3 )
 material/0 = ExtResource( 1 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="."]
-transform = Transform( 0.639235, 0, 0, 0, 1, 0, 0, 0, 0.374775, 0, 1.03037, 0 )
+transform = Transform( 0.447397, 0, 0, 0, 0.648, 0, 0, 0, 0.224865, -0.0885611, -0.134273, 0.241278 )
 shape = SubResource( 6 )
 
 [node name="SpotLight" type="SpotLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.235634, 0.971842, 0, -0.971842, 0.235634, 0, 4.70298, 1.21615 )
+transform = Transform( 1, 0, 0, 0, 0.253317, 0.967383, 0, -0.967383, 0.253317, -0.0885611, 2.24558, 0.970968 )
 light_color = Color( 0.694118, 0.729412, 1, 1 )
 light_energy = 7.0
 spot_range = 25.0
 spot_angle = 38.33
 
 [node name="level" type="Spatial" parent="."]
-transform = Transform( -1, 1.50996e-07, 0, -1.50996e-07, -1, 0, 0, 0, 1, 4.13134e-07, -0.0651624, 0 )
+transform = Transform( -0.699895, 1.05681e-07, 0, -9.78454e-08, -0.648, 0, 0, 0, 0.6, -0.0885608, -0.844178, 0.241278 )
 
 [node name="block" type="CSGBox" parent="level"]
 transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.504192, -1.3492, 0.381006 )
@@ -199,6 +200,3 @@ depth = 0.0252644
 [node name="audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 pitch_scale = 1.7
-
-[connection signal="body_entered" from="." to="." method="_on_battery_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_battery_body_exited"]

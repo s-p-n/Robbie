@@ -14,6 +14,7 @@ var interact:Node
 var player:KinematicBody
 var ray:RayCast
 var clip_wire_audio:AudioStreamPlayer
+var place_wire_audio:AudioStreamPlayer
 var pair = [null, null]
 var player_pos:Vector3
 var lowest_y = -3
@@ -27,6 +28,7 @@ func set_interact(new_interact):
 	interact = new_interact
 	player = interact.player
 	clip_wire_audio = interact.get_node_or_null("Sounds/WireClipAudio")
+	place_wire_audio = interact.get_node_or_null("Sounds/WirePlaceAudio")
 	PowerLines = player.find_parent("Robbie").get_node("PowerLines")
 	PowerLines.add_child(self)
 	
@@ -138,9 +140,14 @@ func setup_powerline_collision():
 func connect_pair():
 	if pair[0] and pair[0].pylon and pair[0].pylon.has_method("connect_wire_to"):
 		if pair[1] and pair[1].pylon and pair[1].pylon.has_method("connect_wire_to"):
-			#if pair[0].pylon.is_powered and pair[1].pylon.is_powered:
-				#return destroy()
-			
+			if pair[1].pylon.output_color == pair[0].pylon.input_color:
+				wireWhole.material.albedo_color = pair[1].pylon.output_color
+			elif pair[0].pylon.output_color != pair[1].pylon.input_color:
+				print("color mismatch!")
+				print(pair[0].pylon.output_color)
+				print(pair[1].pylon.input_color)
+				return destroy()
+			place_wire_audio.play(0.0)
 			pair[0].pylon.connect_wire_to(self, pair[1].pylon)
 			pair[1].pylon.connect_wire_to(self, pair[0].pylon)
 			return

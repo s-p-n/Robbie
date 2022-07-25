@@ -1,10 +1,12 @@
-extends RigidBody
+extends KinematicBody
 
 #signal power_lost
 
 const LAYER_BIT_OBSTICLE = 1
 const LAYER_BIT_CLAW = 4
 const MAX_POWER = 100
+const VELOCITY_CLAMP = 0.25
+
 export(int, 0, 100) var power : int = 100
 
 export var drain_time = 1
@@ -18,7 +20,8 @@ var is_home = false
 var active_layers = []
 var connection_home = null
 var last_number_of_green:int = 0
-
+var linear_velocity:Vector3 = Vector3.ZERO
+var gravity_scale:float = 0
 onready var audio = find_node("audio")
 onready var green_light = preload("res://modules/Interactive/Battery/progress_bar_green.tres")
 onready var red_light = preload("res://modules/Interactive/Battery/progress_bar_red.tres")
@@ -36,19 +39,22 @@ func _ready():
 	update_lights()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	if is_powered:
 		drain += delta
 		if drain >= drain_time:
 			drain = 0;
 			power -= drain_amount
 			update_lights()
-			
+	
+	#linear_velocity = calculate_velocity(delta)
+		
+	#print(linear_velocity)
 	if connection_home and !is_home:
 		var dest = connection_home.global_transform.origin
 		global_transform.origin = lerp(global_transform.origin, dest, delta*5)
 		#rotation = lerp(rotation, connection_home.rotation, delta*5)
-		print('a')
+		#print('a')
 		if is_near_home():
 			#transform = dest
 			is_home = true
@@ -58,9 +64,9 @@ func _process(delta):
 			linear_velocity = Vector3(0, 0, 0)
 	elif !connection_home and is_home:
 		is_home = false
-		print('b')
+		#print('b')
 	elif connection_home and is_home:
-		print('c')
+		#print('c')
 		if is_near_home():
 			gravity_scale = 0
 			linear_velocity = Vector3(0, 0, 0)
@@ -70,6 +76,13 @@ func _process(delta):
 	else:
 		#print('d')
 		gravity_scale = 1
+
+func calculate_velocity(_delta):
+	var _max = VELOCITY_CLAMP
+	var _min = -VELOCITY_CLAMP
+	
+	
+	
 
 func update_lights():
 	var total_lights = get_node('level').get_child_count()
