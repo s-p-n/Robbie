@@ -1294,14 +1294,14 @@ shape = SubResource( 9 )
 
 [node name="PylonStatic3" parent="Objects/Stage0/Stage2" instance=ExtResource( 13 )]
 transform = Transform( 9.55343e-16, -2.18557e-08, -0.5, -0.5, -2.18557e-08, 0, -2.18557e-08, 0.5, -2.18557e-08, 25.7865, -13.2071, -21.5241 )
-input_color = Color( 0.929412, 0.882353, 0.152941, 1 )
-output_color = Color( 0.882353, 0.839216, 0.156863, 1 )
+input_color = Color( 0.152941, 0.929412, 0.419608, 1 )
+output_color = Color( 0.152941, 0.929412, 0.423529, 1 )
 
 [node name="PylonStatic2" parent="Objects/Stage0/Stage2" instance=ExtResource( 13 )]
 transform = Transform( 2.18557e-08, -0.5, -4.37114e-08, -0.5, -2.18557e-08, 0, -1.91069e-15, 4.37114e-08, -0.5, 25.848, -13.2071, -3.90361 )
 is_source = true
-input_color = Color( 0.929412, 0.882353, 0.152941, 1 )
-output_color = Color( 0.929412, 0.882353, 0.152941, 1 )
+input_color = Color( 0.152941, 0.929412, 0.419608, 1 )
+output_color = Color( 0.152941, 0.929412, 0.419608, 1 )
 
 [node name="Puzzle" type="Spatial" parent="Objects/Stage0/Stage2"]
 transform = Transform( -4.37114e-08, -8.74228e-08, -1, 0, -1, 8.74228e-08, -1, 3.82137e-15, 4.37114e-08, 38.5508, -10.9902, -2.67377 )
@@ -1320,8 +1320,7 @@ transform = Transform( 1, 2.93867e-08, -1.28453e-15, 0, -4.37114e-08, -1, -2.938
 
 [node name="InputPylon" parent="Objects/Stage0/Stage2/Puzzle/Door" instance=ExtResource( 17 )]
 transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -0.0457392, -1.78122, -0.110047 )
-input_color = Color( 0.882353, 0.839216, 0.156863, 1 )
-output_color = Color( 0.882353, 0.839216, 0.156863, 1 )
+input_color = Color( 0.152941, 0.929412, 0.423529, 1 )
 
 [node name="doorOpen" type="AudioStreamPlayer3D" parent="Objects/Stage0/Stage2/Puzzle/Door"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 8.75 )
@@ -1433,8 +1432,8 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0
 
 [node name="InputPylon" parent="Objects/Stage1/Puzzle/Door" instance=ExtResource( 17 )]
 transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -0.0457392, -1.78122, -0.110047 )
-input_color = Color( 1, 0.654902, 0, 1 )
-output_color = Color( 1, 0.654902, 0, 1 )
+input_color = Color( 0.231373, 0.733333, 0.133333, 1 )
+output_color = Color( 0.231373, 0.733333, 0.133333, 1 )
 
 [node name="doorOpen" type="AudioStreamPlayer3D" parent="Objects/Stage1/Puzzle/Door"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 8.75 )
@@ -1713,6 +1712,7 @@ output_color = Color( 0.686275, 0, 1, 1 )
 [node name="InputPylon" parent="Objects/Stage2/Puzzle" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 26.9504, -13.3441, -12.4847 )
 input_color = Color( 0, 1, 0.647059, 1 )
+output_color = Color( 0.509804, 0, 0.670588, 1 )
 
 [node name="PylonStatic5" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -9.10024, -4.20308, -4.78597 )
@@ -1728,17 +1728,17 @@ transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.316364, -4.20308, 1.3
 [node name="PylonStatic8" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 9.52351, -4.20308, 9.11384 )
 input_color = Color( 0.231373, 0.733333, 0.129412, 1 )
-output_color = Color( 1, 0.654902, 0, 1 )
+output_color = Color( 0.231373, 0.733333, 0.133333, 1 )
 
 [node name="PylonStatic9" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 9.52351, -4.20308, -3.74178 )
-input_color = Color( 1, 0.654902, 0, 1 )
+input_color = Color( 0.231373, 0.733333, 0.133333, 1 )
 output_color = Color( 0.686275, 0, 1, 1 )
 
 [node name="PylonStatic10" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.43042, -4.20308, 2.76419 )
-input_color = Color( 1, 0.654902, 0, 1 )
-output_color = Color( 1, 0.654902, 0, 1 )
+input_color = Color( 0.231373, 0.733333, 0.133333, 1 )
+output_color = Color( 0.231373, 0.733333, 0.133333, 1 )
 
 [node name="Door" type="Spatial" parent="Objects/Stage2/Puzzle"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42, -14.5, -22 )
@@ -1775,6 +1775,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 8.75 )
 stream = ExtResource( 5 )
 unit_size = 7.6
 max_db = 1.0
+
+[node name="PylonStatic4" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 35.1278, -15.0814, -4.33618 )
 
 [node name="Checkpoint" parent="Objects/Stage2" instance=ExtResource( 1 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.44424, -4.02314, -10.7489 )
@@ -2047,6 +2050,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55.1744, -39.9155, -99.3306 )
 [node name="PylonStatic" parent="Objects/Stage3" instance=ExtResource( 13 )]
 transform = Transform( 0.433013, 0.25, 0, -0.25, 0.433013, 0, 0, 0, 0.5, 50.4801, -37.5784, -106.869 )
 is_source = true
+input_color = Color( 0, 0.666667, 0.996078, 1 )
+output_color = Color( 0, 0.666667, 0.996078, 1 )
 
 [node name="block-441" type="RigidBody" parent="Objects/Stage3"]
 transform = Transform( -1.10936e-08, -0.967259, 0.253792, -4.22802e-08, 0.253792, 0.967259, -1, 0, -4.37114e-08, 55.5056, -4.93937, -112.38 )
@@ -2101,12 +2106,15 @@ max_db = 1.0
 
 [node name="PylonInput" parent="Objects/Stage3/Puzzle2" instance=ExtResource( 17 )]
 transform = Transform( -0.934515, -0.355923, 0, 0.355923, -0.934515, 0, 0, 0, 1, 56.921, -15.3966, -71.6608 )
+input_color = Color( 0, 0.666667, 0.996078, 1 )
 
 [node name="PylonStatic2" parent="Objects/Stage3" instance=ExtResource( 13 )]
 transform = Transform( 0.446639, -0.224753, 0, 0.224753, 0.446639, 0, 0, 0, 0.5, 56.1025, -33.8079, -105.998 )
 
 [node name="PylonStatic3" parent="Objects/Stage3" instance=ExtResource( 13 )]
 transform = Transform( 0.438384, 0.240456, 0, -0.240456, 0.438384, 0, 0, 0, 0.5, 43.5408, -26.835, -105.998 )
+input_color = Color( 0, 0.666667, 0.996078, 1 )
+output_color = Color( 0, 0.666667, 0.996078, 1 )
 
 [node name="SpotLight" type="SpotLight" parent="Objects/Stage3"]
 transform = Transform( 0.866025, -2.18557e-08, 0.5, -0.5, -3.78552e-08, 0.866025, 0, -1, -4.37114e-08, 60.4806, -6.88761, -109.378 )
