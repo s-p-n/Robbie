@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://modules/Interactive/Checkpoint/Checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://modules/Player/Player.tscn" type="PackedScene" id=2]
@@ -21,7 +21,6 @@
 [ext_resource path="res://modules/Structures/wall/Wall.tscn" type="PackedScene" id=20]
 [ext_resource path="res://modules/Structures/block/platform.tscn" type="PackedScene" id=21]
 [ext_resource path="res://modules/Interactive/ConnectionHome/ConnectionHome.tscn" type="PackedScene" id=22]
-[ext_resource path="res://modules/Structures/Tunnel/DoorTunnel.tscn" type="PackedScene" id=23]
 [ext_resource path="res://modules/Structures/Tunnel/Tunnel.tscn" type="PackedScene" id=24]
 
 [sub_resource type="ConcavePolygonShape" id=9]
@@ -53,7 +52,7 @@ points = PoolVector3Array( -0.068783, -6.38385, -11.7301, 0.0687695, -6.38385, -
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.46344, -4, -10.2374 )
 
 [node name="Player" parent="Objects" instance=ExtResource( 2 )]
-transform = Transform( 0.999999, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 0.999999, 51.6366, -39.8321, -523.13 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55.5404, -14.434, -1.65618 )
 starting_checkpoint = NodePath("../Checkpoint")
 
 [node name="Stage0" type="Spatial" parent="Objects"]
@@ -2279,7 +2278,6 @@ transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, -6.3
 
 [node name="Source" parent="Objects/Stage4/hallway" instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8072, -6.32359, 11.0688 )
-is_source = true
 input_color = Color( 0.0666667, 0.478431, 0.0666667, 1 )
 output_color = Color( 0.309804, 0.101961, 0.341176, 1 )
 
@@ -2289,9 +2287,24 @@ input_color = Color( 0.309804, 0.101961, 0.341176, 1 )
 output_color = Color( 0.627451, 0.321569, 0.580392, 1 )
 
 [node name="PylonStatic2" parent="Objects/Stage4/hallway" instance=ExtResource( 13 )]
-transform = Transform( 0.345893, 0.135875, 0.334509, -0.121031, 0.480075, -0.0698515, -0.340161, -0.0326503, 0.365, 0.964157, -9.61905, -44.5772 )
-input_color = Color( 0.309804, 0.101961, 0.341176, 1 )
-output_color = Color( 0.627451, 0.321569, 0.580392, 1 )
+transform = Transform( 0.345892, 0.135875, 0.334509, -0.121031, 0.480075, -0.0698515, -0.340161, -0.0326504, 0.364999, 0.667091, -10.0679, -50.065 )
+input_color = Color( 0.627451, 0.321569, 0.580392, 1 )
+output_color = Color( 0.823529, 0.431373, 0.764706, 1 )
+
+[node name="PylonStatic4" parent="Objects/Stage4/hallway" instance=ExtResource( 13 )]
+transform = Transform( 0.355434, 0.122506, 0.329635, -0.127734, 0.481645, -0.0412664, -0.327643, -0.0548773, 0.373682, -10.5389, -6.54099, -38.0503 )
+input_color = Color( 0.823529, 0.431373, 0.764706, 1 )
+output_color = Color( 0.952941, 0.670588, 0.909804, 1 )
+
+[node name="PylonStatic5" parent="Objects/Stage4/hallway" instance=ExtResource( 13 )]
+transform = Transform( 0.405955, -0.123799, 0.264336, 0.226913, 0.41867, -0.152404, -0.183603, 0.243701, 0.396106, -10.3861, -5.94717, -33.807 )
+input_color = Color( 0.952941, 0.670588, 0.909804, 1 )
+output_color = Color( 0.823529, 0.278431, 0.278431, 1 )
+
+[node name="PylonStatic3" parent="Objects/Stage4/hallway" instance=ExtResource( 13 )]
+transform = Transform( 0.345892, 0.135875, 0.334509, -0.121031, 0.480075, -0.0698515, -0.340161, -0.0326504, 0.365, 5.88967, -20.0908, -23.6694 )
+input_color = Color( 0.627451, 0.321569, 0.580392, 1 )
+output_color = Color( 0.823529, 0.431373, 0.764706, 1 )
 
 [node name="SpotLight" type="SpotLight" parent="Objects/Stage4/hallway"]
 transform = Transform( -0.996742, -0.0806514, -3.56683e-15, -3.52539e-09, 4.3569e-08, 1, -0.0806514, 0.996742, -4.37114e-08, 0, 19.2543, 0 )
@@ -2357,17 +2370,143 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0 )
 [node name="Tunnel3" parent="Objects/Stage5/EntryTunnel" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 0 )
 
-[node name="Tunnel4" parent="Objects/Stage5/EntryTunnel" instance=ExtResource( 23 )]
+[node name="Tunnel4" type="Spatial" parent="Objects/Stage5/EntryTunnel"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 0 )
+
+[node name="block-441" parent="Objects/Stage5/EntryTunnel/Tunnel4" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+
+[node name="block-442" parent="Objects/Stage5/EntryTunnel/Tunnel4" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9 )
+
+[node name="block-443" parent="Objects/Stage5/EntryTunnel/Tunnel4" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, -4, 5 )
+
+[node name="block-444" parent="Objects/Stage5/EntryTunnel/Tunnel4" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 4, 5 )
+
+[node name="Opener" type="Spatial" parent="Objects/Stage5/EntryTunnel/Tunnel4"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 5 )
+script = ExtResource( 19 )
+activate_node = NodePath("Door")
+piece_paths = [ NodePath("PylonInput") ]
+
+[node name="Door" type="Spatial" parent="Objects/Stage5/EntryTunnel/Tunnel4/Opener"]
+script = ExtResource( 9 )
+open_position = 4.0
+
+[node name="block-445" parent="Objects/Stage5/EntryTunnel/Tunnel4/Opener/Door" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+
+[node name="doorOpen" type="AudioStreamPlayer3D" parent="Objects/Stage5/EntryTunnel/Tunnel4/Opener/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 6 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="doorClose" type="AudioStreamPlayer3D" parent="Objects/Stage5/EntryTunnel/Tunnel4/Opener/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 5 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="PylonStatic" parent="Objects/Stage5/EntryTunnel/Tunnel4/Opener/Door" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, -8.21014e-16, 0, 0, 0.5, -4.78572, -4.20734, 2.44224 )
+visible = false
+is_source = true
+
+[node name="PylonInput" parent="Objects/Stage5/EntryTunnel/Tunnel4/Opener" instance=ExtResource( 17 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.47357, -4.36922, 2.55231 )
+input_color = Color( 0.92549, 0.839216, 0.839216, 1 )
+output_color = Color( 0.878431, 0.505882, 0.505882, 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Objects/Stage5/EntryTunnel/Tunnel4"]
+transform = Transform( 0.965926, -0.183013, 0.183013, -0.258819, -0.683013, 0.683013, 0, -0.707107, -0.707107, 0, 9.01443, 0 )
+editor_only = true
 
 [node name="Tunnel5" parent="Objects/Stage5/EntryTunnel" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 0 )
 
-[node name="Tunnel6" parent="Objects/Stage5/EntryTunnel" instance=ExtResource( 24 )]
+[node name="Tunnel6" type="Spatial" parent="Objects/Stage5/EntryTunnel"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0 )
 
-[node name="Tunnel7" parent="Objects/Stage5/EntryTunnel" instance=ExtResource( 23 )]
+[node name="block-441" parent="Objects/Stage5/EntryTunnel/Tunnel6" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+
+[node name="block-442" parent="Objects/Stage5/EntryTunnel/Tunnel6" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9 )
+
+[node name="block-443" parent="Objects/Stage5/EntryTunnel/Tunnel6" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, -4, 5 )
+
+[node name="block-444" parent="Objects/Stage5/EntryTunnel/Tunnel6" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 4, 5 )
+
+[node name="SpotLight" type="SpotLight" parent="Objects/Stage5/EntryTunnel/Tunnel6"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8, 5 )
+light_color = Color( 1, 0.658824, 0.658824, 1 )
+spot_range = 8.0
+spot_angle = 64.8955
+
+[node name="SpotLight2" type="SpotLight" parent="Objects/Stage5/EntryTunnel/Tunnel6"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.90521, 5 )
+light_color = Color( 1, 0.658824, 0.658824, 1 )
+spot_range = 8.0
+spot_angle = 64.8955
+
+[node name="Tunnel7" type="Spatial" parent="Objects/Stage5/EntryTunnel"]
 transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, -48, 0, 0 )
+
+[node name="block-441" parent="Objects/Stage5/EntryTunnel/Tunnel7" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+
+[node name="block-442" parent="Objects/Stage5/EntryTunnel/Tunnel7" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9 )
+
+[node name="block-443" parent="Objects/Stage5/EntryTunnel/Tunnel7" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, -4, 5 )
+
+[node name="block-444" parent="Objects/Stage5/EntryTunnel/Tunnel7" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 4, 5 )
+
+[node name="Opener" type="Spatial" parent="Objects/Stage5/EntryTunnel/Tunnel7"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 5 )
+script = ExtResource( 19 )
+activate_node = NodePath("Door")
+piece_paths = [ NodePath("PylonInput") ]
+
+[node name="Door" type="Spatial" parent="Objects/Stage5/EntryTunnel/Tunnel7/Opener"]
+script = ExtResource( 9 )
+open_position = 4.0
+
+[node name="block-445" parent="Objects/Stage5/EntryTunnel/Tunnel7/Opener/Door" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+
+[node name="doorOpen" type="AudioStreamPlayer3D" parent="Objects/Stage5/EntryTunnel/Tunnel7/Opener/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 6 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="doorClose" type="AudioStreamPlayer3D" parent="Objects/Stage5/EntryTunnel/Tunnel7/Opener/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 5 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="PylonStatic" parent="Objects/Stage5/EntryTunnel/Tunnel7/Opener/Door" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, -8.21014e-16, 0, 0, 0.5, -4.78572, -4.20734, 2.44224 )
+visible = false
+is_source = true
+
+[node name="PylonInput" parent="Objects/Stage5/EntryTunnel/Tunnel7/Opener" instance=ExtResource( 17 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.47357, -4.36922, 2.55231 )
+input_color = Color( 0.878431, 0.505882, 0.505882, 1 )
+output_color = Color( 0.686275, 0.184314, 0.184314, 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Objects/Stage5/EntryTunnel/Tunnel7"]
+transform = Transform( 0.965926, -0.183013, 0.183013, -0.258819, -0.683013, 0.683013, 0, -0.707107, -0.707107, 0, 9.01443, 0 )
+editor_only = true
 
 [node name="battery" parent="Objects/Stage5/EntryTunnel" instance=ExtResource( 12 )]
 transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0.0820465, -3.78954, 1.91742 )
@@ -2378,7 +2517,6 @@ connected_object_path = NodePath("../PylonInput")
 
 [node name="PylonInput" parent="Objects/Stage5/EntryTunnel" instance=ExtResource( 17 )]
 transform = Transform( 0.999999, 0, 0, 0, -4.37114e-08, -1, 0, 0.999999, -4.37114e-08, -2.56198, -1.10765, 0.554504 )
-is_source = true
 input_color = Color( 0.823529, 0.278431, 0.278431, 1 )
 output_color = Color( 0.92549, 0.839216, 0.839216, 1 )
 
@@ -2397,8 +2535,59 @@ transform = Transform( 1, 2.98023e-08, -7.45058e-09, 0, 1, -4.47035e-08, 3.72529
 [node name="Tunnel3" parent="Objects/Stage5/EntryTunnel2" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 0 )
 
-[node name="Tunnel4" parent="Objects/Stage5/EntryTunnel2" instance=ExtResource( 23 )]
+[node name="Tunnel4" type="Spatial" parent="Objects/Stage5/EntryTunnel2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 0 )
+
+[node name="block-441" parent="Objects/Stage5/EntryTunnel2/Tunnel4" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+
+[node name="block-442" parent="Objects/Stage5/EntryTunnel2/Tunnel4" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9 )
+
+[node name="block-443" parent="Objects/Stage5/EntryTunnel2/Tunnel4" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, -4, 5 )
+
+[node name="block-444" parent="Objects/Stage5/EntryTunnel2/Tunnel4" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 4, 5 )
+
+[node name="Opener" type="Spatial" parent="Objects/Stage5/EntryTunnel2/Tunnel4"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 5 )
+script = ExtResource( 19 )
+activate_node = NodePath("Door")
+piece_paths = [ NodePath("PylonInput") ]
+
+[node name="Door" type="Spatial" parent="Objects/Stage5/EntryTunnel2/Tunnel4/Opener"]
+script = ExtResource( 9 )
+open_position = 4.0
+
+[node name="block-445" parent="Objects/Stage5/EntryTunnel2/Tunnel4/Opener/Door" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+
+[node name="doorOpen" type="AudioStreamPlayer3D" parent="Objects/Stage5/EntryTunnel2/Tunnel4/Opener/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 6 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="doorClose" type="AudioStreamPlayer3D" parent="Objects/Stage5/EntryTunnel2/Tunnel4/Opener/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 5 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="PylonStatic" parent="Objects/Stage5/EntryTunnel2/Tunnel4/Opener/Door" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, -8.21014e-16, 0, 0, 0.5, -4.78572, -4.20734, 2.44224 )
+visible = false
+is_source = true
+
+[node name="PylonInput" parent="Objects/Stage5/EntryTunnel2/Tunnel4/Opener" instance=ExtResource( 17 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.47357, -4.36922, 2.55231 )
+input_color = Color( 0.6, 0.101961, 0.101961, 1 )
+output_color = Color( 0.501961, 0.129412, 0.129412, 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Objects/Stage5/EntryTunnel2/Tunnel4"]
+transform = Transform( 0.965926, -0.183013, 0.183013, -0.258819, -0.683013, 0.683013, 0, -0.707107, -0.707107, 0, 9.01443, 0 )
+editor_only = true
 
 [node name="Tunnel5" parent="Objects/Stage5/EntryTunnel2" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 0 )
@@ -2406,8 +2595,59 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 0 )
 [node name="Tunnel6" parent="Objects/Stage5/EntryTunnel2" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0 )
 
-[node name="Tunnel7" parent="Objects/Stage5/EntryTunnel2" instance=ExtResource( 23 )]
+[node name="Tunnel7" type="Spatial" parent="Objects/Stage5/EntryTunnel2"]
 transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, -48, 0, 0 )
+
+[node name="block-441" parent="Objects/Stage5/EntryTunnel2/Tunnel7" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+
+[node name="block-442" parent="Objects/Stage5/EntryTunnel2/Tunnel7" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9 )
+
+[node name="block-443" parent="Objects/Stage5/EntryTunnel2/Tunnel7" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, -4, 5 )
+
+[node name="block-444" parent="Objects/Stage5/EntryTunnel2/Tunnel7" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 4, 5 )
+
+[node name="Opener" type="Spatial" parent="Objects/Stage5/EntryTunnel2/Tunnel7"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 5 )
+script = ExtResource( 19 )
+activate_node = NodePath("Door")
+piece_paths = [ NodePath("PylonInput") ]
+
+[node name="Door" type="Spatial" parent="Objects/Stage5/EntryTunnel2/Tunnel7/Opener"]
+script = ExtResource( 9 )
+open_position = 4.0
+
+[node name="block-445" parent="Objects/Stage5/EntryTunnel2/Tunnel7/Opener/Door" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+
+[node name="doorOpen" type="AudioStreamPlayer3D" parent="Objects/Stage5/EntryTunnel2/Tunnel7/Opener/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 6 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="doorClose" type="AudioStreamPlayer3D" parent="Objects/Stage5/EntryTunnel2/Tunnel7/Opener/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 5 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="PylonStatic" parent="Objects/Stage5/EntryTunnel2/Tunnel7/Opener/Door" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, -8.21014e-16, 0, 0, 0.5, -4.78572, -4.20734, 2.44224 )
+visible = false
+is_source = true
+
+[node name="PylonInput" parent="Objects/Stage5/EntryTunnel2/Tunnel7/Opener" instance=ExtResource( 17 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.47357, -4.36922, 2.55231 )
+input_color = Color( 0.501961, 0.129412, 0.129412, 1 )
+output_color = Color( 0.4, 0.0980392, 0.0980392, 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Objects/Stage5/EntryTunnel2/Tunnel7"]
+transform = Transform( 0.965926, -0.183013, 0.183013, -0.258819, -0.683013, 0.683013, 0, -0.707107, -0.707107, 0, 9.01443, 0 )
+editor_only = true
 
 [node name="battery" parent="Objects/Stage5/EntryTunnel2" instance=ExtResource( 12 )]
 transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0.0820465, -3.78954, 1.91742 )
@@ -2418,7 +2658,8 @@ connected_object_path = NodePath("../PylonInput")
 
 [node name="PylonInput" parent="Objects/Stage5/EntryTunnel2" instance=ExtResource( 17 )]
 transform = Transform( 0.999999, 0, 0, 0, -4.37114e-08, -1, 0, 0.999999, -4.37114e-08, -2.56198, -1.10765, 0.554504 )
-is_source = true
+input_color = Color( 0.686275, 0.184314, 0.184314, 1 )
+output_color = Color( 0.6, 0.101961, 0.101961, 1 )
 
 [node name="EntryTunnel3" type="Spatial" parent="Objects/Stage5"]
 transform = Transform( 0.352002, -0.760906, 0.545085, 0.890315, 0.451902, 0.0558857, -0.288849, 0.465625, 0.836516, 89.6139, 33.4386, 147.683 )
@@ -2432,8 +2673,59 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0 )
 [node name="Tunnel3" parent="Objects/Stage5/EntryTunnel3" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 0 )
 
-[node name="Tunnel4" parent="Objects/Stage5/EntryTunnel3" instance=ExtResource( 23 )]
+[node name="Tunnel4" type="Spatial" parent="Objects/Stage5/EntryTunnel3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 0 )
+
+[node name="block-441" parent="Objects/Stage5/EntryTunnel3/Tunnel4" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+
+[node name="block-442" parent="Objects/Stage5/EntryTunnel3/Tunnel4" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9 )
+
+[node name="block-443" parent="Objects/Stage5/EntryTunnel3/Tunnel4" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, -4, 5 )
+
+[node name="block-444" parent="Objects/Stage5/EntryTunnel3/Tunnel4" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 4, 5 )
+
+[node name="Opener" type="Spatial" parent="Objects/Stage5/EntryTunnel3/Tunnel4"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 5 )
+script = ExtResource( 19 )
+activate_node = NodePath("Door")
+piece_paths = [ NodePath("PylonInput") ]
+
+[node name="Door" type="Spatial" parent="Objects/Stage5/EntryTunnel3/Tunnel4/Opener"]
+script = ExtResource( 9 )
+open_position = 4.0
+
+[node name="block-445" parent="Objects/Stage5/EntryTunnel3/Tunnel4/Opener/Door" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+
+[node name="doorOpen" type="AudioStreamPlayer3D" parent="Objects/Stage5/EntryTunnel3/Tunnel4/Opener/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 6 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="doorClose" type="AudioStreamPlayer3D" parent="Objects/Stage5/EntryTunnel3/Tunnel4/Opener/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 5 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="PylonStatic" parent="Objects/Stage5/EntryTunnel3/Tunnel4/Opener/Door" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, -8.21014e-16, 0, 0, 0.5, -4.78572, -4.20734, 2.44224 )
+visible = false
+is_source = true
+
+[node name="PylonInput" parent="Objects/Stage5/EntryTunnel3/Tunnel4/Opener" instance=ExtResource( 17 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.47357, -4.36922, 2.55231 )
+input_color = Color( 0.517647, 0.376471, 0.376471, 1 )
+output_color = Color( 0.376471, 0.486275, 0.517647, 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Objects/Stage5/EntryTunnel3/Tunnel4"]
+transform = Transform( 0.965926, -0.183013, 0.183013, -0.258819, -0.683013, 0.683013, 0, -0.707107, -0.707107, 0, 9.01443, 0 )
+editor_only = true
 
 [node name="Tunnel5" parent="Objects/Stage5/EntryTunnel3" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 0 )
@@ -2441,8 +2733,59 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 0 )
 [node name="Tunnel6" parent="Objects/Stage5/EntryTunnel3" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0 )
 
-[node name="Tunnel7" parent="Objects/Stage5/EntryTunnel3" instance=ExtResource( 23 )]
+[node name="Tunnel7" type="Spatial" parent="Objects/Stage5/EntryTunnel3"]
 transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, -48, 0, 0 )
+
+[node name="block-441" parent="Objects/Stage5/EntryTunnel3/Tunnel7" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+
+[node name="block-442" parent="Objects/Stage5/EntryTunnel3/Tunnel7" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9 )
+
+[node name="block-443" parent="Objects/Stage5/EntryTunnel3/Tunnel7" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, -4, 5 )
+
+[node name="block-444" parent="Objects/Stage5/EntryTunnel3/Tunnel7" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 4, 5 )
+
+[node name="Opener" type="Spatial" parent="Objects/Stage5/EntryTunnel3/Tunnel7"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 5 )
+script = ExtResource( 19 )
+activate_node = NodePath("Door")
+piece_paths = [ NodePath("PylonInput") ]
+
+[node name="Door" type="Spatial" parent="Objects/Stage5/EntryTunnel3/Tunnel7/Opener"]
+script = ExtResource( 9 )
+open_position = 4.0
+
+[node name="block-445" parent="Objects/Stage5/EntryTunnel3/Tunnel7/Opener/Door" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+
+[node name="doorOpen" type="AudioStreamPlayer3D" parent="Objects/Stage5/EntryTunnel3/Tunnel7/Opener/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 6 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="doorClose" type="AudioStreamPlayer3D" parent="Objects/Stage5/EntryTunnel3/Tunnel7/Opener/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 5 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="PylonStatic" parent="Objects/Stage5/EntryTunnel3/Tunnel7/Opener/Door" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, -8.21014e-16, 0, 0, 0.5, -4.78572, -4.20734, 2.44224 )
+visible = false
+is_source = true
+
+[node name="PylonInput" parent="Objects/Stage5/EntryTunnel3/Tunnel7/Opener" instance=ExtResource( 17 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.47357, -4.36922, 2.55231 )
+input_color = Color( 0.376471, 0.486275, 0.517647, 1 )
+output_color = Color( 0.376471, 0.517647, 0.427451, 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Objects/Stage5/EntryTunnel3/Tunnel7"]
+transform = Transform( 0.965926, -0.183013, 0.183013, -0.258819, -0.683013, 0.683013, 0, -0.707107, -0.707107, 0, 9.01443, 0 )
+editor_only = true
 
 [node name="battery" parent="Objects/Stage5/EntryTunnel3" instance=ExtResource( 12 )]
 transform = Transform( 0.999999, 2.98023e-08, -2.98023e-08, 7.00355e-07, 1, -2.98023e-08, -4.02331e-07, 2.38419e-07, 0.999999, -21.2952, -1.98938, 4.72565 )
@@ -2453,7 +2796,8 @@ connected_object_path = NodePath("../PylonInput")
 
 [node name="PylonInput" parent="Objects/Stage5/EntryTunnel3" instance=ExtResource( 17 )]
 transform = Transform( 0.999999, 0, 0, 0, -4.37114e-08, -1, 0, 0.999999, -4.37114e-08, -2.56198, -1.10765, 0.554504 )
-is_source = true
+input_color = Color( 0.4, 0.0980392, 0.0980392, 1 )
+output_color = Color( 0.517647, 0.376471, 0.376471, 1 )
 
 [node name="Tunnel3Platforms" type="Spatial" parent="Objects/Stage5"]
 
@@ -2574,8 +2918,59 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0 )
 [node name="Tunnel3" parent="Objects/Stage5/EntryTunnel4" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 0 )
 
-[node name="Tunnel4" parent="Objects/Stage5/EntryTunnel4" instance=ExtResource( 23 )]
+[node name="Tunnel4" type="Spatial" parent="Objects/Stage5/EntryTunnel4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 0 )
+
+[node name="block-441" parent="Objects/Stage5/EntryTunnel4/Tunnel4" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+
+[node name="block-442" parent="Objects/Stage5/EntryTunnel4/Tunnel4" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9 )
+
+[node name="block-443" parent="Objects/Stage5/EntryTunnel4/Tunnel4" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, -4, 5 )
+
+[node name="block-444" parent="Objects/Stage5/EntryTunnel4/Tunnel4" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 4, 5 )
+
+[node name="Opener" type="Spatial" parent="Objects/Stage5/EntryTunnel4/Tunnel4"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 5 )
+script = ExtResource( 19 )
+activate_node = NodePath("Door")
+piece_paths = [ NodePath("PylonInput") ]
+
+[node name="Door" type="Spatial" parent="Objects/Stage5/EntryTunnel4/Tunnel4/Opener"]
+script = ExtResource( 9 )
+open_position = 4.0
+
+[node name="block-445" parent="Objects/Stage5/EntryTunnel4/Tunnel4/Opener/Door" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+
+[node name="doorOpen" type="AudioStreamPlayer3D" parent="Objects/Stage5/EntryTunnel4/Tunnel4/Opener/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 6 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="doorClose" type="AudioStreamPlayer3D" parent="Objects/Stage5/EntryTunnel4/Tunnel4/Opener/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 5 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="PylonStatic" parent="Objects/Stage5/EntryTunnel4/Tunnel4/Opener/Door" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, -8.21014e-16, 0, 0, 0.5, -4.78572, -4.20734, 2.44224 )
+visible = false
+is_source = true
+
+[node name="PylonInput" parent="Objects/Stage5/EntryTunnel4/Tunnel4/Opener" instance=ExtResource( 17 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.47357, -4.36922, 2.55231 )
+input_color = Color( 0.345098, 0.458824, 0.603922, 1 )
+output_color = Color( 0.105882, 0.552941, 0.301961, 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Objects/Stage5/EntryTunnel4/Tunnel4"]
+transform = Transform( 0.965926, -0.183013, 0.183013, -0.258819, -0.683013, 0.683013, 0, -0.707107, -0.707107, 0, 9.01443, 0 )
+editor_only = true
 
 [node name="Tunnel5" parent="Objects/Stage5/EntryTunnel4" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 0 )
@@ -2583,8 +2978,59 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 0 )
 [node name="Tunnel6" parent="Objects/Stage5/EntryTunnel4" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0 )
 
-[node name="Tunnel7" parent="Objects/Stage5/EntryTunnel4" instance=ExtResource( 23 )]
+[node name="Tunnel7" type="Spatial" parent="Objects/Stage5/EntryTunnel4"]
 transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, -48, 0, 0 )
+
+[node name="block-441" parent="Objects/Stage5/EntryTunnel4/Tunnel7" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+
+[node name="block-442" parent="Objects/Stage5/EntryTunnel4/Tunnel7" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9 )
+
+[node name="block-443" parent="Objects/Stage5/EntryTunnel4/Tunnel7" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, -4, 5 )
+
+[node name="block-444" parent="Objects/Stage5/EntryTunnel4/Tunnel7" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 4, 5 )
+
+[node name="Opener" type="Spatial" parent="Objects/Stage5/EntryTunnel4/Tunnel7"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 5 )
+script = ExtResource( 19 )
+activate_node = NodePath("Door")
+piece_paths = [ NodePath("PylonInput") ]
+
+[node name="Door" type="Spatial" parent="Objects/Stage5/EntryTunnel4/Tunnel7/Opener"]
+script = ExtResource( 9 )
+open_position = 4.0
+
+[node name="block-445" parent="Objects/Stage5/EntryTunnel4/Tunnel7/Opener/Door" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+
+[node name="doorOpen" type="AudioStreamPlayer3D" parent="Objects/Stage5/EntryTunnel4/Tunnel7/Opener/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 6 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="doorClose" type="AudioStreamPlayer3D" parent="Objects/Stage5/EntryTunnel4/Tunnel7/Opener/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 5 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="PylonStatic" parent="Objects/Stage5/EntryTunnel4/Tunnel7/Opener/Door" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, -8.21014e-16, 0, 0, 0.5, -4.78572, -4.20734, 2.44224 )
+visible = false
+is_source = true
+
+[node name="PylonInput" parent="Objects/Stage5/EntryTunnel4/Tunnel7/Opener" instance=ExtResource( 17 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.47357, -4.36922, 2.55231 )
+input_color = Color( 0.105882, 0.552941, 0.301961, 1 )
+output_color = Color( 0.317647, 0.552941, 0.105882, 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Objects/Stage5/EntryTunnel4/Tunnel7"]
+transform = Transform( 0.965926, -0.183013, 0.183013, -0.258819, -0.683013, 0.683013, 0, -0.707107, -0.707107, 0, 9.01443, 0 )
+editor_only = true
 
 [node name="battery" parent="Objects/Stage5/EntryTunnel4" instance=ExtResource( 12 )]
 transform = Transform( 0.999999, 2.98023e-08, -2.98023e-08, 7.00355e-07, 1, -2.98023e-08, -4.02331e-07, 2.38419e-07, 0.999999, -21.2952, -1.98938, 4.72565 )
@@ -2594,8 +3040,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67661, -4, 2.32129 )
 connected_object_path = NodePath("../PylonInput")
 
 [node name="PylonInput" parent="Objects/Stage5/EntryTunnel4" instance=ExtResource( 17 )]
-transform = Transform( 0.999999, 0, 0, 0, -4.37114e-08, -1, 0, 0.999999, -4.37114e-08, -2.56198, -1.10765, 0.554504 )
-is_source = true
+transform = Transform( 0.999999, -1.42109e-14, -6.61881e-15, 3.3094e-15, -4.37114e-08, -1, -7.10543e-15, 0.999999, -4.37114e-08, -2.56198, -1.10764, 0.554504 )
+input_color = Color( 0, 1, 0.6, 1 )
+output_color = Color( 0.345098, 0.458824, 0.603922, 1 )
 
 [node name="Checkpoint" parent="Objects/Stage5/EntryTunnel4" instance=ExtResource( 1 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.597961, -3.91424, 5.2851 )
@@ -2612,8 +3059,59 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0 )
 [node name="Tunnel3" parent="Objects/Stage5/EntryTunnel5" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 0 )
 
-[node name="Tunnel4" parent="Objects/Stage5/EntryTunnel5" instance=ExtResource( 23 )]
+[node name="Tunnel4" type="Spatial" parent="Objects/Stage5/EntryTunnel5"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 0 )
+
+[node name="block-441" parent="Objects/Stage5/EntryTunnel5/Tunnel4" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+
+[node name="block-442" parent="Objects/Stage5/EntryTunnel5/Tunnel4" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9 )
+
+[node name="block-443" parent="Objects/Stage5/EntryTunnel5/Tunnel4" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, -4, 5 )
+
+[node name="block-444" parent="Objects/Stage5/EntryTunnel5/Tunnel4" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 4, 5 )
+
+[node name="Opener" type="Spatial" parent="Objects/Stage5/EntryTunnel5/Tunnel4"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 5 )
+script = ExtResource( 19 )
+activate_node = NodePath("Door")
+piece_paths = [ NodePath("PylonInput") ]
+
+[node name="Door" type="Spatial" parent="Objects/Stage5/EntryTunnel5/Tunnel4/Opener"]
+script = ExtResource( 9 )
+open_position = 4.0
+
+[node name="block-445" parent="Objects/Stage5/EntryTunnel5/Tunnel4/Opener/Door" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+
+[node name="doorOpen" type="AudioStreamPlayer3D" parent="Objects/Stage5/EntryTunnel5/Tunnel4/Opener/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 6 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="doorClose" type="AudioStreamPlayer3D" parent="Objects/Stage5/EntryTunnel5/Tunnel4/Opener/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 5 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="PylonStatic" parent="Objects/Stage5/EntryTunnel5/Tunnel4/Opener/Door" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, -8.21014e-16, 0, 0, 0.5, -4.78572, -4.20734, 2.44224 )
+visible = false
+is_source = true
+
+[node name="PylonInput" parent="Objects/Stage5/EntryTunnel5/Tunnel4/Opener" instance=ExtResource( 17 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.47357, -4.36922, 2.55231 )
+input_color = Color( 0.552941, 0.313726, 0.105882, 1 )
+output_color = Color( 0.415686, 0.0470588, 0.458824, 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Objects/Stage5/EntryTunnel5/Tunnel4"]
+transform = Transform( 0.965926, -0.183013, 0.183013, -0.258819, -0.683013, 0.683013, 0, -0.707107, -0.707107, 0, 9.01443, 0 )
+editor_only = true
 
 [node name="Tunnel5" parent="Objects/Stage5/EntryTunnel5" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 0 )
@@ -2621,8 +3119,59 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 0 )
 [node name="Tunnel6" parent="Objects/Stage5/EntryTunnel5" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0 )
 
-[node name="Tunnel7" parent="Objects/Stage5/EntryTunnel5" instance=ExtResource( 23 )]
+[node name="Tunnel7" type="Spatial" parent="Objects/Stage5/EntryTunnel5"]
 transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, -48, 0, 0 )
+
+[node name="block-441" parent="Objects/Stage5/EntryTunnel5/Tunnel7" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+
+[node name="block-442" parent="Objects/Stage5/EntryTunnel5/Tunnel7" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9 )
+
+[node name="block-443" parent="Objects/Stage5/EntryTunnel5/Tunnel7" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, -4, 5 )
+
+[node name="block-444" parent="Objects/Stage5/EntryTunnel5/Tunnel7" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 4, 5 )
+
+[node name="Opener" type="Spatial" parent="Objects/Stage5/EntryTunnel5/Tunnel7"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 5 )
+script = ExtResource( 19 )
+activate_node = NodePath("Door")
+piece_paths = [ NodePath("PylonInput") ]
+
+[node name="Door" type="Spatial" parent="Objects/Stage5/EntryTunnel5/Tunnel7/Opener"]
+script = ExtResource( 9 )
+open_position = 4.0
+
+[node name="block-445" parent="Objects/Stage5/EntryTunnel5/Tunnel7/Opener/Door" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+
+[node name="doorOpen" type="AudioStreamPlayer3D" parent="Objects/Stage5/EntryTunnel5/Tunnel7/Opener/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 6 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="doorClose" type="AudioStreamPlayer3D" parent="Objects/Stage5/EntryTunnel5/Tunnel7/Opener/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 5 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="PylonStatic" parent="Objects/Stage5/EntryTunnel5/Tunnel7/Opener/Door" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, -8.21014e-16, 0, 0, 0.5, -4.78572, -4.20734, 2.44224 )
+visible = false
+is_source = true
+
+[node name="PylonInput" parent="Objects/Stage5/EntryTunnel5/Tunnel7/Opener" instance=ExtResource( 17 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.47357, -4.36922, 2.55231 )
+input_color = Color( 0.415686, 0.0470588, 0.458824, 1 )
+output_color = Color( 0.364706, 0.443137, 0.8, 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Objects/Stage5/EntryTunnel5/Tunnel7"]
+transform = Transform( 0.965926, -0.183013, 0.183013, -0.258819, -0.683013, 0.683013, 0, -0.707107, -0.707107, 0, 9.01443, 0 )
+editor_only = true
 
 [node name="battery" parent="Objects/Stage5/EntryTunnel5" instance=ExtResource( 12 )]
 transform = Transform( 0.999999, 2.98023e-08, -2.98023e-08, 7.00355e-07, 1, -2.98023e-08, -4.02331e-07, 2.38419e-07, 0.999999, -21.2952, -1.98938, 4.72565 )
@@ -2633,7 +3182,8 @@ connected_object_path = NodePath("../PylonInput")
 
 [node name="PylonInput" parent="Objects/Stage5/EntryTunnel5" instance=ExtResource( 17 )]
 transform = Transform( 0.999999, 0, 0, 0, -4.37114e-08, -1, 0, 0.999999, -4.37114e-08, -2.56198, -1.10765, 0.554504 )
-is_source = true
+input_color = Color( 0.317647, 0.552941, 0.105882, 1 )
+output_color = Color( 0.552941, 0.313726, 0.105882, 1 )
 
 [node name="EntryTunnel6" type="Spatial" parent="Objects/Stage5"]
 transform = Transform( -0.866025, -0.5, 8.74228e-08, -0.5, 0.866025, 0, -7.57103e-08, -4.37114e-08, -1, 183.73, 38.8831, 172.683 )
@@ -2647,8 +3197,59 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0 )
 [node name="Tunnel3" parent="Objects/Stage5/EntryTunnel6" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 0 )
 
-[node name="Tunnel4" parent="Objects/Stage5/EntryTunnel6" instance=ExtResource( 23 )]
+[node name="Tunnel4" type="Spatial" parent="Objects/Stage5/EntryTunnel6"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 0 )
+
+[node name="block-441" parent="Objects/Stage5/EntryTunnel6/Tunnel4" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+
+[node name="block-442" parent="Objects/Stage5/EntryTunnel6/Tunnel4" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9 )
+
+[node name="block-443" parent="Objects/Stage5/EntryTunnel6/Tunnel4" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, -4, 5 )
+
+[node name="block-444" parent="Objects/Stage5/EntryTunnel6/Tunnel4" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 4, 5 )
+
+[node name="Opener" type="Spatial" parent="Objects/Stage5/EntryTunnel6/Tunnel4"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 5 )
+script = ExtResource( 19 )
+activate_node = NodePath("Door")
+piece_paths = [ NodePath("PylonInput") ]
+
+[node name="Door" type="Spatial" parent="Objects/Stage5/EntryTunnel6/Tunnel4/Opener"]
+script = ExtResource( 9 )
+open_position = 4.0
+
+[node name="block-445" parent="Objects/Stage5/EntryTunnel6/Tunnel4/Opener/Door" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+
+[node name="doorOpen" type="AudioStreamPlayer3D" parent="Objects/Stage5/EntryTunnel6/Tunnel4/Opener/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 6 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="doorClose" type="AudioStreamPlayer3D" parent="Objects/Stage5/EntryTunnel6/Tunnel4/Opener/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 5 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="PylonStatic" parent="Objects/Stage5/EntryTunnel6/Tunnel4/Opener/Door" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, -8.21014e-16, 0, 0, 0.5, -4.78572, -4.20734, 2.44224 )
+visible = false
+is_source = true
+
+[node name="PylonInput" parent="Objects/Stage5/EntryTunnel6/Tunnel4/Opener" instance=ExtResource( 17 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.47357, -4.36922, 2.55231 )
+input_color = Color( 0.364706, 0.717647, 0.8, 1 )
+output_color = Color( 0.145098, 0.435294, 0.501961, 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Objects/Stage5/EntryTunnel6/Tunnel4"]
+transform = Transform( 0.965926, -0.183013, 0.183013, -0.258819, -0.683013, 0.683013, 0, -0.707107, -0.707107, 0, 9.01443, 0 )
+editor_only = true
 
 [node name="Tunnel5" parent="Objects/Stage5/EntryTunnel6" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 0 )
@@ -2656,8 +3257,59 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 0 )
 [node name="Tunnel6" parent="Objects/Stage5/EntryTunnel6" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 0 )
 
-[node name="Tunnel7" parent="Objects/Stage5/EntryTunnel6" instance=ExtResource( 23 )]
+[node name="Tunnel7" type="Spatial" parent="Objects/Stage5/EntryTunnel6"]
 transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, -48, 0, 0 )
+
+[node name="block-441" parent="Objects/Stage5/EntryTunnel6/Tunnel7" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+
+[node name="block-442" parent="Objects/Stage5/EntryTunnel6/Tunnel7" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9 )
+
+[node name="block-443" parent="Objects/Stage5/EntryTunnel6/Tunnel7" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, -4, 5 )
+
+[node name="block-444" parent="Objects/Stage5/EntryTunnel6/Tunnel7" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 4, 5 )
+
+[node name="Opener" type="Spatial" parent="Objects/Stage5/EntryTunnel6/Tunnel7"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 5 )
+script = ExtResource( 19 )
+activate_node = NodePath("Door")
+piece_paths = [ NodePath("PylonInput") ]
+
+[node name="Door" type="Spatial" parent="Objects/Stage5/EntryTunnel6/Tunnel7/Opener"]
+script = ExtResource( 9 )
+open_position = 4.0
+
+[node name="block-445" parent="Objects/Stage5/EntryTunnel6/Tunnel7/Opener/Door" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+
+[node name="doorOpen" type="AudioStreamPlayer3D" parent="Objects/Stage5/EntryTunnel6/Tunnel7/Opener/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 6 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="doorClose" type="AudioStreamPlayer3D" parent="Objects/Stage5/EntryTunnel6/Tunnel7/Opener/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 5 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="PylonStatic" parent="Objects/Stage5/EntryTunnel6/Tunnel7/Opener/Door" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, -8.21014e-16, 0, 0, 0.5, -4.78572, -4.20734, 2.44224 )
+visible = false
+is_source = true
+
+[node name="PylonInput" parent="Objects/Stage5/EntryTunnel6/Tunnel7/Opener" instance=ExtResource( 17 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.47357, -4.36922, 2.55231 )
+input_color = Color( 0.145098, 0.435294, 0.501961, 1 )
+output_color = Color( 0.388235, 0.678431, 0.364706, 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Objects/Stage5/EntryTunnel6/Tunnel7"]
+transform = Transform( 0.965926, -0.183013, 0.183013, -0.258819, -0.683013, 0.683013, 0, -0.707107, -0.707107, 0, 9.01443, 0 )
+editor_only = true
 
 [node name="battery" parent="Objects/Stage5/EntryTunnel6" instance=ExtResource( 12 )]
 transform = Transform( 0.999999, 2.98023e-08, -2.98023e-08, 7.00355e-07, 1, -2.98023e-08, -4.02331e-07, 2.38419e-07, 0.999999, -21.2952, -1.98938, 4.72565 )
@@ -2668,10 +3320,16 @@ connected_object_path = NodePath("../PylonInput")
 
 [node name="PylonInput" parent="Objects/Stage5/EntryTunnel6" instance=ExtResource( 17 )]
 transform = Transform( 0.999999, 0, 0, 0, -4.37114e-08, -1, 0, 0.999999, -4.37114e-08, -2.56198, -1.10765, 0.554504 )
-is_source = true
+input_color = Color( 0.364706, 0.443137, 0.8, 1 )
+output_color = Color( 0.364706, 0.717647, 0.8, 1 )
 
 [node name="Bottom" type="Spatial" parent="Objects/Stage5"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 67.8386, -21.8203, 173.634 )
+
+[node name="PylonStatic" parent="Objects/Stage5/Bottom" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 7.74467, -0.996841, -6.53876 )
+input_color = Color( 0.376471, 0.517647, 0.427451, 1 )
+output_color = Color( 0, 1, 0.6, 1 )
 
 [node name="platform4" parent="Objects/Stage5/Bottom" instance=ExtResource( 21 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9982, -0.996841, -11.9878 )
@@ -2762,3 +3420,53 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -59.3853, 4.0213, -29.6164 )
 
 [node name="platform14" parent="Objects/Stage5/PathBack" instance=ExtResource( 21 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -59.3853, 5.0213, -39.6164 )
+
+[node name="PylonStatic" parent="Objects/Stage5/PathBack" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.8559, -2.01304, 0 )
+input_color = Color( 0.388235, 0.678431, 0.364706, 1 )
+output_color = Color( 0.67451, 1, 0.647059, 1 )
+
+[node name="PylonStatic2" parent="Objects/Stage5/PathBack" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.8559, -2.01304, -19.8805 )
+input_color = Color( 0.67451, 1, 0.647059, 1 )
+output_color = Color( 0.67451, 1, 0.647059, 1 )
+
+[node name="PylonStatic3" parent="Objects/Stage5/PathBack" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -9.20184, -2.01304, -19.8805 )
+input_color = Color( 0.67451, 1, 0.647059, 1 )
+output_color = Color( 0.67451, 1, 0.647059, 1 )
+
+[node name="PylonStatic4" parent="Objects/Stage5/PathBack" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -16.2696, -0.993217, -19.8805 )
+input_color = Color( 0.67451, 1, 0.647059, 1 )
+output_color = Color( 0.67451, 1, 0.647059, 1 )
+
+[node name="PylonStatic5" parent="Objects/Stage5/PathBack" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -26.1936, -0.0104256, -19.8805 )
+input_color = Color( 0.67451, 1, 0.647059, 1 )
+output_color = Color( 0.67451, 1, 0.647059, 1 )
+
+[node name="PylonStatic6" parent="Objects/Stage5/PathBack" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -37.1417, 1.03933, -19.8805 )
+input_color = Color( 0.67451, 1, 0.647059, 1 )
+output_color = Color( 0.67451, 1, 0.647059, 1 )
+
+[node name="PylonStatic7" parent="Objects/Stage5/PathBack" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -46.9463, 2.00298, -19.8805 )
+input_color = Color( 0.67451, 1, 0.647059, 1 )
+output_color = Color( 0.67451, 1, 0.647059, 1 )
+
+[node name="PylonStatic8" parent="Objects/Stage5/PathBack" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -56.2764, 3.1141, -19.8805 )
+input_color = Color( 0.67451, 1, 0.647059, 1 )
+output_color = Color( 0.67451, 1, 0.647059, 1 )
+
+[node name="PylonStatic9" parent="Objects/Stage5/PathBack" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -56.2764, 4.02911, -26.5196 )
+input_color = Color( 0.67451, 1, 0.647059, 1 )
+output_color = Color( 0.67451, 1, 0.647059, 1 )
+
+[node name="PylonStatic10" parent="Objects/Stage5/PathBack" instance=ExtResource( 13 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -56.2764, 5.00021, -37.0847 )
+input_color = Color( 0.67451, 1, 0.647059, 1 )
+output_color = Color( 0.67451, 1, 0.647059, 1 )
