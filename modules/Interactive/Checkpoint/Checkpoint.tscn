@@ -28,10 +28,15 @@ material/2 = null
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( -0.199453, -0.475667, 0.856714, 0, 0.874281, 0.48542, -0.979907, 0.0968187, -0.174378, 0, 4.69327, -0.825953 )
+visible = false
 editor_only = true
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 1 )
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.9129, 0.256856 )
+light_energy = 3.0
 
 [connection signal="body_entered" from="." to="." method="_on_Checkpoint_body_entered"]
