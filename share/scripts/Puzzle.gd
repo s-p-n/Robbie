@@ -29,11 +29,11 @@ func _handle_deactivation(_piece):
 	attempt_to_solve()
 
 func attempt_to_solve():
-	#print("attempting to work...")
-	#print("num activated right: ", num_activated == len(pieces))
-	#print(num_activated)
-	#print(len(pieces))
-	#print("connected node: ", connected_node)
+	print("attempting to work...")
+	print("num activated right: ", num_activated == len(pieces))
+	print(num_activated)
+	print(len(pieces))
+	print("connected node: ", connected_node)
 	
 	if num_activated == len(pieces) and is_instance_valid(connected_node):
 		connected_node.work(self)

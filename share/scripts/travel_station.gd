@@ -46,10 +46,13 @@ func _process(delta):
 		if !is_open:
 			handle_work(delta)
 		else:
+			restore_player_parent()
 			should_open = false
 	elif should_close:
 		if !is_closed:
 			handle_work_hault(delta)
+		else:
+			restore_player_parent()
 	
 	if (!is_instance_valid(source) or !source.is_working):
 		should_close = true
@@ -126,6 +129,17 @@ func handle_work_hault(delta):
 		close_door(delta)
 	)
 
+func restore_player_parent():
+	if !is_instance_valid(player):
+		player = find_parent("Objects").find_node("Player")
+	if player.get_parent() == self:
+		var player_global_pos = player.global_transform.origin
+		var parent = find_parent("Objects")
+		player.get_parent().remove_child(player)
+		parent.add_child(player)
+		player.set_owner(parent)
+		player.global_transform.origin = player_global_pos
+
 func reparent_player():
 	if !is_instance_valid(player):
 		player = find_parent("Objects").find_node("Player")
@@ -135,8 +149,3 @@ func reparent_player():
 		add_child(player)
 		player.set_owner(self)
 		player.global_transform.origin = player_global_pos
-	#else:
-	#	player_parent = player.get_parent()
-	#	player_parent.remove_child(player)
-	#	add_child(player)
-	#	player.set_owner(self)
