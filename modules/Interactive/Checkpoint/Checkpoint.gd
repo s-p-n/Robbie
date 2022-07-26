@@ -6,7 +6,7 @@ export var flag_set:Material
 onready var checkpoint_pos = global_transform.origin
 onready var checkpoints = find_parent("Robbie").get_node("Checkpoints")
 onready var mesh = $Mesh
-
+onready var audio = $SetSound
 var is_preloaded = false
 
 var player:KinematicBody = null
@@ -37,6 +37,7 @@ func set_this_checkpoint():
 			sibling.mesh.set_surface_material(1, flag_unset)
 		mesh.set_surface_material(1, flag_set)
 		print("Set checkpoint to self: ", self)
+		audio.play(0)
 	else:
 		print("Cannot set checkpoint")
 		print('player valid? ', is_instance_valid(player))

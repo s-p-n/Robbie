@@ -21,29 +21,9 @@ func flicker(delta):
 	t += delta
 	if t < flicker_time:
 		light_energy = 1
-		return
 	else:
 		if light_energy > 0.1:
 			light_energy = lerp(light_energy, 0, delta + 0.25)
 		else:
 			t = 0
 			flicker_time = rand_range(0.5, 5)
-		return
-	#print(light_energy, ' -> ', target_energy)
-	if light_energy < target_energy:
-		light_energy = lerp(light_energy, target_energy, delta + 0.3)
-		if light_energy >= target_energy:
-			t = 0
-			print(light_energy)
-			target_energy = rand_range(min_energy, max_energy)
-	elif light_energy > target_energy:
-		light_energy = lerp(light_energy, target_energy, delta + 0.3)
-		if light_energy <= target_energy:
-			t = 0
-			print(light_energy)
-			target_energy = rand_range(min_energy, max_energy)
-	else:
-		print(light_energy)
-		target_energy = rand_range(min_energy, max_energy)
-	
-	
