@@ -7,16 +7,18 @@ func _ready():
 	pause_mode = PAUSE_MODE_PROCESS # This script can't get paused
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-func _input(_event):
-	if Input.is_action_just_pressed("ui_cancel"):
-		visible = !visible
-		if visible:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		get_tree().paused = visible
+func _input(event):
+	if event.is_action("ui_cancel") and event.is_pressed() and not event.is_echo():
+		toggle_pause()
 
+func toggle_pause():
+	visible = !visible
+	if visible:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	get_tree().paused = visible
 
-func _on_Paused_gui_input(_event):
-	if Input.is_action_just_released("leftclick"):
-		visible = false
+func _on_Paused_gui_input(event):
+	if event.is_action("leftclick") and event.is_pressed() and not event.is_echo():
+		toggle_pause()

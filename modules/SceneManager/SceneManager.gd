@@ -15,10 +15,10 @@ func restart_level():
 	load_level(cur_level)
 
 func next_level():
-	if cur_level < len(levels):
-		cur_level += 1
-	else:
+	cur_level += 1
+	if cur_level >= len(levels):
 		cur_level = 0
+	print("Loading level(", len(levels), "): ", cur_level)
 	load_level(cur_level)
 
 func load_level(idx):
@@ -31,6 +31,7 @@ func load_level(idx):
 		wire.queue_free()
 	
 	for active_scene_member in old_level_members:
+		active_level.remove_child(active_scene_member)
 		active_scene_member.queue_free()
 	
 	active_level.add_child(levels[idx].instance())

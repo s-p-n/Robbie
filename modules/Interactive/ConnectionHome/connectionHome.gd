@@ -7,7 +7,7 @@ var connected_object:Spatial
 var interact:Spatial
 
 func _ready():
-	interact = find_parent("Level").find_node("Player").get_node("Head/Interact")
+	interact = find_parent("Objects").find_node("Player").get_node("Head/Interact")
 	print('interact', interact)
 	connected_object = get_node_or_null(connected_object_path)
 

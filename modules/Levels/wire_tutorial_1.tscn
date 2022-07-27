@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://modules/Interactive/Checkpoint/Checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://modules/Player/Player.tscn" type="PackedScene" id=2]
@@ -28,6 +28,7 @@
 [ext_resource path="res://modules/Decorative/Posters/Sprinting/Sprinting.tscn" type="PackedScene" id=26]
 [ext_resource path="res://modules/Decorative/Posters/Difiiculty/Difficulty_1.tscn" type="PackedScene" id=27]
 [ext_resource path="res://modules/Decorative/Posters/Difiiculty/Difficulty_4.tscn" type="PackedScene" id=28]
+[ext_resource path="res://share/scripts/next_level.gd" type="Script" id=29]
 
 [sub_resource type="ConcavePolygonShape" id=9]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
@@ -64,7 +65,7 @@ data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.46344, -4, -10.2374 )
 
 [node name="Player" parent="Objects" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -55.5203, -14.2005, -1.65068 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -55.5226, -14.0612, -1.58497 )
 starting_checkpoint = NodePath("../Checkpoint")
 
 [node name="Stage0" type="Spatial" parent="Objects"]
@@ -3522,21 +3523,29 @@ script = ExtResource( 19 )
 activate_node = NodePath("TravelStation")
 piece_paths = [ NodePath("TravelStation/InputPylon"), NodePath("TravelStation/InputPylon2") ]
 
-[node name="platform15" type="RigidBody" parent="Objects/Stage5/FinalPuzzle"]
+[node name="WinPlatform" type="RigidBody" parent="Objects/Stage5/FinalPuzzle"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 308.532, 60.3748, 157.674 )
-mode = 1
+contacts_reported = 1
+contact_monitor = true
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource( 29 )
 
-[node name="block-441" type="MeshInstance" parent="Objects/Stage5/FinalPuzzle/platform15"]
+[node name="block-441" type="MeshInstance" parent="Objects/Stage5/FinalPuzzle/WinPlatform"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
 material_override = SubResource( 11 )
 mesh = ExtResource( 4 )
 material/0 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="Objects/Stage5/FinalPuzzle/platform15"]
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Stage5/FinalPuzzle/WinPlatform"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
 shape = SubResource( 12 )
 
-[node name="SpotLight" type="SpotLight" parent="Objects/Stage5/FinalPuzzle/platform15"]
+[node name="SpotLight" type="SpotLight" parent="Objects/Stage5/FinalPuzzle/WinPlatform"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
 light_color = Color( 0.654902, 0.882353, 0.992157, 1 )
 spot_range = 14.3195
@@ -3621,3 +3630,5 @@ transform = Transform( -7.17835e-08, 0, 1, 0, 4.09729, 0, -3.09438, 0, -8.23639e
 
 [node name="Poster2" parent="." instance=ExtResource( 26 )]
 transform = Transform( -0.0216229, 0, 0.999766, 0, 2.46121, 0, -2.26876, 0, -0.0490688, -119.776, -23.3034, 0.736193 )
+
+[connection signal="body_entered" from="Objects/Stage5/FinalPuzzle/WinPlatform" to="Objects/Stage5/FinalPuzzle/WinPlatform" method="_on_platform15_body_entered"]

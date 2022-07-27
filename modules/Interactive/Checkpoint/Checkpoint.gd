@@ -12,7 +12,13 @@ var is_preloaded = false
 var player:KinematicBody = null
 
 func _ready():
-	var level = find_parent("Level")
+	var parent = get_parent()
+	var level = find_parent("Objects")
+	if !is_instance_valid(level) and is_instance_valid(parent):
+		level = parent.find_parent("Objects")
+	elif !is_instance_valid(parent):
+		print("parent not valid: ", parent)
+		
 	if is_instance_valid(level):
 		player = level.find_node("Player")
 		mesh.set_surface_material(1, flag_unset)
@@ -20,6 +26,14 @@ func _ready():
 		print('checkpoint ready')
 	else:
 		print("Checkpoint cannot be setup outside of a level.")
+		print(parent)
+		print(level)
+		if !parent.is_connected("ready", self, "_parent_ready"):
+			parent.connect("ready", self, "_parent_ready")
+
+func _parent_ready():
+	print("Trying to set up checkpoint again..")
+	_ready()
 
 func setup():
 	checkpoints.checkpoints_in_level.append(self)

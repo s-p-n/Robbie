@@ -2,10 +2,12 @@ extends Spatial
 
 export(Array, AudioStream) var footstep_sounds = []
 export var timer_path:NodePath
+export var audio_script:GDScript
 
 var timer:Timer
 var movement:Node
 
+var audio_nodes = []
 var move_connection
 
 func set_movement(new_movement):
@@ -28,7 +30,7 @@ func handle_footstep():
 	if !movement.snapped:
 		play_sound(-10)
 
-func play_sound(volume): # To avoid the sound from clipping, we generate a new audio node each time then we delete it
+func create_audio_node(volume):
 	var audio_node = AudioStreamPlayer.new()
 	if len(footstep_sounds) == 0:
 		return
@@ -36,7 +38,19 @@ func play_sound(volume): # To avoid the sound from clipping, we generate a new a
 	audio_node.stream = footstep_sounds[pick_sound]
 	audio_node.volume_db = volume
 	audio_node.pitch_scale = rand_range(0.95, 1.05)
+	audio_node.set_script(audio_script)
 	add_child(audio_node)
 	audio_node.play()
-	yield(get_tree().create_timer(2), "timeout")
-	audio_node.queue_free()
+	audio_node.connect("finished_playing", self, "_remove_audio")
+
+func play_sound(volume): # To avoid the sound from clipping, we generate a new audio node each time then we delete it
+	create_audio_node(volume)
+	#print("Added walk audio node")
+	print("footstep audio instance count: ", (get_child_count() - 1))
+
+func _remove_audio(audio_node):
+	if is_instance_valid(audio_node):
+		remove_child(audio_node)
+		audio_node.queue_free()
+		#print("Remove walk audio node")
+		
