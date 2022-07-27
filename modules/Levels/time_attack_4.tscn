@@ -882,7 +882,7 @@ transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759,
 [node name="Side Path 1" type="Spatial" parent="Objects"]
 
 [node name="capacitor" type="RigidBody" parent="Objects/Side Path 1"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 42.4113, 36.5328, 24.667 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 45.6292, 43.6618, 24.667 )
 mode = 1
 axis_lock_angular_x = true
 axis_lock_angular_z = true
@@ -916,7 +916,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
 shape = SubResource( 2 )
 
 [node name="capacitor3" type="RigidBody" parent="Objects/Side Path 1"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 54.1526, 36.5328, 24.667 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 57.4184, 39.9285, 24.667 )
 mode = 1
 axis_lock_angular_x = true
 axis_lock_angular_z = true
@@ -933,7 +933,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
 shape = SubResource( 2 )
 
 [node name="capacitor4" type="RigidBody" parent="Objects/Side Path 1"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 60.0242, 36.5328, 24.667 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 59.1884, 36.5328, 24.667 )
 mode = 1
 axis_lock_angular_x = true
 axis_lock_angular_z = true
@@ -950,7 +950,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
 shape = SubResource( 2 )
 
 [node name="capacitor5" type="RigidBody" parent="Objects/Side Path 1"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 65.9756, 36.5328, 24.667 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 60.9206, 33.0497, 24.667 )
 mode = 1
 axis_lock_angular_x = true
 axis_lock_angular_z = true
@@ -967,7 +967,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
 shape = SubResource( 2 )
 
 [node name="capacitor6" type="RigidBody" parent="Objects/Side Path 1"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 71.9003, 36.5328, 24.667 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 68.8762, 31.4908, 24.667 )
 mode = 1
 axis_lock_angular_x = true
 axis_lock_angular_z = true
@@ -984,7 +984,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
 shape = SubResource( 2 )
 
 [node name="capacitor7" type="RigidBody" parent="Objects/Side Path 1"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 77.7169, 36.5328, 24.667 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 78.7028, 33.3389, 24.667 )
 mode = 1
 axis_lock_angular_x = true
 axis_lock_angular_z = true
@@ -1001,7 +1001,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
 shape = SubResource( 2 )
 
 [node name="capacitor8" type="RigidBody" parent="Objects/Side Path 1"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 83.5885, 36.5328, 24.667 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 89.0611, 36.5328, 24.667 )
 mode = 1
 axis_lock_angular_x = true
 axis_lock_angular_z = true
@@ -1018,7 +1018,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
 shape = SubResource( 2 )
 
 [node name="capacitor9" type="RigidBody" parent="Objects/Side Path 1"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 90.2151, 36.5328, 24.667 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 95.1765, 34.7205, 24.667 )
 mode = 1
 axis_lock_angular_x = true
 axis_lock_angular_z = true
@@ -1035,7 +1035,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
 shape = SubResource( 2 )
 
 [node name="capacitor10" type="RigidBody" parent="Objects/Side Path 1"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 96.1398, 36.5328, 24.667 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 100.397, 36.5328, 24.667 )
 mode = 1
 axis_lock_angular_x = true
 axis_lock_angular_z = true
@@ -1052,7 +1052,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
 shape = SubResource( 2 )
 
 [node name="capacitor11" type="RigidBody" parent="Objects/Side Path 1"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 101.956, 36.5328, 24.667 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 107.564, 35.6259, 24.667 )
 mode = 1
 axis_lock_angular_x = true
 axis_lock_angular_z = true
@@ -1069,7 +1069,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
 shape = SubResource( 2 )
 
 [node name="capacitor12" type="RigidBody" parent="Objects/Side Path 1"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 107.828, 36.5328, 24.667 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 104, 31.8627, 24.667 )
 mode = 1
 axis_lock_angular_x = true
 axis_lock_angular_z = true
@@ -1086,7 +1086,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
 shape = SubResource( 2 )
 
 [node name="capacitor13" type="RigidBody" parent="Objects/Side Path 1"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 107.987, 36.5328, 24.667 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 107.987, 27.732, 24.667 )
 mode = 1
 axis_lock_angular_x = true
 axis_lock_angular_z = true
@@ -1103,7 +1103,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
 shape = SubResource( 2 )
 
 [node name="capacitor14" type="RigidBody" parent="Objects/Side Path 1"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 113.912, 36.5328, 24.667 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 113.912, 41.321, 24.667 )
 mode = 1
 axis_lock_angular_x = true
 axis_lock_angular_z = true
@@ -1280,6 +1280,27 @@ output_color = Color( 1, 0.607843, 0, 1 )
 transform = Transform( -2.18557e-08, 0.5, -2.18557e-08, 0, -2.18557e-08, -0.5, -0.5, -2.18557e-08, 9.55343e-16, 15.6821, 66.2654, 42.0673 )
 input_color = Color( 1, 0.607843, 0, 1 )
 output_color = Color( 1, 0.607843, 0, 1 )
+
+[node name="Side Path 2" type="Spatial" parent="Objects"]
+
+[node name="PylonStatic2" parent="Objects/Side Path 2" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 112.02, -3.63779, 30.2288 )
+is_source = true
+input_color = Color( 1, 0, 0.235294, 1 )
+output_color = Color( 1, 0, 0.235294, 1 )
+
+[node name="Checkpoint8" parent="Objects/Side Path 2" instance=ExtResource( 6 )]
+transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, 123.938, -3.54879, 36.4799 )
+
+[node name="PylonStatic3" parent="Objects/Side Path 2" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 112.02, -3.63779, 46.0863 )
+input_color = Color( 1, 0, 0.235294, 1 )
+output_color = Color( 1, 0, 0.4, 1 )
+
+[node name="PylonStatic4" parent="Objects/Side Path 2" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 95.3894, -3.63779, 45.3796 )
+input_color = Color( 1, 0, 0.4, 1 )
+output_color = Color( 1, 0, 0.4, 1 )
 
 [node name="Stage 0" type="Spatial" parent="Objects"]
 
