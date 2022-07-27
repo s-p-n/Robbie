@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://modules/Structures/block/block.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://modules/Interactive/Battery/Material_001.material" type="Material" id=2]
 [ext_resource path="res://modules/Structures/capacitor/capacitor.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://modules/Powerlines/Pylons/static/PylonStatic.tscn" type="PackedScene" id=4]
 [ext_resource path="res://modules/Interactive/Checkpoint/Checkpoint.tscn" type="PackedScene" id=6]
 [ext_resource path="res://modules/Player/Player.tscn" type="PackedScene" id=7]
 
@@ -634,7 +635,7 @@ transform = Transform( 3, 8.05795e-15, -8.32026e-23, -9.24925e-15, 2.6136, -2.69
 shape = SubResource( 1 )
 
 [node name="block-441-wall54" type="RigidBody" parent="Objects/walls"]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 188.017, 31.3065, 47.8191 )
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 188.029, 31.3065, 47.8191 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -810,7 +811,7 @@ transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.9125
 shape = SubResource( 1 )
 
 [node name="block-441-wall65" type="RigidBody" parent="Objects/walls"]
-transform = Transform( -0.922511, 6.37772e-08, 0.38597, 0.38597, -7.40669e-08, 0.922511, 8.74228e-08, 1, 4.37114e-08, -19.1215, 45.6087, 30.2228 )
+transform = Transform( -0.922511, 6.37772e-08, 0.38597, 0.38597, -7.40669e-08, 0.922511, 8.74228e-08, 1, 4.37114e-08, -52.6185, 45.6087, 30.2228 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -887,7 +888,6 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 
 [node name="MeshInstance" type="MeshInstance" parent="Objects/Side Path 1/capacitor"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = ExtResource( 3 )
 skeleton = NodePath("../../../walls")
 material/0 = ExtResource( 2 )
@@ -905,7 +905,6 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 
 [node name="MeshInstance" type="MeshInstance" parent="Objects/Side Path 1/capacitor2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = ExtResource( 3 )
 skeleton = NodePath("../../../walls")
 material/0 = ExtResource( 2 )
@@ -923,7 +922,6 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 
 [node name="MeshInstance" type="MeshInstance" parent="Objects/Side Path 1/capacitor3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = ExtResource( 3 )
 skeleton = NodePath("../../../walls")
 material/0 = ExtResource( 2 )
@@ -933,6 +931,355 @@ material/2 = null
 [node name="CollisionShape" type="CollisionShape" parent="Objects/Side Path 1/capacitor3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
 shape = SubResource( 2 )
+
+[node name="capacitor4" type="RigidBody" parent="Objects/Side Path 1"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 60.0242, 36.5328, 24.667 )
+mode = 1
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Objects/Side Path 1/capacitor4"]
+mesh = ExtResource( 3 )
+skeleton = NodePath("../../../walls")
+material/0 = ExtResource( 2 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Side Path 1/capacitor4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+shape = SubResource( 2 )
+
+[node name="capacitor5" type="RigidBody" parent="Objects/Side Path 1"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 65.9756, 36.5328, 24.667 )
+mode = 1
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Objects/Side Path 1/capacitor5"]
+mesh = ExtResource( 3 )
+skeleton = NodePath("../../../walls")
+material/0 = ExtResource( 2 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Side Path 1/capacitor5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+shape = SubResource( 2 )
+
+[node name="capacitor6" type="RigidBody" parent="Objects/Side Path 1"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 71.9003, 36.5328, 24.667 )
+mode = 1
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Objects/Side Path 1/capacitor6"]
+mesh = ExtResource( 3 )
+skeleton = NodePath("../../../walls")
+material/0 = ExtResource( 2 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Side Path 1/capacitor6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+shape = SubResource( 2 )
+
+[node name="capacitor7" type="RigidBody" parent="Objects/Side Path 1"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 77.7169, 36.5328, 24.667 )
+mode = 1
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Objects/Side Path 1/capacitor7"]
+mesh = ExtResource( 3 )
+skeleton = NodePath("../../../walls")
+material/0 = ExtResource( 2 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Side Path 1/capacitor7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+shape = SubResource( 2 )
+
+[node name="capacitor8" type="RigidBody" parent="Objects/Side Path 1"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 83.5885, 36.5328, 24.667 )
+mode = 1
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Objects/Side Path 1/capacitor8"]
+mesh = ExtResource( 3 )
+skeleton = NodePath("../../../walls")
+material/0 = ExtResource( 2 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Side Path 1/capacitor8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+shape = SubResource( 2 )
+
+[node name="capacitor9" type="RigidBody" parent="Objects/Side Path 1"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 90.2151, 36.5328, 24.667 )
+mode = 1
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Objects/Side Path 1/capacitor9"]
+mesh = ExtResource( 3 )
+skeleton = NodePath("../../../walls")
+material/0 = ExtResource( 2 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Side Path 1/capacitor9"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+shape = SubResource( 2 )
+
+[node name="capacitor10" type="RigidBody" parent="Objects/Side Path 1"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 96.1398, 36.5328, 24.667 )
+mode = 1
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Objects/Side Path 1/capacitor10"]
+mesh = ExtResource( 3 )
+skeleton = NodePath("../../../walls")
+material/0 = ExtResource( 2 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Side Path 1/capacitor10"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+shape = SubResource( 2 )
+
+[node name="capacitor11" type="RigidBody" parent="Objects/Side Path 1"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 101.956, 36.5328, 24.667 )
+mode = 1
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Objects/Side Path 1/capacitor11"]
+mesh = ExtResource( 3 )
+skeleton = NodePath("../../../walls")
+material/0 = ExtResource( 2 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Side Path 1/capacitor11"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+shape = SubResource( 2 )
+
+[node name="capacitor12" type="RigidBody" parent="Objects/Side Path 1"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 107.828, 36.5328, 24.667 )
+mode = 1
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Objects/Side Path 1/capacitor12"]
+mesh = ExtResource( 3 )
+skeleton = NodePath("../../../walls")
+material/0 = ExtResource( 2 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Side Path 1/capacitor12"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+shape = SubResource( 2 )
+
+[node name="capacitor13" type="RigidBody" parent="Objects/Side Path 1"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 107.987, 36.5328, 24.667 )
+mode = 1
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Objects/Side Path 1/capacitor13"]
+mesh = ExtResource( 3 )
+skeleton = NodePath("../../../walls")
+material/0 = ExtResource( 2 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Side Path 1/capacitor13"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+shape = SubResource( 2 )
+
+[node name="capacitor14" type="RigidBody" parent="Objects/Side Path 1"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 113.912, 36.5328, 24.667 )
+mode = 1
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Objects/Side Path 1/capacitor14"]
+mesh = ExtResource( 3 )
+skeleton = NodePath("../../../walls")
+material/0 = ExtResource( 2 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Side Path 1/capacitor14"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+shape = SubResource( 2 )
+
+[node name="capacitor15" type="RigidBody" parent="Objects/Side Path 1"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 119.728, 36.5328, 24.667 )
+mode = 1
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Objects/Side Path 1/capacitor15"]
+mesh = ExtResource( 3 )
+skeleton = NodePath("../../../walls")
+material/0 = ExtResource( 2 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Side Path 1/capacitor15"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+shape = SubResource( 2 )
+
+[node name="capacitor16" type="RigidBody" parent="Objects/Side Path 1"]
+transform = Transform( -4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 122.336, 36.5328, 31.3294 )
+mode = 1
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Objects/Side Path 1/capacitor16"]
+mesh = ExtResource( 3 )
+skeleton = NodePath("../../../walls")
+material/0 = ExtResource( 2 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Side Path 1/capacitor16"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+shape = SubResource( 2 )
+
+[node name="PylonStatic2" parent="Objects/Side Path 1" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 17.5793, 37.1482, 26.0899 )
+input_color = Color( 1, 0.607843, 0, 1 )
+output_color = Color( 1, 0.607843, 0, 1 )
+
+[node name="PylonStatic3" parent="Objects/Side Path 1" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 25.0228, 40.5265, 24.3192 )
+input_color = Color( 1, 0.607843, 0, 1 )
+output_color = Color( 1, 0.607843, 0, 1 )
+
+[node name="PylonStatic4" parent="Objects/Side Path 1" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 32.6531, 43.7425, 24.3192 )
+input_color = Color( 1, 0.607843, 0, 1 )
+output_color = Color( 1, 0.607843, 0, 1 )
+
+[node name="capacitor17" type="RigidBody" parent="Objects/Side Path 1"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 24.6307, 52.9213, 24.667 )
+mode = 1
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Objects/Side Path 1/capacitor17"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0650349, 0, 0 )
+mesh = ExtResource( 3 )
+skeleton = NodePath("../../../walls")
+material/0 = ExtResource( 2 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Side Path 1/capacitor17"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+shape = SubResource( 2 )
+
+[node name="capacitor18" type="RigidBody" parent="Objects/Side Path 1"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 18.0781, 46.323, 24.667 )
+mode = 1
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Objects/Side Path 1/capacitor18"]
+mesh = ExtResource( 3 )
+skeleton = NodePath("../../../walls")
+material/0 = ExtResource( 2 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Side Path 1/capacitor18"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+shape = SubResource( 2 )
+
+[node name="PylonStatic5" parent="Objects/Side Path 1" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 24.795, 45.3791, 24.3192 )
+input_color = Color( 1, 0.607843, 0, 1 )
+output_color = Color( 1, 0.607843, 0, 1 )
+
+[node name="PylonStatic6" parent="Objects/Side Path 1" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 18.3108, 50.9329, 24.3192 )
+input_color = Color( 1, 0.607843, 0, 1 )
+output_color = Color( 1, 0.607843, 0, 1 )
+
+[node name="PylonStatic7" parent="Objects/Side Path 1" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 31.78, 50.487, 24.3192 )
+input_color = Color( 1, 0.607843, 0, 1 )
+output_color = Color( 1, 0.607843, 0, 1 )
+
+[node name="PylonStatic8" parent="Objects/Side Path 1" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 36.7226, 53.3563, 24.3192 )
+input_color = Color( 1, 0.607843, 0, 1 )
+output_color = Color( 1, 0.607843, 0, 1 )
+
+[node name="PylonStatic9" parent="Objects/Side Path 1" instance=ExtResource( 4 )]
+transform = Transform( -2.18557e-08, 0.5, -2.18557e-08, 0, -2.18557e-08, -0.5, -0.5, -2.18557e-08, 9.55343e-16, 15.6821, 53.3563, 27.7141 )
+input_color = Color( 1, 0.607843, 0, 1 )
+output_color = Color( 1, 0.607843, 0, 1 )
+
+[node name="Checkpoint6" parent="Objects/Side Path 1" instance=ExtResource( 6 )]
+transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, 121.767, 37.3347, 54.0911 )
+
+[node name="Checkpoint7" parent="Objects/Side Path 1" instance=ExtResource( 6 )]
+transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, 121.767, 37.3347, 42.2449 )
+
+[node name="Checkpoint8" parent="Objects/Side Path 1" instance=ExtResource( 6 )]
+transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, 32.7403, 37.3347, 26.0283 )
+
+[node name="PylonStatic10" parent="Objects/Side Path 1" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 24.3694, 58.2221, 24.3192 )
+input_color = Color( 1, 0.607843, 0, 1 )
+output_color = Color( 1, 0.607843, 0, 1 )
+
+[node name="block-441-wall58" type="RigidBody" parent="Objects/Side Path 1"]
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, 1, -1, 4.37114e-08, -4.37114e-08, 26.3781, 55.2781, 47.6785 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/Side Path 1/block-441-wall58"]
+transform = Transform( 3, 8.05795e-15, -8.32026e-23, -9.24925e-15, 2.6136, -2.69868e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Side Path 1/block-441-wall58"]
+transform = Transform( 3, 8.05795e-15, -8.32026e-23, -9.24925e-15, 2.6136, -2.69868e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="PylonStatic11" parent="Objects/Side Path 1" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 35.2949, 56.104, 48.0859 )
+input_color = Color( 1, 0.607843, 0, 1 )
+output_color = Color( 1, 0.607843, 0, 1 )
+
+[node name="Checkpoint9" parent="Objects/Side Path 1" instance=ExtResource( 6 )]
+transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, 32.7403, 56.2671, 44.5503 )
+
+[node name="PylonStatic12" parent="Objects/Side Path 1" instance=ExtResource( 4 )]
+transform = Transform( -2.18557e-08, 0.5, -2.18557e-08, 0, -2.18557e-08, -0.5, -0.5, -2.18557e-08, 9.55343e-16, 15.6821, 62.513, 48.4648 )
+input_color = Color( 1, 0.607843, 0, 1 )
+output_color = Color( 1, 0.607843, 0, 1 )
+
+[node name="PylonStatic13" parent="Objects/Side Path 1" instance=ExtResource( 4 )]
+transform = Transform( -2.18557e-08, 0.5, -2.18557e-08, 0, -2.18557e-08, -0.5, -0.5, -2.18557e-08, 9.55343e-16, 15.6821, 64.4766, 44.9153 )
+input_color = Color( 1, 0.607843, 0, 1 )
+output_color = Color( 1, 0.607843, 0, 1 )
+
+[node name="PylonStatic14" parent="Objects/Side Path 1" instance=ExtResource( 4 )]
+transform = Transform( -2.18557e-08, 0.5, -2.18557e-08, 0, -2.18557e-08, -0.5, -0.5, -2.18557e-08, 9.55343e-16, 15.6821, 66.2654, 42.0673 )
+input_color = Color( 1, 0.607843, 0, 1 )
+output_color = Color( 1, 0.607843, 0, 1 )
 
 [node name="Stage 0" type="Spatial" parent="Objects"]
 
