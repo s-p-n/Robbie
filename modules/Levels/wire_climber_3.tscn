@@ -2807,7 +2807,7 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 
 [node name="MeshInstance" type="MeshInstance" parent="Objects/Stage 1/capacitor"]
-transform = Transform( 0.2, 0, 0, 0, 60, 0, 0, 0, 0.2, 0, 0, 0 )
+transform = Transform( 0.2, 0, 0, 0, 120, 0, 0, 0, 0.2, 0, -40.4169, 9.53674e-07 )
 mesh = ExtResource( 10 )
 skeleton = NodePath("../../../..")
 material/0 = ExtResource( 12 )
@@ -2842,7 +2842,7 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 
 [node name="MeshInstance" type="MeshInstance" parent="Objects/Stage 1/capacitor4"]
-transform = Transform( 0.2, 0, 0, 0, 60, 0, 0, 0, 0.2, 0, 0, 0 )
+transform = Transform( 0.2, 0, 0, 0, 120, 0, 0, 0, 0.2, 0, -40.0752, 9.53674e-07 )
 mesh = ExtResource( 10 )
 skeleton = NodePath("../../../..")
 material/0 = ExtResource( 12 )
@@ -2860,7 +2860,7 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 
 [node name="MeshInstance" type="MeshInstance" parent="Objects/Stage 1/capacitor5"]
-transform = Transform( 0.2, 0, 0, 0, 120, 0, 0, 0, 0.2, 0, 0, 0 )
+transform = Transform( 0.2, 0, 0, 0, 120, 0, 0, 0, 0.2, 0, -40.2723, 9.53674e-07 )
 mesh = ExtResource( 10 )
 skeleton = NodePath("../../../..")
 material/0 = ExtResource( 12 )
@@ -2868,7 +2868,7 @@ material/1 = null
 material/2 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Objects/Stage 1/capacitor5"]
-transform = Transform( 0.2, 0, 0, 0, 60, 0, 0, 0, 0.2, 0, 0.9, -4.76837e-07 )
+transform = Transform( 0.2, 0, 0, 0, 120, 0, 0, 0, 0.2, 0, 0.9, -4.76837e-07 )
 shape = SubResource( 3 )
 
 [node name="capacitor6" type="RigidBody" parent="Objects/Stage 1"]
@@ -2878,7 +2878,7 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 
 [node name="MeshInstance" type="MeshInstance" parent="Objects/Stage 1/capacitor6"]
-transform = Transform( 0.2, 0, 0, 0, 60, 0, 0, 0, 0.2, 0, 0, 0 )
+transform = Transform( 0.2, -1.33209e-15, 9.31323e-10, -8.32482e-18, 120, 0, -9.31323e-10, 1.81899e-12, 0.2, 0, -40.7457, 9.53674e-07 )
 mesh = ExtResource( 10 )
 skeleton = NodePath("../../../..")
 material/0 = ExtResource( 12 )
@@ -2896,7 +2896,7 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 
 [node name="MeshInstance" type="MeshInstance" parent="Objects/Stage 1/capacitor7"]
-transform = Transform( 0.2, 0, 0, 0, 60, 0, 0, 0, 0.2, 0, 0, 0 )
+transform = Transform( 0.2, -1.33209e-15, 1.39698e-09, -1.38732e-17, 120, 0, -1.39698e-09, 2.72848e-12, 0.2, 0, -36.6885, 1.43051e-06 )
 mesh = ExtResource( 10 )
 skeleton = NodePath("../../../..")
 material/0 = ExtResource( 12 )
@@ -3204,7 +3204,7 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 
 [node name="MeshInstance" type="MeshInstance" parent="Objects/Stage 1/capacitor25"]
-transform = Transform( 0.2, 0, 0, 0, 60, 0, 0, 0, 0.2, 0, 0, 0 )
+transform = Transform( 0.2, -1.33209e-15, 9.31323e-10, -8.32482e-18, 120, 0, -9.31323e-10, 1.81899e-12, 0.2, 0, -34.6764, 1.43051e-06 )
 mesh = ExtResource( 10 )
 skeleton = NodePath("../../../..")
 material/0 = ExtResource( 12 )
@@ -3222,7 +3222,7 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 
 [node name="MeshInstance" type="MeshInstance" parent="Objects/Stage 1/capacitor26"]
-transform = Transform( 0.2, 0, 0, 0, 60, 0, 0, 0, 0.2, 0, 0, 0 )
+transform = Transform( 0.2, -1.33209e-15, 1.62981e-09, -2.2198e-17, 120, 0, -1.62981e-09, 3.18323e-12, 0.2, 0, -34.3148, 4.76837e-07 )
 mesh = ExtResource( 10 )
 skeleton = NodePath("../../../..")
 material/0 = ExtResource( 12 )
@@ -3234,13 +3234,13 @@ transform = Transform( 0.2, 0, 0, 0, 120, 0, 0, 0, 0.2, 0, 0.9, -4.76837e-07 )
 shape = SubResource( 3 )
 
 [node name="capacitor2" type="RigidBody" parent="Objects/Stage 1"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 55.4419, -6.00013, -39.4337 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 55.4419, -6.00013, -54.1144 )
 mode = 1
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 
 [node name="MeshInstance" type="MeshInstance" parent="Objects/Stage 1/capacitor2"]
-transform = Transform( 0.2, 0, 0, 0, 60, 0, 0, 0, 0.2, 0, 0, 0 )
+transform = Transform( 0.2, 0, 0, 0, 120, 0, 0, 0, 0.2, 0, -26.0812, 9.53674e-07 )
 mesh = ExtResource( 10 )
 skeleton = NodePath("../../../..")
 material/0 = ExtResource( 12 )
@@ -3252,13 +3252,13 @@ transform = Transform( 0.2, 0, 0, 0, 120, 0, 0, 0, 0.2, 0, 0.9, -4.76837e-07 )
 shape = SubResource( 3 )
 
 [node name="capacitor27" type="RigidBody" parent="Objects/Stage 1"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 49.2756, -6.0765, -39.4337 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 49.2756, -6.0765, -54.1144 )
 mode = 1
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 
 [node name="MeshInstance" type="MeshInstance" parent="Objects/Stage 1/capacitor27"]
-transform = Transform( 0.2, 0, 0, 0, 60, 0, 0, 0, 0.2, 0, 0, 0 )
+transform = Transform( 0.2, 0, 0, 0, 120, 0, 0, 0, 0.2, 0, -31.3824, 1.43051e-06 )
 mesh = ExtResource( 10 )
 skeleton = NodePath("../../../..")
 material/0 = ExtResource( 12 )
@@ -3276,7 +3276,7 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 
 [node name="MeshInstance" type="MeshInstance" parent="Objects/Stage 1/capacitor28"]
-transform = Transform( 0.2, 0, 0, 0, 60, 0, 0, 0, 0.2, 0, 0, 0 )
+transform = Transform( 0.2, 0, 0, 0, 120, 0, 0, 0, 0.2, 0, -40.2612, -1.90735e-06 )
 mesh = ExtResource( 10 )
 skeleton = NodePath("../../../..")
 material/0 = ExtResource( 12 )
@@ -3601,6 +3601,11 @@ output_color = Color( 0.294118, 0.243137, 0.729412, 1 )
 transform = Transform( 0.999917, 0.0128979, 0, -0.0128748, 0.998124, 0.0598465, 0.000771898, -0.0598415, 0.998208, -117.687, -7.15025, -21.1727 )
 input_color = Color( 0.360784, 0.243137, 0.729412, 1 )
 output_color = Color( 0.294118, 0.243137, 0.729412, 1 )
+
+[node name="PylonStatic35" parent="Objects/Stage 2/Walls" instance=ExtResource( 6 )]
+transform = Transform( 0.864029, -0.503443, 0, 0.503443, 0.864029, 0, 0, 0, 1, 89.9412, -20.0323, 67.5506 )
+input_color = Color( 0.243137, 0.729412, 0.580392, 1 )
+output_color = Color( 0.243137, 0.729412, 0.580392, 1 )
 
 [node name="PylonStatic3" parent="Objects/Stage 2" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.79218, 0, 57.3658 )
