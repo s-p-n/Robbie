@@ -85,7 +85,7 @@ input_color = Color( 1, 0.607843, 0, 1 )
 output_color = Color( 1, 0.607843, 0, 1 )
 
 [node name="PylonStatic4" parent="Objects/DevLights/Stage 0/Puzzles" instance=ExtResource( 6 )]
-transform = Transform( -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0, 0.5, -4.55045, 6.79683, -17.7808 )
+transform = Transform( -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0, 0.5, -6.00675, 6.79683, -17.7808 )
 input_color = Color( 0.639216, 0, 1, 1 )
 output_color = Color( 1, 0, 0.447059, 1 )
 
@@ -125,7 +125,7 @@ transform = Transform( 4.19106, 0, 0, 0, 2.8839, 0, 0, 0, 0.2, 2.64417, 0, 0 )
 shape = SubResource( 2 )
 
 [node name="InputPylon" parent="Objects/DevLights/Stage 0/Puzzles/Puzzle/Door/block-441-wall5" instance=ExtResource( 7 )]
-transform = Transform( 1.19249e-08, -1, 4.37114e-08, -5.21254e-16, -4.37114e-08, -1, 1, 1.19249e-08, 1.67038e-22, 11.839, -54.2252, -13.146 )
+transform = Transform( -4.37404e-08, 0.00244343, -0.999997, 3.18933e-08, 0.999997, 0.00244343, 1, -3.17864e-08, -4.38182e-08, -9.97761, -57.9411, -23.0629 )
 input_color = Color( 0.94902, 0.6, 0.054902, 1 )
 output_color = Color( 0.94902, 0.6, 0.054902, 1 )
 
@@ -187,6 +187,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 8.75 )
 stream = ExtResource( 4 )
 unit_size = 7.6
 max_db = 1.0
+
+[node name="PylonStatic6" parent="Objects/DevLights/Stage 0/Puzzles" instance=ExtResource( 6 )]
+transform = Transform( -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0, 0.5, -6.00675, 6.79683, -1.65739 )
+input_color = Color( 0.639216, 0, 1, 1 )
+output_color = Color( 1, 0, 0.447059, 1 )
 
 [node name="Walls" type="Spatial" parent="Objects/DevLights/Stage 0"]
 
@@ -911,7 +916,7 @@ transform = Transform( 3, 8.05795e-15, -8.32026e-23, -9.24925e-15, 2.6136, -2.69
 shape = SubResource( 1 )
 
 [node name="block-441-wall26" type="RigidBody" parent="Objects/DevLights/Stage 0/Walls"]
-transform = Transform( -7.54979e-08, 8.74228e-08, -1, -8.74228e-08, -1, -8.74228e-08, -1, 8.74228e-08, 7.54979e-08, 99.1944, 3.18695, -34.9173 )
+transform = Transform( -7.54979e-08, 8.74228e-08, -1, -8.74228e-08, -1, -8.74228e-08, -1, 8.74228e-08, 7.54979e-08, 98.8348, 3.18695, -34.9173 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -927,7 +932,7 @@ transform = Transform( 3, 8.05795e-15, -1.66405e-23, -9.24925e-15, 2.6136, -5.39
 shape = SubResource( 1 )
 
 [node name="block-441-wall39" type="RigidBody" parent="Objects/DevLights/Stage 0/Walls"]
-transform = Transform( -7.54979e-08, 8.74228e-08, -1, -8.74228e-08, -1, -8.74228e-08, -1, 8.74228e-08, 7.54979e-08, 99.1944, 3.18695, -58.7402 )
+transform = Transform( -7.54979e-08, 8.74228e-08, -1, -8.74228e-08, -1, -8.74228e-08, -1, 8.74228e-08, 7.54979e-08, 98.8348, 3.18695, -58.7402 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -943,7 +948,7 @@ transform = Transform( 3, 8.05795e-15, -1.66405e-23, -9.24925e-15, 2.6136, -5.39
 shape = SubResource( 1 )
 
 [node name="block-441-wall65" type="RigidBody" parent="Objects/DevLights/Stage 0/Walls"]
-transform = Transform( 4.37114e-08, -6.60024e-15, 1, -1.50996e-07, -1, 0, 1, -1.50996e-07, -4.37114e-08, 99.1833, 3.17909, -10.9459 )
+transform = Transform( 4.37114e-08, -6.60024e-15, 1, -1.50996e-07, -1, 0, 1, -1.50996e-07, -4.37114e-08, 98.8589, 3.17909, -10.9459 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -2126,6 +2131,238 @@ material/0 = null
 transform = Transform( 0.92917, -1.09753e-07, 2.53866e-08, -1.2598e-07, 0.0826292, -1.70642e-10, 3.80798e-07, 2.26664e-07, 0.642721, 0, 0, 0 )
 shape = SubResource( 1 )
 
+[node name="block-441-wall139" type="RigidBody" parent="Objects/DevLights/Stage 0/Walls"]
+transform = Transform( 4.37114e-08, -6.60024e-15, 1, -0.318546, -0.947907, 1.39241e-08, 0.947907, -0.318546, -4.14344e-08, 81.7123, 12.2056, 12.2045 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/DevLights/Stage 0/Walls/block-441-wall139"]
+transform = Transform( 0.92917, -1.09753e-07, 2.53866e-08, -1.2598e-07, 0.0826292, -1.70642e-10, 3.80798e-07, 2.26664e-07, 0.642721, 0, 0, 0 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/DevLights/Stage 0/Walls/block-441-wall139"]
+transform = Transform( 0.92917, -1.09753e-07, 2.53866e-08, -1.2598e-07, 0.0826292, -1.70642e-10, 3.80798e-07, 2.26664e-07, 0.642721, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall140" type="RigidBody" parent="Objects/DevLights/Stage 0/Walls"]
+transform = Transform( 4.37114e-08, -6.60024e-15, 1, 0.456772, -0.889584, -1.99661e-08, 0.889584, 0.456772, -3.8885e-08, 81.7123, 7.60601, 19.4886 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/DevLights/Stage 0/Walls/block-441-wall140"]
+transform = Transform( 0.92917, -1.09753e-07, 2.53866e-08, -1.2598e-07, 0.0826292, -1.70642e-10, 3.80798e-07, 2.26664e-07, 0.642721, 0, 0, 0 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/DevLights/Stage 0/Walls/block-441-wall140"]
+transform = Transform( 0.92917, -1.09753e-07, 2.53866e-08, -1.2598e-07, 0.0826292, -1.70642e-10, 3.80798e-07, 2.26664e-07, 0.642721, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="capacitor17" type="RigidBody" parent="Objects/DevLights/Stage 0/Walls"]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -5.74011, -2.72362, -21.5626 )
+mode = 1
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Objects/DevLights/Stage 0/Walls/capacitor17"]
+mesh = ExtResource( 10 )
+skeleton = NodePath("../../../..")
+material/0 = ExtResource( 12 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/DevLights/Stage 0/Walls/capacitor17"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+shape = SubResource( 3 )
+
+[node name="capacitor18" type="RigidBody" parent="Objects/DevLights/Stage 0/Walls"]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -5.74011, -0.0310872, -18.5791 )
+mode = 1
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Objects/DevLights/Stage 0/Walls/capacitor18"]
+mesh = ExtResource( 10 )
+skeleton = NodePath("../../../..")
+material/0 = ExtResource( 12 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/DevLights/Stage 0/Walls/capacitor18"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+shape = SubResource( 3 )
+
+[node name="capacitor19" type="RigidBody" parent="Objects/DevLights/Stage 0/Walls"]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -5.74011, 2.91447, -14.9986 )
+mode = 1
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Objects/DevLights/Stage 0/Walls/capacitor19"]
+mesh = ExtResource( 10 )
+skeleton = NodePath("../../../..")
+material/0 = ExtResource( 12 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/DevLights/Stage 0/Walls/capacitor19"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+shape = SubResource( 3 )
+
+[node name="capacitor20" type="RigidBody" parent="Objects/DevLights/Stage 0/Walls"]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -5.74011, 0.184313, -7.96691 )
+mode = 1
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Objects/DevLights/Stage 0/Walls/capacitor20"]
+transform = Transform( 1, 3.55271e-15, 0, -3.55271e-15, 1, 0, 0, 0, 1, 0, 0, 0 )
+mesh = ExtResource( 10 )
+skeleton = NodePath("../../../..")
+material/0 = ExtResource( 12 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/DevLights/Stage 0/Walls/capacitor20"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+shape = SubResource( 3 )
+
+[node name="capacitor21" type="RigidBody" parent="Objects/DevLights/Stage 0/Walls"]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -5.74011, 2.92572, -3.40652 )
+mode = 1
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Objects/DevLights/Stage 0/Walls/capacitor21"]
+mesh = ExtResource( 10 )
+skeleton = NodePath("../../../..")
+material/0 = ExtResource( 12 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/DevLights/Stage 0/Walls/capacitor21"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+shape = SubResource( 3 )
+
+[node name="capacitor22" type="RigidBody" parent="Objects/DevLights/Stage 0/Walls"]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -4.27274, 3.71621, 1.26232 )
+mode = 1
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Objects/DevLights/Stage 0/Walls/capacitor22"]
+mesh = ExtResource( 10 )
+skeleton = NodePath("../../../..")
+material/0 = ExtResource( 12 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/DevLights/Stage 0/Walls/capacitor22"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+shape = SubResource( 3 )
+
+[node name="capacitor23" type="RigidBody" parent="Objects/DevLights/Stage 0/Walls"]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -4.27274, 5.74165, 7.32625 )
+mode = 1
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Objects/DevLights/Stage 0/Walls/capacitor23"]
+mesh = ExtResource( 10 )
+skeleton = NodePath("../../../..")
+material/0 = ExtResource( 12 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/DevLights/Stage 0/Walls/capacitor23"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+shape = SubResource( 3 )
+
+[node name="block-441-wall141" type="RigidBody" parent="Objects/DevLights/Stage 0/Walls"]
+transform = Transform( 1.31134e-07, -1, 4.37114e-08, -3.82137e-15, 4.37114e-08, 1, -1, -1.31134e-07, 1.91069e-15, -2.92998, 5.8619, 16.2482 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/DevLights/Stage 0/Walls/block-441-wall141"]
+transform = Transform( 0.941467, -1.77848e-08, -1.13806e-16, -2.04142e-08, 0.413337, -1.09466e-08, -8.92331e-16, 4.47601e-09, 0.310938, 0, 0, 0 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/DevLights/Stage 0/Walls/block-441-wall141"]
+transform = Transform( 0.941467, -1.77848e-08, -1.13806e-16, -2.04142e-08, 0.413337, -1.09466e-08, -8.92331e-16, 4.47601e-09, 0.310938, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall142" type="RigidBody" parent="Objects/DevLights/Stage 0/Walls"]
+transform = Transform( -1, 8.74228e-08, -4.37114e-08, -4.37114e-08, 1.91069e-15, 1, 8.74228e-08, 1, 1.91069e-15, 19.5359, 5.8619, 22.2073 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/DevLights/Stage 0/Walls/block-441-wall142"]
+transform = Transform( 0.941467, -1.77848e-08, -1.13806e-16, -2.04142e-08, 0.413337, -1.09466e-08, -8.92331e-16, 4.47601e-09, 0.310938, 0, 0, 0 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/DevLights/Stage 0/Walls/block-441-wall142"]
+transform = Transform( 0.941467, -1.77848e-08, -1.13806e-16, -2.04142e-08, 0.413337, -1.09466e-08, -8.92331e-16, 4.47601e-09, 0.310938, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall143" type="RigidBody" parent="Objects/DevLights/Stage 0/Walls"]
+transform = Transform( -7.54979e-08, 8.74228e-08, -1, -8.74228e-08, -1, -8.74228e-08, -1, 8.74228e-08, 7.54979e-08, 36.1106, 13.6856, -11.6896 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/DevLights/Stage 0/Walls/block-441-wall143"]
+transform = Transform( 3, 8.05795e-15, -1.66405e-23, -9.24925e-15, 2.6136, -5.39736e-09, 0, 7.05327e-08, 0.2, 0, 0, 0 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/DevLights/Stage 0/Walls/block-441-wall143"]
+transform = Transform( 3, 8.05795e-15, -1.66405e-23, -9.24925e-15, 2.6136, -5.39736e-09, 0, 7.05327e-08, 0.2, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall144" type="RigidBody" parent="Objects/DevLights/Stage 0/Walls"]
+transform = Transform( 4.37114e-08, -6.60024e-15, 1, -1.50996e-07, -1, 0, 1, -1.50996e-07, -4.37114e-08, 36.0996, 13.6777, 12.2121 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/DevLights/Stage 0/Walls/block-441-wall144"]
+transform = Transform( 3, 8.05795e-15, -1.66405e-23, -9.24925e-15, 2.6136, -5.39736e-09, 0, 7.05327e-08, 0.2, 0, 0, 0 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/DevLights/Stage 0/Walls/block-441-wall144"]
+transform = Transform( 3, 8.05795e-15, -1.66405e-23, -9.24925e-15, 2.6136, -5.39736e-09, 0, 7.05327e-08, 0.2, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall145" type="RigidBody" parent="Objects/DevLights/Stage 0/Walls"]
+transform = Transform( 4.37114e-08, -6.60024e-15, 1, -1.50996e-07, -1, 0, 1, -1.50996e-07, -4.37114e-08, 98.8639, 13.6777, 12.2121 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/DevLights/Stage 0/Walls/block-441-wall145"]
+transform = Transform( 3, 8.05795e-15, -1.66405e-23, -9.24925e-15, 2.6136, -5.39736e-09, 0, 7.05327e-08, 0.2, 0, 0, 0 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/DevLights/Stage 0/Walls/block-441-wall145"]
+transform = Transform( 3, 8.05795e-15, -1.66405e-23, -9.24925e-15, 2.6136, -5.39736e-09, 0, 7.05327e-08, 0.2, 0, 0, 0 )
+shape = SubResource( 1 )
+
 [node name="Stage 1" type="Spatial" parent="Objects"]
 
 [node name="capacitor" type="RigidBody" parent="Objects/Stage 1"]
@@ -2727,7 +2964,7 @@ transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759,
 transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, 69.6767, -5.26576, -7.74018 )
 
 [node name="Checkpoint2" parent="Objects" instance=ExtResource( 8 )]
-transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, 37.569, 4.74948, -13.7967 )
+transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, 43.3036, 4.74948, -41.5705 )
 
 [node name="Stage 2" type="Spatial" parent="Objects"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 37.677, 4.16633, -33.3272 )
@@ -2776,6 +3013,14 @@ input_color = Color( 0, 0.6, 1, 1 )
 output_color = Color( 0.105882, 0.588235, 0.909804, 1 )
 
 [node name="PylonStatic11" parent="Objects/Stage 2" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.79218, 0, 101.148 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.79218, 0, 109.861 )
 input_color = Color( 1, 0.607843, 0, 1 )
 output_color = Color( 0.94902, 0.6, 0.054902, 1 )
+
+[node name="PylonStatic12" parent="Objects/Stage 2" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.0316, 0, 108.79 )
+input_color = Color( 1, 0.607843, 0, 1 )
+output_color = Color( 0.94902, 0.6, 0.054902, 1 )
+
+[node name="Checkpoint6" parent="Objects" instance=ExtResource( 8 )]
+transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, -2.90394, 6.19878, 18.4589 )
