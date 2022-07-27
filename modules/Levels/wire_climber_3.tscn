@@ -2670,6 +2670,53 @@ material/2 = null
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
 shape = SubResource( 3 )
 
+[node name="Puzzle2" type="Spatial" parent="Objects/DevLights/Stage 0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 56.1653, 13.1232, -27.1585 )
+script = ExtResource( 9 )
+activate_node = NodePath("Door")
+piece_paths = [ NodePath("") ]
+
+[node name="Door" type="Spatial" parent="Objects/DevLights/Stage 0/Puzzle2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.1634, -7.04479, -28.1917 )
+script = ExtResource( 2 )
+open_axis = "Z"
+open_position = 60.0
+open_speed = 0.5
+
+[node name="block-441-wall5" type="RigidBody" parent="Objects/DevLights/Stage 0/Puzzle2/Door"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.882, 8.421, 41.245 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/DevLights/Stage 0/Puzzle2/Door/block-441-wall5"]
+transform = Transform( 4.19106, 0, 0, 0, 2.8839, 0, 0, 0, 0.1, 2.64417, 0, 0 )
+material_override = ExtResource( 1 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/DevLights/Stage 0/Puzzle2/Door/block-441-wall5"]
+transform = Transform( 4.19106, 0, 0, 0, 2.8839, 0, 0, 0, 0.1, 2.64417, 0, 0 )
+shape = SubResource( 2 )
+
+[node name="InputPylon" parent="Objects/DevLights/Stage 0/Puzzle2/Door/block-441-wall5" instance=ExtResource( 7 )]
+transform = Transform( -1, 8.74228e-08, 4.37114e-08, -4.37114e-08, 1.91069e-15, -1, -8.74228e-08, -1, 1.91069e-15, 34.0157, 6.67323, 0.192879 )
+input_color = Color( 0.745098, 0.713726, 0.235294, 1 )
+output_color = Color( 0.745098, 0.713726, 0.235294, 1 )
+
+[node name="doorOpen" type="AudioStreamPlayer3D" parent="Objects/DevLights/Stage 0/Puzzle2/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 8.75 )
+stream = ExtResource( 3 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="doorClose" type="AudioStreamPlayer3D" parent="Objects/DevLights/Stage 0/Puzzle2/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 8.75 )
+stream = ExtResource( 4 )
+unit_size = 7.6
+max_db = 1.0
+
 [node name="Stage 1" type="Spatial" parent="Objects"]
 
 [node name="capacitor" type="RigidBody" parent="Objects/Stage 1"]
@@ -3364,6 +3411,81 @@ transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 37.677, 4.16633, -33.327
 
 [node name="Walls" type="Spatial" parent="Objects/Stage 2"]
 
+[node name="PylonStatic13" parent="Objects/Stage 2/Walls" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 95.5301, 0, 71.8795 )
+input_color = Color( 0.745098, 0.713726, 0.235294, 1 )
+output_color = Color( 0.745098, 0.713726, 0.235294, 1 )
+
+[node name="PylonStatic14" parent="Objects/Stage 2/Walls" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 71.152, -20.2729, -38.7418 )
+input_color = Color( 0.745098, 0.713726, 0.235294, 1 )
+output_color = Color( 0.745098, 0.713726, 0.235294, 1 )
+
+[node name="PylonStatic15" parent="Objects/Stage 2/Walls" instance=ExtResource( 6 )]
+transform = Transform( 0.797173, 0.603751, 0, -0.603751, 0.797173, 0, 0, 0, 1, 71.152, -20.4861, 6.16711 )
+input_color = Color( 0.745098, 0.713726, 0.235294, 1 )
+output_color = Color( 0.745098, 0.713726, 0.235294, 1 )
+
+[node name="PylonStatic16" parent="Objects/Stage 2/Walls" instance=ExtResource( 6 )]
+transform = Transform( 0.868459, 0.495762, 0, -0.495762, 0.868459, 0, 0, 0, 1, 71.152, -20.6225, 51.0185 )
+input_color = Color( 0.745098, 0.713726, 0.235294, 1 )
+output_color = Color( 0.745098, 0.713726, 0.235294, 1 )
+
+[node name="PylonStatic17" parent="Objects/Stage 2/Walls" instance=ExtResource( 6 )]
+transform = Transform( 0.768351, -0.640029, 0, 0.640029, 0.768351, 0, 0, 0, 1, 71.0909, -19.9693, 89.5379 )
+input_color = Color( 0.745098, 0.713726, 0.235294, 1 )
+output_color = Color( 0.745098, 0.713726, 0.235294, 1 )
+
+[node name="PylonStatic18" parent="Objects/Stage 2/Walls" instance=ExtResource( 6 )]
+transform = Transform( 0.848122, -0.529801, 0, 0.529801, 0.848122, 0, 0, 0, 1, 71.152, -20.5332, 132.452 )
+input_color = Color( 0.235294, 0.745098, 0.588235, 1 )
+output_color = Color( 0.745098, 0.713726, 0.235294, 1 )
+
+[node name="PylonStatic19" parent="Objects/Stage 2/Walls" instance=ExtResource( 6 )]
+transform = Transform( 0.78888, 0.614547, 0, -0.614547, 0.78888, 0, 0, 0, 1, 58.4423, -20.586, 136.092 )
+input_color = Color( 0.243137, 0.729412, 0.580392, 1 )
+output_color = Color( 0.235294, 0.745098, 0.588235, 1 )
+
+[node name="PylonStatic20" parent="Objects/Stage 2/Walls" instance=ExtResource( 6 )]
+transform = Transform( 0.78888, 0.614547, 0, -0.614547, 0.78888, 0, 0, 0, 1, 58.4423, -20.586, 127.201 )
+input_color = Color( 0.243137, 0.729412, 0.580392, 1 )
+output_color = Color( 0.243137, 0.729412, 0.580392, 1 )
+
+[node name="PylonStatic21" parent="Objects/Stage 2/Walls" instance=ExtResource( 6 )]
+transform = Transform( 0.87554, -0.483145, 0, 0.483145, 0.87554, 0, 0, 0, 1, 46.1401, -19.8094, 106.141 )
+input_color = Color( 0.243137, 0.729412, 0.580392, 1 )
+output_color = Color( 0.243137, 0.729412, 0.580392, 1 )
+
+[node name="PylonStatic22" parent="Objects/Stage 2/Walls" instance=ExtResource( 6 )]
+transform = Transform( 0.789181, 0.614161, 0, -0.614161, 0.789181, 0, 0, 0, 1, 35.6455, -20.0323, 67.5506 )
+input_color = Color( 0.243137, 0.729412, 0.580392, 1 )
+output_color = Color( 0.243137, 0.729412, 0.580392, 1 )
+
+[node name="PylonStatic23" parent="Objects/Stage 2/Walls" instance=ExtResource( 6 )]
+transform = Transform( 0.847715, -0.530452, 0, 0.530452, 0.847715, 0, 0, 0, 1, 45.8758, -20.0323, 27.3194 )
+input_color = Color( 0.243137, 0.729412, 0.411765, 1 )
+output_color = Color( 0.243137, 0.729412, 0.580392, 1 )
+
+[node name="PylonStatic24" parent="Objects/Stage 2/Walls" instance=ExtResource( 6 )]
+transform = Transform( 0.79023, 0.61281, 0, -0.61281, 0.79023, 0, 0, 0, 1, 23.3139, -20.1945, 53.2255 )
+input_color = Color( 0.243137, 0.729412, 0.411765, 1 )
+output_color = Color( 0.243137, 0.729412, 0.411765, 1 )
+
+[node name="PylonStatic25" parent="Objects/Stage 2/Walls" instance=ExtResource( 6 )]
+transform = Transform( 0.999923, 0.0123915, 0, -0.0123915, 0.999923, 0, 0, 0, 1, 23.0208, -20.1572, 11.1618 )
+input_color = Color( 0.243137, 0.729412, 0.411765, 1 )
+output_color = Color( 0.243137, 0.729412, 0.411765, 1 )
+
+[node name="PylonStatic26" parent="Objects/Stage 2/Walls" instance=ExtResource( 6 )]
+transform = Transform( -0.000401434, 1, 0, -1, -0.000401434, 0, 0, 0, 1, 23.4845, -20.1572, -30.3899 )
+input_color = Color( 0.294118, 0.243137, 0.729412, 1 )
+output_color = Color( 0.243137, 0.729412, 0.411765, 1 )
+
+[node name="PylonStatic27" parent="Objects/Stage 2/Walls" instance=ExtResource( 6 )]
+transform = Transform( 0.864915, -0.501918, 0, 0.501918, 0.864915, 0, 0, 0, 1, 23.4845, -19.8346, -60.9286 )
+input_color = Color( 0.294118, 0.243137, 0.729412, 1 )
+output_color = Color( 0.294118, 0.243137, 0.729412, 1 )
+
 [node name="PylonStatic3" parent="Objects/Stage 2" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.79218, 0, 57.3658 )
 input_color = Color( 0.235294, 0.545098, 0.745098, 1 )
@@ -3414,6 +3536,16 @@ output_color = Color( 0.94902, 0.6, 0.054902, 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.0316, 0, 108.79 )
 input_color = Color( 1, 0.607843, 0, 1 )
 output_color = Color( 0.94902, 0.6, 0.054902, 1 )
+
+[node name="PylonStatic13" parent="Objects/Stage 2" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 95.5301, 0, -17.4049 )
+input_color = Color( 0.745098, 0.713726, 0.235294, 1 )
+output_color = Color( 0.745098, 0.713726, 0.235294, 1 )
+
+[node name="PylonStatic14" parent="Objects/Stage 2" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 95.5301, 0, 15.6833 )
+input_color = Color( 0.745098, 0.713726, 0.235294, 1 )
+output_color = Color( 0.745098, 0.713726, 0.235294, 1 )
 
 [node name="Checkpoint6" parent="Objects" instance=ExtResource( 8 )]
 transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, -2.90394, 6.19878, 18.4589 )
