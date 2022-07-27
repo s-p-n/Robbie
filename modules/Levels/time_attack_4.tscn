@@ -1,17 +1,27 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
+[ext_resource path="res://modules/Structures/block/block.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://modules/Interactive/Battery/Material_001.material" type="Material" id=2]
+[ext_resource path="res://modules/Structures/capacitor/capacitor.obj" type="ArrayMesh" id=3]
 [ext_resource path="res://modules/Interactive/Checkpoint/Checkpoint.tscn" type="PackedScene" id=6]
 [ext_resource path="res://modules/Player/Player.tscn" type="PackedScene" id=7]
+
+[sub_resource type="ConcavePolygonShape" id=1]
+data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
+
+[sub_resource type="CylinderShape" id=2]
+radius = 1.02487
+height = 1.62409
 
 [node name="Level" type="Spatial"]
 
 [node name="Objects" type="Spatial" parent="."]
 
 [node name="Checkpoint" parent="Objects" instance=ExtResource( 6 )]
-transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, 6.94458, -5.1139, -11.518 )
+transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, 6.94458, 223.911, -11.518 )
 
 [node name="Player" parent="Objects" instance=ExtResource( 7 )]
-transform = Transform( -4.37113e-08, 0, 0.999999, 0, 1, 0, -0.999999, 0, -4.37113e-08, 6.94458, -2.8941, -11.518 )
+transform = Transform( -4.37113e-08, 0, 0.999999, 0, 1, 0, -0.999999, 0, -4.37113e-08, 6.94458, 226.13, -11.518 )
 starting_checkpoint = NodePath("../Checkpoint")
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Objects"]
@@ -44,3 +54,896 @@ editor_only = true
 transform = Transform( 0.0252698, 0.199766, 0.979518, -0.999681, 0.00504966, 0.0247601, 0, -0.979831, 0.19983, 0, 30.1936, 8.3655 )
 light_color = Color( 0.223529, 0.27451, 0.309804, 1 )
 editor_only = true
+
+[node name="walls" type="Spatial" parent="Objects"]
+
+[node name="block-441-wall18" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 5.49062, -6.21453, -11.5964 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall18"]
+transform = Transform( 3, 8.05795e-15, -8.32026e-23, -9.24925e-15, 2.6136, -2.69868e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall18"]
+transform = Transform( 3, 8.05795e-15, -8.32026e-23, -9.24925e-15, 2.6136, -2.69868e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall19" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 5.55266, 113.525, 1.34334 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall19"]
+transform = Transform( 29.6654, -1.01545e-06, 1.04851e-14, -1.16558e-06, 2.6136, -2.69868e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall19"]
+transform = Transform( 29.6654, -1.01545e-06, 1.04851e-14, -1.16558e-06, 2.6136, -2.69868e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall20" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 5.55266, 113.525, -24.5444 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall20"]
+transform = Transform( 29.6654, -1.01545e-06, 1.04851e-14, -1.16558e-06, 2.6136, -2.69868e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall20"]
+transform = Transform( 29.6654, -1.01545e-06, 1.04851e-14, -1.16558e-06, 2.6136, -2.69868e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall21" type="RigidBody" parent="Objects/walls"]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -4.39713, 112.876, -10.9335 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall21"]
+transform = Transform( 29.6654, -9.80336e-07, 9.53517e-15, -1.12527e-06, 3.41698, -4.87183e-08, -1.76194e-15, 3.54158e-08, 1, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall21"]
+transform = Transform( 29.6654, -9.80336e-07, 9.53517e-15, -1.12527e-06, 3.41698, -4.87183e-08, -1.76194e-15, 3.54158e-08, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall22" type="RigidBody" parent="Objects/walls"]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 14.9303, 128.144, -10.9335 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall22"]
+transform = Transform( 29.6654, -9.80336e-07, 9.53517e-15, -1.12527e-06, 3.41698, -4.87183e-08, -1.76194e-15, 3.54158e-08, 1, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall22"]
+transform = Transform( 29.6654, -9.80336e-07, 9.53517e-15, -1.12527e-06, 3.41698, -4.87183e-08, -1.76194e-15, 3.54158e-08, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall23" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.36989e-08, -0.999713, -0.0239611, -1.04737e-09, -0.0239611, 0.999713, -1, 4.37114e-08, 1.91069e-15, 5.29926, 231.169, -11.8644 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall23"]
+transform = Transform( 3, 8.05795e-15, -8.32026e-23, -9.24925e-15, 2.6136, -2.69868e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall23"]
+transform = Transform( 3, 8.05795e-15, -8.32026e-23, -9.24925e-15, 2.6136, -2.69868e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall24" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 43.3642, -5.77807, -11.8644 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall24"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall24"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall29" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 43.3642, 31.3065, 24.0135 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall29"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall29"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall30" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 43.3642, 31.3065, -47.8745 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall30"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall30"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall31" type="RigidBody" parent="Objects/walls"]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 15.332, 31.3065, 29.6532 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall31"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall31"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall25" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 43.3642, 67.6912, -11.8644 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall25"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall25"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall32" type="RigidBody" parent="Objects/walls"]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 70.958, 31.3065, -3.89962 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall32"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall32"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall33" type="RigidBody" parent="Objects/walls"]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 15.5404, 31.3065, -52.7931 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall33"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall33"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall34" type="RigidBody" parent="Objects/walls"]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 70.958, 46.8585, -59.1795 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall34"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall34"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall26" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 95.6498, -5.77807, -11.8644 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall26"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall26"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall35" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 95.6498, 31.3065, 24.0135 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall35"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall35"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall36" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 95.6498, 31.3065, -47.8745 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall36"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall36"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall27" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 95.6498, 67.6912, -11.8644 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall27"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall27"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall38" type="RigidBody" parent="Objects/walls"]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 123.244, 31.3065, -20.8402 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall38"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall38"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall39" type="RigidBody" parent="Objects/walls"]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 123.244, 49.2695, 34.4865 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall39"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall39"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall37" type="RigidBody" parent="Objects/walls"]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 174.76, 31.3065, -3.89962 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall37"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall37"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall40" type="RigidBody" parent="Objects/walls"]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 174.76, 46.8585, -59.1795 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall40"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall40"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall28" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 147.507, -5.77807, -11.8644 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall28"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall28"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall41" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 147.507, 31.3065, 24.0135 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall41"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall41"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall42" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 147.507, 31.3065, -47.8745 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall42"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall42"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall43" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 147.507, 67.6912, -11.8644 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall43"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall43"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall44" type="RigidBody" parent="Objects/walls"]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 187.539, 31.3065, -4.08032 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall44"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall44"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall45" type="RigidBody" parent="Objects/walls"]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 187.568, 31.4921, -59.1795 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall45"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall45"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall46" type="RigidBody" parent="Objects/walls"]
+transform = Transform( 4.37114e-08, 1, -8.74228e-08, 0.589972, 4.47988e-08, 0.807424, 0.807424, -8.68706e-08, -0.589972, 185.284, 15.3604, -1.83559 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall46"]
+transform = Transform( 9.1531, -2.37664e-07, 0, -2.72801e-07, 2.53706, 3.6718e-08, 0, 6.61891e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall46"]
+transform = Transform( 9.1531, -2.37664e-07, 0, -2.72801e-07, 2.53706, 3.6718e-08, 0, 6.61891e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall47" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 184.308, -6.28213, -42.4042 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall47"]
+transform = Transform( 3, 8.05795e-15, -8.32026e-23, -9.24925e-15, 2.6136, -2.69868e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall47"]
+transform = Transform( 3, 8.05795e-15, -8.32026e-23, -9.24925e-15, 2.6136, -2.69868e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall48" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 201.122, 31.4921, -47.8454 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall48"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall48"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall49" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -0.807424, 7.9005e-08, 0.589972, 0.589972, -2.57885e-08, 0.807424, 7.9005e-08, 1, -2.57885e-08, 145.335, 58.0894, 37.4172 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall49"]
+transform = Transform( 9.1531, -2.37664e-07, 0, -2.72801e-07, 2.53706, 3.6718e-08, 0, 6.61891e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall49"]
+transform = Transform( 9.1531, -2.37664e-07, 0, -2.72801e-07, 2.53706, 3.6718e-08, 0, 6.61891e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall50" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, 1, -1, 4.37114e-08, -4.37114e-08, 184.972, 36.3471, 39.4352 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall50"]
+transform = Transform( 3, 8.05795e-15, -8.32026e-23, -9.24925e-15, 2.6136, -2.69868e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall50"]
+transform = Transform( 3, 8.05795e-15, -8.32026e-23, -9.24925e-15, 2.6136, -2.69868e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall51" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 147.507, 31.3065, 47.8191 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall51"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall51"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall52" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, 0, 0.589972, -2.57885e-08, 0.807424, -0.807424, 3.52936e-08, 0.589972, 205.236, 58.5921, -2.31687 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall52"]
+transform = Transform( 9.1531, -2.37664e-07, 0, -2.72801e-07, 2.53706, 3.6718e-08, 0, 6.61891e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall52"]
+transform = Transform( 9.1531, -2.37664e-07, 0, -2.72801e-07, 2.53706, 3.6718e-08, 0, 6.61891e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall53" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, 1, -1, 4.37114e-08, -4.37114e-08, 205.232, 36.3471, 39.4352 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall53"]
+transform = Transform( 3, 8.05795e-15, -8.32026e-23, -9.24925e-15, 2.6136, -2.69868e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall53"]
+transform = Transform( 3, 8.05795e-15, -8.32026e-23, -9.24925e-15, 2.6136, -2.69868e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall54" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 188.017, 31.3065, 47.8191 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall54"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall54"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall55" type="RigidBody" parent="Objects/walls"]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 215.066, 31.3065, 15.773 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall55"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall55"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall56" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, 1, -1, 4.37114e-08, -4.37114e-08, 163.924, 36.3471, 43.7387 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall56"]
+transform = Transform( 3, 8.05795e-15, -8.32026e-23, -9.24925e-15, 2.6136, -2.69868e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall56"]
+transform = Transform( 3, 8.05795e-15, -8.32026e-23, -9.24925e-15, 2.6136, -2.69868e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall57" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, 1, -1, 4.37114e-08, -4.37114e-08, 143.096, 36.3471, 43.7387 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall57"]
+transform = Transform( 3, 8.05795e-15, -8.32026e-23, -9.24925e-15, 2.6136, -2.69868e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall57"]
+transform = Transform( 3, 8.05795e-15, -8.32026e-23, -9.24925e-15, 2.6136, -2.69868e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall58" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, 1, -1, 4.37114e-08, -4.37114e-08, 131.279, 36.3471, 47.6785 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall58"]
+transform = Transform( 3, 8.05795e-15, -8.32026e-23, -9.24925e-15, 2.6136, -2.69868e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall58"]
+transform = Transform( 3, 8.05795e-15, -8.32026e-23, -9.24925e-15, 2.6136, -2.69868e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall59" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, 1, -1, 4.37114e-08, -4.37114e-08, 25.7973, 36.3471, 35.7007 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall59"]
+transform = Transform( 3, 8.05795e-15, -8.32026e-23, -9.24925e-15, 2.6136, -2.69868e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall59"]
+transform = Transform( 3, 8.05795e-15, -8.32026e-23, -9.24925e-15, 2.6136, -2.69868e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall60" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, 1, -1, 4.37114e-08, -4.37114e-08, 130.394, -4.49158, 35.9424 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall60"]
+transform = Transform( 3, 8.05795e-15, -8.32026e-23, -9.24925e-15, 2.6136, -2.69868e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall60"]
+transform = Transform( 3, 8.05795e-15, -8.32026e-23, -9.24925e-15, 2.6136, -2.69868e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall61" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 83.9624, -4.02104, 50.6987 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall61"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall61"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall62" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 10.6303, -4.02104, 51.6749 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall62"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall62"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall63" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, -21.9314, -4.02104, 29.7657 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall63"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall63"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall64" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -0.832225, 9.69907e-08, -0.554438, -0.554438, 1.20928e-08, 0.832225, 8.74228e-08, 1, 4.37114e-08, -28.2256, 16.087, 30.2228 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall64"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall64"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall65" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -0.922511, 6.37772e-08, 0.38597, 0.38597, -7.40669e-08, 0.922511, 8.74228e-08, 1, 4.37114e-08, -19.1215, 45.6087, 30.2228 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall65"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall65"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall66" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -0.991919, 9.22621e-08, -0.126874, -0.126874, -3.22665e-08, 0.991919, 8.74228e-08, 1, 4.37114e-08, -20.4459, 63.068, 30.2228 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall66"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall66"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="block-441-wall67" type="RigidBody" parent="Objects/walls"]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 201.648, 80.0976, -68.2423 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Objects/walls/block-441-wall67"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/walls/block-441-wall67"]
+transform = Transform( 9.15309, -4.64043e-08, -2.96953e-16, -5.32648e-08, 6.91257, 2.14479e-08, -2.32828e-15, 2.79372e-07, 0.521285, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="Checkpoint2" parent="Objects" instance=ExtResource( 6 )]
+transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, 21.1054, -5.24726, -11.518 )
+
+[node name="Checkpoint3" parent="Objects" instance=ExtResource( 6 )]
+transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, 76.2157, -5.24726, -11.518 )
+
+[node name="Checkpoint4" parent="Objects" instance=ExtResource( 6 )]
+transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, 126.451, -5.24726, -11.518 )
+
+[node name="Checkpoint5" parent="Objects" instance=ExtResource( 6 )]
+transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, 181.21, -5.24726, -41.8841 )
+
+[node name="Checkpoint6" parent="Objects" instance=ExtResource( 6 )]
+transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, 144.484, 37.3347, 51.0242 )
+
+[node name="Checkpoint7" parent="Objects" instance=ExtResource( 6 )]
+transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, 126.975, 68.2115, 21.8086 )
+
+[node name="Checkpoint8" parent="Objects" instance=ExtResource( 6 )]
+transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, 169.25, 68.2115, -40.5536 )
+
+[node name="Side Path 1" type="Spatial" parent="Objects"]
+
+[node name="capacitor" type="RigidBody" parent="Objects/Side Path 1"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 42.4113, 36.5328, 24.667 )
+mode = 1
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Objects/Side Path 1/capacitor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+mesh = ExtResource( 3 )
+skeleton = NodePath("../../../walls")
+material/0 = ExtResource( 2 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Side Path 1/capacitor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+shape = SubResource( 2 )
+
+[node name="capacitor2" type="RigidBody" parent="Objects/Side Path 1"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 48.336, 36.5328, 24.667 )
+mode = 1
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Objects/Side Path 1/capacitor2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+mesh = ExtResource( 3 )
+skeleton = NodePath("../../../walls")
+material/0 = ExtResource( 2 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Side Path 1/capacitor2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+shape = SubResource( 2 )
+
+[node name="capacitor3" type="RigidBody" parent="Objects/Side Path 1"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 54.1526, 36.5328, 24.667 )
+mode = 1
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Objects/Side Path 1/capacitor3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+mesh = ExtResource( 3 )
+skeleton = NodePath("../../../walls")
+material/0 = ExtResource( 2 )
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Side Path 1/capacitor3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+shape = SubResource( 2 )
+
+[node name="Stage 0" type="Spatial" parent="Objects"]
+
+[node name="Stage 1" type="Spatial" parent="Objects"]
+
+[node name="Stage 2" type="Spatial" parent="Objects"]
+
+[node name="Stage 3" type="Spatial" parent="Objects"]
+
+[node name="Stage 4" type="Spatial" parent="Objects"]
+
+[node name="Stage 5a" type="Spatial" parent="Objects"]
+
+[node name="Stage 5b" type="Spatial" parent="Objects"]
