@@ -14,7 +14,6 @@ func set_movement(new_movement):
 	movement = new_movement
 	timer = get_node_or_null(timer_path)
 	move_connection = movement.connect("move_on_floor", self, "handle_footstep")
-	print("move_connection: ", move_connection)
 
 func handle_footstep():
 	if timer.is_stopped():
@@ -45,12 +44,8 @@ func create_audio_node(volume):
 
 func play_sound(volume): # To avoid the sound from clipping, we generate a new audio node each time then we delete it
 	create_audio_node(volume)
-	#print("Added walk audio node")
-	print("footstep audio instance count: ", (get_child_count() - 1))
 
 func _remove_audio(audio_node):
 	if is_instance_valid(audio_node):
 		remove_child(audio_node)
 		audio_node.queue_free()
-		#print("Remove walk audio node")
-		

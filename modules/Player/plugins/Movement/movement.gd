@@ -42,15 +42,6 @@ func set_player(new_player):
 	head = player.find_node("Head")
 	camera = player.find_node("Camera")
 	footstep_scene.set_movement(self)
-	#player.add_child(footstep_scene)
-	
-	#if !player.connect("process", self, "process_movement"):
-		# Could handle error-case
-	#	pass
-	
-	#if !player.connect("input", self, "process_rotation"):
-		# Could handle error-case
-	#	pass
 
 func _unhandled_input(event):
 	# Look with the mouse

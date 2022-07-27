@@ -18,8 +18,8 @@ var last_checkpoint:Spatial = self
 
 func _ready():
 	starting_checkpoint_node = get_node(starting_checkpoint)
-	var did_connect = starting_checkpoint_node.connect("tree_entered", self, "setup")
-	print('player ready ', did_connect)
+	if starting_checkpoint_node.connect("tree_entered", self, "setup"):
+		pass
 
 func setup():
 	starting_checkpoint_node.set_this_checkpoint()

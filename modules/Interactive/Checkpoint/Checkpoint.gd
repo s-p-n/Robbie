@@ -16,23 +16,16 @@ func _ready():
 	var level = find_parent("Objects")
 	if !is_instance_valid(level) and is_instance_valid(parent):
 		level = parent.find_parent("Objects")
-	elif !is_instance_valid(parent):
-		print("parent not valid: ", parent)
-		
+
 	if is_instance_valid(level):
 		player = level.find_node("Player")
 		mesh.set_surface_material(1, flag_unset)
 		call_deferred("setup")
-		print('checkpoint ready')
 	else:
-		print("Checkpoint cannot be setup outside of a level.")
-		print(parent)
-		print(level)
 		if !parent.is_connected("ready", self, "_parent_ready"):
 			parent.connect("ready", self, "_parent_ready")
 
 func _parent_ready():
-	print("Trying to set up checkpoint again..")
 	_ready()
 
 func setup():
@@ -50,9 +43,4 @@ func set_this_checkpoint():
 		for sibling in siblings:
 			sibling.mesh.set_surface_material(1, flag_unset)
 		mesh.set_surface_material(1, flag_set)
-		print("Set checkpoint to self: ", self)
 		audio.play(0)
-	else:
-		print("Cannot set checkpoint")
-		print('player valid? ', is_instance_valid(player))
-		print(player.last_checkpoint, " != ", self, '? ', player.last_checkpoint != self)

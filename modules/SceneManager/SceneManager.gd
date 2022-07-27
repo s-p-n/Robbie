@@ -2,7 +2,7 @@ extends Spatial
 onready var active_level = $ActiveLevel
 onready var wires = $PowerLines
 onready var checkpoints = $Checkpoints
-
+onready var pause_menu = $Paused
 var is_paused = false
 var cur_level = 0
 
@@ -18,7 +18,6 @@ func next_level():
 	cur_level += 1
 	if cur_level >= len(levels):
 		cur_level = 0
-	print("Loading level(", len(levels), "): ", cur_level)
 	load_level(cur_level)
 
 func load_level(idx):

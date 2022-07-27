@@ -111,7 +111,6 @@ func work(new_source):
 	source = new_source
 	should_open = true
 	should_close = false
-	print("working..")
 
 func handle_work(delta):
 	is_closed = false

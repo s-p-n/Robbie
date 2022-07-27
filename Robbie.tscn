@@ -31,7 +31,6 @@ script = ExtResource( 6 )
 [node name="ActiveLevel" type="Spatial" parent="."]
 
 [node name="Paused" parent="." instance=ExtResource( 3 )]
-visible = false
 
 [node name="platform" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -150, 0 )

@@ -116,7 +116,6 @@ func handle_wire_action():
 			if collider == powerline.pair[0]:
 				# Handle: Click on the same obj that gave us the wire we're holding
 				powerline.destroy()
-				print("Cannot connect to self, clearing")
 				return true
 			else: 
 				# Handle: Click on something wirable, but different than what we're holding
@@ -134,7 +133,6 @@ func handle_wire_action():
 		# Handle: Clicked, but not on something wirable
 		if is_instance_valid(powerline):
 			powerline.destroy()
-			print("Invalid end-point, clearing.")
 			return true
 	return false
 
@@ -165,8 +163,7 @@ func handle_pickup_action():
 		#if held_object.is_connected("force", self, "handle_held_object"):
 		#	held_object.disconnect("force", self, "handle_held_object")
 		#drop_pos.y = player.global_transform.origin.y + 1
-		print("drop at: ", drop_pos)
-		print("player pos: ", player.global_transform.origin)
+
 		#held_object.scale = Vector3(1,1,1)
 		held_object.global_transform.origin = drop_pos + (drop_pos.direction_to(global_transform.origin) * 2)
 		held_object.linear_velocity = Vector3(0,0,0)
@@ -175,8 +172,6 @@ func handle_pickup_action():
 		held_object = null
 		return true
 	elif collider:
-		print("should pick something up")
-		print(collider)
 		held_object = collider
 		#held_object.scale = Vector3(0.1,0.1,0.1)
 		held_object.set_collision_layer_bit(0,false)
@@ -194,8 +189,5 @@ func handle_clip_action():
 			if collider.get_parent().has_method("disconnect_pair"):
 				collider.get_parent().disconnect_pair()
 				return true
-		else:
-			print("can't clip this..")
-			print(collider)
 	return false
 			
