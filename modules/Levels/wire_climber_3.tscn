@@ -2816,7 +2816,7 @@ transform = Transform( 0.92917, -1.09753e-07, 2.53866e-08, -1.2598e-07, 0.082629
 shape = SubResource( 1 )
 
 [node name="block-441-wall170" type="RigidBody" parent="Objects/DevLights/Stage 0/Walls"]
-transform = Transform( 4.37114e-08, -6.60024e-15, 1, 0.415106, -0.909773, -1.81449e-08, 0.909773, 0.415106, -3.97674e-08, 83.0201, 17.1086, 9.88429 )
+transform = Transform( 4.37114e-08, -6.60024e-15, 1, 0.625365, -0.780332, -2.73356e-08, 0.780332, 0.625365, -3.41094e-08, 83.0201, 17.1086, 9.88429 )
 mode = 1
 __meta__ = {
 "_edit_group_": true

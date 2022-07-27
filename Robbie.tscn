@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://modules/SceneManager/SceneManager.gd" type="Script" id=1]
-[ext_resource path="res://modules/Levels/wire_tutorial_1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://modules/Levels/wire_climber_3.tscn" type="PackedScene" id=2]
 [ext_resource path="res://modules/Pause/Paused.tscn" type="PackedScene" id=3]
 [ext_resource path="res://share/scripts/respawn.gd" type="Script" id=4]
 [ext_resource path="res://modules/Structures/block/block.obj" type="ArrayMesh" id=5]
