@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/poster.obj-6efa4eac68ee485e5ce55be05f470b93.mesh"
+
+[deps]
+
+files=[ "res://.import/poster.obj-6efa4eac68ee485e5ce55be05f470b93.mesh" ]
+
+source_file="res://modules/Decorative/Posters/Jumping/poster.obj"
+dest_files=[ "res://.import/poster.obj-6efa4eac68ee485e5ce55be05f470b93.mesh", "res://.import/poster.obj-6efa4eac68ee485e5ce55be05f470b93.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
