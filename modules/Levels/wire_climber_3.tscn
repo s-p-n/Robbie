@@ -1156,7 +1156,7 @@ transform = Transform( 3, 8.05795e-15, -8.32026e-23, -9.24925e-15, 2.6136, -2.69
 shape = SubResource( 1 )
 
 [node name="block-441-wall79" type="RigidBody" parent="Objects/DevLights/Stage 0/Walls"]
-transform = Transform( -7.54979e-08, 8.74228e-08, -1, -8.74228e-08, -1, -8.74228e-08, -1, 8.74228e-08, 7.54979e-08, 82.4814, 13.6856, -35.5822 )
+transform = Transform( -7.54979e-08, 8.74228e-08, -1, -8.74228e-08, -1, -8.74228e-08, -1, 8.74228e-08, 7.54979e-08, 82.4871, 13.6856, -35.5822 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -2896,7 +2896,7 @@ transform = Transform( 1.75527, -1.20464e-08, -7.70841e-17, -1.38274e-08, 1.2536
 shape = SubResource( 1 )
 
 [node name="block-441-wall175" type="RigidBody" parent="Objects/DevLights/Stage 0/Walls"]
-transform = Transform( -3.56055e-08, -0.814559, -3.56055e-08, 0, -3.80676e-08, 0.870885, -0.648683, 2.83548e-08, 1.23943e-15, -19.1934, 0.439879, -48.3468 )
+transform = Transform( -3.56055e-08, -0.814559, -3.56055e-08, 0, -3.80676e-08, 0.870885, -0.648683, 2.83548e-08, 1.23943e-15, -19.1601, 0.439879, -48.4151 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
