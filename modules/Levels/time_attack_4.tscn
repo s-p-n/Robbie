@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://modules/Interactive/Checkpoint/Checkpoint.tscn" type="PackedScene" id=6]
+[ext_resource path="res://modules/Player/Player.tscn" type="PackedScene" id=7]
+
+[node name="Level" type="Spatial"]
+
+[node name="Objects" type="Spatial" parent="."]
+
+[node name="Checkpoint" parent="Objects" instance=ExtResource( 6 )]
+transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, 6.94458, -5.1139, -11.518 )
+
+[node name="Player" parent="Objects" instance=ExtResource( 7 )]
+transform = Transform( -4.37113e-08, 0, 0.999999, 0, 1, 0, -0.999999, 0, -4.37113e-08, 6.94458, -2.8941, -11.518 )
+starting_checkpoint = NodePath("../Checkpoint")
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Objects"]
+transform = Transform( 1, 0, 0, 0, -0.160467, 0.987041, 0, -0.987041, -0.160467, 0, 30.9096, 11.2606 )
+light_color = Color( 0.223529, 0.27451, 0.309804, 1 )
+
+[node name="DevLights" type="Spatial" parent="Objects"]
+
+[node name="DirectionalLight2" type="DirectionalLight" parent="Objects/DevLights"]
+transform = Transform( 0.853553, -0.146447, 0.5, 0.5, 0.5, -0.707107, -0.146447, 0.853553, 0.5, 0, 30.9096, 8.28221 )
+visible = false
+light_color = Color( 0.686275, 0.839216, 0.941176, 1 )
+
+[node name="DirectionalLight3" type="DirectionalLight" parent="Objects/DevLights"]
+transform = Transform( 0.146447, 0.853553, -0.5, -0.5, 0.5, 0.707107, 0.853553, 0.146447, 0.5, 0, 30.9096, 8.28221 )
+visible = false
+light_color = Color( 0.686275, 0.839216, 0.941176, 1 )
+
+[node name="DirectionalLight4" type="DirectionalLight" parent="Objects/DevLights"]
+transform = Transform( 1, 0, 0, 0, 0.19983, 0.979831, 0, -0.979831, 0.19983, 0, 30.9096, 8.28221 )
+light_color = Color( 0.223529, 0.27451, 0.309804, 1 )
+editor_only = true
+
+[node name="DirectionalLight5" type="DirectionalLight" parent="Objects/DevLights"]
+transform = Transform( 0.863431, -0.100808, -0.494292, 0.504467, 0.172539, 0.846016, 0, -0.979831, 0.19983, 0, 30.1937, 8.3655 )
+light_color = Color( 0.223529, 0.27451, 0.309804, 1 )
+editor_only = true
+
+[node name="DirectionalLight6" type="DirectionalLight" parent="Objects/DevLights"]
+transform = Transform( 0.0252698, 0.199766, 0.979518, -0.999681, 0.00504966, 0.0247601, 0, -0.979831, 0.19983, 0, 30.1936, 8.3655 )
+light_color = Color( 0.223529, 0.27451, 0.309804, 1 )
+editor_only = true
