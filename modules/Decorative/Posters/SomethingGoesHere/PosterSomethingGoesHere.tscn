@@ -3,6 +3,7 @@
 [ext_resource path="res://modules/Decorative/Posters/SomethingGoesHere/somethingGoesHerePoster.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://modules/Decorative/Posters/SomethingGoesHere/somethingGoesHerePoster.png" type="Texture" id=2]
 
+
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 2 )
 

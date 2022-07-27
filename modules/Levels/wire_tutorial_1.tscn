@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://modules/Interactive/Checkpoint/Checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://modules/Player/Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://share/scripts/open_door.gd" type="Script" id=9]
 [ext_resource path="res://share/images/you_win.png" type="Texture" id=10]
 [ext_resource path="res://modules/Structures/ramp/ramp.obj" type="ArrayMesh" id=11]
+[ext_resource path="res://modules/Decorative/Posters/Movement/Movement.tscn" type="PackedScene" id=12]
 [ext_resource path="res://modules/Powerlines/Pylons/static/PylonStatic.tscn" type="PackedScene" id=13]
 [ext_resource path="res://modules/Structures/block/block.tscn" type="PackedScene" id=14]
 [ext_resource path="res://modules/Structures/circuitBoard/low/CircuitBoardLow.tscn" type="PackedScene" id=15]
@@ -21,7 +22,12 @@
 [ext_resource path="res://modules/Structures/wall/Wall.tscn" type="PackedScene" id=20]
 [ext_resource path="res://modules/Structures/block/platform.tscn" type="PackedScene" id=21]
 [ext_resource path="res://modules/Interactive/ConnectionHome/ConnectionHome.tscn" type="PackedScene" id=22]
+[ext_resource path="res://modules/Decorative/Posters/Jumping/Jumping.tscn" type="PackedScene" id=23]
 [ext_resource path="res://modules/Structures/Tunnel/Tunnel.tscn" type="PackedScene" id=24]
+[ext_resource path="res://modules/Decorative/Posters/ConnectingWires/ConnectingWires.tscn" type="PackedScene" id=25]
+[ext_resource path="res://modules/Decorative/Posters/Sprinting/Sprinting.tscn" type="PackedScene" id=26]
+[ext_resource path="res://modules/Decorative/Posters/Difiiculty/Difficulty_1.tscn" type="PackedScene" id=27]
+[ext_resource path="res://modules/Decorative/Posters/Difiiculty/Difficulty_4.tscn" type="PackedScene" id=28]
 
 [sub_resource type="ConcavePolygonShape" id=9]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
@@ -58,7 +64,7 @@ data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.46344, -4, -10.2374 )
 
 [node name="Player" parent="Objects" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55.5203, -14.2005, -1.65068 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -55.5203, -14.2005, -1.65068 )
 starting_checkpoint = NodePath("../Checkpoint")
 
 [node name="Stage0" type="Spatial" parent="Objects"]
@@ -435,7 +441,7 @@ transform = Transform( 3, -3.08308e-15, 0, -9.24925e-15, 2.6136, 7.05327e-08, 0,
 shape = SubResource( 9 )
 
 [node name="block-441-wall16" type="RigidBody" parent="Objects/Stage0/Stage 1/Walls"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -19.6035, -4.87655, -17.3366 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -19.5842, -4.87655, -17.2906 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -3594,3 +3600,24 @@ max_db = 1.0
 [node name="Checkpoint5" parent="Objects/Stage5/FinalPuzzle/TravelStation" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.36594, -0.413105, 5.88289 )
 flag_set = ExtResource( 8 )
+
+[node name="Poster" parent="Objects" instance=ExtResource( 25 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 3.73613, 0, 2.56399, 0, -1.12075e-07, -117.754, -13.2637, 0.179405 )
+
+[node name="Poster2" parent="Objects" instance=ExtResource( 23 )]
+transform = Transform( -4.37112e-08, 0, -1, 0, 3.57114, 0, 3.06803, 0, -1.34108e-07, -71.4818, -12.1665, -4.64617 )
+
+[node name="Poster3" parent="Objects" instance=ExtResource( 27 )]
+transform = Transform( -1.5154, 0, -1.3248e-07, 0, 1.66167, 0, 8.74228e-08, 0, -1, -7.11451, -2.43436, -13.9488 )
+
+[node name="Poster4" parent="Objects" instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 37.1532, -0.00391555, -69.8164 )
+
+[node name="Poster5" parent="Objects" instance=ExtResource( 28 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 39.7775, -38.5035, -109.378 )
+
+[node name="Poster" parent="." instance=ExtResource( 12 )]
+transform = Transform( -7.17835e-08, 0, 1, 0, 4.09729, 0, -3.09438, 0, -8.23639e-08, -53.5199, -12.9429, -1.42544 )
+
+[node name="Poster2" parent="." instance=ExtResource( 26 )]
+transform = Transform( -0.0216229, 0, 0.999766, 0, 2.46121, 0, -2.26876, 0, -0.0490688, -119.776, -23.3034, 0.736193 )
