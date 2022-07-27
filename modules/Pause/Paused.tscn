@@ -116,10 +116,12 @@ margin_bottom = 45.0
 text = "Exit"
 
 [node name="MouseDirections" type="Sprite" parent="."]
+visible = false
 position = Vector2( 973.5, 143 )
 texture = ExtResource( 8 )
 
 [node name="Keymap" type="Sprite" parent="."]
+visible = false
 position = Vector2( 973.5, 438 )
 texture = ExtResource( 7 )
 

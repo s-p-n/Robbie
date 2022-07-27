@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://share/images/you_win.png" type="Texture" id=1]
 [ext_resource path="res://share/scripts/open_door.gd" type="Script" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://modules/Structures/circuitBoard/med/circuit_board_dark.tres" type="Material" id=14]
 [ext_resource path="res://modules/Decorative/Posters/Difiiculty/Difficulty_3.tscn" type="PackedScene" id=15]
 [ext_resource path="res://modules/Decorative/Posters/ClimbingWires/ClimbingWires.tscn" type="PackedScene" id=16]
+[ext_resource path="res://share/scripts/next_level.gd" type="Script" id=17]
 
 [sub_resource type="ConcavePolygonShape" id=1]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
@@ -3920,7 +3921,7 @@ axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
-script = ExtResource( 15 )
+script = ExtResource( 17 )
 
 [node name="block-441" type="MeshInstance" parent="Objects/WinPlatform"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
