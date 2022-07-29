@@ -24,7 +24,7 @@ enum State {
 func _ready():
 	state = State.EXPLORE
 
-func _physics_process(delta):
+func _process(delta):
 	discover(brain.ahead_ray.get_collider())
 	process_current_state(delta)
 

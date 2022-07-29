@@ -66,10 +66,10 @@ data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.46344, -4, -10.2374 )
 
 [node name="WaterBlob" parent="Objects" instance=ExtResource( 30 )]
-transform = Transform( -0.994085, 0, 0.108607, 0, 1, 0, -0.108607, 0, -0.994085, -62.0126, -14.0612, -4.41298 )
+transform = Transform( -0.994085, 0, 0.108607, 0, 1, 0, -0.108607, 0, -0.994085, -0.719325, -2.29219, -4.41298 )
 
 [node name="Player" parent="Objects" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -55.5226, -14.0612, -1.58497 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.57135, -2.4348, -10.1202 )
 starting_checkpoint = NodePath("../Checkpoint")
 
 [node name="Stage0" type="Spatial" parent="Objects"]
