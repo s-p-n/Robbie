@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://AI/Brain.gd" type="Script" id=1]
+[ext_resource path="res://AI/decide/Decide.tscn" type="PackedScene" id=2]
+[ext_resource path="res://AI/explore/Explore.tscn" type="PackedScene" id=3]
+[ext_resource path="res://AI/react/React.tscn" type="PackedScene" id=4]
+
+[node name="Brain" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Decide" parent="." instance=ExtResource( 2 )]
+
+[node name="Explore" parent="." instance=ExtResource( 3 )]
+
+[node name="React" parent="." instance=ExtResource( 4 )]

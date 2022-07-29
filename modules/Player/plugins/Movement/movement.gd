@@ -126,8 +126,9 @@ func _physics_process(delta):
 	else:
 		can_jump = true
 	
+	# "bug" where player can climb on ceiling:
 	if player.is_on_ceiling():
-		gravity_vec.y = 0
+		velocity.y = 0
 	
 	velocity = velocity.linear_interpolate(direction * current_speed, acceleration * delta)
 	
@@ -138,6 +139,7 @@ func _physics_process(delta):
 	movement = player.move_and_slide(movement, Vector3.UP)
 	
 	player_speed = movement.length()
+	
 	if moved:
 		is_moving = true
 	else:

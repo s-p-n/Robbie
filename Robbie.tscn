@@ -64,6 +64,7 @@ spot_angle = 60.4688
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+volume_db = -10.0
 autoplay = true
 
 [connection signal="body_entered" from="platform" to="platform" method="_on_platform_body_entered"]
