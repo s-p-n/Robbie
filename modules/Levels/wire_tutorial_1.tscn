@@ -1514,7 +1514,7 @@ transform = Transform( 3.75348, 0, 0, 0, 2.90696, 0, 0, 0, 2.90696, 2.67775, -1.
 shape = SubResource( 3 )
 
 [node name="ramp3" type="RigidBody" parent="Objects/Stage2/Walls"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.8878, -11.0581, -5.5772 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.8878, -11.25, -5.5772 )
 mode = 1
 axis_lock_linear_x = true
 axis_lock_linear_y = true

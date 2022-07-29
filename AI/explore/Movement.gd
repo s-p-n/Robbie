@@ -97,7 +97,7 @@ func handle_follow(entity:Spatial, delta):
 
 func move(direction, delta):
 	var mob:KinematicBody = brain.get_parent()
-	
+	brain.ahead_ray.rotation_degrees.x += 10
 	if mob.is_on_floor():
 		acceleration = ground_acceleration
 		gravity_vec = -mob.get_floor_normal() * 10
