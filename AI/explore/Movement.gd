@@ -8,7 +8,7 @@ var ground_acceleration = 10
 var air_acceleration = 5
 var acceleration = air_acceleration
 var falling_velocity = 0
-var jump_height = 6
+var jump_height = 10
 
 var forward_command = true
 var rotate_command = true
@@ -21,9 +21,15 @@ var velocity = Vector3() # Direction with acceleration added
 var movement = Vector3() # Velocity with gravity added
 var last_pos = Vector3()
 
+var direction_favor:int = 1
+
 var cleanup_time = 1
 var time = 0
-
+func _ready():
+	direction_favor = round(randf())
+	if direction_favor == 0:
+		direction_favor = -1
+	#print("Direction favor set: ", direction_favor)
 func get_brain():
 	brain = get_parent().brain
 	ground_acceleration = brain.speed
@@ -42,21 +48,30 @@ func handle_explore(delta):
 	var rot_y = mob.rotation_degrees.y
 	
 	if rotate_command:
-		var r = round(rand_range(-1, 1))
-		if r == 0:
-			r = 1
 		
-		var change = 50 * r
-		mob.rotation_degrees.y = lerp(rot_y, rot_y + change, delta * 50)
+		#print(round(rand_range(0, 1)))
+		if randf() < 0.05:
+			direction_favor = round(randf())
+			if direction_favor == 0:
+				direction_favor = -1
+			#print("Direction favor possibly changed: ", direction_favor)
+		
+		var change = rand_range(10,45) * direction_favor
+		mob.rotation_degrees.y = lerp(rot_y, rot_y + change, delta * 5)
 		rotate_command = false
 		forward_command = false
 		
 	#if forward_command:
 	var direction = Vector3.ZERO
-	if can_jump and mob.is_on_floor() and obstacle_is_ahead():
+	if can_jump() and is_on_floor():
 		jump_command = true
-	else:
-		direction = mob.global_transform.basis.x
+	elif obstacle_is_ahead() and is_on_floor():
+		rotate_command = true
+	elif !obstacle_is_ahead():
+		if ground_is_ahead() or !is_on_floor():
+			direction = mob.global_transform.basis.x
+		elif is_on_floor():
+			rotate_command = true
 	move(direction, delta)
 
 func is_on_floor():
@@ -64,6 +79,20 @@ func is_on_floor():
 	
 func obstacle_is_ahead():
 	return is_instance_valid(brain.ahead_ray.get_collider())
+
+func ground_is_ahead():
+	return is_instance_valid(brain.ground_ahead_ray.get_collider())
+
+func can_jump():
+	var object_ahead = brain.ahead_ray.get_collider()
+	var object_beneath = brain.ground_ray.get_collider()
+	if !is_instance_valid(object_ahead) or !is_instance_valid(object_beneath):
+		return false
+	
+	if object_ahead == object_beneath:
+		return false
+	
+	return !is_instance_valid(brain.jump_ray.get_collider())
 
 func handle_follow(entity:Spatial, delta):
 	if !is_instance_valid(brain):
@@ -75,10 +104,14 @@ func handle_follow(entity:Spatial, delta):
 	if !is_instance_valid(mob):
 		return
 	
+	if !is_instance_valid(entity):
+		return
+	
 	var look_at = entity.global_transform.origin# + Vector3(0,0.25,0)
 	look_at.y = mob.global_transform.origin.y
-	mob.global_transform = mob.global_transform.looking_at(look_at, Vector3.UP)
-	mob.rotation_degrees.y += 90
+	if !look_at.is_equal_approx(mob.global_transform.origin):
+		mob.global_transform = mob.global_transform.looking_at(look_at, Vector3.UP)
+		mob.rotation_degrees.y += 90
 	
 	#print(mob.rotation_degrees)
 	

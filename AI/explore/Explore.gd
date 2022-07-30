@@ -3,7 +3,7 @@ extends Spatial
 signal discovery(entity)
 
 signal see(entity)
-
+signal stand_on(entity)
 onready var brain:Spatial = get_parent()
 onready var decide:Spatial = brain.get_node("Decide")
 onready var react:Spatial = brain.get_node("React")
@@ -26,6 +26,7 @@ func _ready():
 
 func _process(delta):
 	discover(brain.ahead_ray.get_collider())
+	something_beneath(brain.ground_ray.get_collider())
 	process_current_state(delta)
 
 func process_current_state(delta):
@@ -38,12 +39,16 @@ func process_current_state(delta):
 				movement.handle_follow(follow_entity, delta)
 			else:
 				state = State.EXPLORE
+func something_beneath(entity):
+	if is_instance_valid(entity):
+		emit_signal("stand_on", entity)
 
 func discover(entity):
-	if is_instance_valid(entity) and not (entity in discovered_objects):
-		discovered_objects.append(entity)
-		emit_signal("discovery", entity)
-	emit_signal("see", entity)
+	if is_instance_valid(entity):
+		if not (entity in discovered_objects):
+			discovered_objects.append(entity)
+			emit_signal("discovery", entity)
+		emit_signal("see", entity)
 
 
 func move_towards(point:Vector3):
@@ -57,6 +62,8 @@ func follow(target:Spatial):
 	follow_entity = target
 	time_since_saw_follow_entity = 0
 	state = State.FOLLOW
+	print("Following target: ", target)
+	print(state)
 
 func turn():
 	movement.rotate_command = true

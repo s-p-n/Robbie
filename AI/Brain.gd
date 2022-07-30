@@ -2,7 +2,9 @@ extends Spatial
 
 # Path to NPC's vision rays
 export var ground_ray_path:NodePath
+export var ground_ahead_ray_path:NodePath
 export var ahead_ray_path:NodePath
+export var jump_ray_path:NodePath
 
 # Name of interesting objects
 export(Array, String) var interesting_object_names
@@ -20,7 +22,9 @@ onready var react:Spatial = get_node("React")
 
 # Spatials we know about
 var ground_ray:RayCast
+var ground_ahead_ray:RayCast
 var ahead_ray:RayCast
+var jump_ray:RayCast
 
 # Decision queue
 var action = null
@@ -31,7 +35,9 @@ var time = 0
 
 func _ready():
 	ground_ray = get_node(ground_ray_path)
+	ground_ahead_ray = get_node(ground_ahead_ray_path)
 	ahead_ray = get_node(ahead_ray_path)
+	jump_ray = get_node(jump_ray_path)
 	
 func _process(delta):
 	if not time_to_decide(delta):
@@ -45,14 +51,14 @@ func _process(delta):
 
 func take_next_action():
 	if action:
-		#print("action: ", action)
 		action["object"].callv(action["method"], action["args"])
 		action = null
 		return true
 	return false
 
 func queue_action(new_action):
-	action = new_action
+	if !action or new_action["weight"] > action["weight"]:
+		action = new_action
 
 
 func time_to_decide(delta):

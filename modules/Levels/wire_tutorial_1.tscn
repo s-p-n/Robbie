@@ -66,7 +66,22 @@ data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.46344, -4, -10.2374 )
 
 [node name="WaterBlob" parent="Objects" instance=ExtResource( 30 )]
-transform = Transform( -0.994085, 0, 0.108607, 0, 1, 0, -0.108607, 0, -0.994085, -0.719325, -2.29219, -4.41298 )
+transform = Transform( -0.994085, 0, 0.108607, 0, 1, 0, -0.108607, 0, -0.994085, -42.4335, -24.6938, -4.41298 )
+
+[node name="WaterBlob2" parent="Objects" instance=ExtResource( 30 )]
+transform = Transform( -0.994085, 0, 0.108607, 0, 1, 0, -0.108607, 0, -0.994085, 4.88064, -2.25576, -4.5057 )
+
+[node name="WaterBlob6" parent="Objects" instance=ExtResource( 30 )]
+transform = Transform( -0.994085, 0, 0.108607, 0, 1, 0, -0.108607, 0, -0.994085, 44.1857, -14.1874, -29.2403 )
+
+[node name="WaterBlob3" parent="Objects" instance=ExtResource( 30 )]
+transform = Transform( -0.994085, 0, 0.108607, 0, 1, 0, -0.108607, 0, -0.994085, -4.1906, -3.00622, -1.41304 )
+
+[node name="WaterBlob4" parent="Objects" instance=ExtResource( 30 )]
+transform = Transform( -0.994085, 0, 0.108607, 0, 1, 0, -0.108607, 0, -0.994085, 4.49365, -3.00622, -0.629974 )
+
+[node name="WaterBlob5" parent="Objects" instance=ExtResource( 30 )]
+transform = Transform( -0.994085, 0, 0.108607, 0, 1, 0, -0.108607, 0, -0.994085, -42.4335, -7.11574, -7.05047 )
 
 [node name="Player" parent="Objects" instance=ExtResource( 2 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.57135, -2.4348, -10.1202 )
