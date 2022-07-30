@@ -3,7 +3,6 @@ extends Spatial
 var brain
 
 var snapped = false
-var can_jump = false
 var ground_acceleration = 10
 var air_acceleration = 5
 var acceleration = air_acceleration
@@ -26,7 +25,7 @@ var direction_favor:int = 1
 var cleanup_time = 1
 var time = 0
 func _ready():
-	direction_favor = round(randf())
+	direction_favor = int(round(randf()))
 	if direction_favor == 0:
 		direction_favor = -1
 	#print("Direction favor set: ", direction_favor)
@@ -51,7 +50,7 @@ func handle_explore(delta):
 		
 		#print(round(rand_range(0, 1)))
 		if randf() < 0.05:
-			direction_favor = round(randf())
+			direction_favor = int(round(randf()))
 			if direction_favor == 0:
 				direction_favor = -1
 			#print("Direction favor possibly changed: ", direction_favor)
@@ -144,20 +143,15 @@ func move(direction, delta):
 		else:
 			gravity_vec += Vector3.DOWN * gravity * delta
 	
-	if mob.is_on_floor():
-		can_jump = true
-	
 	if jump_command:
-		if mob.is_on_floor() and can_jump:
+		if is_on_floor():
 			#print("jump!")
 			snapped = false
-			can_jump = false
 			jump_command = false
 			gravity_vec = Vector3.UP * jump_height
 	
-	
-	
 	# "bug" where entities can climb on ceiling:
+	# Also prevents entities from going through ceiling
 	if mob.is_on_ceiling():
 		velocity.y = 0
 	

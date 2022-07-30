@@ -9,6 +9,8 @@ onready var decide:Spatial = brain.get_node("Decide")
 onready var react:Spatial = brain.get_node("React")
 onready var movement:Spatial = get_node("Movement")
 
+var player = null
+
 var discovered_objects = []
 var follow_entity:Spatial
 
@@ -23,11 +25,22 @@ enum State {
 }
 func _ready():
 	state = State.EXPLORE
+	get_player()
+
+func get_player():
+	var objects = find_parent("Objects")
+	if is_instance_valid(objects):
+		player = objects.find_node("Player")
 
 func _process(delta):
-	discover(brain.ahead_ray.get_collider())
-	something_beneath(brain.ground_ray.get_collider())
-	process_current_state(delta)
+	if !is_instance_valid(player):
+		get_player()
+		return
+	if global_transform.origin.distance_to(player.global_transform.origin) < 50:
+		discover(brain.ahead_ray.get_collider())
+		something_beneath(brain.ground_ray.get_collider())
+		process_current_state(delta)
+	
 
 func process_current_state(delta):
 	match state:
@@ -59,11 +72,14 @@ func move_forward():
 	movement.forward_command = true
 
 func follow(target:Spatial):
-	follow_entity = target
-	time_since_saw_follow_entity = 0
-	state = State.FOLLOW
-	print("Following target: ", target)
-	print(state)
+	if state != State.FOLLOW and target != follow_entity:
+		follow_entity = target
+		time_since_saw_follow_entity = 0
+		state = State.FOLLOW
+	elif state != State.FOLLOW:
+		follow_entity = null
+	else:
+		print("Already following entity: ", target)
 
 func turn():
 	movement.rotate_command = true
