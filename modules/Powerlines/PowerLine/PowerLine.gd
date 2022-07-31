@@ -68,17 +68,21 @@ func update_wires(delta):
 			start_pos = wireWhole.global_transform.origin
 			end_pos = pair[1].global_transform.origin
 		
+		# Using a cache for the wire size, to prevent division
+		# of the distance for wires that already have been calculated.
 		if size_cache[0] != start_pos or size_cache[1] != end_pos:
 			wireWhole.look_at(end_pos, up)
 			size_cache[0] = start_pos
 			size_cache[1] = end_pos
 			size_cache[2] = start_pos.distance_to(end_pos) / 5
 		
-		print(wireWhole.scale.z," ", size_cache[2])
+		# If the size is close (from lerping)
 		if is_equal_approx(wireWhole.scale.z, size_cache[2]):
+			# If the size isn't exactly right, snap it to place.. once.
 			if wireWhole.scale.z != size_cache[2]:
 				wireWhole.scale.z = size_cache[2]
 		else:
+			# Animate wire size
 			wireWhole.scale.z = lerp(wireWhole.scale.z, size_cache[2], delta*5)
 		
 

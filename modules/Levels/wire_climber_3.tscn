@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://share/images/you_win.png" type="Texture" id=1]
 [ext_resource path="res://share/scripts/open_door.gd" type="Script" id=2]
@@ -23,6 +23,9 @@
 [sub_resource type="ConcavePolygonShape" id=1]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
 
+[sub_resource type="ConvexPolygonShape" id=7]
+points = PoolVector3Array( 4, 4, 1, 4, 4, -1, -4, 4, 1, 4, -4, 1, 4, -4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1 )
+
 [sub_resource type="CylinderShape" id=3]
 radius = 1.02487
 height = 1.62409
@@ -44,7 +47,7 @@ data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4
 transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, 6.94458, -5.1139, -11.518 )
 
 [node name="Player" parent="Objects" instance=ExtResource( 11 )]
-transform = Transform( -4.37113e-08, 0, 0.999999, 0, 1, 0, -0.999999, 0, -4.37113e-08, 7.07691, -3.22089, -11.5654 )
+transform = Transform( -4.37113e-08, 0, 0.999999, 0, 1, 0, -0.999999, 0, -4.37113e-08, 25.6956, -3.22089, -57.7658 )
 starting_checkpoint = NodePath("../Checkpoint")
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Objects"]
@@ -1324,8 +1327,14 @@ transform = Transform( 0.941467, -1.77848e-08, -1.13806e-16, -2.04142e-08, 0.413
 shape = SubResource( 1 )
 
 [node name="block-441-wall93" type="RigidBody" parent="Objects/DevLights/Stage 0/Walls"]
-transform = Transform( -3.48511e-08, -0.7973, 0.603584, 2.63835e-08, 0.603584, 0.7973, -1, 4.37114e-08, 1.91069e-15, 55.5024, -6.09315, -63.2476 )
-mode = 1
+transform = Transform( -4.37022e-08, -0.999791, 0.0204887, 8.95586e-10, 0.0204887, 0.999791, -1, 4.37114e-08, 1.91069e-15, 55.5024, -6.09315, -63.2476 )
+mass = 32.7173
+can_sleep = false
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+angular_damp = 17.302
 __meta__ = {
 "_edit_group_": true
 }
@@ -1337,7 +1346,7 @@ material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Objects/DevLights/Stage 0/Walls/block-441-wall93"]
 transform = Transform( 0.941467, -1.77848e-08, -1.13806e-16, -2.04142e-08, 0.413337, -1.09466e-08, -8.92331e-16, 4.47601e-09, 0.310938, 0, 0, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 7 )
 
 [node name="block-441-wall94" type="RigidBody" parent="Objects/DevLights/Stage 0/Walls"]
 transform = Transform( -3.41271e-08, -0.780736, 0.624861, 2.73136e-08, 0.624861, 0.780736, -1, 4.37114e-08, 1.91069e-15, 66.8771, -6.09315, -51.0936 )
@@ -3441,6 +3450,9 @@ shape = SubResource( 3 )
 
 [node name="capacitor2" type="RigidBody" parent="Objects/Stage 1"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 55.4419, -6.00013, -54.1144 )
+visible = false
+collision_layer = 0
+collision_mask = 0
 mode = 1
 axis_lock_angular_x = true
 axis_lock_angular_z = true
@@ -3680,6 +3692,12 @@ material/2 = null
 [node name="CollisionShape" type="CollisionShape" parent="Objects/Stage 1/capacitor39"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
 shape = SubResource( 3 )
+
+[node name="SpotLight" type="SpotLight" parent="Objects/Stage 1"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 43.1689, -4.49264, -63.4914 )
+light_energy = 14.852
+spot_range = 5.056
+spot_attenuation = 0.116629
 
 [node name="Checkpoint3" parent="Objects" instance=ExtResource( 8 )]
 transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, 34.0291, -5.07302, -50.433 )
