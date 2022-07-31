@@ -2,7 +2,7 @@ extends Spatial
 
 signal move(delta)
 
-const WIRE_LENGTH = 0.2
+const WIRE_LENGTH = 0.19
 
 export var WireScene:PackedScene
 
@@ -23,6 +23,8 @@ var old_transform_b
 
 var throttle:float = 0.2
 var time:float = 0
+
+var size_cache = [Vector3.ZERO, Vector3.ZERO, 1.0]
 
 func set_interact(new_interact):
 	interact = new_interact
@@ -52,8 +54,8 @@ func add_wire():
 func update_wires(delta):
 	if pair[0]:
 		var up = Vector3(0,1,0)
-		var start_pos
-		var end_pos
+		var start_pos:Vector3
+		var end_pos:Vector3
 		
 		wireWhole.global_transform.origin = lerp(wireWhole.global_transform.origin, pair[0].global_transform.origin, delta)
 		
@@ -65,12 +67,19 @@ func update_wires(delta):
 			#print('powerline collisions: ', wireWhole.get_colliding_bodies())
 			start_pos = wireWhole.global_transform.origin
 			end_pos = pair[1].global_transform.origin
-			
-		wireWhole.look_at(end_pos, up)
-		var size = sqrt(start_pos.distance_to(end_pos) - 6)
-		if size < 1 or is_nan(size):
-			size = 1
-		wireWhole.scale = lerp(wireWhole.scale, Vector3(1,1,size), delta)
+		
+		if size_cache[0] != start_pos or size_cache[1] != end_pos:
+			wireWhole.look_at(end_pos, up)
+			size_cache[0] = start_pos
+			size_cache[1] = end_pos
+			size_cache[2] = start_pos.distance_to(end_pos) / 5
+		
+		print(wireWhole.scale.z," ", size_cache[2])
+		if is_equal_approx(wireWhole.scale.z, size_cache[2]):
+			if wireWhole.scale.z != size_cache[2]:
+				wireWhole.scale.z = size_cache[2]
+		else:
+			wireWhole.scale.z = lerp(wireWhole.scale.z, size_cache[2], delta*5)
 		
 
 func update_wires_old(delta):
