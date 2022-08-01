@@ -34,5 +34,8 @@ func _process(delta):
 func checkpoint(new_checkpoint):
 	last_checkpoint = new_checkpoint
 
+func interact():
+	respawn()
+
 func respawn():
 	global_transform.origin = last_checkpoint.global_transform.origin + checkpoint_padding

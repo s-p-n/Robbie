@@ -19,3 +19,6 @@ func _on_WireWhole_body_entered(body):
 		print("collided with: ", body)
 		print(pylons)
 		powerline.disconnect_pair()
+
+func interact():
+	powerline.disconnect_pair()

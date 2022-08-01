@@ -7,3 +7,6 @@ func _ready():
 
 func respawn():
 	global_transform.origin = spawn_pos
+
+func interact():
+	queue_free()

@@ -9,6 +9,7 @@ signal tick(delta)
 export var PowerLineScene:PackedScene
 
 var player:KinematicBody
+var entity:KinematicBody
 var center_dot:Sprite
 var pickup_ray:RayCast
 var wire_ray:RayCast
@@ -29,6 +30,7 @@ func _ready():
 
 func set_player(new_player):
 	player = new_player
+	entity = player
 	pickup_ray = $PickupRay
 	wire_ray = $WireRay
 	clip_ray = $ClipRay
@@ -119,15 +121,15 @@ func handle_wire_action():
 				return true
 			else: 
 				# Handle: Click on something wirable, but different than what we're holding
-				powerline.end(wire_ray)
+				powerline.end(collider)
 				powerline = null
 				return true
 		else:
 			# Handle: Click wirable area, but we aren't holding a wire
 			powerline = PowerLineScene.instance()
 			powerline.set_interact(self)
-			powerline.begin(wire_ray)
-			wire_place_audio.play(0.0)
+			powerline.begin(collider)
+			#wire_place_audio.play(0.0)
 			return true
 	else:
 		# Handle: Clicked, but not on something wirable

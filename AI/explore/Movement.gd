@@ -1,5 +1,7 @@
 extends Spatial
 
+signal stuck
+
 var brain
 
 var snapped = false
@@ -104,9 +106,17 @@ func handle_follow(entity:Spatial, delta):
 		return
 	
 	if !is_instance_valid(entity):
+		move(Vector3(0,0,0), delta)
 		return
+		
+	var entity_origin = entity.global_transform.origin
 	
-	var look_at = entity.global_transform.origin# + Vector3(0,0.25,0)
+	if entity.name == 'WireWhole':
+		var a = entity.powerline.pair[0].global_transform.origin
+		var b = entity.powerline.pair[1].global_transform.origin
+		entity_origin = (a + b) / 2
+	
+	var look_at = entity_origin# + Vector3(0,0.25,0)
 	look_at.y = mob.global_transform.origin.y
 	if !look_at.is_equal_approx(mob.global_transform.origin):
 		mob.global_transform = mob.global_transform.looking_at(look_at, Vector3.UP)
@@ -117,7 +127,6 @@ func handle_follow(entity:Spatial, delta):
 	#mob.transform = mob.transform.orthonormalized()
 	
 	var my_origin = mob.global_transform.origin
-	var entity_origin = entity.global_transform.origin
 	var direction = my_origin.direction_to(entity_origin)
 	
 	if (my_origin.y + 0.5) < entity_origin.y:
@@ -157,9 +166,13 @@ func move(direction, delta):
 	
 	velocity = velocity.linear_interpolate(direction * brain.speed, acceleration * delta)
 	
+	
 	movement.x = velocity.x + gravity_vec.x
 	movement.z = velocity.z + gravity_vec.z
 	movement.y = gravity_vec.y
+	
+	if Vector3.ZERO.is_equal_approx(movement * Vector3(1,0,1)):
+		emit_signal("stuck")
 	
 	movement = mob.move_and_slide(movement, Vector3.UP)
 	handle_cleanup(delta)

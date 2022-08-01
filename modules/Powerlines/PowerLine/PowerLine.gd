@@ -11,12 +11,12 @@ onready var wireWhole = get_node("WireWhole")
 var head_offset =  Vector3(0, -0.6, 0)
 var PowerLines:Spatial
 var interact:Node
-var player:KinematicBody
+var entity:KinematicBody
 var ray:RayCast
 var clip_wire_audio:AudioStreamPlayer
 var place_wire_audio:AudioStreamPlayer
 var pair = [null, null]
-var player_pos:Vector3
+var entity_pos:Vector3
 var lowest_y = -3
 var old_transform_a
 var old_transform_b
@@ -28,23 +28,20 @@ var size_cache = [Vector3.ZERO, Vector3.ZERO, 1.0]
 
 func set_interact(new_interact):
 	interact = new_interact
-	player = interact.player
+	entity = interact.entity
 	clip_wire_audio = interact.get_node_or_null("Sounds/WireClipAudio")
 	place_wire_audio = interact.get_node_or_null("Sounds/WirePlaceAudio")
-	PowerLines = player.find_parent("Robbie").get_node("PowerLines")
+	PowerLines = entity.find_parent("Robbie").get_node("PowerLines")
 	PowerLines.add_child(self)
 	
 	if !interact.connect("tick", self, "update_wires"):
 		# Could handle error-case
 		pass
 	
-func begin(new_ray):
-	ray = new_ray
-	pair[0] = ray.get_collider()
+func begin(input):
+	pair[0] = input
 	global_transform.origin = pair[0].global_transform.origin
-	
-	#update_lowest_y()
-	#add_wire()
+	place_wire_audio.play(0.0)
 
 func add_wire():
 	var wire = WireScene.instance()
@@ -61,8 +58,7 @@ func update_wires(delta):
 		
 		if !is_instance_valid(pair[1]):
 			start_pos = wireWhole.global_transform.origin
-			end_pos = player.global_transform.origin
-			
+			end_pos = entity.global_transform.origin
 		else:
 			#print('powerline collisions: ', wireWhole.get_colliding_bodies())
 			start_pos = wireWhole.global_transform.origin
@@ -93,17 +89,17 @@ func update_wires_old(delta):
 	time = 0
 	
 	if !pair[1]:
-		player_pos = player.get_node("Head").global_transform.origin + head_offset
+		entity_pos = entity.get_node("Head").global_transform.origin + head_offset
 		#update_lowest_y()
 		if pair[0]:
 			var new_transform_a = pair[0].global_transform.origin
-			var new_transform_b = player_pos
+			var new_transform_b = entity_pos
 			if old_transform_a != new_transform_a or old_transform_b != new_transform_b:
 				global_transform.origin = new_transform_a
-				update_num_wires(player_pos)
+				update_num_wires(entity_pos)
 				emit_signal("move", delta)
 				old_transform_a = new_transform_a
-				old_transform_b = player_pos
+				old_transform_b = entity_pos
 				
 				
 	elif pair[0] and pair[1]:
@@ -120,8 +116,8 @@ func update_wires_old(delta):
 		old_transform_a = new_transform_a
 		old_transform_b = new_transform_b
 	
-func end(_ray):
-	pair[1] = _ray.get_collider()
+func end(input):
+	pair[1] = input
 	wireWhole.set_collision_layer_bit(0, true)
 	#interact.disconnect("tick", self, "update_wires")
 	#var end_point = pair[1].global_transform.origin
@@ -192,7 +188,7 @@ func update_lowest_y():
 	if is_instance_valid(pair[1]):
 		b = pair[1].global_transform.origin.y
 	else:
-		b = player.get_node("Head").global_transform.origin.y + head_offset.y
+		b = entity.get_node("Head").global_transform.origin.y + head_offset.y
 	
 	lowest_y = min(a, b) - 2
 	print('low y:', lowest_y)

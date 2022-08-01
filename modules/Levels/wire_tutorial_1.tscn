@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://modules/Interactive/Checkpoint/Checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://modules/Player/Player.tscn" type="PackedScene" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://modules/Decorative/Posters/Difiiculty/Difficulty_4.tscn" type="PackedScene" id=28]
 [ext_resource path="res://share/scripts/next_level.gd" type="Script" id=29]
 [ext_resource path="res://modules/NPCs/WaterBlob/WaterBlob.tscn" type="PackedScene" id=30]
+[ext_resource path="res://modules/NPCs/Friend/Friend.tscn" type="PackedScene" id=31]
 
 [sub_resource type="ConcavePolygonShape" id=9]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
@@ -65,27 +66,21 @@ data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4
 [node name="Checkpoint" parent="Objects" instance=ExtResource( 1 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.46344, -4, -10.2374 )
 
+[node name="Player" parent="Objects" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -55.3395, -14.0889, -1.34557 )
+starting_checkpoint = NodePath("../Checkpoint")
+
+[node name="Friend" parent="Objects" instance=ExtResource( 31 )]
+transform = Transform( -0.994085, 0, 0.108607, 0, 1, 0, -0.108607, 0, -0.994085, -64.0932, -11.3536, 0.587076 )
+
 [node name="WaterBlob" parent="Objects" instance=ExtResource( 30 )]
-transform = Transform( -0.994085, 0, 0.108607, 0, 1, 0, -0.108607, 0, -0.994085, -42.4335, -24.6938, -4.41298 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -17.1308, -3.61844, 1.15142 )
 
 [node name="WaterBlob2" parent="Objects" instance=ExtResource( 30 )]
-transform = Transform( -0.994085, 0, 0.108607, 0, 1, 0, -0.108607, 0, -0.994085, -41.937, -91.792, -456.998 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 11.7067, -5.71332, -9.01913 )
 
 [node name="WaterBlob3" parent="Objects" instance=ExtResource( 30 )]
-transform = Transform( -0.994085, 0, 0.108607, 0, 1, 0, -0.108607, 0, -0.994085, -4.1906, -3.00622, -1.41304 )
-
-[node name="WaterBlob4" parent="Objects" instance=ExtResource( 30 )]
-transform = Transform( -0.994085, 0, 0.108607, 0, 1, 0, -0.108607, 0, -0.994085, 49.9425, -73.5283, -446.106 )
-
-[node name="WaterBlob5" parent="Objects" instance=ExtResource( 30 )]
-transform = Transform( -0.994085, 0, 0.108607, 0, 1, 0, -0.108607, 0, -0.994085, 55.3854, -36.7628, -103.931 )
-
-[node name="WaterBlob6" parent="Objects" instance=ExtResource( 30 )]
-transform = Transform( -0.994085, 0, 0.108607, 0, 1, 0, -0.108607, 0, -0.994085, -7.80929, -108.893, -443.968 )
-
-[node name="Player" parent="Objects" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 42.6816, -36.2679, -141.137 )
-starting_checkpoint = NodePath("../Checkpoint")
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -34.6924, -1.77119, 5.05005 )
 
 [node name="Stage0" type="Spatial" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -99.179, -10, 7.45 )
