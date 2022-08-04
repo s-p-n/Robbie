@@ -34,9 +34,9 @@ func handle_discovery(entity:Spatial, position:Vector3):
 func handle_interesting_in_sight(entity:Spatial):
 	var entity_brain = entity.get_node_or_null("Brain")
 	if is_instance_valid(entity_brain):
-		print("trying to follow something with a brain:")
-		print(entity)
-		print(entity_brain)
+		#print("trying to follow something with a brain:")
+		#print(entity)
+		#print(entity_brain)
 		var entity_explore = entity_brain.get_node_or_null("Explore")
 		if is_instance_valid(entity_explore):
 			if entity_explore.follow_entity == self:
@@ -63,8 +63,10 @@ func handle_stand_on_entity(entity:Spatial):
 		if len(entity.pylon.wires) > 0:
 			var powerline = entity.pylon.wires[0]
 			var dest = powerline.pair[0]
+			
 			if dest == entity:
 				dest = powerline.pair[1]
+			
 			brain.queue_action({
 				"object": explore,
 				"method": "follow",
@@ -89,7 +91,7 @@ func get_name_of_entity(entity:Spatial):
 func interact(entity:Spatial):
 	if is_instance_valid(entity):
 		var _name = get_name_of_entity(entity)
-		print("Should interact with: ", _name)
+		#print("Should interact with: ", _name)
 		
 		if _name == "Input":
 			handle_wire_action(entity)
@@ -115,7 +117,6 @@ func handle_wire_action(input:RigidBody):
 			powerline = PowerlineScene.instance()
 			powerline.set_interact(brain)
 			powerline.begin(input)
-			#wire_place_audio.play(0.0)
 			return true
 	else:
 		# Handle: Clicked, but not on something wirable

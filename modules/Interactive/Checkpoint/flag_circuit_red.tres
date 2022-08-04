@@ -17,3 +17,6 @@ emission_texture = ExtResource( 1 )
 subsurf_scatter_enabled = true
 subsurf_scatter_strength = 0.52
 subsurf_scatter_texture = ExtResource( 1 )
+distance_fade_mode = 1
+distance_fade_min_distance = 0.25
+distance_fade_max_distance = 1.0

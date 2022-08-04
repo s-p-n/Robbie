@@ -9,3 +9,6 @@ clearcoat = 1.0
 clearcoat_gloss = 1.0
 subsurf_scatter_enabled = true
 subsurf_scatter_strength = 0.57
+distance_fade_mode = 1
+distance_fade_min_distance = 0.25
+distance_fade_max_distance = 1.0

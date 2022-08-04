@@ -73,6 +73,9 @@ starting_checkpoint = NodePath("../Checkpoint")
 [node name="Friend" parent="Objects" instance=ExtResource( 31 )]
 transform = Transform( -0.994085, 0, 0.108607, 0, 1, 0, -0.108607, 0, -0.994085, -64.0932, -11.3536, 0.587076 )
 
+[node name="Friend2" parent="Objects" instance=ExtResource( 31 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5.08402, -3.46074, -10.8385 )
+
 [node name="WaterBlob" parent="Objects" instance=ExtResource( 30 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -17.1308, -3.61844, 1.15142 )
 

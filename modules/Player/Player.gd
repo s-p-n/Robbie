@@ -12,7 +12,7 @@ export var starting_checkpoint:NodePath
 var starting_checkpoint_node:RigidBody
 
 onready var checkpoint_pos = global_transform.origin
-
+onready var UI = find_parent("Robbie").get_node("UI")
 var checkpoint_padding = Vector3(0,0.5,0)
 var last_checkpoint:Spatial = self
 
@@ -35,7 +35,10 @@ func checkpoint(new_checkpoint):
 	last_checkpoint = new_checkpoint
 
 func interact():
-	respawn()
+	UI.remove_health()
+	if UI.health <= 0:
+		respawn()
 
 func respawn():
+	UI.reset_health()
 	global_transform.origin = last_checkpoint.global_transform.origin + checkpoint_padding

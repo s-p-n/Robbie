@@ -15,3 +15,6 @@ subsurf_scatter_texture = ExtResource( 1 )
 transmission_enabled = true
 transmission = Color( 0.435294, 0.768627, 0.415686, 1 )
 transmission_texture = ExtResource( 1 )
+distance_fade_mode = 1
+distance_fade_min_distance = 0.25
+distance_fade_max_distance = 1.0

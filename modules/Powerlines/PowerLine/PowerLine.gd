@@ -79,7 +79,7 @@ func update_wires(delta):
 				wireWhole.scale.z = size_cache[2]
 		else:
 			# Animate wire size
-			wireWhole.scale.z = lerp(wireWhole.scale.z, size_cache[2], delta*5)
+			wireWhole.scale.z = lerp(wireWhole.scale.z, size_cache[2], delta)
 		
 
 func update_wires_old(delta):
