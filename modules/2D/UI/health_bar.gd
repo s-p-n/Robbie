@@ -29,7 +29,7 @@ func add_life():
 
 func remove_life():
 	lives -= 1
-	if lives <= 0:
+	if lives < 0:
 		get_parent().game_over()
 	publish_changes()
 
