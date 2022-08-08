@@ -15,10 +15,14 @@ data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4
 
 [node name="Ship" type="Spatial"]
 script = ExtResource( 4 )
-north_path = NodePath("InputNorth")
-south_path = NodePath("InputSouth")
-east_path = NodePath("InputEast")
-west_path = NodePath("InputWest")
+north_input_path = NodePath("InputNorth")
+south_input_path = NodePath("InputSouth")
+east_input_path = NodePath("InputEast")
+west_input_path = NodePath("InputWest")
+north_output_path = NodePath("PowerNorth")
+south_output_path = NodePath("PowerSouth")
+east_output_path = NodePath("PowerEast")
+west_output_path = NodePath("PowerWest")
 
 [node name="platform" type="RigidBody" parent="."]
 mode = 1
@@ -64,7 +68,6 @@ output_color = Color( 0.866667, 0.309804, 0.180392, 1 )
 
 [node name="PowerNorth" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -2.5 )
-is_source = true
 input_color = Color( 0.866667, 0.309804, 0.180392, 1 )
 output_color = Color( 0.866667, 0.309804, 0.180392, 1 )
 
@@ -75,7 +78,6 @@ output_color = Color( 0.815686, 0.807843, 0.160784, 1 )
 
 [node name="PowerSouth" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 2.5 )
-is_source = true
 input_color = Color( 0.815686, 0.807843, 0.160784, 1 )
 output_color = Color( 0.815686, 0.807843, 0.160784, 1 )
 
@@ -86,7 +88,6 @@ output_color = Color( 0.227451, 0.384314, 0.792157, 1 )
 
 [node name="PowerEast" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.5, 0, 0 )
-is_source = true
 input_color = Color( 0.227451, 0.384314, 0.792157, 1 )
 output_color = Color( 0.227451, 0.384314, 0.792157, 1 )
 
@@ -97,7 +98,6 @@ output_color = Color( 0.32549, 0.784314, 0.258824, 1 )
 
 [node name="PowerWest" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.5, 0, 0 )
-is_source = true
 input_color = Color( 0.32549, 0.784314, 0.258824, 1 )
 output_color = Color( 0.32549, 0.784314, 0.258824, 1 )
 

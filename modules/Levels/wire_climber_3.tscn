@@ -47,7 +47,7 @@ data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4
 transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, 6.94458, -5.1139, -11.518 )
 
 [node name="Player" parent="Objects" instance=ExtResource( 11 )]
-transform = Transform( -4.37113e-08, 0, 0.999999, 0, 1, 0, -0.999999, 0, -4.37113e-08, 25.6956, -3.22089, -57.7658 )
+transform = Transform( -4.37113e-08, 0, 0.999999, 0, 1, 0, -0.999999, 0, -4.37113e-08, 6.95833, -4.02178, -11.5073 )
 starting_checkpoint = NodePath("../Checkpoint")
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Objects"]

@@ -7,36 +7,51 @@ export var min_x:float = -10
 export var max_z:float = 10
 export var min_z:float = -10
 
-export var north_path:NodePath
-export var south_path:NodePath
-export var east_path:NodePath
-export var west_path:NodePath
+export var north_input_path:NodePath
+export var south_input_path:NodePath
+export var east_input_path:NodePath
+export var west_input_path:NodePath
 
-var north:RigidBody
-var south:RigidBody
-var east:RigidBody
-var west:RigidBody
+export var north_output_path:NodePath
+export var south_output_path:NodePath
+export var east_output_path:NodePath
+export var west_output_path:NodePath
+
+export var is_north_source:bool
+export var is_south_source:bool
+export var is_east_source:bool
+export var is_west_source:bool
+
+var north_input:RigidBody
+var south_input:RigidBody
+var east_input:RigidBody
+var west_input:RigidBody
+
+var north_output:RigidBody
+var south_output:RigidBody
+var east_output:RigidBody
+var west_output:RigidBody
 
 var direction = Vector3(0,0,0)
 
 func _ready():
-	north = get_node_or_null(north_path)
-	south = get_node_or_null(south_path)
-	east = get_node_or_null(east_path)
-	west = get_node_or_null(west_path)
+	north_input = get_node_or_null(north_input_path)
+	south_input = get_node_or_null(south_input_path)
+	east_input = get_node_or_null(east_input_path)
+	west_input = get_node_or_null(west_input_path)
 	
-	north.connect("activated", self, "_handle_direction_change")
-	north.connect("deactivated", self, "_handle_direction_change")
-	south.connect("activated", self, "_handle_direction_change")
-	south.connect("deactivated", self, "_handle_direction_change")
-	east.connect("activated", self, "_handle_direction_change")
-	east.connect("deactivated", self, "_handle_direction_change")
-	west.connect("activated", self, "_handle_direction_change")
-	west.connect("deactivated", self, "_handle_direction_change")
+	connect_inputs()
+	
+	north_output = get_node_or_null(north_output_path)
+	south_output = get_node_or_null(south_output_path)
+	east_output = get_node_or_null(east_output_path)
+	west_output = get_node_or_null(west_output_path)
+	
+	setup_outputs()
 
 func _physics_process(delta):
-	var new_pos_z = global_transform.origin.z + direction.z
-	var new_pos_x = global_transform.origin.x + direction.x
+	var new_pos_z = transform.origin.z + direction.z
+	var new_pos_x = transform.origin.x + direction.x
 	
 	if not (max_z >= new_pos_z and new_pos_z >= min_z):
 		direction.z = 0
@@ -45,20 +60,47 @@ func _physics_process(delta):
 		direction.x = 0
 	
 	if not direction.is_equal_approx(Vector3.ZERO):
-		global_transform.origin = lerp(global_transform.origin, global_transform.origin + (direction * speed), delta)
+		transform.origin = lerp(transform.origin, global_transform.origin + (direction * speed), delta)
 
 
 func _handle_direction_change(_pylon):
 	direction = Vector3.ZERO
 	
-	if north.is_powered and !south.is_powered:
+	if north_input.is_powered and !south_input.is_powered:
 		direction.z = -1
-	elif south.is_powered and !north.is_powered:
+	elif south_input.is_powered and !north_input.is_powered:
 		direction.z = 1
 	
-	if west.is_powered and !east.is_powered:
+	if west_input.is_powered and !east_input.is_powered:
 		direction.x = -1
-	elif east.is_powered and !west.is_powered:
+	elif east_input.is_powered and !west_input.is_powered:
 		direction.x = 1
 	
 	
+func connect_inputs():
+	if OK != north_input.connect("activated", self, "_handle_direction_change"):
+		pass
+	if OK != north_input.connect("deactivated", self, "_handle_direction_change"):
+		pass
+	if OK != south_input.connect("activated", self, "_handle_direction_change"):
+		pass
+	if OK != south_input.connect("deactivated", self, "_handle_direction_change"):
+		pass
+	if OK != east_input.connect("activated", self, "_handle_direction_change"):
+		pass
+	if OK != east_input.connect("deactivated", self, "_handle_direction_change"):
+		pass
+	if OK != west_input.connect("activated", self, "_handle_direction_change"):
+		pass
+	if OK != west_input.connect("deactivated", self, "_handle_direction_change"):
+		pass
+		
+func setup_outputs():
+	north_output.is_source = is_north_source
+	north_output.update_power_status(north_output)
+	south_output.is_source = is_south_source
+	south_output.update_power_status(south_output)
+	east_output.is_source = is_east_source
+	east_output.update_power_status(east_output)
+	west_output.is_source = is_west_source
+	west_output.update_power_status(west_output)

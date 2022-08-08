@@ -12,6 +12,9 @@ export(int, 0, 100) var power : int = 100
 export var drain_time = 1
 export var drain_amount = 1
 
+export var green_light:SpatialMaterial
+export var red_light:SpatialMaterial
+
 var drain:float = 0
 
 var is_powered = false
@@ -23,8 +26,8 @@ var last_number_of_green:int = 0
 var linear_velocity:Vector3 = Vector3.ZERO
 var gravity_scale:float = 0
 onready var audio = find_node("audio")
-onready var green_light = preload("res://modules/Interactive/Battery/progress_bar_green.tres")
-onready var red_light = preload("res://modules/Interactive/Battery/progress_bar_red.tres")
+#onready var green_light = preload("res://scripts/textures/progress_bar_green.tres")
+#onready var red_light = preload("res://modules/Interactive/Battery/progress_bar_red.tres")
 onready var player = find_parent("root").find_node("Player")
 
 onready var level = get_child(7)

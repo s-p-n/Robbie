@@ -61,11 +61,11 @@ func handle_stand_on_entity(entity:Spatial):
 		})
 	elif entity.name == "Input":
 		if len(entity.pylon.wires) > 0:
-			var powerline = entity.pylon.wires[0]
-			var dest = powerline.pair[0]
+			var local_powerline = entity.pylon.wires[0]
+			var dest = local_powerline.pair[0]
 			
 			if dest == entity:
-				dest = powerline.pair[1]
+				dest = local_powerline.pair[1]
 			
 			brain.queue_action({
 				"object": explore,

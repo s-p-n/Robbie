@@ -3,8 +3,8 @@ extends Spatial
 signal discovery(entity)
 signal see(entity)
 signal stand_on(entity)
-signal obstacle_ahead(entity)
-signal no_path_ahead()
+#signal obstacle_ahead(entity)
+#signal no_path_ahead()
 
 
 onready var brain:Spatial = get_parent()
@@ -29,7 +29,8 @@ enum State {
 func _ready():
 	state = State.EXPLORE
 	get_player()
-	movement.connect("stuck", self, "_handle_stuck")
+	if OK != movement.connect("stuck", self, "_handle_stuck"):
+		pass
 
 func get_player():
 	var objects = find_parent("Objects")

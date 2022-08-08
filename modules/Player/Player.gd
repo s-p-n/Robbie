@@ -40,5 +40,6 @@ func interact():
 		respawn()
 
 func respawn():
+	UI.remove_life()
 	UI.reset_health()
 	global_transform.origin = last_checkpoint.global_transform.origin + checkpoint_padding

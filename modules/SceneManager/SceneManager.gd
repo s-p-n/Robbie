@@ -3,14 +3,18 @@ onready var active_level = $ActiveLevel
 onready var wires = $PowerLines
 onready var checkpoints = $Checkpoints
 onready var pause_menu = $Paused
+onready var UI = $UI
 var is_paused = false
 var cur_level = 0
+var starting_lives = 0
+
 
 export (Array, PackedScene) var levels
 
 func _ready():
+	starting_lives = UI.lives
 	load_level(cur_level)
-
+	
 func restart_level():
 	load_level(cur_level)
 
@@ -34,3 +38,8 @@ func load_level(idx):
 		active_scene_member.queue_free()
 	
 	active_level.add_child(levels[idx].instance())
+
+func game_over():
+	cur_level = 0
+	UI.lives = starting_lives
+	load_level(0)
