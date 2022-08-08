@@ -59,13 +59,13 @@ func set_target_translation(new_val:float):
 func open_door(delta:float):
 	var cur = get_target_translation()
 	if open_direction:
-		print(cur, " > ", open_position + threshold, " ", cur > (open_position + threshold))
+		#print(cur, " > ", open_position + threshold, " ", cur > (open_position + threshold))
 		if cur > (open_position + threshold):
 			return lerp(cur, open_position, delta * open_speed)
 		else:
 			is_open = true
 	else:
-		print(cur, " < ", open_position - threshold, " ", cur < (open_position - threshold))
+		#print(cur, " < ", open_position - threshold, " ", cur < (open_position - threshold))
 		if cur < (open_position - threshold):
 			return lerp(cur, open_position, delta * open_speed)
 		else:

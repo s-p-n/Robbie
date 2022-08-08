@@ -40,6 +40,7 @@ func set_interact(new_interact):
 	
 func begin(input):
 	pair[0] = input
+	entity.held_wire = wireWhole
 	global_transform.origin = pair[0].global_transform.origin
 	place_wire_audio.play(0.0)
 
@@ -67,7 +68,8 @@ func update_wires(delta):
 		# Using a cache for the wire size, to prevent division
 		# of the distance for wires that already have been calculated.
 		if size_cache[0] != start_pos or size_cache[1] != end_pos:
-			wireWhole.look_at(end_pos, up)
+			if not wireWhole.global_transform.origin.direction_to(end_pos).is_equal_approx(up):
+				wireWhole.look_at(end_pos, up)
 			size_cache[0] = start_pos
 			size_cache[1] = end_pos
 			size_cache[2] = start_pos.distance_to(end_pos) / 5
@@ -118,6 +120,7 @@ func update_wires_old(delta):
 	
 func end(input):
 	pair[1] = input
+	entity.held_wire = null
 	wireWhole.set_collision_layer_bit(0, true)
 	#interact.disconnect("tick", self, "update_wires")
 	#var end_point = pair[1].global_transform.origin

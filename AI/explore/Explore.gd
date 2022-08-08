@@ -41,10 +41,10 @@ func _process(delta):
 	if !is_instance_valid(player):
 		get_player()
 		return
-	if global_transform.origin.distance_to(player.global_transform.origin) < 50:
-		discover()
-		something_beneath(brain.ground_ray.get_collider())
-		process_current_state(delta)
+	#if global_transform.origin.distance_to(player.global_transform.origin) < 50:
+	discover()
+	something_beneath(brain.ground_ray.get_collider())
+	process_current_state(delta)
 
 func _handle_stuck():
 	if state == State.FOLLOW:

@@ -16,6 +16,8 @@ onready var UI = find_parent("Robbie").get_node("UI")
 var checkpoint_padding = Vector3(0,0.5,0)
 var last_checkpoint:Spatial = self
 
+var held_wire = null
+
 func _ready():
 	starting_checkpoint_node = get_node(starting_checkpoint)
 	if starting_checkpoint_node.connect("tree_entered", self, "setup"):
@@ -30,11 +32,20 @@ func _input(event):
 
 func _process(delta):
 	emit_signal("process", delta)
+	var last_collision:KinematicCollision = get_last_slide_collision()
+	if is_instance_valid(last_collision):
+		var collider = last_collision.collider
+		if is_instance_valid(collider):
+			if collider.name == "LazerBeam":
+				pass
+				#collider.turn_off()
+				#interact()
 
 func checkpoint(new_checkpoint):
 	last_checkpoint = new_checkpoint
 
 func interact():
+	print("got hit")
 	UI.remove_health()
 	if UI.health <= 0:
 		respawn()
@@ -42,5 +53,8 @@ func interact():
 func respawn():
 	UI.remove_life()
 	UI.reset_health()
+	if is_instance_valid(held_wire):
+		held_wire.interact()
+		held_wire = null
 	if last_checkpoint.is_inside_tree():
 		global_transform.origin = last_checkpoint.global_transform.origin + checkpoint_padding

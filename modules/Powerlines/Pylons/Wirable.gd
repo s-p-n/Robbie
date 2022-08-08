@@ -61,9 +61,10 @@ func connect_wire_to(powerline, partner):
 
 func disconnect_wire_from(powerline, partner):
 	if partner in partners:
-		partners.erase(partner)
 		partner.disconnect("deactivated", self, "update_power_status")
-		partner.disconnect("activated", self, "update_power_status")
+		if partner.is_connected("activated", self, "update_power_status"):
+			partner.disconnect("activated", self, "update_power_status")
+		partners.erase(partner)
 		wires.erase(powerline)
 		if is_instance_valid(powerline):
 			powerline.destroy()

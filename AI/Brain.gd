@@ -45,8 +45,10 @@ var entity:KinematicBody
 var action = null
 
 # Decision time
-var delay = 0.25
+var delay = 1
 var time = 0
+
+var lazer_state = false
 
 func _ready():
 	ground_ray = get_node(ground_ray_path)
@@ -59,7 +61,7 @@ func _process(delta):
 	emit_signal("tick", delta)
 	if not time_to_decide(delta):
 		return
-	
+	lazer_state = !lazer_state
 	if not take_next_action():
 		decide.make_decision()
 

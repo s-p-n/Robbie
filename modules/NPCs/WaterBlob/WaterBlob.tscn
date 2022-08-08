@@ -1,7 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://modules/NPCs/WaterBlob/WaterBlob.gd" type="Script" id=1]
 [ext_resource path="res://AI/Brain.tscn" type="PackedScene" id=2]
+[ext_resource path="res://share/scripts/LazerBeam.gd" type="Script" id=3]
+[ext_resource path="res://share/textures/progress_bar_green.tres" type="Material" id=4]
+[ext_resource path="res://share/textures/progress_bar_red.tres" type="Material" id=5]
 
 [sub_resource type="SphereMesh" id=4]
 radius = 0.1
@@ -27,6 +30,24 @@ albedo_color = Color( 0, 0, 0, 1 )
 metallic = 1.0
 metallic_specular = 1.0
 
+[sub_resource type="CylinderMesh" id=11]
+top_radius = 0.02
+bottom_radius = 0.02
+height = 12.5
+radial_segments = 8
+rings = 8
+
+[sub_resource type="SpatialMaterial" id=12]
+albedo_color = Color( 0.67451, 0.831373, 1, 1 )
+emission_enabled = true
+emission = Color( 0.67451, 0.831373, 1, 1 )
+emission_energy = 5.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="ConvexPolygonShape" id=13]
+points = PoolVector3Array( -0.02, -6.25, 0, -0.0141425, -6.25, -0.0141425, -0.0141425, -6.25, 0.0141386, -0.02, 6.25, 0, 0, -6.25, -0.02, -0.0141425, 6.25, -0.0141425, 0, -6.25, 0.02, -0.0141425, 6.25, 0.0141386, 0.0141386, -6.25, -0.0141425, 0, 6.25, -0.02, 0.0141386, -6.25, 0.0141386, 0, 6.25, 0.02, 0.02, -6.25, 0, 0.0141386, 6.25, -0.0141425, 0.0141386, 6.25, 0.0141386, 0.02, 6.25, 0 )
+
 [sub_resource type="CapsuleMesh" id=1]
 radius = 0.25
 mid_height = 0.5
@@ -48,6 +69,13 @@ emission_energy = 1.0
 emission_operator = 0
 emission_on_uv2 = false
 
+[sub_resource type="CylinderMesh" id=14]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.05
+radial_segments = 6
+rings = 1
+
 [node name="WaterBlob" type="KinematicBody"]
 script = ExtResource( 1 )
 
@@ -56,8 +84,8 @@ ground_ray_path = NodePath("../Vision/Ground")
 ground_ahead_ray_path = NodePath("../Vision/GroundAhead")
 ahead_ray_path = NodePath("../Vision/Front")
 jump_ray_path = NodePath("../Vision/JumpBlocked")
-seek_out_object_names = [ "WireWhole", "Input", "WaterBlob", "Player" ]
-interact_with_object_names = [ "WireWhole", "Player" ]
+seek_out_object_names = [ "Friend", "Player", "WaterBlob", "WireWhole", "Input" ]
+interact_with_object_names = [ "WireWhole", "Friend", "Player" ]
 behaviors = {
 "Attempt Platforming": true,
 "Explore": true
@@ -85,6 +113,31 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0571522, 1.19209e-07, 0 )
 mesh = SubResource( 6 )
 skeleton = NodePath("../../..")
 material/0 = SubResource( 7 )
+
+[node name="LazerBeam" type="RigidBody" parent="Vision/Front"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+visible = false
+input_ray_pickable = false
+contacts_reported = 5
+contact_monitor = true
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource( 3 )
+
+[node name="Lazer" type="MeshInstance" parent="Vision/Front/LazerBeam"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6.25, 0, 0 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../../../..")
+material/0 = SubResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Vision/Front/LazerBeam"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6.25, 0, 0 )
+shape = SubResource( 13 )
+disabled = true
 
 [node name="JumpBlocked" type="RayCast" parent="Vision"]
 transform = Transform( 0.92388, -0.382684, 0, 0.382684, 0.92388, 0, 0, 0, 1, 0, 1, 0 )
@@ -199,3 +252,137 @@ spot_angle = 25.9886
 transform = Transform( 0.413718, -0.0709828, 0.242351, 1.14148, 1.14148, -1.61429, -0.0672495, 0.391959, 0.229604, 0, 0.24823, 0 )
 mesh = SubResource( 9 )
 material/0 = SubResource( 10 )
+
+[node name="HealthBarGreen" type="Spatial" parent="."]
+
+[node name="HealthIndicator1" type="MeshInstance" parent="HealthBarGreen"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59513, 0 )
+mesh = SubResource( 14 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 4 )
+
+[node name="HealthIndicator2" type="MeshInstance" parent="HealthBarGreen"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53878, 0 )
+mesh = SubResource( 14 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 4 )
+
+[node name="HealthIndicator3" type="MeshInstance" parent="HealthBarGreen"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48179, 0 )
+mesh = SubResource( 14 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 4 )
+
+[node name="HealthIndicator4" type="MeshInstance" parent="HealthBarGreen"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42256, 0 )
+mesh = SubResource( 14 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 4 )
+
+[node name="HealthIndicator5" type="MeshInstance" parent="HealthBarGreen"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36763, 0 )
+mesh = SubResource( 14 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 4 )
+
+[node name="HealthIndicator6" type="MeshInstance" parent="HealthBarGreen"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30999, 0 )
+mesh = SubResource( 14 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 4 )
+
+[node name="HealthIndicator7" type="MeshInstance" parent="HealthBarGreen"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25367, 0 )
+mesh = SubResource( 14 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 4 )
+
+[node name="HealthIndicator8" type="MeshInstance" parent="HealthBarGreen"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19199, 0 )
+mesh = SubResource( 14 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 4 )
+
+[node name="HealthIndicator9" type="MeshInstance" parent="HealthBarGreen"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12922, 0 )
+mesh = SubResource( 14 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 4 )
+
+[node name="HealthIndicator10" type="MeshInstance" parent="HealthBarGreen"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0692, 0 )
+mesh = SubResource( 14 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 4 )
+
+[node name="HealthBarRed" type="Spatial" parent="."]
+
+[node name="HealthIndicator1" type="MeshInstance" parent="HealthBarRed"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59513, 0 )
+visible = false
+mesh = SubResource( 14 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 5 )
+
+[node name="HealthIndicator2" type="MeshInstance" parent="HealthBarRed"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53878, 0 )
+visible = false
+mesh = SubResource( 14 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 5 )
+
+[node name="HealthIndicator3" type="MeshInstance" parent="HealthBarRed"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48179, 0 )
+visible = false
+mesh = SubResource( 14 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 5 )
+
+[node name="HealthIndicator4" type="MeshInstance" parent="HealthBarRed"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42256, 0 )
+visible = false
+mesh = SubResource( 14 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 5 )
+
+[node name="HealthIndicator5" type="MeshInstance" parent="HealthBarRed"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36763, 0 )
+visible = false
+mesh = SubResource( 14 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 5 )
+
+[node name="HealthIndicator6" type="MeshInstance" parent="HealthBarRed"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30999, 0 )
+visible = false
+mesh = SubResource( 14 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 5 )
+
+[node name="HealthIndicator7" type="MeshInstance" parent="HealthBarRed"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25367, 0 )
+visible = false
+mesh = SubResource( 14 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 5 )
+
+[node name="HealthIndicator8" type="MeshInstance" parent="HealthBarRed"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19199, 0 )
+visible = false
+mesh = SubResource( 14 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 5 )
+
+[node name="HealthIndicator9" type="MeshInstance" parent="HealthBarRed"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12922, 0 )
+visible = false
+mesh = SubResource( 14 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 5 )
+
+[node name="HealthIndicator10" type="MeshInstance" parent="HealthBarRed"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0692, 0 )
+visible = false
+mesh = SubResource( 14 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 5 )
