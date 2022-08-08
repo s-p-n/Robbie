@@ -78,6 +78,8 @@ func handle_interesting_in_sight(entity:Spatial):
 func handle_stand_on_entity(entity:Spatial):
 	var _name = get_name_of_entity(entity)
 	if _name in brain.interact_with_object_names:
+		
+		print("Standing on interactable: ", entity)
 		brain.queue_action({
 			"object": self,
 			"method": "interact",

@@ -38,9 +38,9 @@ radial_segments = 8
 rings = 8
 
 [sub_resource type="SpatialMaterial" id=11]
-albedo_color = Color( 0.67451, 0.831373, 1, 1 )
+albedo_color = Color( 0.654902, 1, 0.580392, 1 )
 emission_enabled = true
-emission = Color( 0.67451, 0.831373, 1, 1 )
+emission = Color( 0, 0.54902, 0.113725, 1 )
 emission_energy = 5.0
 emission_operator = 0
 emission_on_uv2 = false
@@ -104,7 +104,6 @@ skeleton = NodePath("../../..")
 material/0 = SubResource( 7 )
 
 [node name="LazerBeam" type="RigidBody" parent="Vision/Front"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 visible = false
 input_ray_pickable = false
 contacts_reported = 5
