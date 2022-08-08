@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://modules/Structures/Stairway/StairwayBottom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://modules/Structures/Stairway/StairwayTopOpen.tscn" type="PackedScene" id=2]
@@ -25,6 +25,12 @@
 [ext_resource path="res://share/images/you_win.png" type="Texture" id=23]
 [ext_resource path="res://modules/NPCs/WaterBlob/WaterBlob.tscn" type="PackedScene" id=24]
 [ext_resource path="res://modules/NPCs/Friend/Friend.tscn" type="PackedScene" id=25]
+[ext_resource path="res://modules/Decorative/Posters/FloorLevels/Floor_5.tscn" type="PackedScene" id=26]
+[ext_resource path="res://modules/Decorative/Posters/FloorLevels/Floor_2.tscn" type="PackedScene" id=27]
+[ext_resource path="res://modules/Decorative/Posters/FloorLevels/Floor_3.tscn" type="PackedScene" id=28]
+[ext_resource path="res://modules/Decorative/Posters/FloorLevels/Floor_1.tscn" type="PackedScene" id=29]
+[ext_resource path="res://modules/Decorative/Posters/FloorLevels/Floor_4.tscn" type="PackedScene" id=30]
+[ext_resource path="res://modules/Decorative/Posters/FloorLevels/Floor_6.tscn" type="PackedScene" id=31]
 
 [sub_resource type="ConcavePolygonShape" id=1]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
@@ -68,6 +74,24 @@ starting_checkpoint = NodePath("../Checkpoint")
 
 [node name="Checkpoint" parent="Objects" instance=ExtResource( 6 )]
 transform = Transform( -0.394343, 0, -0.918963, 0, 1, 0, 0.918963, 0, -0.394343, -37.4047, 0.1922, -15.2524 )
+
+[node name="Poster4" parent="Objects" instance=ExtResource( 27 )]
+transform = Transform( -7.54979e-08, 0, -1, 0, 1, 0, 1, 0, -7.54979e-08, -11.9, 11.5932, 8.61253 )
+
+[node name="Poster3" parent="Objects" instance=ExtResource( 27 )]
+transform = Transform( -1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, -1, -0.072279, 11.6313, -11.8942 )
+
+[node name="Poster20" parent="Objects" instance=ExtResource( 28 )]
+transform = Transform( 1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 0.203751, 19.4438, 3.9 )
+
+[node name="Poster19" parent="Objects" instance=ExtResource( 28 )]
+transform = Transform( -1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, -1, 0.408645, 19.2613, -11.9 )
+
+[node name="Poster18" parent="Objects" instance=ExtResource( 27 )]
+transform = Transform( 1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, -0.072279, 11.2265, 3.89202 )
+
+[node name="Poster" parent="Objects" instance=ExtResource( 29 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.159828, 3.08013, 3.89947 )
 
 [node name="StairwayBottom" parent="Objects" instance=ExtResource( 1 )]
 
@@ -268,6 +292,12 @@ transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -32, 0, -
 [node name="HallOpen29" parent="Objects" instance=ExtResource( 8 )]
 transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -8, 0, 8 )
 
+[node name="Poster5" parent="Objects" instance=ExtResource( 28 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -11.9, 19.0355, -7.08632 )
+
+[node name="Poster2" parent="Objects" instance=ExtResource( 28 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 27.9, 19.586, 7.63352 )
+
 [node name="HallCorner2" parent="Objects" instance=ExtResource( 9 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8, 8, 8 )
 
@@ -375,6 +405,9 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 16, 24,
 
 [node name="HallCorner14" parent="Objects" instance=ExtResource( 9 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 32, 24, 16 )
+
+[node name="Poster13" parent="Objects" instance=ExtResource( 26 )]
+transform = Transform( 1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 32, 35, 19.8942 )
 
 [node name="HallCorner16" parent="Objects" instance=ExtResource( 9 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 32, 32, 16 )
@@ -532,5 +565,56 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.46963, 9.16229, -7.29198 )
 
 [node name="WaterBlob3" parent="Objects" instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4081, 18.4992, 26.6792 )
+
+[node name="Poster6" parent="Objects" instance=ExtResource( 30 )]
+transform = Transform( 4.37114e-08, 0, -1, 0, 1, 0, 1, 0, 4.37114e-08, -11.9, 27.2589, -7.83321 )
+
+[node name="Poster7" parent="Objects" instance=ExtResource( 30 )]
+transform = Transform( -1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, -1, 31.7142, 27.8462, -11.9 )
+
+[node name="Poster8" parent="Objects" instance=ExtResource( 30 )]
+transform = Transform( -1.31134e-07, 0, 1, 0, 1, 0, -1, 0, -1.31134e-07, -4.1, 27.6337, 32.0642 )
+
+[node name="Poster9" parent="Objects" instance=ExtResource( 30 )]
+transform = Transform( -2.22525e-07, 0, 1, 0, 1, 0, -1, 0, -2.22525e-07, 36.0239, 27.8462, 71.7094 )
+
+[node name="Poster10" parent="Objects" instance=ExtResource( 30 )]
+transform = Transform( 1, 0, 1.78814e-07, 0, 1, 0, -1.78814e-07, 0, 1, -7.94033, 27.6337, 35.8952 )
+
+[node name="Poster11" parent="Objects" instance=ExtResource( 28 )]
+transform = Transform( 4.37114e-08, 0, -1, 0, 1, 0, 1, 0, 4.37114e-08, -11.7444, 19.3076, 23.7685 )
+
+[node name="Poster14" parent="Objects" instance=ExtResource( 30 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.221423, 27.6851, 4.1 )
+
+[node name="Poster15" parent="Objects" instance=ExtResource( 31 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -6.97034, 42.4694, -11.9 )
+
+[node name="Poster16" parent="Objects" instance=ExtResource( 26 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -19.9, 35.3883, -7.58222 )
+
+[node name="Poster17" parent="Objects" instance=ExtResource( 28 )]
+transform = Transform( 1.19209e-07, 0, 1, 0, 1, 0, -1, 0, 1.19209e-07, 35.9, 18.7961, 16.1466 )
+
+[node name="Poster12" parent="Objects" instance=ExtResource( 28 )]
+transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, 32.1378, 19.5376, -27.9 )
+
+[node name="Poster22" parent="Objects" instance=ExtResource( 30 )]
+transform = Transform( 1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, 1, 0.0344049, 26.628, 3.89999 )
+
+[node name="Poster21" parent="Objects" instance=ExtResource( 30 )]
+transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, -0.569046, 25.933, -11.9 )
+
+[node name="Poster23" parent="Objects" instance=ExtResource( 26 )]
+transform = Transform( -1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, -1, -0.180592, 34.2242, -11.9 )
+
+[node name="Poster" parent="Objects/Poster23" instance=ExtResource( 26 )]
+transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, -0.50522, -0.000148773, -15.8 )
+
+[node name="Poster" parent="." instance=ExtResource( 28 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.9444, 18.7285, 23.5799 )
+
+[node name="Poster" parent="Poster" instance=ExtResource( 28 )]
+transform = Transform( 1.58933e-08, 0, -1, 0, 1, 0, 1, 0, 1.58933e-08, -12.3201, 0.582861, 3.85701 )
 
 [connection signal="body_entered" from="Objects/LastDoor/WinPlatform" to="Objects/LastDoor/WinPlatform" method="_on_platform15_body_entered"]
