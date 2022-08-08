@@ -8,7 +8,7 @@ onready var checkpoints = find_parent("Robbie").get_node("Checkpoints")
 onready var mesh = $Mesh
 onready var audio = $SetSound
 var is_preloaded = false
-
+var has_been_set = false
 var player:KinematicBody = null
 
 func _ready():
@@ -44,3 +44,6 @@ func set_this_checkpoint():
 			sibling.mesh.set_surface_material(1, flag_unset)
 		mesh.set_surface_material(1, flag_set)
 		audio.play(0)
+		if !has_been_set:
+			player.UI.add_life()
+		has_been_set = true
