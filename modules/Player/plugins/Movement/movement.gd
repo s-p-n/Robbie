@@ -118,7 +118,7 @@ func _physics_process(delta):
 			current_speed = crouch_speed
 	
 	if Input.is_key_pressed(KEY_SPACE) or Input.is_joy_button_pressed(0, JOY_XBOX_A):
-		if player.is_on_floor() and can_jump:
+		if player.has_wings or (player.is_on_floor() and can_jump):
 			moved = true
 			snapped = false
 			can_jump = false
