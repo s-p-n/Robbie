@@ -55,7 +55,7 @@ func update_wires(delta):
 		var start_pos:Vector3
 		var end_pos:Vector3
 		
-		wireWhole.global_transform.origin = lerp(wireWhole.global_transform.origin, pair[0].global_transform.origin, delta)
+		wireWhole.global_transform.origin = lerp(wireWhole.global_transform.origin, pair[0].global_transform.origin, delta * 25)
 		
 		if !is_instance_valid(pair[1]):
 			start_pos = wireWhole.global_transform.origin
@@ -81,7 +81,7 @@ func update_wires(delta):
 				wireWhole.scale.z = size_cache[2]
 		else:
 			# Animate wire size
-			wireWhole.scale.z = lerp(wireWhole.scale.z, size_cache[2], delta)
+			wireWhole.scale.z = lerp(wireWhole.scale.z, size_cache[2], delta * 25)
 		
 
 func update_wires_old(delta):
@@ -158,6 +158,12 @@ func connect_pair():
 				print("color mismatch!")
 				print(pair[0].pylon.output_color)
 				print(pair[1].pylon.input_color)
+				# TODO:
+				# removing destroy causes the wire connection to be made because connect_pair has already been called.
+				# Need to fix this later
+				# Audio is too quiet for robot talking.
+				interact.wire_mismatch_audio.get_stream()
+				interact.wire_mismatch_audio.play(0.0)
 				return destroy()
 			place_wire_audio.play(0.0)
 			pair[0].pylon.connect_wire_to(self, pair[1].pylon)

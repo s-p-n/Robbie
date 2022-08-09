@@ -27,3 +27,6 @@ func play_stream():
 
 func stop_stream():
 	loop = false
+
+func get_stream():
+	stream = sounds[rand_range(0, len(sounds) - 1)]

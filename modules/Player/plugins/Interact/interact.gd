@@ -18,6 +18,7 @@ var drop_ray:RayCast
 var wire_reel_audio:AudioStreamPlayer
 var wire_place_audio:AudioStreamPlayer
 var wire_clip_audio:AudioStreamPlayer
+var wire_mismatch_audio:AudioStreamPlayer3D
 var held_object:Node = null
 var looking_at_interactable = false
 var powerline:Node = null
@@ -39,6 +40,8 @@ func set_player(new_player):
 	wire_reel_audio = $Sounds/WireReelAudio
 	wire_place_audio = $Sounds/WirePlaceAudio
 	wire_clip_audio = $Sounds/WireClipAudio
+	wire_mismatch_audio = $Sounds/WireMismatchAudio
+	
 	center_dot.visible = false
 	
 	#if !player.connect("input", self, "process_input"):

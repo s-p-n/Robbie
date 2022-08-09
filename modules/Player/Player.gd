@@ -11,6 +11,7 @@ signal input(event)
 export var starting_checkpoint:NodePath
 var starting_checkpoint_node:RigidBody
 
+
 onready var checkpoint_pos = global_transform.origin
 onready var UI = find_parent("Robbie").get_node("UI")
 var checkpoint_padding = Vector3(0,0.5,0)
