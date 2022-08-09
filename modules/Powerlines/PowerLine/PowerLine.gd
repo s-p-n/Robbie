@@ -162,8 +162,9 @@ func connect_pair():
 				# removing destroy causes the wire connection to be made because connect_pair has already been called.
 				# Need to fix this later
 				# Audio is too quiet for robot talking.
-				interact.wire_mismatch_audio.get_stream()
-				interact.wire_mismatch_audio.play(0.0)
+				if "wire_mismatch_audio" in interact:
+					interact.wire_mismatch_audio.get_stream()
+					interact.wire_mismatch_audio.play(0.0)
 				return destroy()
 			place_wire_audio.play(0.0)
 			pair[0].pylon.connect_wire_to(self, pair[1].pylon)

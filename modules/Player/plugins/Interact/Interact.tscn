@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://modules/Powerlines/PowerLine/PowerLine.tscn" type="PackedScene" id=1]
 [ext_resource path="res://modules/Player/plugins/Interact/interact.gd" type="Script" id=2]
@@ -17,6 +17,25 @@
 [ext_resource path="res://share/audio/Robot Voices 2-cm-25.wav" type="AudioStream" id=15]
 [ext_resource path="res://share/audio/Robot Voices 2-cm-29.wav" type="AudioStream" id=16]
 [ext_resource path="res://share/audio/Robot Voices 2-cm-33.wav" type="AudioStream" id=17]
+[ext_resource path="res://share/scripts/LazerBeam.gd" type="Script" id=18]
+
+[sub_resource type="CylinderMesh" id=1]
+top_radius = 0.02
+bottom_radius = 0.02
+height = 12.5
+radial_segments = 8
+rings = 8
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.654902, 1, 0.580392, 1 )
+emission_enabled = true
+emission = Color( 0, 0.54902, 0.113725, 1 )
+emission_energy = 5.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="ConvexPolygonShape" id=3]
+points = PoolVector3Array( -0.02, -6.25, 0, -0.0141425, -6.25, -0.0141425, -0.0141425, -6.25, 0.0141386, -0.02, 6.25, 0, 0, -6.25, -0.02, -0.0141425, 6.25, -0.0141425, 0, -6.25, 0.02, -0.0141425, 6.25, 0.0141386, 0.0141386, -6.25, -0.0141425, 0, 6.25, -0.02, 0.0141386, -6.25, 0.0141386, 0, 6.25, 0.02, 0.02, -6.25, 0, 0.0141386, 6.25, -0.0141425, 0.0141386, 6.25, 0.0141386, 0.02, 6.25, 0 )
 
 [node name="Interact" type="Spatial"]
 script = ExtResource( 2 )
@@ -47,6 +66,31 @@ cast_to = Vector3( 0, 0, -15 )
 position = Vector2( 960, 540 )
 scale = Vector2( 3.42188, 3.42188 )
 texture = ExtResource( 3 )
+
+[node name="LazerBeam" type="RigidBody" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.25, -0.380752 )
+visible = false
+input_ray_pickable = false
+contacts_reported = 5
+contact_monitor = true
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource( 18 )
+
+[node name="Lazer" type="MeshInstance" parent="LazerBeam"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6.25, 0, 0 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../../../..")
+material/0 = SubResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="LazerBeam"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6.25, 0, 0 )
+shape = SubResource( 3 )
+disabled = true
 
 [node name="Sounds" type="Node" parent="."]
 

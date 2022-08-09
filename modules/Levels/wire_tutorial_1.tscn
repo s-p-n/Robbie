@@ -3646,7 +3646,15 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 39.7775
 
 [node name="PowerUp" parent="Objects" instance=ExtResource( 32 )]
 transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, -67.9242, -15.0932, -10.4677 )
+power = "Laser Gun"
+
+[node name="PowerUp2" parent="Objects" instance=ExtResource( 32 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 37.1533, 0.00213116, -69.8679 )
 power = "Wings"
+
+[node name="PowerUp3" parent="Objects" instance=ExtResource( 32 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 30.5907, -16.069, -0.933202 )
+power = "Extra Life"
 
 [node name="Poster" parent="." instance=ExtResource( 12 )]
 transform = Transform( -7.17835e-08, 0, 1, 0, 4.09729, 0, -3.09438, 0, -8.23639e-08, -53.5199, -12.9429, -1.42544 )

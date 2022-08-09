@@ -19,6 +19,7 @@ var wire_reel_audio:AudioStreamPlayer
 var wire_place_audio:AudioStreamPlayer
 var wire_clip_audio:AudioStreamPlayer
 var wire_mismatch_audio:AudioStreamPlayer3D
+var laser:RigidBody
 var held_object:Node = null
 var looking_at_interactable = false
 var powerline:Node = null
@@ -41,7 +42,7 @@ func set_player(new_player):
 	wire_place_audio = $Sounds/WirePlaceAudio
 	wire_clip_audio = $Sounds/WireClipAudio
 	wire_mismatch_audio = $Sounds/WireMismatchAudio
-	
+	laser = $LazerBeam
 	center_dot.visible = false
 	
 	#if !player.connect("input", self, "process_input"):
@@ -68,10 +69,11 @@ func _unhandled_input(event):
 		
 		if !took_action:
 			took_action = handle_clip_action()
-
+	
 func _physics_process (delta):
 	handle_move_with_wire()
 	handle_held_object(delta)
+	handle_laser_fire(delta)
 	emit_signal("tick", delta)
 
 func look_for_interactables():
@@ -159,6 +161,16 @@ func handle_held_object(delta):
 			held_object.visible = true#false
 		else:
 			held_object.visible = true
+
+func handle_laser_fire(_delta):
+	if Input.is_action_just_pressed("fire"):
+		if player.has_laser:
+			print("laser on")
+			laser.turn_on()
+	elif Input.is_action_just_released("fire"):
+		print("laser off")
+		laser.turn_off()
+
 func handle_pickup_action():
 	var collider = pickup_ray.get_collider()
 	var drop_pos = drop_ray.get_collision_point()
@@ -195,4 +207,3 @@ func handle_clip_action():
 				collider.get_parent().disconnect_pair()
 				return true
 	return false
-			
