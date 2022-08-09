@@ -17,6 +17,8 @@ var checkpoint_padding = Vector3(0,0.5,0)
 var last_checkpoint:Spatial = self
 
 var held_wire = null
+var has_laser = false
+var has_wings = false
 
 func _ready():
 	starting_checkpoint_node = get_node(starting_checkpoint)
@@ -58,3 +60,16 @@ func respawn():
 		held_wire = null
 	if last_checkpoint.is_inside_tree():
 		global_transform.origin = last_checkpoint.global_transform.origin + checkpoint_padding
+
+func give_power(power):
+	print("Player gained the power of: ", power)
+	
+	match power:
+		"Laser Gun":
+			has_laser = true
+			return
+		"Extra Life":
+			return UI.add_life()
+		"Wings":
+			has_wings = true
+			return
