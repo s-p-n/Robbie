@@ -3656,6 +3656,18 @@ power = "Wings"
 transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 30.5907, -16.069, -0.933202 )
 power = "Extra Life"
 
+[node name="PowerUp4" parent="Objects" instance=ExtResource( 32 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, -57.92, 11.4881, -0.781726 )
+power = "Extra Life"
+
+[node name="PowerUp5" parent="Objects" instance=ExtResource( 32 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, -57.92, 11.4881, -5.78173 )
+power = "Extra Life"
+
+[node name="PowerUp6" parent="Objects" instance=ExtResource( 32 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, -57.92, 11.4881, -3.35354 )
+power = "Extra Life"
+
 [node name="Poster" parent="." instance=ExtResource( 12 )]
 transform = Transform( -7.17835e-08, 0, 1, 0, 4.09729, 0, -3.09438, 0, -8.23639e-08, -53.5199, -12.9429, -1.42544 )
 

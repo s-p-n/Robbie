@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://share/images/you_win.png" type="Texture" id=1]
 [ext_resource path="res://share/scripts/open_door.gd" type="Script" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://share/scripts/next_level.gd" type="Script" id=17]
 [ext_resource path="res://modules/NPCs/WaterBlob/WaterBlob.tscn" type="PackedScene" id=18]
 [ext_resource path="res://modules/NPCs/Friend/Friend.tscn" type="PackedScene" id=19]
+[ext_resource path="res://modules/Interactive/PowerUp/PowerUp.tscn" type="PackedScene" id=20]
 
 [sub_resource type="ConcavePolygonShape" id=1]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
@@ -3985,5 +3986,33 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.72833, -5.09315, -57.9427 )
 
 [node name="Friend" parent="Objects" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.34114, -5.09315, -11.7919 )
+
+[node name="PowerUp" parent="Objects" instance=ExtResource( 20 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 70.0064, -5.24384, -10.3055 )
+power = "Laser Gun"
+
+[node name="PowerUp2" parent="Objects" instance=ExtResource( 20 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 17.0234, -7.2293, 34.389 )
+power = "Extra Life"
+
+[node name="PowerUp3" parent="Objects" instance=ExtResource( 20 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 17.0234, -7.2293, 32.389 )
+power = "Extra Life"
+
+[node name="PowerUp4" parent="Objects" instance=ExtResource( 20 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 17.0234, -7.2293, 30.389 )
+power = "Extra Life"
+
+[node name="PowerUp5" parent="Objects" instance=ExtResource( 20 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 38.7136, 11.6842, 20.8655 )
+power = "Extra Life"
+
+[node name="PowerUp6" parent="Objects" instance=ExtResource( 20 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 13.8961, 13.6088, 20.8059 )
+power = "Wings"
+
+[node name="PowerUp7" parent="Objects" instance=ExtResource( 20 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 54.8432, -5.72694, -63.3908 )
+power = "Extra Life"
 
 [connection signal="body_entered" from="Objects/WinPlatform" to="Objects/WinPlatform" method="_on_platform15_body_entered"]
