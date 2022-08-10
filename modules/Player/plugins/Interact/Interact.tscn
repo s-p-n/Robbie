@@ -104,6 +104,9 @@ stream = ExtResource( 5 )
 stream = ExtResource( 4 )
 
 [node name="WireMismatchAudio" type="AudioStreamPlayer3D" parent="Sounds"]
-unit_db = 7.018
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.79502 )
+stream = ExtResource( 9 )
+unit_db = 12.0
+unit_size = 5.0
 script = ExtResource( 7 )
 sounds = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 13 ), ExtResource( 17 ), ExtResource( 14 ) ]

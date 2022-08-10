@@ -12,21 +12,25 @@ func _ready():
 		playing = true
 
 func _process(_delta):
-	
 	if loop and !playing:
-		if len(sounds):
-			if !rand_sound:
-				rand_sound = sounds[
-					rand_range(0, len(sounds) - 1)]
-				stream = rand_sound
+		if !stream:
+			set_rand_stream()
 		play(0.0)
 
 func play_stream():
-	
 	loop = true
 
 func stop_stream():
 	loop = false
 
-func get_stream():
-	stream = sounds[rand_range(0, len(sounds) - 1)]
+func set_rand_stream():
+	if len(sounds):
+		stream = sounds[rand_range(0, len(sounds) - 1)]
+
+
+func play_rand_segment():
+	stop_stream()
+	set_rand_stream()
+	print("Playing stream: ", stream)
+	
+	play(0.0)

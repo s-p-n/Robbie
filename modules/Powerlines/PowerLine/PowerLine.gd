@@ -163,8 +163,8 @@ func connect_pair():
 				# Need to fix this later
 				# Audio is too quiet for robot talking.
 				if "wire_mismatch_audio" in interact:
-					interact.wire_mismatch_audio.get_stream()
-					interact.wire_mismatch_audio.play(0.0)
+					print("playing mismatch sound")
+					interact.wire_mismatch_audio.play_rand_segment()
 				return destroy()
 			place_wire_audio.play(0.0)
 			pair[0].pylon.connect_wire_to(self, pair[1].pylon)
