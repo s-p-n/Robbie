@@ -119,6 +119,18 @@ func update_wires_old(delta):
 		old_transform_b = new_transform_b
 	
 func end(input):
+	if pair[0].pylon.output_color != input.pylon.input_color:
+		if input.pylon.output_color == pair[0].pylon.input_color:
+			wireWhole.material.albedo_color = input.pylon.output_color
+		else:
+			print("color mismatch!")
+			print(pair[0].pylon.output_color)
+			print(input.pylon.input_color)
+			if "wire_mismatch_audio" in interact:
+				print("playing mismatch sound")
+				interact.wire_mismatch_audio.play_rand_segment()
+			# Returns false if the wire's not deleted to prevent held wire set to null
+			return false
 	pair[1] = input
 	entity.held_wire = null
 	wireWhole.set_collision_layer_bit(0, true)
@@ -127,6 +139,8 @@ func end(input):
 	#update_num_wires(end_point)
 	#setup_powerline_collision()
 	connect_pair()
+	# Returns true if wire is deleted.
+	return true
 
 func update_num_wires(end_point):
 	var total:int = calculate_total_wires(end_point)
@@ -152,20 +166,7 @@ func setup_powerline_collision():
 func connect_pair():
 	if pair[0] and pair[0].pylon and pair[0].pylon.has_method("connect_wire_to"):
 		if pair[1] and pair[1].pylon and pair[1].pylon.has_method("connect_wire_to"):
-			if pair[1].pylon.output_color == pair[0].pylon.input_color:
-				wireWhole.material.albedo_color = pair[1].pylon.output_color
-			elif pair[0].pylon.output_color != pair[1].pylon.input_color:
-				print("color mismatch!")
-				print(pair[0].pylon.output_color)
-				print(pair[1].pylon.input_color)
-				# TODO:
-				# removing destroy causes the wire connection to be made because connect_pair has already been called.
-				# Need to fix this later
-				# Audio is too quiet for robot talking.
-				if "wire_mismatch_audio" in interact:
-					print("playing mismatch sound")
-					interact.wire_mismatch_audio.play_rand_segment()
-				return destroy()
+			
 			place_wire_audio.play(0.0)
 			pair[0].pylon.connect_wire_to(self, pair[1].pylon)
 			pair[1].pylon.connect_wire_to(self, pair[0].pylon)

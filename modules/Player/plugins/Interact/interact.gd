@@ -126,9 +126,10 @@ func handle_wire_action():
 				return true
 			else: 
 				# Handle: Click on something wirable, but different than what we're holding
-				powerline.end(collider)
-				powerline = null
-				return true
+				if powerline.end(collider):
+					powerline = null
+					return true
+				return false
 		else:
 			# Handle: Click wirable area, but we aren't holding a wire
 			powerline = PowerLineScene.instance()

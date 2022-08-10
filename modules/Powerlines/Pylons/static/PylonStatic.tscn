@@ -74,9 +74,10 @@ material/0 = SubResource( 7 )
 [node name="play_when_powered" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.90545, 0 )
 stream = ExtResource( 4 )
-unit_db = 4.292
+unit_db = -25.0
 unit_size = 25.0
-max_distance = 25.0
+max_db = 2.0
+max_distance = 15.0
 script = ExtResource( 3 )
 loop = true
 
