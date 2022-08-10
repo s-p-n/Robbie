@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://modules/Structures/Stairway/StairwayBottom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://modules/Structures/Stairway/StairwayTopOpen.tscn" type="PackedScene" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://modules/Decorative/Posters/FloorLevels/Floor_1.tscn" type="PackedScene" id=29]
 [ext_resource path="res://modules/Decorative/Posters/FloorLevels/Floor_4.tscn" type="PackedScene" id=30]
 [ext_resource path="res://modules/Decorative/Posters/FloorLevels/Floor_6.tscn" type="PackedScene" id=31]
+[ext_resource path="res://modules/Interactive/PowerUp/PowerUp.tscn" type="PackedScene" id=32]
 
 [sub_resource type="ConcavePolygonShape" id=1]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
@@ -610,6 +611,26 @@ transform = Transform( -1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, -1, -0.1805
 
 [node name="Poster" parent="Objects/Poster23" instance=ExtResource( 26 )]
 transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, -0.50522, -0.000148773, -15.8 )
+
+[node name="PowerUp" parent="Objects" instance=ExtResource( 32 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 28.0234, 41.8444, 19.9497 )
+power = "Wings"
+
+[node name="PowerUp2" parent="Objects" instance=ExtResource( 32 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, -27.0659, 32.1, 28.097 )
+power = "Extra Life"
+
+[node name="PowerUp4" parent="Objects" instance=ExtResource( 32 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, -27.0659, 32.1, 26.097 )
+power = "Extra Life"
+
+[node name="PowerUp3" parent="Objects" instance=ExtResource( 32 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, -27.0659, 32.1, 30.097 )
+power = "Extra Life"
+
+[node name="PowerUp5" parent="Objects" instance=ExtResource( 32 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 32.0989, 16.2, -8.13099 )
+power = "Laser Gun"
 
 [node name="Poster" parent="." instance=ExtResource( 28 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.9444, 18.7285, 23.5799 )
