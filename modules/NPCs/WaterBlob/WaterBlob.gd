@@ -1,6 +1,7 @@
 extends KinematicBody
 
 export var health:int = 10
+export var stamina:float = 100
 
 onready var healthBarGreen = $HealthBarGreen
 onready var healthBarRed = $HealthBarRed
@@ -16,6 +17,12 @@ func respawn():
 	health = start_health
 	global_transform.origin = spawn_pos
 	update_health_visuals()
+
+func adjust_stamina(n):
+	stamina += n
+
+func get_stamina():
+	return stamina
 
 func interact():
 	health -= 1

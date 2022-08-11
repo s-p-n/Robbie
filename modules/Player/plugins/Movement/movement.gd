@@ -12,8 +12,8 @@ var joystick_deadzone = 0.2
 
 # Movement
 var is_moving = false
-var run_speed = 8 # Running speed in m/s
-var walk_speed = run_speed * 2
+var walk_speed = 8 # speed in m/s
+var run_speed = walk_speed * 2
 var crouch_speed = run_speed / 3
 var jump_height = 6
 var current_speed = run_speed
@@ -52,6 +52,7 @@ func _unhandled_input(event):
 
 func _physics_process(delta):
 	var moved = false
+	var change_stamina:int = walk_speed * 1.25
 	# Look with the right analog of the joystick
 	if Input.get_joy_axis(0, 2) < -joystick_deadzone or Input.get_joy_axis(0, 2) > joystick_deadzone:
 		player.rotation_degrees.y -= Input.get_joy_axis(0, 2) * 2
@@ -110,19 +111,21 @@ func _physics_process(delta):
 			gravity_vec += Vector3.DOWN * gravity * delta
 	
 	if player.is_on_floor():
+		current_speed = walk_speed
 		if Input.is_key_pressed(KEY_SHIFT) or Input.get_joy_axis(0, 6) >= 0.6:
-			current_speed = walk_speed
-		else:
-			current_speed = run_speed
+			if player.get_stamina() > (run_speed * delta):
+				current_speed = run_speed
 		if crouched:
 			current_speed = crouch_speed
 	
 	if Input.is_key_pressed(KEY_SPACE) or Input.is_joy_button_pressed(0, JOY_XBOX_A):
 		if player.has_wings or (player.is_on_floor() and can_jump):
-			moved = true
-			snapped = false
-			can_jump = false
-			gravity_vec = Vector3.UP * jump_height
+			if player.get_stamina() > (jump_height * 2):
+				moved = true
+				snapped = false
+				can_jump = false
+				gravity_vec = Vector3.UP * jump_height
+				player.adjust_stamina(-jump_height * 2)
 	else:
 		can_jump = true
 	
@@ -147,6 +150,12 @@ func _physics_process(delta):
 	
 	if is_moving and player.is_on_floor() and player_speed >= 2:
 		emit_signal("move_on_floor")
+		print(player_speed)
+		change_stamina -= player_speed
+		player.adjust_stamina(change_stamina * delta)
+		print("should change stamina: ", change_stamina)
+	elif !is_moving and player.is_on_floor():
+		player.adjust_stamina(change_stamina * delta)
 
 func land_animation():
 	var movement_y = clamp(falling_velocity, -20, 0) / 40

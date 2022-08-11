@@ -74,3 +74,9 @@ func give_power(power):
 		"Wings":
 			has_wings = true
 			return
+
+func get_stamina():
+	return UI.stamina
+
+func adjust_stamina(n):
+	return UI.adjust_stamina(n)

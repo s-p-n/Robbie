@@ -1,19 +1,30 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://share/themes/health_bar.tres" type="Theme" id=1]
 [ext_resource path="res://modules/2D/UI/health_bar.gd" type="Script" id=2]
 [ext_resource path="res://share/themes/big_button_font.tres" type="Theme" id=3]
+[ext_resource path="res://share/themes/stamina_bar.tres" type="Theme" id=4]
 
 [node name="UI" type="Control"]
 anchor_right = 1.0
-anchor_bottom = 0.05
+anchor_bottom = 0.1
 script = ExtResource( 2 )
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="HealthBar" type="ProgressBar" parent="."]
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 mouse_filter = 2
 theme = ExtResource( 1 )
+value = 81.0
+rounded = true
+
+[node name="StaminaBar" type="ProgressBar" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -44.0
+mouse_filter = 2
+theme = ExtResource( 4 )
 value = 81.0
 rounded = true
 

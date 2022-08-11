@@ -4,6 +4,7 @@ var spawn_pos:Vector3
 var held_wire = null
 
 export var health:int = 10
+export var stamina:float = 100
 
 onready var healthBarGreen = $HealthBarGreen
 onready var healthBarRed = $HealthBarRed
@@ -19,6 +20,12 @@ func interact():
 	
 	update_health_visuals()
 	
+
+func adjust_stamina(n):
+	stamina += n
+
+func get_stamina():
+	return stamina
 
 func die():
 	if held_wire:
