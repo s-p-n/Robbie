@@ -79,7 +79,6 @@ func handle_stand_on_entity(entity:Spatial):
 	var _name = get_name_of_entity(entity)
 	if _name in brain.interact_with_object_names:
 		
-		print("Standing on interactable: ", entity)
 		brain.queue_action({
 			"object": self,
 			"method": "interact",
@@ -154,8 +153,7 @@ func handle_wire_action(input:RigidBody):
 	return false
 
 func handle_shoot_at(entity:Spatial):
-	var entity_name = get_name_of_entity(entity)
-	print("Should shoot at: ", entity_name)
+	#var entity_name = get_name_of_entity(entity)
 	explore.follow(entity)
 	fire_lazer = true
 

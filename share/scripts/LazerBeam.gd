@@ -28,7 +28,9 @@ func _process(delta):
 		host.adjust_stamina(change_stamina)
 	
 		if is_instance_valid(hit):
+			print("Lazer interacting with: ", hit)
 			hit.interact()
+			hit = null
 		
 
 func turn_on():
@@ -40,7 +42,6 @@ func turn_off():
 	collisionShape.disabled = true
 
 func handle_contact(entity:Spatial):
+	print("laser hit something: ", entity)
 	if is_instance_valid(entity) and entity.has_method("interact"):
-		print("Lazer Beam Contact: ", entity)
-		#turn_off()
 		hit = entity

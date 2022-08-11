@@ -22,7 +22,8 @@ func interact():
 	
 
 func adjust_stamina(n):
-	stamina += n
+	#stamina += n
+	pass
 
 func get_stamina():
 	return stamina

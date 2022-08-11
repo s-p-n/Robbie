@@ -100,9 +100,7 @@ func follow(target:Spatial):
 		var length = len(brain.seek_out_object_names)
 		var cur_weight = length - brain.seek_out_object_names.find(follow_entity.name)
 		var new_weight = length - brain.seek_out_object_names.find(target.name)
-		print("follow weights: ")
-		print(follow_entity.name, ': ', cur_weight)
-		print(target.name, ': ', new_weight)
+		
 		if new_weight >= cur_weight:
 			follow_entity = target
 	else:

@@ -19,7 +19,8 @@ func respawn():
 	update_health_visuals()
 
 func adjust_stamina(n):
-	stamina += n
+	#stamina += n
+	pass
 
 func get_stamina():
 	return stamina

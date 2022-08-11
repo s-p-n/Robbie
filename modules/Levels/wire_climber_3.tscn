@@ -4015,4 +4015,8 @@ power = "Wings"
 transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 54.8432, -5.72694, -63.3908 )
 power = "Extra Life"
 
+[node name="PowerUp8" parent="Objects" instance=ExtResource( 20 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, -22.2958, 0.759121, -43.5397 )
+power = "Laser Gun"
+
 [connection signal="body_entered" from="Objects/WinPlatform" to="Objects/WinPlatform" method="_on_platform15_body_entered"]

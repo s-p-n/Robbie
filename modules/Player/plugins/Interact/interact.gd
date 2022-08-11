@@ -69,7 +69,9 @@ func _unhandled_input(event):
 		
 		if !took_action:
 			took_action = handle_clip_action()
-	
+		
+		#if !took_action:
+		#	took_action = handle_laser_fire()
 func _physics_process (delta):
 	handle_move_with_wire()
 	handle_held_object(delta)
@@ -83,6 +85,8 @@ func look_for_interactables():
 		clip_ray.get_collider(),
 		drop_ray.get_collider()
 	]
+
+
 
 func setup_center_dot(interactables):
 	# interactalbes is expected to be an array of Nodes or Nil/falsey nodes
@@ -140,8 +144,9 @@ func handle_wire_action():
 	else:
 		# Handle: Clicked, but not on something wirable
 		if is_instance_valid(powerline):
-			powerline.destroy()
-			return true
+			pass
+			#powerline.destroy()
+			#return true
 	return false
 
 func handle_held_object(delta):
@@ -166,10 +171,13 @@ func handle_held_object(delta):
 func handle_laser_fire(_delta):
 	if Input.is_action_just_pressed("fire"):
 		if player.has_laser:
-			print("laser on")
+			var interactables = look_for_interactables()
+			if is_instance_valid(interactables[0]) or is_instance_valid(interactables[1]):
+				return
+			#print("laser on")
 			laser.turn_on()
 	elif Input.is_action_just_released("fire"):
-		print("laser off")
+		#print("laser off")
 		laser.turn_off()
 
 func handle_pickup_action():

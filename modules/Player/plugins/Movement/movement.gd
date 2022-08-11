@@ -119,7 +119,20 @@ func _physics_process(delta):
 			current_speed = crouch_speed
 	
 	if Input.is_key_pressed(KEY_SPACE) or Input.is_joy_button_pressed(0, JOY_XBOX_A):
-		if player.has_wings or (player.is_on_floor() and can_jump):
+		if player.has_wings:
+			if player.get_stamina() > (12 * delta):
+				print(player.get_stamina())
+				moved = true
+				snapped = false
+				can_jump = false
+				gravity_vec = Vector3.UP
+				change_stamina -= walk_speed
+				if Input.is_action_just_pressed("jump"):
+					gravity_vec *= jump_height
+					player.adjust_stamina(-jump_height * 2)
+				player.adjust_stamina(-15 * delta)
+				print('fly ', -15 * delta)
+		elif (player.is_on_floor() and can_jump):
 			if player.get_stamina() > (jump_height * 2):
 				moved = true
 				snapped = false
@@ -129,6 +142,7 @@ func _physics_process(delta):
 	else:
 		can_jump = true
 	
+	#print('change ', change_stamina * delta)
 	# "bug" where player can climb on ceiling:
 	if player.is_on_ceiling():
 		velocity.y = 0
@@ -150,11 +164,9 @@ func _physics_process(delta):
 	
 	if is_moving and player.is_on_floor() and player_speed >= 2:
 		emit_signal("move_on_floor")
-		print(player_speed)
 		change_stamina -= player_speed
 		player.adjust_stamina(change_stamina * delta)
-		print("should change stamina: ", change_stamina)
-	elif !is_moving and player.is_on_floor():
+	elif player.has_wings or (!is_moving and player.is_on_floor()):
 		player.adjust_stamina(change_stamina * delta)
 
 func land_animation():
