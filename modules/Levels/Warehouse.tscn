@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://modules/Structures/Stairway/StairwayBottom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://modules/Structures/Stairway/StairwayTopOpen.tscn" type="PackedScene" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://modules/Decorative/Posters/FloorLevels/Floor_4.tscn" type="PackedScene" id=30]
 [ext_resource path="res://modules/Decorative/Posters/FloorLevels/Floor_6.tscn" type="PackedScene" id=31]
 [ext_resource path="res://modules/Interactive/PowerUp/PowerUp.tscn" type="PackedScene" id=32]
+[ext_resource path="res://modules/Powerlines/Pylons/Discrete/PylonDiscrete.tscn" type="PackedScene" id=33]
 
 [sub_resource type="ConcavePolygonShape" id=1]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
@@ -631,6 +632,18 @@ power = "Extra Life"
 [node name="PowerUp5" parent="Objects" instance=ExtResource( 32 )]
 transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 32.0989, 16.2, -8.13099 )
 power = "Laser Gun"
+
+[node name="PylonDiscrete2" parent="Objects" instance=ExtResource( 33 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.90556, 6.31851, 3.9 )
+input_color = Color( 0.196078, 0.192157, 0.65098, 1 )
+output_color = Color( 0.196078, 0.192157, 0.65098, 1 )
+connected_to = NodePath("../PylonDiscrete")
+
+[node name="PylonDiscrete" parent="Objects" instance=ExtResource( 33 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.09444, 6.31851, 3.9 )
+is_source = true
+input_color = Color( 0.196078, 0.192157, 0.65098, 1 )
+output_color = Color( 0.196078, 0.192157, 0.65098, 1 )
 
 [node name="Poster" parent="." instance=ExtResource( 28 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.9444, 18.7285, 23.5799 )

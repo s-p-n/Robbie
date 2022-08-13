@@ -42,6 +42,6 @@ func turn_off():
 	collisionShape.disabled = true
 
 func handle_contact(entity:Spatial):
-	print("laser hit something: ", entity)
+	#print("laser hit something: ", entity)
 	if is_instance_valid(entity) and entity.has_method("interact"):
 		hit = entity

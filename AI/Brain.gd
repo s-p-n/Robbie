@@ -45,7 +45,7 @@ var entity:KinematicBody
 var action = null
 
 # Decision time
-var delay = 1
+var delay = 0.25
 var time = 0
 
 var lazer_state = false

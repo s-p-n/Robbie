@@ -8,9 +8,14 @@ export var is_source:bool
 export var input_color:Color
 export var output_color:Color
 
+export var connected_to:NodePath
+
 onready var power_light = $PowerLight
+onready var input = $Input
 onready var audio = get_node_or_null("play_when_powered")
 onready var inputMesh:MeshInstance = get_node_or_null("Input/MeshInstance")
+
+export var PowerlineScene:PackedScene = preload("res://modules/Powerlines/PowerLine/PowerLine.tscn")
 
 var partners = []
 var wires = []
@@ -31,6 +36,16 @@ func _ready():
 		is_powered = true
 	else:
 		is_powered = false
+	
+	if connected_to:
+		var paired_pylon = get_node(connected_to)
+		var powerline = PowerlineScene.instance()
+		var player = find_parent("Objects").find_node("Player")
+		var interact = player.get_node("Head/Interact")
+		powerline.set_interact(interact)
+		powerline.begin(input)
+		powerline.end(paired_pylon.input)
+	
 	set_visuals()
 
 func _process(_delta):
