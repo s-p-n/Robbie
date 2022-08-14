@@ -67,19 +67,7 @@ loop = true
 [node name="PowerLight" type="OmniLight" parent="."]
 transform = Transform( 2, 0, 0, 0, -8.74228e-08, 2, 0, -2, -8.74228e-08, 0, 4.09863, -0.00267696 )
 light_color = Color( 0.85098, 1, 0.784314, 1 )
-shadow_enabled = true
 omni_range = 25.0
 omni_attenuation = 0.933032
 omni_shadow_mode = 0
-script = ExtResource( 2 )
-
-[node name="vertical" type="OmniLight" parent="PowerLight"]
-transform = Transform( 1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 1.86265e-09, 0 )
-visible = false
-light_color = Color( 0.85098, 1, 0.784314, 1 )
-shadow_enabled = true
-omni_range = 25.0
-omni_attenuation = 0.933032
-omni_shadow_mode = 0
-omni_shadow_detail = 0
 script = ExtResource( 2 )

@@ -24,7 +24,7 @@ points = PoolVector3Array( 4, 4, 1, 4, 4, -1, -4, 4, 1, 4, -4, 1, 4, -4, -1, -4,
 
 [node name="Robbie" type="Spatial"]
 script = ExtResource( 1 )
-levels = [ ExtResource( 8 ), ExtResource( 2 ), ExtResource( 11 ), ExtResource( 10 ) ]
+levels = [ ExtResource( 11 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 10 ) ]
 
 [node name="PowerLines" type="Spatial" parent="."]
 

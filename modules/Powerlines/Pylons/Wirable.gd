@@ -8,7 +8,7 @@ export var is_source:bool
 export var input_color:Color
 export var output_color:Color
 
-export var connected_to:NodePath
+export(Array, NodePath) var connected_to_pylons
 
 onready var power_light = $PowerLight
 onready var input = $Input
@@ -29,22 +29,13 @@ var connected_node:Node
 
 func _ready():
 	inputMesh.set_surface_material(0, material)
-	material.albedo_color = input_color
-	material.emission = input_color
-	power_light.light_color = output_color
+	setup_colors()
 	if is_source:
 		is_powered = true
 	else:
 		is_powered = false
 	
-	if connected_to:
-		var paired_pylon = get_node(connected_to)
-		var powerline = PowerlineScene.instance()
-		var player = find_parent("Objects").find_node("Player")
-		var interact = player.get_node("Head/Interact")
-		powerline.set_interact(interact)
-		powerline.begin(input)
-		powerline.end(paired_pylon.input)
+	setup_connection()
 	
 	set_visuals()
 
@@ -52,7 +43,22 @@ func _process(_delta):
 	if is_instance_valid(connected_node):
 		is_source = connected_node.is_powered
 		update_power_status(self)
-		
+
+func setup_colors():
+	material.albedo_color = input_color
+	material.emission = input_color
+	power_light.light_color = output_color
+
+func setup_connection():
+	for pylon_path in connected_to_pylons:
+		var paired_pylon = get_node(pylon_path)
+		var powerline = PowerlineScene.instance()
+		var player = find_parent("Objects").find_node("Player")
+		var interact = player.get_node("Head/Interact")
+		powerline.set_interact(interact)
+		powerline.begin(input)
+		powerline.end(paired_pylon.input)
+
 func set_power_source(source):
 	connected_node = source
 	is_source = true
