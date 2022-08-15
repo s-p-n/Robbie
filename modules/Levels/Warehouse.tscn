@@ -346,12 +346,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 16, -16 )
 [node name="HallOpen6" parent="Objects" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 16, -24 )
 
-[node name="PylonStatic" parent="Objects" instance=ExtResource( 7 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 16, 16, -16 )
-is_source = true
-input_color = Color( 0, 1, 0.462745, 1 )
-output_color = Color( 0, 1, 0.462745, 1 )
-
 [node name="HallOpen7" parent="Objects" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 16, -16 )
 
@@ -641,38 +635,62 @@ input_color = Color( 0.278431, 0.137255, 0.137255, 1 )
 output_color = Color( 0.901961, 0.215686, 0.215686, 1 )
 connect_children = true
 
-[node name="PylonStatic2" parent="Objects/RedGroup" instance=ExtResource( 7 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5.45442, 2.2, 1.235 )
+[node name="Source" parent="Objects/RedGroup" instance=ExtResource( 7 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 11.9, 18, -13 )
 is_source = true
 input_color = Color( 0.278431, 0.137255, 0.137255, 1 )
 output_color = Color( 0.278431, 0.137255, 0.137255, 1 )
 
-[node name="StairwayBottomPylons" type="Spatial" parent="Objects/RedGroup"]
+[node name="PathToSource" type="Spatial" parent="Objects/RedGroup"]
 script = ExtResource( 34 )
 
-[node name="PylonDiscrete" parent="Objects/RedGroup/StairwayBottomPylons" instance=ExtResource( 33 )]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.094, 7, 3.9 )
+[node name="PylonDiscrete27" parent="Objects/RedGroup/PathToSource" instance=ExtResource( 33 )]
+transform = Transform( -1, 1.49012e-07, 1.77636e-15, 0, -4.37114e-08, 1, 1.49012e-07, 1, 4.37114e-08, 11.9, 23, -19.924 )
 
-[node name="PylonDiscrete2" parent="Objects/RedGroup/StairwayBottomPylons" instance=ExtResource( 33 )]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.906, 7, 3.9 )
+[node name="PylonDiscrete26" parent="Objects/RedGroup/PathToSource" instance=ExtResource( 33 )]
+transform = Transform( -1, 1.49012e-07, 1.77636e-15, 0, -4.37114e-08, 1, 1.49012e-07, 1, 4.37114e-08, 19.9073, 23, -19.9241 )
 
-[node name="PylonDiscrete3" parent="Objects/RedGroup/StairwayBottomPylons" instance=ExtResource( 33 )]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 11.906, 11, 3.9 )
+[node name="PylonDiscrete25" parent="Objects/RedGroup/PathToSource" instance=ExtResource( 33 )]
+transform = Transform( -0.707107, -0.707107, -3.09086e-08, 0, -4.37114e-08, 1, -0.707107, 0.707107, 3.09086e-08, 27.9073, 23, -19.9241 )
 
-[node name="PylonDiscrete4" parent="Objects/RedGroup/StairwayBottomPylons" instance=ExtResource( 33 )]
-transform = Transform( 0.707107, -0.707107, -3.09086e-08, 0, -4.37114e-08, 1, -0.707107, -0.707107, -3.09086e-08, 19.906, 11, 3.9 )
+[node name="PylonDiscrete24" parent="Objects/RedGroup/PathToSource" instance=ExtResource( 33 )]
+transform = Transform( -5.96046e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 5.96046e-08, 1.77636e-15, 27.9073, 23, -12.0948 )
 
-[node name="PylonDiscrete5" parent="Objects/RedGroup/StairwayBottomPylons" instance=ExtResource( 33 )]
-transform = Transform( 0, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 0, 0, 19.906, 11, -4.1 )
+[node name="PylonDiscrete23" parent="Objects/RedGroup/PathToSource" instance=ExtResource( 33 )]
+transform = Transform( -5.96046e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 5.96046e-08, 1.77636e-15, 27.9073, 23, -4.09484 )
 
-[node name="PylonDiscrete6" parent="Objects/RedGroup/StairwayBottomPylons" instance=ExtResource( 33 )]
-transform = Transform( -0.866025, -0.5, -2.18557e-08, 0, -4.37114e-08, 1, -0.5, 0.866025, 3.78552e-08, 19.9, 11, -11.9 )
+[node name="PylonDiscrete22" parent="Objects/RedGroup/PathToSource" instance=ExtResource( 33 )]
+transform = Transform( -5.96046e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 5.96046e-08, 1.77636e-15, 27.9073, 23, 3.90516 )
 
-[node name="PylonDiscrete7" parent="Objects/RedGroup/StairwayBottomPylons" instance=ExtResource( 33 )]
-transform = Transform( -1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, 11.9, 11, -11.9 )
+[node name="PylonDiscrete21" parent="Objects/RedGroup/PathToSource" instance=ExtResource( 33 )]
+transform = Transform( 0.707107, -0.707107, -3.09086e-08, 0, -4.37114e-08, 1, -0.707107, -0.707107, -3.09086e-08, 27.9073, 23, 11.9052 )
 
-[node name="PylonDiscrete8" parent="Objects/RedGroup/StairwayBottomPylons" instance=ExtResource( 33 )]
-transform = Transform( -1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, 3.9, 15, -11.9 )
+[node name="PylonDiscrete20" parent="Objects/RedGroup/PathToSource" instance=ExtResource( 33 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 20.0929, 23, 11.9052 )
+
+[node name="PylonDiscrete19" parent="Objects/RedGroup/PathToSource" instance=ExtResource( 33 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 12.0929, 23, 11.9052 )
+
+[node name="PylonDiscrete18" parent="Objects/RedGroup/PathToSource" instance=ExtResource( 33 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.90705, 15, 11.9052 )
+
+[node name="PylonDiscrete17" parent="Objects/RedGroup/PathToSource" instance=ExtResource( 33 )]
+transform = Transform( 0.707107, 0.707107, 3.09086e-08, 0, -4.37114e-08, 1, 0.707107, -0.707107, -3.09086e-08, -11.9071, 15, 11.9052 )
+
+[node name="PylonDiscrete16" parent="Objects/RedGroup/PathToSource" instance=ExtResource( 33 )]
+transform = Transform( -2.98023e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 2.98023e-08, 8.88178e-16, -11.9071, 15, 6.09249 )
+
+[node name="PylonDiscrete15" parent="Objects/RedGroup/PathToSource" instance=ExtResource( 33 )]
+transform = Transform( -2.98023e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 2.98023e-08, 8.88178e-16, -11.9071, 15, -0.907506 )
+
+[node name="PylonDiscrete14" parent="Objects/RedGroup/PathToSource" instance=ExtResource( 33 )]
+transform = Transform( -2.98023e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 2.98023e-08, 8.88178e-16, -11.9071, 15, -6.90751 )
+
+[node name="PylonDiscrete13" parent="Objects/RedGroup/PathToSource" instance=ExtResource( 33 )]
+transform = Transform( -0.707107, 0.707107, 3.09086e-08, 0, -4.37114e-08, 1, 0.707107, 0.707107, 3.09086e-08, -11.9071, 15, -11.9075 )
+
+[node name="StairwayBottomPylons" type="Spatial" parent="Objects/RedGroup"]
+script = ExtResource( 34 )
 
 [node name="PylonDiscrete9" parent="Objects/RedGroup/StairwayBottomPylons" instance=ExtResource( 33 )]
 transform = Transform( -1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, -3.45458, 15, -11.9 )

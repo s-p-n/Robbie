@@ -60,11 +60,14 @@ func process_current_state(delta):
 			movement.handle_explore(delta)
 		State.FOLLOW:
 			time_since_saw_follow_entity += delta
-			if time_since_saw_follow_entity < follow_until:
-				movement.handle_follow(follow_entity, delta)
-			else:
-				state = State.EXPLORE
-				follow_entity = null
+			if is_instance_valid(follow_entity):
+				var lost_target = time_since_saw_follow_entity >= follow_until
+				var is_close = global_transform.origin.distance_to(follow_entity.global_transform.origin) < 3
+				if !lost_target and !is_close:
+					movement.handle_follow(follow_entity, delta)
+					return
+			state = State.EXPLORE
+			follow_entity = null
 func something_beneath(entity):
 	if is_instance_valid(entity):
 		emit_signal("stand_on", entity)

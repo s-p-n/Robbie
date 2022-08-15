@@ -129,6 +129,8 @@ func end(input):
 			if "wire_mismatch_audio" in interact:
 				print("playing mismatch sound")
 				interact.wire_mismatch_audio.play_rand_segment()
+			else:
+				disconnect_pair()
 			# Returns false if the wire's not deleted to prevent held wire set to null
 			return false
 	pair[1] = input
