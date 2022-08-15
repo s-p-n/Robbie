@@ -19,7 +19,7 @@ var last_checkpoint:Spatial = self
 
 var held_wire = null
 var has_laser = false
-var has_wings = true
+var has_wings = false
 
 func _ready():
 	starting_checkpoint_node = get_node(starting_checkpoint)
