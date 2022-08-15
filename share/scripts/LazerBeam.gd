@@ -6,7 +6,7 @@ var hit = null
 var can_hit = false
 var hit_timer = 0.1
 var time = 0
-var change_stamina = -5
+var change_stamina = -2.5
 
 func _ready():
 	host = get_parent().get_parent().get_parent()

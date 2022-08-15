@@ -125,20 +125,20 @@ func _physics_process(delta):
 				moved = true
 				snapped = false
 				can_jump = false
-				gravity_vec = Vector3.UP
+				gravity_vec = Vector3.UP * (jump_height / 2)
 				change_stamina -= walk_speed
 				if Input.is_action_just_pressed("jump"):
 					gravity_vec *= jump_height
-					player.adjust_stamina(-jump_height * 2)
-				player.adjust_stamina(-15 * delta)
-				print('fly ', -15 * delta)
+					player.adjust_stamina(-jump_height * 1.25)
+				player.adjust_stamina(-7 * delta)
+				print('fly ', -7 * delta)
 		elif (player.is_on_floor() and can_jump):
 			if player.get_stamina() > (jump_height * 2):
 				moved = true
 				snapped = false
 				can_jump = false
 				gravity_vec = Vector3.UP * jump_height
-				player.adjust_stamina(-jump_height * 2)
+				player.adjust_stamina(-jump_height * 1.25)
 	else:
 		can_jump = true
 	
@@ -165,9 +165,9 @@ func _physics_process(delta):
 	if is_moving and player.is_on_floor() and player_speed >= 2:
 		emit_signal("move_on_floor")
 		change_stamina -= player_speed
-		player.adjust_stamina(change_stamina * delta)
+		player.adjust_stamina(change_stamina * delta * 0.75)
 	elif player.has_wings or (!is_moving and player.is_on_floor()):
-		player.adjust_stamina(change_stamina * delta)
+		player.adjust_stamina(change_stamina * delta * 0.75)
 
 func land_animation():
 	var movement_y = clamp(falling_velocity, -20, 0) / 40
