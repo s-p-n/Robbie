@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://modules/Interactive/Checkpoint/Checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://modules/Player/Player.tscn" type="PackedScene" id=2]
@@ -53,6 +53,9 @@ data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4
 [sub_resource type="ConvexPolygonShape" id=8]
 points = PoolVector3Array( 1, -1, 1, 1, 1, -1.00024, -1, -1, 1, 1, -1, -2.27423, -1, 1, -1.00024, 1, 1, -2.27423, -1, -1, -2.27423, -1, 1, -2.27423 )
 
+[sub_resource type="BoxShape" id=15]
+extents = Vector3( 3.98502, 1.93056, 3.99755 )
+
 [sub_resource type="ConcavePolygonShape" id=13]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
 
@@ -76,7 +79,7 @@ data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.46344, -4, -10.2374 )
 
 [node name="Player" parent="Objects" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -55.3395, -14.0889, -1.34557 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 35.4427, 6.82644, -77.0615 )
 starting_checkpoint = NodePath("../Checkpoint")
 
 [node name="Friend2" parent="Objects" instance=ExtResource( 31 )]
@@ -2126,8 +2129,17 @@ is_south_source = true
 is_east_source = true
 is_west_source = true
 
+[node name="Area" type="Area" parent="Objects/Stage3/Ship"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Objects/Stage3/Ship/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.02553, 0 )
+shape = SubResource( 15 )
+
 [node name="platform" type="RigidBody" parent="Objects/Stage3/Ship"]
 mode = 1
+continuous_cd = true
+contacts_reported = 5
+contact_monitor = true
 
 [node name="block-441" type="MeshInstance" parent="Objects/Stage3/Ship/platform"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
@@ -3867,4 +3879,6 @@ transform = Transform( -7.17835e-08, 0, 1, 0, 4.09729, 0, -3.09438, 0, -8.23639e
 [node name="Poster2" parent="." instance=ExtResource( 26 )]
 transform = Transform( -0.0216229, 0, 0.999766, 0, 2.46121, 0, -2.26876, 0, -0.0490688, -119.776, -23.3034, 0.736193 )
 
+[connection signal="body_entered" from="Objects/Stage3/Ship/Area" to="Objects/Stage3/Ship" method="_on_Area_body_entered"]
+[connection signal="body_exited" from="Objects/Stage3/Ship/Area" to="Objects/Stage3/Ship" method="_on_Area_body_exited"]
 [connection signal="body_entered" from="Objects/Stage5/FinalPuzzle/WinPlatform" to="Objects/Stage5/FinalPuzzle/WinPlatform" method="_on_platform15_body_entered"]

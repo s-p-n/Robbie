@@ -22,6 +22,11 @@ export var is_south_source:bool
 export var is_east_source:bool
 export var is_west_source:bool
 
+onready var floor_platform = $platform
+onready var ship_area = $Area
+
+var bodies_inside_vehicle = []
+
 var north_input:RigidBody
 var south_input:RigidBody
 var east_input:RigidBody
@@ -49,6 +54,7 @@ func _ready():
 	
 	setup_outputs()
 
+
 func _physics_process(delta):
 	var new_pos_z = transform.origin.z + direction.z
 	var new_pos_x = transform.origin.x + direction.x
@@ -60,8 +66,14 @@ func _physics_process(delta):
 		direction.x = 0
 	
 	if not direction.is_equal_approx(Vector3.ZERO):
-		transform.origin = lerp(transform.origin, global_transform.origin + (direction * speed), delta)
-
+		var velocity = direction * speed
+		transform.origin = lerp(transform.origin, transform.origin + velocity, delta)
+		
+		
+		print("Moving ", velocity)
+		for body in bodies_inside_vehicle:
+			print("body in vehicle: ", body)
+			body.global_transform.origin = lerp(body.global_transform.origin, body.global_transform.origin + velocity, delta)
 
 func _handle_direction_change(_pylon):
 	direction = Vector3.ZERO
@@ -104,3 +116,11 @@ func setup_outputs():
 	east_output.update_power_status(east_output)
 	west_output.is_source = is_west_source
 	west_output.update_power_status(west_output)
+
+func _on_Area_body_entered(body):
+	#ignore child nodes
+	if !is_instance_valid(body.find_parent(name)):
+		bodies_inside_vehicle.append(body)
+
+func _on_Area_body_exited(body):
+	bodies_inside_vehicle.erase(body)

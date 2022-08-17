@@ -48,7 +48,7 @@ collision_mask = 8
 
 [node name="WireRay" type="RayCast" parent="."]
 enabled = true
-cast_to = Vector3( 0, 0, -5 )
+cast_to = Vector3( 0, 0, -8 )
 collision_mask = 32
 
 [node name="ClipRay" type="RayCast" parent="."]

@@ -121,7 +121,7 @@ func _physics_process(delta):
 	if Input.is_key_pressed(KEY_SPACE) or Input.is_joy_button_pressed(0, JOY_XBOX_A):
 		if player.has_wings:
 			if player.get_stamina() > (12 * delta):
-				print(player.get_stamina())
+				#print(player.get_stamina())
 				moved = true
 				snapped = false
 				can_jump = false
@@ -131,7 +131,7 @@ func _physics_process(delta):
 					gravity_vec *= jump_height
 					player.adjust_stamina(-jump_height * 1.25)
 				player.adjust_stamina(-7 * delta)
-				print('fly ', -7 * delta)
+				#print('fly ', -7 * delta)
 		elif (player.is_on_floor() and can_jump):
 			if player.get_stamina() > (jump_height * 2):
 				moved = true
