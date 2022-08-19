@@ -59,7 +59,7 @@ starting_checkpoint = NodePath("../Part1/Ship/Checkpoint")
 [node name="Part1" type="Spatial" parent="Objects"]
 
 [node name="ceiling" type="RigidBody" parent="Objects/Part1"]
-transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -19.1327, 6.41691, 0 )
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -19.1327, 7.04573, 0 )
 mode = 1
 
 [node name="wall" type="MeshInstance" parent="Objects/Part1/ceiling"]
@@ -127,7 +127,7 @@ editor_only = true
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.40074, 1.10336, 0 )
 
 [node name="Ship" parent="Objects/Part1" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.256, 4.5 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.75931, 4.5 )
 speed = 3.0
 max_x = 0.0
 min_x = -20.0

@@ -72,10 +72,7 @@ func _physics_process(delta):
 		
 		print("Moving ", velocity)
 		for body in bodies_inside_vehicle:
-			print("body in vehicle: ", body)
-			print(body.find_parent("Player"))
-			if !is_instance_valid(body.find_parent("Player")):
-				body.global_transform.origin = lerp(body.global_transform.origin, body.global_transform.origin + velocity, delta)
+			body.global_transform.origin = lerp(body.global_transform.origin, body.global_transform.origin + velocity, delta)
 
 func _handle_direction_change(_pylon):
 	direction = Vector3.ZERO
@@ -120,9 +117,20 @@ func setup_outputs():
 	west_output.update_power_status(west_output)
 
 func _on_Area_body_entered(body):
+	print("enter: ", body)
 	#ignore child nodes
-	if !is_instance_valid(body.find_parent(name)):
+	if !is_instance_valid(body.find_parent(name)) and !has_parent_with_collisions(body):
 		bodies_inside_vehicle.append(body)
 
 func _on_Area_body_exited(body):
 	bodies_inside_vehicle.erase(body)
+
+
+func has_parent_with_collisions(body):
+	var parent = body.get_parent()
+	while is_instance_valid(parent) and !(parent.has_method("get_collision_layer_bit") and parent.get_collision_layer_bit(0)):
+		parent = parent.get_parent()
+	print("body parent: ", parent)
+	if is_instance_valid(parent):
+		return true
+	return false
