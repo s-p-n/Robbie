@@ -76,10 +76,10 @@ data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4
 [node name="Objects" type="Spatial" parent="."]
 
 [node name="Checkpoint" parent="Objects" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.46344, -4, -10.2374 )
+transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, -55.5372, -15, -1.69617 )
 
 [node name="Player" parent="Objects" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 35.4427, 6.82644, -77.0615 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -55.5035, -13.9863, -1.29652 )
 starting_checkpoint = NodePath("../Checkpoint")
 
 [node name="Friend2" parent="Objects" instance=ExtResource( 31 )]
@@ -238,9 +238,6 @@ transform = Transform( 0.278176, -0.915517, 0.290598, -0.247112, 0.224144, 0.942
 light_color = Color( 0.796078, 1, 0.980392, 1 )
 light_energy = 10.0
 spot_range = 25.0
-
-[node name="Checkpoint" parent="Objects/Stage0" instance=ExtResource( 1 )]
-transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, 43.6418, -5, -9.14617 )
 
 [node name="Checkpoint2" parent="Objects/Stage0" instance=ExtResource( 1 )]
 transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, -22.5685, -14.928, -8.88945 )
@@ -1486,6 +1483,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 8.75 )
 stream = ExtResource( 5 )
 unit_size = 7.6
 max_db = 1.0
+
+[node name="Checkpoint" parent="Objects/Stage1" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.46344, -4, -10.2374 )
 
 [node name="Stage2" type="Spatial" parent="Objects"]
 

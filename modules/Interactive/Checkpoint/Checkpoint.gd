@@ -37,13 +37,12 @@ func _on_Checkpoint_body_entered(body):
 
 func set_this_checkpoint():
 	if is_instance_valid(player) and player.last_checkpoint != self:
-		#print("Setting this checkpoint: ", self)
 		var siblings = checkpoints.get_children()
 		player.checkpoint(self)
 		for sibling in siblings:
 			sibling.mesh.set_surface_material(1, flag_unset)
 		mesh.set_surface_material(1, flag_set)
 		audio.play(0)
-		if !has_been_set:
+		if !has_been_set and player.starting_checkpoint_node != self:
 			player.UI.add_life()
 		has_been_set = true

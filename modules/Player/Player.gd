@@ -22,12 +22,14 @@ var has_laser = false
 var has_wings = false
 
 func _ready():
-	starting_checkpoint_node = get_node(starting_checkpoint)
+	print("player ready")
+	starting_checkpoint_node = get_node_or_null(starting_checkpoint)
 	if starting_checkpoint_node.connect("tree_entered", self, "setup"):
 		pass
 
 func setup():
-	starting_checkpoint_node.set_this_checkpoint()
+	print("player setup")
+	#starting_checkpoint_node.set_this_checkpoint()
 	respawn()
 
 func _input(event):
@@ -68,11 +70,13 @@ func give_power(power):
 	match power:
 		"Laser Gun":
 			has_laser = true
+			$Head/Interact/LaserIcon.visible = true
 			return
 		"Extra Life":
 			return UI.add_life()
 		"Wings":
 			has_wings = true
+			$Head/Interact/JetpackIcon.visible = true
 			return
 
 func get_stamina():

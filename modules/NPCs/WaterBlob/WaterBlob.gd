@@ -18,7 +18,7 @@ func respawn():
 	global_transform.origin = spawn_pos
 	update_health_visuals()
 
-func adjust_stamina(n):
+func adjust_stamina(_n):
 	#stamina += n
 	pass
 

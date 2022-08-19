@@ -18,7 +18,6 @@ func _ready():
 
 
 func create_pylon_gradient():
-	var gradient = []
 	var num_children = get_child_count()
 	var children = get_children()
 	for pylon in children:
