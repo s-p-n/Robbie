@@ -25,6 +25,7 @@
 [sub_resource type="CylinderMesh" id=1]
 top_radius = 0.02
 bottom_radius = 0.02
+height = 8.0
 radial_segments = 8
 rings = 8
 
@@ -37,7 +38,7 @@ emission_operator = 0
 emission_on_uv2 = false
 
 [sub_resource type="ConvexPolygonShape" id=3]
-points = PoolVector3Array( -0.02, -1, 0, -0.0141425, -1, -0.0141425, -0.0141425, -1, 0.0141386, -0.02, 1, 0, 0, -1, -0.02, -0.0141425, 1, -0.0141425, 0, -1, 0.02, -0.0141425, 1, 0.0141386, 0.0141386, -1, -0.0141425, 0, 1, -0.02, 0.0141386, -1, 0.0141386, 0, 1, 0.02, 0.02, -1, 0, 0.0141386, 1, -0.0141425, 0.0141386, 1, 0.0141386, 0.02, 1, 0 )
+points = PoolVector3Array( -0.02, -4, 0, -0.0141425, -4, -0.0141425, -0.0141425, -4, 0.0141386, -0.02, 4, 0, 0, -4, -0.02, -0.0141425, 4, -0.0141425, 0, -4, 0.02, -0.0141425, 4, 0.0141386, 0.0141386, -4, -0.0141425, 0, 4, -0.02, 0.0141386, -4, 0.0141386, 0, 4, 0.02, 0.02, -4, 0, 0.0141386, 4, -0.0141425, 0.0141386, 4, 0.0141386, 0.02, 4, 0 )
 
 [node name="Interact" type="Spatial"]
 script = ExtResource( 2 )
@@ -85,8 +86,7 @@ scale = Vector2( 3.42188, 3.42188 )
 texture = ExtResource( 19 )
 
 [node name="LazerBeam" type="RigidBody" parent="."]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.25, -0.380752 )
-visible = false
+transform = Transform( 1, 0, 0, 0, -0.0572504, -0.99836, 0, 0.99836, -0.0572504, 0, -0.25, -4.5 )
 collision_layer = 513
 collision_mask = 513
 input_ray_pickable = false
@@ -101,13 +101,13 @@ axis_lock_angular_z = true
 script = ExtResource( 18 )
 
 [node name="Lazer" type="MeshInstance" parent="LazerBeam"]
-transform = Transform( -0.340708, -0.899088, -0.274879, 0.940169, -0.325821, -0.0996133, -2.76728e-08, -0.292372, 0.956305, 1, -0.120747, -0.292214 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 1 )
 skeleton = NodePath("../../../..")
 material/0 = SubResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="LazerBeam"]
-transform = Transform( -0.340708, -0.899088, -0.274879, 0.940169, -0.325821, -0.0996133, -2.76728e-08, -0.292372, 0.956305, 1, -0.120747, -0.292214 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 3 )
 
 [node name="Sounds" type="Node" parent="."]
