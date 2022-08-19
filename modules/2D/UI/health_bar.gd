@@ -37,6 +37,10 @@ func remove_health():
 func reset_health():
 	health = 100
 	publish_changes()
+	
+func reset_stamina():
+	stamina = 100
+	publish_changes()
 
 func add_life():
 	lives += 1
