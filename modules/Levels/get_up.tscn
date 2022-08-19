@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://modules/Structures/ramp/ramp.tscn" type="PackedScene" id=1]
+[ext_resource path="res://modules/Interactive/PowerUp/PowerUp.tscn" type="PackedScene" id=2]
 [ext_resource path="res://modules/Interactive/Ship/Ship.tscn" type="PackedScene" id=3]
 [ext_resource path="res://modules/Structures/circuitBoard/med/circuit_board_dark.tres" type="Material" id=4]
 [ext_resource path="res://modules/Structures/circuitBoard/circuit_board.obj" type="ArrayMesh" id=5]
@@ -52,7 +53,7 @@ light_bake_mode = 2
 [node name="Objects" type="Spatial" parent="."]
 
 [node name="Player" parent="Objects" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0433822, 3.43566, 4.34978 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0991765, 3.43566, 4.59703 )
 starting_checkpoint = NodePath("../Part1/Ship/Checkpoint")
 
 [node name="Part1" type="Spatial" parent="Objects"]
@@ -299,3 +300,7 @@ max_x = 40.0
 min_x = -20.0
 max_z = 40.0
 min_z = -40.0
+
+[node name="PowerUp" parent="Objects" instance=ExtResource( 2 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 0.87802, 3.16415, 5.83757 )
+power = "Laser Gun"

@@ -73,7 +73,9 @@ func _physics_process(delta):
 		print("Moving ", velocity)
 		for body in bodies_inside_vehicle:
 			print("body in vehicle: ", body)
-			body.global_transform.origin = lerp(body.global_transform.origin, body.global_transform.origin + velocity, delta)
+			print(body.find_parent("Player"))
+			if !is_instance_valid(body.find_parent("Player")):
+				body.global_transform.origin = lerp(body.global_transform.origin, body.global_transform.origin + velocity, delta)
 
 func _handle_direction_change(_pylon):
 	direction = Vector3.ZERO
