@@ -21,6 +21,9 @@ var lowest_y = -3
 var old_transform_a
 var old_transform_b
 
+var wire_in_place = false
+var pair_places = [Vector3.ZERO, Vector3.ZERO]
+
 var throttle:float = 0.2
 var time:float = 0
 
@@ -50,14 +53,26 @@ func add_wire():
 	adjust_wires()
 
 func update_wires(delta):
+	if wire_in_place:
+		if pair[0].global_transform.origin != pair_places[0] or pair[1].global_transform.origin != pair_places[1]:
+			wire_in_place = false
+		else:
+			return
 	if pair[0]:
 		var up = Vector3(0,1,0)
 		var start_pos:Vector3
 		var end_pos:Vector3
-		
-		wireWhole.global_transform.origin = lerp(wireWhole.global_transform.origin, pair[0].global_transform.origin, delta * 25)
+		var in_place = false
+		if !pair[0].global_transform.origin.is_equal_approx(wireWhole.global_transform.origin):
+			wireWhole.global_transform.origin = lerp(wireWhole.global_transform.origin, pair[0].global_transform.origin, delta * 25)
+			
+		elif pair[0].global_transform.origin != wireWhole.global_transform.origin:
+			wireWhole.global_transform.origin = pair[0].global_transform.origin + Vector3.ZERO
+		else:
+			in_place = true
 		
 		if !is_instance_valid(pair[1]):
+			in_place = false
 			start_pos = wireWhole.global_transform.origin
 			end_pos = entity.global_transform.origin
 		else:
@@ -79,6 +94,11 @@ func update_wires(delta):
 			# If the size isn't exactly right, snap it to place.. once.
 			if wireWhole.scale.z != size_cache[2]:
 				wireWhole.scale.z = size_cache[2]
+			
+			if in_place:
+				pair_places[0] = pair[0].global_transform.origin
+				pair_places[1] = pair[1].global_transform.origin
+				wire_in_place = true
 		else:
 			# Animate wire size
 			wireWhole.scale.z = lerp(wireWhole.scale.z, size_cache[2], delta * 25)
