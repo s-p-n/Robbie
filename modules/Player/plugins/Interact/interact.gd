@@ -171,7 +171,7 @@ func handle_held_object(delta):
 			held_object.visible = true
 
 func handle_laser_fire(_delta):
-	if Input.is_action_just_pressed("fire"):
+	if Input.is_action_pressed("fire"):
 		if player.has_laser:
 			var interactables = look_for_interactables()
 			if is_instance_valid(interactables[0]) or is_instance_valid(interactables[1]):

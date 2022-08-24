@@ -5,6 +5,7 @@ var host:Spatial = null
 var hit = null
 var can_hit = false
 var hit_timer = .1
+var cool_down_timer = hit_timer * 10
 var time = 0
 var change_stamina = -2.5 * (hit_timer * 10)
 var cooling_down = false
@@ -20,6 +21,11 @@ func _process(delta):
 		$Sound.playing = true
 	else:
 		$Sound.playing = false
+	
+	if cooling_down and time < cool_down_timer:
+		time += delta
+		return
+		
 	if time < hit_timer:
 		time += delta
 		return
