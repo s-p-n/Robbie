@@ -12,6 +12,8 @@ func _process(_delta):
 	if !color_set and is_instance_valid(powerline.pair[0]):
 		color_set = true
 		material.albedo_color = powerline.pair[0].pylon.output_color
+	#if !is_instance_valid(powerline.pair[1]):
+	#	if powerline.entity.distance_to()
 
 func _on_WireWhole_body_entered(body):
 	var pylons = [powerline.pair[0].pylon, powerline.pair[1].pylon]

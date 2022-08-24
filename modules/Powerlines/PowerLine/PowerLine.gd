@@ -71,13 +71,12 @@ func update_wires(delta):
 		else:
 			in_place = true
 		
+		start_pos = wireWhole.global_transform.origin
+		
 		if !is_instance_valid(pair[1]):
 			in_place = false
-			start_pos = wireWhole.global_transform.origin
 			end_pos = entity.global_transform.origin
 		else:
-			#print('powerline collisions: ', wireWhole.get_colliding_bodies())
-			start_pos = wireWhole.global_transform.origin
 			end_pos = pair[1].global_transform.origin
 		
 		# Using a cache for the wire size, to prevent division

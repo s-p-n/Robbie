@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://modules/Interactive/Checkpoint/Checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://modules/Player/Player.tscn" type="PackedScene" id=2]
@@ -34,6 +34,7 @@
 [ext_resource path="res://modules/Interactive/PowerUp/PowerUp.tscn" type="PackedScene" id=32]
 [ext_resource path="res://modules/Interactive/Ship/Ship.gd" type="Script" id=33]
 [ext_resource path="res://modules/Structures/circuitBoard/med/circuit_board_dark.tres" type="Material" id=34]
+[ext_resource path="res://modules/Powerlines/PylonGroup.gd" type="Script" id=35]
 
 [sub_resource type="ConcavePolygonShape" id=9]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
@@ -79,7 +80,7 @@ data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4
 transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, -55.5372, -15, -1.69617 )
 
 [node name="Player" parent="Objects" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -55.5035, -13.9863, -1.29652 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 37.1009, -13.9863, -5.77651 )
 starting_checkpoint = NodePath("../Checkpoint")
 
 [node name="Friend2" parent="Objects" instance=ExtResource( 31 )]
@@ -1792,7 +1793,7 @@ output_color = Color( 0.686275, 0, 1, 1 )
 [node name="InputPylon" parent="Objects/Stage2/Puzzle" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 26.9523, -13.3652, -12.4806 )
 input_color = Color( 0, 1, 0.647059, 1 )
-output_color = Color( 0.509804, 0, 0.666667, 1 )
+output_color = Color( 0, 1, 0.6, 1 )
 
 [node name="PylonStatic5" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -9.10024, -4.20308, -4.78597 )
@@ -1857,61 +1858,66 @@ stream = ExtResource( 5 )
 unit_size = 7.6
 max_db = 1.0
 
-[node name="PylonStatic4" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
+[node name="PlatformPylons" type="Spatial" parent="Objects/Stage2/Puzzle"]
+script = ExtResource( 35 )
+input_color = Color( 0, 1, 0.6, 1 )
+output_color = Color( 0.737255, 0, 0.364706, 1 )
+
+[node name="PylonStatic4" parent="Objects/Stage2/Puzzle/PlatformPylons" instance=ExtResource( 13 )]
 transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 35.1278, -15.0814, -4.33618 )
 is_source = true
-input_color = Color( 0.509804, 0, 0.666667, 1 )
-output_color = Color( 0.509804, 0, 0.666667, 1 )
+input_color = Color( 0, 1, 0.6, 1 )
+output_color = Color( 0.180392, 0.0627451, 0.0627451, 1 )
 
-[node name="PylonStatic11" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
+[node name="PylonStatic11" parent="Objects/Stage2/Puzzle/PlatformPylons" instance=ExtResource( 13 )]
 transform = Transform( 0.482963, 0.12941, 0, -0.12941, 0.482963, 0, 0, 0, 0.5, 43.561, -18.3944, -5.36562 )
-input_color = Color( 0.509804, 0, 0.666667, 1 )
-output_color = Color( 0.509804, 0, 0.67451, 1 )
+input_color = Color( 0.282353, 0.121569, 0.121569, 1 )
+output_color = Color( 0.180392, 0.0627451, 0.0627451, 1 )
 
-[node name="PylonStatic12" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
+[node name="PylonStatic12" parent="Objects/Stage2/Puzzle/PlatformPylons" instance=ExtResource( 13 )]
 transform = Transform( 0.482963, 0.12941, 0, -0.12941, 0.482963, 0, 0, 0, 0.5, 39.2175, -17.2227, -16.1029 )
-input_color = Color( 0.509804, 0, 0.67451, 1 )
-output_color = Color( 0.509804, 0, 0.67451, 1 )
+input_color = Color( 0.282353, 0.121569, 0.121569, 1 )
+output_color = Color( 0.180392, 0.0627451, 0.0627451, 1 )
 
-[node name="PylonStatic13" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
-transform = Transform( 0.482963, 0.12941, 0, -0.12941, 0.482963, 0, 0, 0, 0.5, 50.7152, -18.9377, -27.3728 )
-input_color = Color( 0.509804, 0, 0.67451, 1 )
-output_color = Color( 0.509804, 0, 0.67451, 1 )
+[node name="PylonStatic13" parent="Objects/Stage2/Puzzle/PlatformPylons" instance=ExtResource( 13 )]
+transform = Transform( 0.482963, 0.12941, 0, -0.12941, 0.482963, 0, 0, 0, 0.5, 47.6077, -18.0823, -24.9163 )
+input_color = Color( 0.282353, 0.121569, 0.121569, 1 )
+output_color = Color( 0.180392, 0.0627451, 0.0627451, 1 )
 
-[node name="PylonStatic14" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
+[node name="PylonStatic14" parent="Objects/Stage2/Puzzle/PlatformPylons" instance=ExtResource( 13 )]
 transform = Transform( 0.482963, 0.12941, 0, -0.12941, 0.482963, 0, 0, 0, 0.5, 41.5513, -15.7744, -27.3728 )
-input_color = Color( 0.509804, 0, 0.67451, 1 )
-output_color = Color( 0.509804, 0, 0.67451, 1 )
+input_color = Color( 0.282353, 0.121569, 0.121569, 1 )
+output_color = Color( 0.180392, 0.0627451, 0.0627451, 1 )
 
-[node name="PylonStatic15" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
+[node name="PylonStatic15" parent="Objects/Stage2/Puzzle/PlatformPylons" instance=ExtResource( 13 )]
 transform = Transform( 0.482963, 0.12941, 0, -0.12941, 0.482963, 0, 0, 0, 0.5, 50.6712, -16.0925, -38.6937 )
-input_color = Color( 0.509804, 0, 0.67451, 1 )
-output_color = Color( 0.509804, 0, 0.67451, 1 )
+input_color = Color( 0.282353, 0.121569, 0.121569, 1 )
+output_color = Color( 0.180392, 0.0627451, 0.0627451, 1 )
 
-[node name="PylonStatic16" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
+[node name="PylonStatic16" parent="Objects/Stage2/Puzzle/PlatformPylons" instance=ExtResource( 13 )]
 transform = Transform( 0.483781, 0.126313, -0.00085827, -0.121401, 0.465888, 0.134944, 0.0348901, -0.130359, 0.481445, 41.1728, -13.9209, -43.4557 )
-input_color = Color( 0.509804, 0, 0.67451, 1 )
-output_color = Color( 0.67451, 0.00392157, 0.364706, 1 )
+input_color = Color( 0.282353, 0.121569, 0.121569, 1 )
+output_color = Color( 0.180392, 0.0627451, 0.0627451, 1 )
 
-[node name="PylonStatic18" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
+[node name="PylonStatic18" parent="Objects/Stage2/Puzzle/PlatformPylons" instance=ExtResource( 13 )]
 transform = Transform( 0.483781, 0.126313, -0.00085827, -0.121401, 0.465888, 0.134944, 0.0348901, -0.130359, 0.481445, 46.1123, -16.8052, -49.0822 )
-input_color = Color( 0.67451, 0.00392157, 0.364706, 1 )
-output_color = Color( 0.67451, 0, 0.364706, 1 )
+input_color = Color( 0.282353, 0.121569, 0.121569, 1 )
+output_color = Color( 0.180392, 0.0627451, 0.0627451, 1 )
 
-[node name="PylonStatic17" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
+[node name="PylonStatic17" parent="Objects/Stage2/Puzzle/PlatformPylons" instance=ExtResource( 13 )]
 transform = Transform( 0.482963, 0.112072, 0.0647048, -0.12941, 0.418258, 0.241481, 0, -0.25, 0.433013, 52.9357, -26.0113, -54.4301 )
-input_color = Color( 0.67451, 0, 0.364706, 1 )
-output_color = Color( 0.67451, 0, 0.364706, 1 )
+input_color = Color( 0.282353, 0.121569, 0.121569, 1 )
+output_color = Color( 0.180392, 0.0627451, 0.0627451, 1 )
 
-[node name="PylonStatic19" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
+[node name="PylonStatic19" parent="Objects/Stage2/Puzzle/PlatformPylons" instance=ExtResource( 13 )]
 transform = Transform( 0.437621, 0.239986, 0.0299066, -0.231927, 0.398934, 0.192513, 0.0685391, -0.182367, 0.460483, 50.3437, -35.9547, -73.7025 )
-input_color = Color( 0.67451, 0, 0.364706, 1 )
-output_color = Color( 0.67451, 0, 0.364706, 1 )
+input_color = Color( 0.282353, 0.121569, 0.121569, 1 )
+output_color = Color( 0.180392, 0.0627451, 0.0627451, 1 )
 
-[node name="PylonStatic20" parent="Objects/Stage2/Puzzle" instance=ExtResource( 13 )]
+[node name="PylonStatic20" parent="Objects/Stage2/Puzzle/PlatformPylons" instance=ExtResource( 13 )]
 transform = Transform( 0.390607, 0.302791, 0.0757895, -0.307424, 0.394209, 0.00948576, -0.0540094, -0.0540094, 0.494131, 48.5261, -39.6782, -87.9957 )
-input_color = Color( 0.67451, 0, 0.364706, 1 )
-output_color = Color( 0.737255, 0, 0.364706, 1 )
+input_color = Color( 0.282353, 0.121569, 0.121569, 1 )
+output_color = Color( 0.180392, 0.0627451, 0.0627451, 1 )
 
 [node name="Checkpoint2" parent="Objects/Stage2" instance=ExtResource( 1 )]
 transform = Transform( 1.28155e-07, -2.26267e-08, 1, -5.96046e-08, 1, 2.26267e-08, -1, -5.96046e-08, 1.28155e-07, 37.1498, -16.0842, -5.77326 )

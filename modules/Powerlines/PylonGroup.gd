@@ -21,13 +21,14 @@ func create_pylon_gradient():
 	var num_children = get_child_count()
 	var children = get_children()
 	for pylon in children:
-		var index = pylon.get_index()
-		var input_adjustment:float = index / float(num_children)
-		var output_adjustment:float = (index + 1) / float(num_children)
-		var child_start_color = (input_color * (1 - input_adjustment)) + (output_color * input_adjustment)
-		var child_end_color = (input_color * (1 - output_adjustment)) + (output_color * output_adjustment)
-		
-		setup_pylon(pylon, child_start_color, child_end_color)
+		if "input_color" in pylon:
+			var index = pylon.get_index()
+			var input_adjustment:float = index / float(num_children)
+			var output_adjustment:float = (index + 1) / float(num_children)
+			var child_start_color = (input_color * (1 - input_adjustment)) + (output_color * input_adjustment)
+			var child_end_color = (input_color * (1 - output_adjustment)) + (output_color * output_adjustment)
+			
+			setup_pylon(pylon, child_start_color, child_end_color)
 
 func setup_pylon(pylon, start, end):
 	var index = pylon.get_index()
@@ -56,4 +57,5 @@ func setup_pylon(pylon, start, end):
 			pylon_group._ready()
 			pylon.connected_to_pylons.append(pylon.get_path_to(connected_pylon))
 			pylon._ready()
-	
+	else:
+		pylon._ready()
