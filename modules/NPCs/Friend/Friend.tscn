@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://modules/NPCs/Friend/Friend.gd" type="Script" id=1]
 [ext_resource path="res://AI/Brain.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://share/textures/progress_bar_green.tres" type="Material" id=4]
 [ext_resource path="res://share/textures/progress_bar_red.tres" type="Material" id=5]
 [ext_resource path="res://share/audio/Laser Loop-cm-01.wav" type="AudioStream" id=6]
+[ext_resource path="res://share/audio/Laser Power Down 2_02.wav" type="AudioStream" id=7]
 
 [sub_resource type="SphereMesh" id=4]
 radius = 0.1
@@ -131,6 +132,10 @@ disabled = true
 [node name="Sound" type="AudioStreamPlayer3D" parent="Vision/Front/LazerBeam"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.156263, 0.00896084 )
 stream = ExtResource( 6 )
+
+[node name="CoolDown" type="AudioStreamPlayer3D" parent="Vision/Front/LazerBeam"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.75496, -0.157982 )
+stream = ExtResource( 7 )
 
 [node name="JumpBlocked" type="RayCast" parent="Vision"]
 transform = Transform( 0.92388, -0.382684, 0, 0.382684, 0.92388, 0, 0, 0, 1, 0, 1, 0 )
