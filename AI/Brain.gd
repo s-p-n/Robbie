@@ -34,6 +34,8 @@ onready var react:Spatial = get_node("React")
 
 onready var vision:Spatial = get_parent().get_node("Vision")
 
+onready var death_audio:AudioStreamPlayer3D = $Sounds/DeathAudio
+
 # Spatials we know about
 var ground_ray:RayCast
 var ground_ahead_ray:RayCast
@@ -48,6 +50,8 @@ var action = null
 var delay = 0.25
 var time = 0
 
+var is_dieing = false
+var death_handler = self
 var lazer_state = false
 
 func _ready():
@@ -58,6 +62,8 @@ func _ready():
 	entity = get_parent()
 	
 func _process(delta):
+	if is_dieing:
+		return
 	emit_signal("tick", delta)
 	if not time_to_decide(delta):
 		return
@@ -85,6 +91,20 @@ func time_to_decide(delta):
 		return true
 	
 	return false
+
+func die(handler):
+	if !is_dieing:
+		if is_instance_valid(handler) and handler.has_method("handle_death"):
+			death_handler = handler
+		is_dieing = true
+		death_audio.play()
+		print("dieing")
+		if death_audio.connect("finished", death_handler, "handle_death") != OK:
+			print("could connect death audio signal in Brain.")
+
+func handle_death():
+	print("dead")
+	get_parent().queue_free()
 
 func is_time_for_action():
 	return time >= delay

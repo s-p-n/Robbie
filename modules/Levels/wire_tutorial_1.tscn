@@ -80,7 +80,7 @@ data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4
 transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, -55.5372, -15, -1.69617 )
 
 [node name="Player" parent="Objects" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 37.1009, -13.9863, -5.77651 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -55.4527, -14.1149, -1.51707 )
 starting_checkpoint = NodePath("../Checkpoint")
 
 [node name="Friend2" parent="Objects" instance=ExtResource( 31 )]

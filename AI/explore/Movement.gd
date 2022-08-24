@@ -151,7 +151,7 @@ func move(direction, delta):
 		gravity_vec.y = 0
 		if !snapped:
 			snapped = true
-			print("land")
+			#print("land")
 			get_parent().get_node("Sounds/Land").play(0)
 	else:
 		acceleration = air_acceleration
@@ -163,7 +163,7 @@ func move(direction, delta):
 	
 	if jump_command:
 		if is_on_floor():
-			print("jump!")
+			#print("jump!")
 			get_parent().get_node("Sounds/Jump").play(0)
 			snapped = false
 			jump_command = false

@@ -22,13 +22,13 @@ var has_laser = false
 var has_wings = false
 
 func _ready():
-	print("player ready")
+	#print("player ready")
 	starting_checkpoint_node = get_node_or_null(starting_checkpoint)
 	if starting_checkpoint_node.connect("tree_entered", self, "setup"):
 		pass
 
 func setup():
-	print("player setup")
+	#print("player setup")
 	#starting_checkpoint_node.set_this_checkpoint()
 	respawn()
 
@@ -50,7 +50,7 @@ func checkpoint(new_checkpoint):
 	last_checkpoint = new_checkpoint
 
 func interact():
-	print("got hit")
+	#print("got hit")
 	UI.remove_health()
 	if UI.health <= 0:
 		respawn()

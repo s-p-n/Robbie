@@ -16,7 +16,7 @@ func interact():
 	health -= 1
 	
 	if health < 0:
-		respawn()
+		die()
 	
 	update_health_visuals()
 	
@@ -29,9 +29,14 @@ func get_stamina():
 	return stamina
 
 func die():
-	if held_wire:
+	visible = false
+	if is_instance_valid(held_wire):
 		held_wire.interact()
 		held_wire = null
+	$Brain.die(self)
+
+func handle_death():
+	print("friend dead")
 	queue_free()
 
 func respawn():

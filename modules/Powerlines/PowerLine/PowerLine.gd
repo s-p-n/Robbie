@@ -13,8 +13,8 @@ var PowerLines:Spatial
 var interact:Node
 var entity:KinematicBody
 var ray:RayCast
-var clip_wire_audio:AudioStreamPlayer
-var place_wire_audio:AudioStreamPlayer
+var clip_wire_audio
+var place_wire_audio
 var pair = [null, null]
 var entity_pos:Vector3
 var lowest_y = -3

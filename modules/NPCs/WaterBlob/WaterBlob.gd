@@ -25,11 +25,19 @@ func adjust_stamina(_n):
 func get_stamina():
 	return stamina
 
+func die():
+	visible = false
+	$Brain.die(self)
+
+func handle_death():
+	print("waterblob dead")
+	queue_free()
+
 func interact():
 	health -= 1
 	
 	if health < 0:
-		queue_free()
+		die()
 	
 	update_health_visuals()
 
