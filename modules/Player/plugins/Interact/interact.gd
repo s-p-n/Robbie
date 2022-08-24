@@ -15,6 +15,7 @@ var pickup_ray:RayCast
 var wire_ray:RayCast
 var clip_ray:RayCast
 var drop_ray:RayCast
+var death_audio:AudioStreamPlayer
 var wire_reel_audio:AudioStreamPlayer
 var wire_place_audio:AudioStreamPlayer
 var wire_clip_audio:AudioStreamPlayer
@@ -38,6 +39,7 @@ func set_player(new_player):
 	clip_ray = $ClipRay
 	drop_ray = $DropRay
 	center_dot = $CenterDot
+	death_audio = $Sounds/DeathAudio
 	wire_reel_audio = $Sounds/WireReelAudio
 	wire_place_audio = $Sounds/WirePlaceAudio
 	wire_clip_audio = $Sounds/WireClipAudio

@@ -56,9 +56,11 @@ func interact():
 		respawn()
 
 func respawn():
+	$Head/Interact.death_audio.play(0)
 	UI.remove_life()
 	UI.reset_health()
 	UI.reset_stamina()
+	
 	if is_instance_valid(held_wire):
 		held_wire.interact()
 		held_wire = null

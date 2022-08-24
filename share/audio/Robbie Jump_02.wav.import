@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Robbie Jump_02.wav-5771eb9bdb862c0f0c40efcb11e99118.sample"
+
+[deps]
+
+source_file="res://share/audio/Robbie Jump_02.wav"
+dest_files=[ "res://.import/Robbie Jump_02.wav-5771eb9bdb862c0f0c40efcb11e99118.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
