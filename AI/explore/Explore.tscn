@@ -1,10 +1,36 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://AI/explore/Explore.gd" type="Script" id=1]
 [ext_resource path="res://AI/explore/Movement.gd" type="Script" id=2]
+[ext_resource path="res://share/scripts/loop.gd" type="Script" id=3]
+[ext_resource path="res://share/audio/Enemy Footsteps_01.wav" type="AudioStream" id=4]
+[ext_resource path="res://share/audio/Enemy Footsteps_02.wav" type="AudioStream" id=5]
+[ext_resource path="res://share/audio/Enemy Footsteps_06.wav" type="AudioStream" id=6]
+[ext_resource path="res://share/audio/Enemy Footsteps_03.wav" type="AudioStream" id=7]
+[ext_resource path="res://share/audio/Enemy Footsteps_04.wav" type="AudioStream" id=8]
+[ext_resource path="res://share/audio/Enemy Footsteps_05.wav" type="AudioStream" id=9]
+[ext_resource path="res://share/audio/Enemy Footsteps_07.wav" type="AudioStream" id=10]
+[ext_resource path="res://share/audio/Enemy Landing_02.wav" type="AudioStream" id=11]
+[ext_resource path="res://share/audio/Enemy Jump_02.wav" type="AudioStream" id=12]
 
 [node name="Explore" type="Spatial"]
 script = ExtResource( 1 )
 
 [node name="Movement" type="Spatial" parent="."]
 script = ExtResource( 2 )
+
+[node name="Sounds" type="Spatial" parent="."]
+
+[node name="Walking" type="AudioStreamPlayer3D" parent="Sounds"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.560648, 0.234594, 0 )
+unit_db = 7.32
+script = ExtResource( 3 )
+sounds = [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 10 ) ]
+
+[node name="Jump" type="AudioStreamPlayer3D" parent="Sounds"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.560648, 0.234594, 0 )
+stream = ExtResource( 12 )
+
+[node name="Land" type="AudioStreamPlayer3D" parent="Sounds"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.560648, 0.234594, 0 )
+stream = ExtResource( 11 )

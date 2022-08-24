@@ -139,11 +139,20 @@ func handle_follow(entity:Spatial, delta):
 func move(direction, delta):
 	var mob:KinematicBody = brain.get_parent()
 	brain.ahead_ray.rotation_degrees.x += 10
-	if mob.is_on_floor():
+	
+	if direction.is_equal_approx(Vector3.ZERO):
+		get_parent().get_node("Sounds/Walking").stop_stream()
+	else:
+		get_parent().get_node("Sounds/Walking").play_stream()
+	
+	if is_on_floor():
 		acceleration = ground_acceleration
 		gravity_vec = -mob.get_floor_normal() * 10
 		gravity_vec.y = 0
-		snapped = true
+		if !snapped:
+			snapped = true
+			print("land")
+			get_parent().get_node("Sounds/Land").play(0)
 	else:
 		acceleration = air_acceleration
 		if snapped:
@@ -154,7 +163,8 @@ func move(direction, delta):
 	
 	if jump_command:
 		if is_on_floor():
-			#print("jump!")
+			print("jump!")
+			get_parent().get_node("Sounds/Jump").play(0)
 			snapped = false
 			jump_command = false
 			gravity_vec = Vector3.UP * jump_height
