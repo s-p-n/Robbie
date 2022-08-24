@@ -24,6 +24,7 @@ func _process(delta):
 		return
 	
 	if visible:
+		$Sound.playing = true
 		time = 0
 		host.adjust_stamina(change_stamina)
 	
@@ -31,7 +32,8 @@ func _process(delta):
 			print("Lazer interacting with: ", hit)
 			hit.interact()
 			hit = null
-		
+	else:
+		$Sound.playing = false
 
 func turn_on():
 	visible = true
