@@ -17,6 +17,8 @@ onready var UI = find_parent("Robbie").get_node("UI")
 var checkpoint_padding = Vector3(0,0.5,0)
 var last_checkpoint:Spatial = self
 
+onready var subtitle_text = $Head/Subtitles/SubText
+
 var held_wire = null
 var has_laser = false
 var has_wings = false
@@ -26,6 +28,7 @@ func _ready():
 	starting_checkpoint_node = get_node_or_null(starting_checkpoint)
 	if starting_checkpoint_node.connect("tree_entered", self, "setup"):
 		pass
+	subtitle_text.init_subtitles(['Hello', 'This is a test', 'Goodbye', 'Your days are numbered.', 'Bitchass Robot.'], [3, 4, 3, 2, 0.5])
 
 func setup():
 	#print("player setup")

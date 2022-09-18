@@ -1,9 +1,33 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://modules/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://modules/Player/plugins/Movement/Movement.tscn" type="PackedScene" id=2]
 [ext_resource path="res://modules/Player/plugins/Interact/Interact.tscn" type="PackedScene" id=3]
 [ext_resource path="res://share/environment/environment_gloomy.tres" type="Environment" id=4]
+[ext_resource path="res://modules/Player/plugins/Subtitles/subtitle.tres" type="StyleBox" id=5]
+[ext_resource path="res://modules/Player/plugins/ReemKufiInk-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://modules/Player/plugins/Subtitles/Subtitles.gd" type="Script" id=7]
+
+[sub_resource type="DynamicFont" id=4]
+size = 45
+outline_size = 2
+outline_color = Color( 0.439216, 0.376471, 0.376471, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="Theme" id=3]
+LineEdit/colors/clear_button_color = Color( 1, 1, 1, 1 )
+LineEdit/colors/clear_button_color_pressed = Color( 1, 1, 1, 1 )
+LineEdit/colors/cursor_color = Color( 1, 1, 1, 1 )
+LineEdit/colors/font_color = Color( 1, 1, 1, 1 )
+LineEdit/colors/font_color_selected = Color( 1, 1, 1, 1 )
+LineEdit/colors/font_color_uneditable = Color( 1, 1, 1, 1 )
+LineEdit/colors/selection_color = Color( 1, 1, 1, 1 )
+LineEdit/constants/minimum_spaces = 0
+LineEdit/fonts/font = SubResource( 4 )
+LineEdit/icons/clear = null
+LineEdit/styles/focus = ExtResource( 5 )
+LineEdit/styles/normal = ExtResource( 5 )
+LineEdit/styles/read_only = ExtResource( 5 )
 
 [sub_resource type="CapsuleMesh" id=1]
 radius = 0.5
@@ -34,6 +58,19 @@ light_color = Color( 0.752941, 0.909804, 0.717647, 1 )
 light_energy = 0.32
 spot_attenuation = 0.15932
 spot_angle = 75.0
+
+[node name="Subtitles" type="Control" parent="Head"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="SubText" type="LineEdit" parent="Head/Subtitles"]
+margin_top = 896.0
+margin_right = 1920.0
+margin_bottom = 960.0
+theme = SubResource( 3 )
+text = "HERLLO WORLD"
+align = 1
+script = ExtResource( 7 )
 
 [node name="CSGMesh" type="CSGMesh" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0 )
