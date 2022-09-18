@@ -2549,11 +2549,6 @@ transform = Transform( 0.405955, -0.123799, 0.264336, 0.226913, 0.41867, -0.1524
 input_color = Color( 0.952941, 0.670588, 0.909804, 1 )
 output_color = Color( 0.823529, 0.278431, 0.278431, 1 )
 
-[node name="PylonStatic3" parent="Objects/Stage4/hallway" instance=ExtResource( 13 )]
-transform = Transform( 0.345892, 0.135875, 0.334509, -0.121031, 0.480075, -0.0698515, -0.340161, -0.0326504, 0.365, 5.88967, -20.0908, -23.6694 )
-input_color = Color( 0.627451, 0.321569, 0.580392, 1 )
-output_color = Color( 0.823529, 0.431373, 0.764706, 1 )
-
 [node name="SpotLight" type="SpotLight" parent="Objects/Stage4/hallway"]
 transform = Transform( -0.996742, -0.0806514, -3.56683e-15, -3.52539e-09, 4.3569e-08, 1, -0.0806514, 0.996742, -4.37114e-08, 0, 19.2543, 0 )
 light_color = Color( 0.705882, 0.686275, 1, 1 )
