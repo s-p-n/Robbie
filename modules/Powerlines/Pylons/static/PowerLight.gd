@@ -7,15 +7,16 @@ var target_energy:float = rand_range(min_energy, max_energy)
 
 var t:float = 0
 var flicker_time:float = 1
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var throttle_interval:float = 0.1
+var throttle:float = 0
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _process(delta):
 	if visible:
-		flicker(delta)
+		throttle += delta
+		if throttle <= throttle_interval:
+			return
+		flicker(delta + throttle)
+		throttle = 0
 
 func flicker(delta):
 	t += delta
