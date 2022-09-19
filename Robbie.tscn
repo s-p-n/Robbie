@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://modules/SceneManager/SceneManager.gd" type="Script" id=1]
 [ext_resource path="res://modules/Levels/wire_climber_3.tscn" type="PackedScene" id=2]
@@ -7,10 +7,11 @@
 [ext_resource path="res://modules/Structures/block/block.obj" type="ArrayMesh" id=5]
 [ext_resource path="res://modules/SceneManager/Checkpoints.gd" type="Script" id=6]
 [ext_resource path="res://share/audio/Robbie Music_04.wav" type="AudioStream" id=7]
-[ext_resource path="res://modules/Levels/wire_tutorial_1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://modules/Levels/Level1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://modules/2D/UI/UI.tscn" type="PackedScene" id=9]
 [ext_resource path="res://modules/Levels/get_up.tscn" type="PackedScene" id=10]
 [ext_resource path="res://modules/Levels/Warehouse.tscn" type="PackedScene" id=11]
+[ext_resource path="res://modules/Shop/Shop.tscn" type="PackedScene" id=12]
 
 [sub_resource type="SpatialMaterial" id=1]
 emission_enabled = true
@@ -32,6 +33,9 @@ levels = [ ExtResource( 8 ), ExtResource( 11 ), ExtResource( 2 ), ExtResource( 1
 script = ExtResource( 6 )
 
 [node name="ActiveLevel" type="Spatial" parent="."]
+
+[node name="Shop" parent="." instance=ExtResource( 12 )]
+visible = false
 
 [node name="UI" parent="." instance=ExtResource( 9 )]
 

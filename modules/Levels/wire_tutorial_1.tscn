@@ -2466,11 +2466,9 @@ spot_angle_attenuation = 5220.61
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, -0.160467, 0.987041, 0, -0.987041, -0.160467, 0, 30.9096, 8.28221 )
-visible = false
 light_color = Color( 0.223529, 0.27451, 0.309804, 1 )
 
 [node name="DevLights" type="Spatial" parent="Objects"]
-visible = false
 
 [node name="DirectionalLight2" type="DirectionalLight" parent="Objects/DevLights"]
 transform = Transform( 0.853553, -0.146447, 0.5, 0.5, 0.5, -0.707107, -0.146447, 0.853553, 0.5, 0, 30.9096, 8.28221 )
@@ -3848,7 +3846,7 @@ transform = Transform( -4.37112e-08, 0, -1, 0, 3.57114, 0, 3.06803, 0, -1.34108e
 transform = Transform( -1.5154, 0, -1.3248e-07, 0, 1.66167, 0, 8.74228e-08, 0, -1, -7.11451, -2.43436, -13.9488 )
 
 [node name="Poster5" parent="Objects" instance=ExtResource( 28 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 39.7775, -38.5035, -109.378 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 35.269, -37.4716, -109.393 )
 
 [node name="PowerUp" parent="Objects" instance=ExtResource( 32 )]
 transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, -67.9242, -15.0932, -10.4677 )
