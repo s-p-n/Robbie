@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://share/scripts/Puzzle.gd" type="Script" id=1]
 [ext_resource path="res://share/scripts/open_door.gd" type="Script" id=2]
@@ -14,19 +14,19 @@
 [ext_resource path="res://modules/Interactive/Checkpoint/Checkpoint.tscn" type="PackedScene" id=12]
 [ext_resource path="res://modules/Powerlines/Pylons/input/PylonInput.tscn" type="PackedScene" id=13]
 [ext_resource path="res://modules/Structures/block/block.obj" type="ArrayMesh" id=14]
-[ext_resource path="res://share/scripts/next_level.gd" type="Script" id=15]
-[ext_resource path="res://share/images/you_win.png" type="Texture" id=16]
+[ext_resource path="res://modules/Structures/Ending.tscn" type="PackedScene" id=15]
 
 [sub_resource type="ConcavePolygonShape" id=1]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
 
-[sub_resource type="SpatialMaterial" id=2]
-albedo_texture = ExtResource( 16 )
-
-[sub_resource type="ConcavePolygonShape" id=3]
-data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
-
 [node name="Objects" type="Spatial"]
+
+[node name="Checkpoint" parent="." instance=ExtResource( 12 )]
+transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, -55.5372, -15, -1.69617 )
+
+[node name="Player" parent="." instance=ExtResource( 11 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -55.4527, -14.1149, -1.51707 )
+starting_checkpoint = NodePath("../Checkpoint")
 
 [node name="Stage0" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -99.179, -10, 7.45 )
@@ -1305,13 +1305,6 @@ stream = ExtResource( 3 )
 unit_size = 7.6
 max_db = 1.0
 
-[node name="Checkpoint" parent="." instance=ExtResource( 12 )]
-transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, -55.5372, -15, -1.69617 )
-
-[node name="Player" parent="." instance=ExtResource( 11 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -55.4527, -14.1149, -1.51707 )
-starting_checkpoint = NodePath("../Checkpoint")
-
 [node name="Poster" parent="." instance=ExtResource( 7 )]
 transform = Transform( -7.17835e-08, 0, 1, 0, 4.09729, 0, -3.09438, 0, -8.23639e-08, -53.5199, -12.9429, -1.42544 )
 
@@ -1324,32 +1317,4 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 3.73613, 0, 2.56399, 0, -1.12075e
 [node name="Poster4" parent="." instance=ExtResource( 6 )]
 transform = Transform( 2.26876, 0, 0.0490688, 0, 2.46121, 0, -0.0216228, 0, 0.999766, -119.776, -22.4924, 9.91579 )
 
-[node name="WinPlatform" type="RigidBody" parent="."]
-transform = Transform( 0.649063, -0.760735, 0, 0.760735, 0.649063, 0, 0, 0, 1, -7.69486, -1.37652, -10.8624 )
-contacts_reported = 1
-contact_monitor = true
-axis_lock_linear_x = true
-axis_lock_linear_y = true
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-axis_lock_angular_z = true
-script = ExtResource( 15 )
-
-[node name="block-441" type="MeshInstance" parent="WinPlatform"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
-material_override = SubResource( 2 )
-mesh = ExtResource( 14 )
-material/0 = null
-
-[node name="CollisionShape" type="CollisionShape" parent="WinPlatform"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
-shape = SubResource( 3 )
-
-[node name="SpotLight" type="SpotLight" parent="WinPlatform"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
-light_color = Color( 0.654902, 0.882353, 0.992157, 1 )
-spot_range = 14.3195
-spot_angle = 60.4688
-
-[connection signal="body_entered" from="WinPlatform" to="WinPlatform" method="_on_platform15_body_entered"]
+[node name="Ending" parent="." instance=ExtResource( 15 )]
