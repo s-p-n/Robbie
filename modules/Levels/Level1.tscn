@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://share/scripts/Puzzle.gd" type="Script" id=1]
 [ext_resource path="res://share/scripts/open_door.gd" type="Script" id=2]
@@ -36,13 +36,15 @@ surfaces/0 = {
 "vertex_count": 1984
 }
 
+[sub_resource type="SpatialMaterial" id=4]
+
 [node name="Objects" type="Spatial"]
 
 [node name="Checkpoint" parent="." instance=ExtResource( 12 )]
 transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, -55.5372, -15, -1.69617 )
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -55.4527, -14.1149, -1.51707 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -21.6507, -0.498195, -1.51707 )
 starting_checkpoint = NodePath("../Checkpoint")
 
 [node name="Stage0" type="Spatial" parent="."]
@@ -1340,6 +1342,7 @@ transform = Transform( 2.26876, 0, 0.0490688, 0, 2.46121, 0, -0.0216228, 0, 0.99
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.344, -2.875, -5.084 )
 collision_layer = 4
 collision_mask = 4
+mode = 1
 
 [node name="CollisionShape" type="CollisionShape" parent="DuckShop"]
 shape = SubResource( 2 )
@@ -1347,4 +1350,4 @@ shape = SubResource( 2 )
 [node name="Sphere" type="MeshInstance" parent="DuckShop"]
 transform = Transform( 0.667261, 0, -0.744824, 0, 1, 0, 0.744824, 0, 0.667261, 0, 0, -4.76837e-07 )
 mesh = SubResource( 3 )
-material/0 = null
+material/0 = SubResource( 4 )

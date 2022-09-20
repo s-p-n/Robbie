@@ -15,6 +15,10 @@ script = ExtResource( 2 )
 [node name="Panel" type="Panel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -153.0
+margin_top = 87.0
+margin_right = -153.0
+margin_bottom = 87.0
 
 [node name="Label" type="Label" parent="Panel"]
 anchor_left = 0.022
@@ -25,7 +29,7 @@ margin_left = -0.246001
 margin_top = -0.0910015
 margin_right = -516.824
 margin_bottom = -43.797
-rect_scale = Vector2( 4.72, 4.12 )
+rect_scale = Vector2( 4.32, 4.12 )
 text = "You want any, grapes?"
 
 [node name="ItemList" type="ItemList" parent="Panel"]
@@ -39,10 +43,20 @@ rect_scale = Vector2( 5.11645, 6.20275 )
 same_column_width = true
 script = ExtResource( 1 )
 
-[node name="Button" type="Button" parent="Panel"]
+[node name="Buy" type="Button" parent="Panel"]
 margin_left = 559.0
 margin_top = 588.0
 margin_right = 595.0
 margin_bottom = 608.0
 rect_scale = Vector2( 3.39011, 3.48603 )
 text = "Buy"
+
+[node name="Close" type="Button" parent="Panel"]
+margin_left = 628.0
+margin_top = 18.0
+margin_right = 647.0
+margin_bottom = 38.0
+rect_scale = Vector2( 2.64, 2.36 )
+text = "x"
+
+[connection signal="pressed" from="Panel/Close" to="." method="_on_Close_pressed"]

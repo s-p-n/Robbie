@@ -2,6 +2,7 @@
 
 extends Control
 
+onready var Shop = get_parent().get_node("Shop")
 
 func _ready():
 	pause_mode = PAUSE_MODE_PROCESS # This script can't get paused
@@ -13,7 +14,8 @@ func _input(event):
 
 func _process(_delta):
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
-		visible = true
+		if !is_instance_valid(Shop) or !Shop.active:
+			visible = true
 		get_tree().paused = true
 	else:
 		visible = false
@@ -21,8 +23,11 @@ func _process(_delta):
 
 func toggle_pause():
 	if Input.get_mouse_mode() != Input.MOUSE_MODE_VISIBLE:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
+		if is_instance_valid(Shop) and Shop.active:
+			Shop.deactivate()
+		
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 

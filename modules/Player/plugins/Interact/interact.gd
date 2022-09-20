@@ -11,10 +11,13 @@ export var PowerLineScene:PackedScene
 var player:KinematicBody
 var entity:KinematicBody
 var center_dot:Sprite
+
 var pickup_ray:RayCast
 var wire_ray:RayCast
 var clip_ray:RayCast
 var drop_ray:RayCast
+var shop_ray:RayCast
+
 var death_audio:AudioStreamPlayer
 var wire_reel_audio:AudioStreamPlayer
 var wire_place_audio:AudioStreamPlayer
@@ -38,6 +41,7 @@ func set_player(new_player):
 	wire_ray = $WireRay
 	clip_ray = $ClipRay
 	drop_ray = $DropRay
+	shop_ray = $ShopRay
 	center_dot = $CenterDot
 	death_audio = $Sounds/DeathAudio
 	wire_reel_audio = $Sounds/WireReelAudio
@@ -71,7 +75,8 @@ func _unhandled_input(event):
 		
 		if !took_action:
 			took_action = handle_clip_action()
-		
+		if !took_action:
+			took_action = handle_shop_action()
 		#if !took_action:
 		#	took_action = handle_laser_fire()
 func _physics_process (delta):
@@ -85,6 +90,7 @@ func look_for_interactables():
 		pickup_ray.get_collider(),
 		wire_ray.get_collider(),
 		clip_ray.get_collider(),
+		shop_ray.get_collider(),
 		drop_ray.get_collider()
 	]
 
@@ -98,9 +104,10 @@ func setup_center_dot(interactables):
 	var can_grab = !!interactables[0]
 	var can_wire = !!interactables[1]
 	var can_clip = !!interactables[2]
-	var can_drop = !!interactables[3] and is_instance_valid(held_object)
+	var can_shop = !!interactables[3]
+	var can_drop = !!interactables[4] and is_instance_valid(held_object)
 	var interacting = held_object
-	if (not interacting) and (can_grab or can_wire or can_clip or can_drop):
+	if (not interacting) and (can_grab or can_wire or can_clip or can_shop or can_drop):
 		looking_at_interactable = true
 		center_dot.visible = true
 	else:
@@ -169,6 +176,15 @@ func handle_held_object(delta):
 			held_object.visible = true#false
 		else:
 			held_object.visible = true
+
+func handle_shop_action():
+	var collider = shop_ray.get_collider()
+	if collider:
+		var top_node = player.find_parent("Objects").find_parent("Robbie")
+		var Shop = top_node.get_node("Shop")
+		Shop.activate()
+		return true
+	return false
 
 func handle_laser_fire(_delta):
 	if Input.is_action_pressed("fire"):

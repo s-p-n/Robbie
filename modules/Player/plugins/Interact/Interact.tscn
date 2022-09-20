@@ -58,13 +58,19 @@ cast_to = Vector3( 0, 0, -8 )
 collision_mask = 32
 
 [node name="ClipRay" type="RayCast" parent="."]
-visible = false
 cast_to = Vector3( 0, 0, -5 )
 collision_mask = 512
 
 [node name="DropRay" type="RayCast" parent="."]
+visible = false
 enabled = true
 cast_to = Vector3( 0, 0, -15 )
+
+[node name="ShopRay" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0, 0, -15 )
+collision_mask = 4
+debug_shape_custom_color = Color( 0.67451, 0.219608, 0.8, 1 )
 
 [node name="HoldPosition" type="Position3D" parent="."]
 
