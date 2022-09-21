@@ -6,7 +6,8 @@ var player_items = []
 
 onready var itemList:ItemList = $Panel/ItemList
 onready var cash = $Panel/Cash
-
+onready var nextLevelBtn = $Panel/NextLevel
+onready var arrow = $Arrow
 var active = false
 
 func _ready():
@@ -49,6 +50,10 @@ func _on_Buy_pressed():
 	if funds < cost:
 		print("Not enough funds.")
 		return
+	
+	if item == "Laser Gun":
+		nextLevelBtn.disabled = false
+		arrow.visible = false
 	
 	var player = get_parent().get_node("ActiveLevel").get_child(0).find_node("Player")
 	
