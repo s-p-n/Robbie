@@ -25,7 +25,7 @@ data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4
 transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, -55.5372, -15, -1.69617 )
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -55.3908, -14.1188, -1.36233 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -55.3702, -14.0105, -1.36233 )
 starting_checkpoint = NodePath("../Checkpoint")
 
 [node name="Stage0" type="Spatial" parent="."]
@@ -1319,3 +1319,4 @@ transform = Transform( 2.26876, 0, 0.0490688, 0, 2.46121, 0, -0.0216228, 0, 0.99
 
 [node name="Ending" parent="." instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99959, -3.35948, -11.0851 )
+shop_items = [ "Laser Gun", "Extra Life", "Extra Life" ]

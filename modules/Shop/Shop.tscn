@@ -20,17 +20,29 @@ margin_top = 87.0
 margin_right = -153.0
 margin_bottom = 87.0
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="CashLabel" type="Label" parent="Panel"]
 anchor_left = 0.022
 anchor_top = 0.021
 anchor_right = 0.968
 anchor_bottom = 0.107
-margin_left = -0.246001
-margin_top = -0.0910015
-margin_right = -516.824
+margin_left = -0.246
+margin_top = -0.0909996
+margin_right = -621.824
 margin_bottom = -43.797
-rect_scale = Vector2( 3.76, 3.64 )
-text = "You want any, grapes?"
+rect_scale = Vector2( 3.75, 3.75 )
+text = "Cash:"
+
+[node name="CostLabel" type="Label" parent="Panel"]
+anchor_left = 0.022
+anchor_top = 0.021
+anchor_right = 0.968
+anchor_bottom = 0.107
+margin_left = 250.754
+margin_top = 583.909
+margin_right = -370.824
+margin_bottom = 540.203
+rect_scale = Vector2( 3.75, 3.75 )
+text = "Cost:"
 
 [node name="ItemList" type="ItemList" parent="Panel"]
 anchor_top = 0.131
@@ -66,6 +78,22 @@ margin_right = 99.0
 margin_bottom = 608.0
 rect_scale = Vector2( 2.8, 3.44 )
 text = "Next Level"
+
+[node name="Cash" type="Label" parent="Panel"]
+margin_left = 161.0
+margin_top = 18.0
+margin_right = 189.0
+margin_bottom = 32.0
+rect_scale = Vector2( 3.75, 3.75 )
+text = "5"
+
+[node name="Cost" type="Label" parent="Panel"]
+margin_left = 404.0
+margin_top = 598.0
+margin_right = 432.0
+margin_bottom = 612.0
+rect_scale = Vector2( 3.75, 3.75 )
+text = "0"
 
 [connection signal="item_selected" from="Panel/ItemList" to="Panel/ItemList" method="_on_ItemList_item_selected"]
 [connection signal="pressed" from="Panel/Buy" to="." method="_on_Buy_pressed"]

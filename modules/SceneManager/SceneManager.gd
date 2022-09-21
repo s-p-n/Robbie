@@ -1,4 +1,7 @@
 extends Spatial
+
+signal level_loaded(level)
+
 onready var active_level = $ActiveLevel
 onready var wires = $PowerLines
 onready var checkpoints = $Checkpoints
@@ -37,12 +40,13 @@ func load_level(idx):
 	for active_scene_member in old_level_members:
 		active_level.remove_child(active_scene_member)
 		active_scene_member.queue_free()
-	
-	active_level.add_child(levels[idx].instance())
+	var level = levels[idx].instance()
+	active_level.add_child(level)
 	
 	var player = active_level.get_child(0).find_node("Player")
 	for item in shop.player_items:
 		player.give_power(item)
+	emit_signal("level_loaded", level)
 
 func game_over():
 	cur_level = 0

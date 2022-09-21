@@ -1,15 +1,19 @@
 extends Control
 
-var funds = 5
+var funds = 100 setget set_funds, get_funds
 
 var player_items = []
 
 onready var itemList:ItemList = $Panel/ItemList
+onready var cash = $Panel/Cash
 
 var active = false
 
 func _ready():
 	pause_mode = PAUSE_MODE_PROCESS
+	cash.text = str(funds)
+	if get_parent().connect("level_loaded", self, "_on_level_loaded") != OK:
+		print("HEY! Couldn't connect shop to level_loaded signal!")
 
 func activate():
 	active = true
@@ -20,6 +24,16 @@ func deactivate():
 	active = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	visible = false
+
+func set_funds(new_funds):
+	funds = new_funds
+	cash.text = str(funds)
+	print("funds set: ", funds)
+	return funds
+
+func get_funds():
+	print("funds get: ", funds)
+	return funds
 
 func _on_Close_pressed():
 	deactivate()
@@ -36,11 +50,12 @@ func _on_Buy_pressed():
 		print("Not enough funds.")
 		return
 	
-	funds -= cost
+	var player = get_parent().get_node("ActiveLevel").get_child(0).find_node("Player")
+	
+	self.funds -= cost
 	player_items.append(item)
 	itemList.remove_item(items[0])
-	
-	var player = get_parent().get_node("ActiveLevel").get_child(0).find_node("Player")
+	get_node("Panel/Cost").text = "0"
 	player.give_power(item)
 
 func _on_NextLevel_pressed():
@@ -49,3 +64,9 @@ func _on_NextLevel_pressed():
 		get_tree().root.get_node("Robbie").next_level()
 	else:
 		print("Laser Gun required to move on")
+
+func _on_level_loaded(level):
+	var ending = level.find_node("Ending")
+	print("Level loaded.. Here is the ending: ", ending)
+	itemList.shop_items = ending.shop_items
+	itemList._ready()

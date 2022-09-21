@@ -156,7 +156,7 @@ transform = Transform( 1.32968, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 2 )
 
 [node name="Poster" parent="Stage1" instance=ExtResource( 13 )]
-transform = Transform( 1.5, 0, 2.38419e-07, 0, 1.5, 0, -3.57628e-07, 0, 1, -7.10435, -2.38277, -13.9604 )
+transform = Transform( 1.5, 0, 2.38419e-07, 0, 1.5, 0, -3.57628e-07, 0, 1, -7.10435, -2.38277, -13.9998 )
 
 [node name="Puzzle" type="Spatial" parent="Stage1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.163411, -0.0052762, 6.19165 )
@@ -1106,6 +1106,7 @@ spot_angle_attenuation = 5220.61
 
 [node name="Ending" parent="." instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 53.6135, -35.6222, -133.03 )
+shop_items = [ "Battery II", "Wires II", "Extra Life", "Extra Life", "Extra Life" ]
 
 [node name="WaterBlob" parent="." instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7747, -16.069, -8.01777 )
