@@ -2,6 +2,7 @@ extends Spatial
 onready var active_level = $ActiveLevel
 onready var wires = $PowerLines
 onready var checkpoints = $Checkpoints
+onready var shop = $Shop
 onready var pause_menu = $Paused
 onready var UI = $UI
 var is_paused = false
@@ -38,8 +39,13 @@ func load_level(idx):
 		active_scene_member.queue_free()
 	
 	active_level.add_child(levels[idx].instance())
+	
+	var player = active_level.get_child(0).find_node("Player")
+	for item in shop.player_items:
+		player.give_power(item)
 
 func game_over():
 	cur_level = 0
 	UI.lives = starting_lives
+	shop.player_items = []
 	load_level(0)

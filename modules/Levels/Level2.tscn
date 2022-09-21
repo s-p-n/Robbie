@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://modules/Powerlines/PylonGroup.gd" type="Script" id=1]
 [ext_resource path="res://modules/Interactive/Ship/Ship.gd" type="Script" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://modules/Structures/block/block.obj" type="ArrayMesh" id=21]
 [ext_resource path="res://modules/Structures/wall/wall.obj" type="ArrayMesh" id=22]
 [ext_resource path="res://modules/Structures/ramp/ramp.obj" type="ArrayMesh" id=23]
+[ext_resource path="res://modules/NPCs/WaterBlob/WaterBlob.tscn" type="PackedScene" id=24]
 
 [sub_resource type="ConcavePolygonShape" id=1]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
@@ -1105,6 +1106,9 @@ spot_angle_attenuation = 5220.61
 
 [node name="Ending" parent="." instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 53.6135, -35.6222, -133.03 )
+
+[node name="WaterBlob" parent="." instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7747, -16.069, -8.01777 )
 
 [connection signal="body_entered" from="Stage3/Ship/Area" to="Stage3/Ship" method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Stage3/Ship/Area" to="Stage3/Ship" method="_on_Area_body_exited"]
