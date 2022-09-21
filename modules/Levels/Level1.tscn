@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://share/scripts/Puzzle.gd" type="Script" id=1]
 [ext_resource path="res://share/scripts/open_door.gd" type="Script" id=2]
@@ -15,6 +15,8 @@
 [ext_resource path="res://modules/Powerlines/Pylons/input/PylonInput.tscn" type="PackedScene" id=13]
 [ext_resource path="res://modules/Structures/block/block.obj" type="ArrayMesh" id=14]
 [ext_resource path="res://modules/Structures/Ending.tscn" type="PackedScene" id=15]
+[ext_resource path="res://share/audio/_Store music test_01.wav" type="AudioStream" id=16]
+[ext_resource path="res://share/scripts/ShopArea.gd" type="Script" id=17]
 
 [sub_resource type="ConcavePolygonShape" id=1]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
@@ -38,13 +40,16 @@ surfaces/0 = {
 
 [sub_resource type="SpatialMaterial" id=4]
 
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 18.4463, 4.21501, 11.9355 )
+
 [node name="Objects" type="Spatial"]
 
 [node name="Checkpoint" parent="." instance=ExtResource( 12 )]
 transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, -55.5372, -15, -1.69617 )
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -21.6507, -0.498195, -1.51707 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -55.3908, -14.1188, -1.36233 )
 starting_checkpoint = NodePath("../Checkpoint")
 
 [node name="Stage0" type="Spatial" parent="."]
@@ -1351,3 +1356,20 @@ shape = SubResource( 2 )
 transform = Transform( 0.667261, 0, -0.744824, 0, 1, 0, 0.744824, 0, 0.667261, 0, 0, -4.76837e-07 )
 mesh = SubResource( 3 )
 material/0 = SubResource( 4 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="DuckShop"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28746, 0 )
+stream = ExtResource( 16 )
+unit_size = 10.0
+autoplay = true
+max_distance = 25.0
+
+[node name="Area" type="Area" parent="DuckShop"]
+script = ExtResource( 17 )
+
+[node name="CollisionShape" type="CollisionShape" parent="DuckShop/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.17996, 3.17425, 3.0793 )
+shape = SubResource( 5 )
+
+[connection signal="body_entered" from="DuckShop/Area" to="DuckShop/Area" method="_on_Area_body_entered"]
+[connection signal="body_exited" from="DuckShop/Area" to="DuckShop/Area" method="_on_Area_body_exited"]
