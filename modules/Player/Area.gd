@@ -20,7 +20,7 @@ var t = 0
 func _ready():
 	pass
 	
-func _process(delta):
+func _process_disabled(delta):
 	t += delta
 	if t <= throttle:
 		return
@@ -28,7 +28,7 @@ func _process(delta):
 	
 	var resized = [0,0,0]
 	position = global_transform.origin
-	mesh.get_aabb()
+	#mesh.get_aabb().intersects()
 	for body in bodies:
 		if !is_instance_valid(body):
 			bodies.erase(body)
