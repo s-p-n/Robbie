@@ -4,9 +4,13 @@ onready var powerline = get_parent()
 onready var mesh = $Mesh
 var material:SpatialMaterial = SpatialMaterial.new()
 var color_set = false
+var wire_health = -1
+var player:KinematicBody
 
 func _ready():
+	player = find_parent("Robbie").get_node("ActiveLevel").get_child(0).find_node("Player")
 	mesh.set_surface_material(0, material)
+	print("wirewhole player:", player)
 
 func _process(_delta):
 	if !color_set and is_instance_valid(powerline.pair[0]):
@@ -23,4 +27,14 @@ func _on_WireWhole_body_entered(body):
 		powerline.disconnect_pair()
 
 func interact():
-	powerline.disconnect_pair()
+	if wire_health == -1:
+		if is_instance_valid(player):
+			wire_health = player.wire_health
+		else:
+			wire_health = 1
+	
+	print("wire under attack: ", wire_health)
+	wire_health -= 1
+	
+	if wire_health <= 0:
+		powerline.disconnect_pair()

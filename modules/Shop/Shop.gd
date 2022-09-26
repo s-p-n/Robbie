@@ -8,6 +8,10 @@ onready var itemList:ItemList = $Panel/ItemList
 onready var cash = $Panel/Cash
 onready var nextLevelBtn = $Panel/NextLevel
 onready var arrow = $Arrow
+onready var buyAudio = $Panel/BuyAudio
+onready var closeAudio = $Panel/CloseAudio
+onready var openAudio = $Panel/OpenAudio
+
 var active = false
 
 func _ready():
@@ -20,11 +24,13 @@ func activate():
 	active = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	visible = true
+	openAudio.play()
 
 func deactivate():
 	active = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	visible = false
+	closeAudio.play()
 
 func set_funds(new_funds):
 	funds = new_funds
@@ -58,6 +64,7 @@ func _on_Buy_pressed():
 	var player = get_parent().get_node("ActiveLevel").get_child(0).find_node("Player")
 	
 	self.funds -= cost
+	buyAudio.play(0)
 	player_items.append(item)
 	itemList.remove_item(items[0])
 	get_node("Panel/Cost").text = "0"

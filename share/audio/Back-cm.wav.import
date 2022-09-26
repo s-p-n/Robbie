@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Back-cm.wav-0af9f37a39081085ef8b3ae81a42880d.sample"
+
+[deps]
+
+source_file="res://share/audio/Back-cm.wav"
+dest_files=[ "res://.import/Back-cm.wav-0af9f37a39081085ef8b3ae81a42880d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

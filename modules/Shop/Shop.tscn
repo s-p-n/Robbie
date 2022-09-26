@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://modules/Shop/shop_list.gd" type="Script" id=1]
 [ext_resource path="res://modules/Shop/Shop.gd" type="Script" id=2]
 [ext_resource path="res://share/images/1280px-Green_arrow_right.png" type="Texture" id=3]
+[ext_resource path="res://share/audio/Select-cm.wav" type="AudioStream" id=4]
+[ext_resource path="res://share/audio/Back-cm.wav" type="AudioStream" id=5]
+[ext_resource path="res://share/audio/Play.cm_01.wav" type="AudioStream" id=6]
+[ext_resource path="res://share/audio/Purchase-cm.wav" type="AudioStream" id=7]
 
 [node name="Shop" type="Control"]
 anchor_right = 1.0
@@ -109,6 +113,21 @@ margin_right = 432.0
 margin_bottom = 612.0
 rect_scale = Vector2( 3.75, 3.75 )
 text = "0"
+
+[node name="SelectAudio" type="AudioStreamPlayer" parent="Panel"]
+stream = ExtResource( 4 )
+volume_db = -20.0
+
+[node name="CloseAudio" type="AudioStreamPlayer" parent="Panel"]
+stream = ExtResource( 5 )
+volume_db = -20.0
+
+[node name="OpenAudio" type="AudioStreamPlayer" parent="Panel"]
+stream = ExtResource( 6 )
+volume_db = -20.0
+
+[node name="BuyAudio" type="AudioStreamPlayer" parent="Panel"]
+stream = ExtResource( 7 )
 
 [connection signal="item_selected" from="Panel/ItemList" to="Panel/ItemList" method="_on_ItemList_item_selected"]
 [connection signal="pressed" from="Panel/Buy" to="." method="_on_Buy_pressed"]

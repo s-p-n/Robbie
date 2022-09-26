@@ -4,26 +4,33 @@ export var lives = 3
 export var health = 100
 export var health_step = 10
 export var stamina = 100
-export var stamina_step = 1
 
 onready var lives_label = $Lives
 onready var health_bar = $HealthBar
 onready var stamina_bar = $StaminaBar
+onready var recharge = $Recharge
 
 func _ready():
 	reset_health()
 	publish_changes()
 
 func add_stamina():
-	stamina += stamina_step
+	print("add stamina")
+	stamina += int(recharge.text)
 	publish_changes()
 
 func adjust_stamina(n):
+	if n > 0:
+		n *= int(recharge.text)
+		
+	print("adjust stamina ", n)
+	
 	stamina += n
 	publish_changes()
 
 func remove_stamina():
-	stamina -= stamina_step
+	print("remove stamina")
+	stamina -= 1
 	publish_changes()
 
 func add_health():

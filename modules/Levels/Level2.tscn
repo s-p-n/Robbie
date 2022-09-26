@@ -1104,12 +1104,12 @@ spot_range = 50.0
 spot_angle = 75.0
 spot_angle_attenuation = 5220.61
 
-[node name="Ending" parent="." instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 53.6135, -35.6222, -133.03 )
-shop_items = [ "Battery II", "Wires II", "Extra Life", "Extra Life", "Extra Life" ]
-
 [node name="WaterBlob" parent="." instance=ExtResource( 24 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7747, -16.069, -8.01777 )
+
+[node name="Ending" parent="." instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 53.6135, -35.6222, -133.03 )
+shop_items = [ "Recharge II", "Wires II", "Extra Life", "Extra Life", "Extra Life" ]
 
 [connection signal="body_entered" from="Stage3/Ship/Area" to="Stage3/Ship" method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Stage3/Ship/Area" to="Stage3/Ship" method="_on_Area_body_exited"]

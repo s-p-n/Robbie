@@ -1,8 +1,10 @@
 extends ItemList
 
+onready var selectAudio = get_parent().get_node("SelectAudio")
+
 var item_prices = {
 	"Laser Gun": 5,
-	"Battery II": 10,
+	"Recharge II": 10,
 	"Wires II": 10,
 	"Extra Life": 10,
 	"Wings": 25
@@ -19,4 +21,4 @@ func _on_ItemList_item_selected(index):
 	var iten = get_item_text(index)
 	var cost = item_prices[iten]
 	get_parent().get_node("Cost").text = str(cost)
-	
+	selectAudio.play(0)

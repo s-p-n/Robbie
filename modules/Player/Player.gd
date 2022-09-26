@@ -22,7 +22,8 @@ onready var subtitle_text = $Head/Subtitles/SubText
 var held_wire = null
 var has_laser = false
 var has_wings = false
-
+var wire_health = 1
+var battery = 100
 func _ready():
 	#print("player ready")
 	starting_checkpoint_node = get_node_or_null(starting_checkpoint)
@@ -80,6 +81,12 @@ func give_power(power):
 			return
 		"Extra Life":
 			return UI.add_life()
+		"Wires II":
+			wire_health = 3
+			return
+		"Recharge II":
+			UI.recharge.text = str(int(UI.recharge.text) + 1)
+			return
 		"Wings":
 			has_wings = true
 			$Head/Interact/JetpackIcon.visible = true
