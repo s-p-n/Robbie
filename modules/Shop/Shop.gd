@@ -25,6 +25,7 @@ func activate():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	visible = true
 	openAudio.play()
+	itemList.grab_focus()
 
 func deactivate():
 	active = false

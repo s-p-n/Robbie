@@ -55,9 +55,9 @@ func _physics_process(delta):
 	var change_stamina:int = walk_speed * 1.25
 	# Look with the right analog of the joystick
 	if Input.get_joy_axis(0, 2) < -joystick_deadzone or Input.get_joy_axis(0, 2) > joystick_deadzone:
-		player.rotation_degrees.y -= Input.get_joy_axis(0, 2) * 2
+		player.rotation_degrees.y -= Input.get_joy_axis(0, 2) * 4
 	if Input.get_joy_axis(0, 3) < -joystick_deadzone or Input.get_joy_axis(0, 3) > joystick_deadzone:
-		head.rotation_degrees.x = clamp(head.rotation_degrees.x - Input.get_joy_axis(0, 3) * 2, -90, 90)
+		head.rotation_degrees.x = clamp(head.rotation_degrees.x - Input.get_joy_axis(0, 3) * 4, -90, 90)
 	
 	# Direction inputs
 	direction = Vector3()
@@ -81,12 +81,15 @@ func _physics_process(delta):
 	if direction == Vector3():
 		direction.z = Input.get_joy_axis(0, 1)
 		direction.x = Input.get_joy_axis(0, 0)
-		
+		moved = true
 		# Apply a deadzone to the joystick
 		if direction.z < joystick_deadzone and direction.z > -joystick_deadzone:
 			direction.z = 0
 		if direction.x < joystick_deadzone and direction.x > -joystick_deadzone:
 			direction.x = 0
+		
+		if direction.x == 0 and direction.z == 0:
+			moved = false
 	
 	# Rotates the direction from the Y axis to move forward
 	direction = direction.rotated(Vector3.UP, player.rotation.y)
@@ -113,12 +116,13 @@ func _physics_process(delta):
 	if player.is_on_floor():
 		current_speed = walk_speed
 		if Input.is_key_pressed(KEY_SHIFT) or Input.get_joy_axis(0, 6) >= 0.6:
+			#print("sprinting..")
 			if player.get_stamina() > (run_speed * delta):
 				current_speed = run_speed
 		if crouched:
 			current_speed = crouch_speed
 	
-	if Input.is_key_pressed(KEY_SPACE) or Input.is_joy_button_pressed(0, JOY_XBOX_A):
+	if Input.is_action_pressed("jump"):
 		if player.has_wings:
 			if player.get_stamina() > (12 * delta):
 				#print(player.get_stamina())
@@ -141,7 +145,7 @@ func _physics_process(delta):
 				player.adjust_stamina(-jump_height * 1.25)
 	else:
 		can_jump = true
-	
+	#print("can jump? ", can_jump)
 	#print('change ', change_stamina * delta)
 	# "bug" where player can climb on ceiling:
 	if player.is_on_ceiling():
@@ -161,6 +165,10 @@ func _physics_process(delta):
 		is_moving = true
 	else:
 		is_moving = false
+	
+	#print("moved? ", is_moving)
+	#print("speed: ", player_speed)
+	#print("on floor? ", player.is_on_floor())
 	
 	if is_moving and player.is_on_floor() and player_speed >= 2:
 		emit_signal("move_on_floor")

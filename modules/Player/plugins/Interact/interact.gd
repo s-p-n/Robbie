@@ -61,10 +61,10 @@ func set_player(new_player):
 
 func _unhandled_input(event):
 	var interactables = look_for_interactables()
-	if event is InputEventMouseMotion:
+	if (event is InputEventMouseMotion) or (event is InputEventJoypadMotion):
 		setup_center_dot(interactables)
 	
-	elif event is InputEventMouseButton and Input.is_action_just_released("leftclick"):
+	elif Input.is_action_just_released("leftclick"):
 		var took_action = false
 		
 		if !is_instance_valid(powerline):

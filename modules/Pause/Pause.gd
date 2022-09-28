@@ -3,10 +3,13 @@
 extends Control
 
 onready var Shop = get_parent().get_node("Shop")
+onready var starting_button:Label = $pause_menu/Continue
 
 func _ready():
 	pause_mode = PAUSE_MODE_PROCESS # This script can't get paused
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	starting_button.grab_focus()
+	
 
 func _input(event):
 	if event.is_action("ui_cancel") and event.is_pressed() and not event.is_echo():
@@ -15,7 +18,10 @@ func _input(event):
 func _process(_delta):
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
 		if !is_instance_valid(Shop) or !Shop.active:
-			visible = true
+			if visible == false:
+				starting_button.grab_focus()
+				visible = true
+			
 		get_tree().paused = true
 	else:
 		visible = false
@@ -23,7 +29,7 @@ func _process(_delta):
 
 func toggle_pause():
 	if Input.get_mouse_mode() != Input.MOUSE_MODE_VISIBLE:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
 		if is_instance_valid(Shop) and Shop.active:
 			Shop.deactivate()

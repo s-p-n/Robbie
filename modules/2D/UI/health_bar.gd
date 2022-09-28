@@ -15,21 +15,17 @@ func _ready():
 	publish_changes()
 
 func add_stamina():
-	print("add stamina")
 	stamina += int(recharge.text)
 	publish_changes()
 
 func adjust_stamina(n):
 	if n > 0:
 		n *= int(recharge.text)
-		
-	print("adjust stamina ", n)
 	
 	stamina += n
 	publish_changes()
 
 func remove_stamina():
-	print("remove stamina")
 	stamina -= 1
 	publish_changes()
 
