@@ -2,7 +2,7 @@
 
 [ext_resource path="res://modules/NPCs/WaterBlob/WaterBlob.gd" type="Script" id=1]
 [ext_resource path="res://AI/Brain.tscn" type="PackedScene" id=2]
-[ext_resource path="res://share/scripts/LazerBeam.gd" type="Script" id=3]
+[ext_resource path="res://share/scripts/LaserBeam.gd" type="Script" id=3]
 [ext_resource path="res://share/textures/progress_bar_green.tres" type="Material" id=4]
 [ext_resource path="res://share/textures/progress_bar_red.tres" type="Material" id=5]
 [ext_resource path="res://share/audio/Laser Loop-cm-01.wav" type="AudioStream" id=6]
@@ -115,7 +115,7 @@ mesh = SubResource( 6 )
 skeleton = NodePath("../../..")
 material/0 = SubResource( 7 )
 
-[node name="LazerBeam" type="RigidBody" parent="Vision/Front"]
+[node name="LaserBeam" type="RigidBody" parent="Vision/Front"]
 visible = false
 input_ray_pickable = false
 contacts_reported = 5
@@ -128,22 +128,22 @@ axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource( 3 )
 
-[node name="Lazer" type="MeshInstance" parent="Vision/Front/LazerBeam"]
+[node name="Lazer" type="MeshInstance" parent="Vision/Front/LaserBeam"]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6.25, 0, 0 )
 mesh = SubResource( 11 )
 skeleton = NodePath("../../../..")
 material/0 = SubResource( 12 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Vision/Front/LazerBeam"]
+[node name="CollisionShape" type="CollisionShape" parent="Vision/Front/LaserBeam"]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6.25, 0, 0 )
 shape = SubResource( 13 )
 disabled = true
 
-[node name="Sound" type="AudioStreamPlayer3D" parent="Vision/Front/LazerBeam"]
+[node name="Sound" type="AudioStreamPlayer3D" parent="Vision/Front/LaserBeam"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.156263, 0.00896084 )
 stream = ExtResource( 6 )
 
-[node name="CoolDown" type="AudioStreamPlayer3D" parent="Vision/Front/LazerBeam"]
+[node name="CoolDown" type="AudioStreamPlayer3D" parent="Vision/Front/LaserBeam"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.75496, -0.157982 )
 stream = ExtResource( 7 )
 

@@ -17,7 +17,7 @@
 [ext_resource path="res://share/audio/Robot Voices 2-cm-25.wav" type="AudioStream" id=15]
 [ext_resource path="res://share/audio/Robot Voices 2-cm-29.wav" type="AudioStream" id=16]
 [ext_resource path="res://share/audio/Robot Voices 2-cm-33.wav" type="AudioStream" id=17]
-[ext_resource path="res://share/scripts/LazerBeam.gd" type="Script" id=18]
+[ext_resource path="res://share/scripts/LaserGun.gd" type="Script" id=18]
 [ext_resource path="res://share/images/aim.png" type="Texture" id=19]
 [ext_resource path="res://share/images/light-saber-icon.png" type="Texture" id=20]
 [ext_resource path="res://share/images/jetpack.png" type="Texture" id=21]
@@ -28,20 +28,20 @@
 [sub_resource type="CylinderMesh" id=1]
 top_radius = 0.02
 bottom_radius = 0.02
-height = 8.0
+height = 0.4
 radial_segments = 8
 rings = 8
 
 [sub_resource type="SpatialMaterial" id=2]
-albedo_color = Color( 0.654902, 1, 0.580392, 1 )
+albedo_color = Color( 0.0352941, 0.584314, 0.2, 1 )
 emission_enabled = true
-emission = Color( 0, 0.54902, 0.113725, 1 )
+emission = Color( 0, 0.54902, 0.137255, 1 )
 emission_energy = 5.0
-emission_operator = 0
+emission_operator = 1
 emission_on_uv2 = false
 
 [sub_resource type="ConvexPolygonShape" id=3]
-points = PoolVector3Array( -0.02, -4, 0, -0.0141425, -4, -0.0141425, -0.0141425, -4, 0.0141386, -0.02, 4, 0, 0, -4, -0.02, -0.0141425, 4, -0.0141425, 0, -4, 0.02, -0.0141425, 4, 0.0141386, 0.0141386, -4, -0.0141425, 0, 4, -0.02, 0.0141386, -4, 0.0141386, 0, 4, 0.02, 0.02, -4, 0, 0.0141386, 4, -0.0141425, 0.0141386, 4, 0.0141386, 0.02, 4, 0 )
+points = PoolVector3Array( -0.02, -0.2, 0, -0.0141425, -0.2, -0.0141425, -0.0141425, -0.2, 0.0141386, -0.02, 0.2, 0, 0, -0.2, -0.02, -0.0141425, 0.2, -0.0141425, 0, -0.2, 0.02, -0.0141425, 0.2, 0.0141386, 0.0141386, -0.2, -0.0141425, 0, 0.2, -0.02, 0.0141386, -0.2, 0.0141386, 0, 0.2, 0.02, 0.02, -0.2, 0, 0.0141386, 0.2, -0.0141425, 0.0141386, 0.2, 0.0141386, 0.02, 0.2, 0 )
 
 [node name="Interact" type="Spatial"]
 script = ExtResource( 2 )
@@ -94,9 +94,8 @@ position = Vector2( 960, 540 )
 scale = Vector2( 3.42188, 3.42188 )
 texture = ExtResource( 19 )
 
-[node name="LazerBeam" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, -0.0572504, -0.99836, 0, 0.99836, -0.0572504, 0, -0.25, -4.5 )
-visible = false
+[node name="LaserGun" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0510497 )
 collision_layer = 513
 collision_mask = 513
 input_ray_pickable = false
@@ -110,20 +109,21 @@ axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource( 18 )
 
-[node name="Lazer" type="MeshInstance" parent="LazerBeam"]
+[node name="Lazer" type="MeshInstance" parent="LaserGun"]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 0, -0.2 )
 mesh = SubResource( 1 )
 skeleton = NodePath("../../../..")
 material/0 = SubResource( 2 )
 
-[node name="CollisionShape" type="CollisionShape" parent="LazerBeam"]
+[node name="CollisionShape" type="CollisionShape" parent="LaserGun"]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 0, -0.2 )
 shape = SubResource( 3 )
 
-[node name="Sound" type="AudioStreamPlayer3D" parent="LazerBeam"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.156263, 0.00896084 )
+[node name="Sound" type="AudioStreamPlayer3D" parent="LaserGun"]
 stream = ExtResource( 23 )
 
-[node name="CoolDown" type="AudioStreamPlayer3D" parent="LazerBeam"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.75496, -0.157982 )
+[node name="CoolDown" type="AudioStreamPlayer3D" parent="LaserGun"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 stream = ExtResource( 24 )
 
 [node name="Sounds" type="Node" parent="."]

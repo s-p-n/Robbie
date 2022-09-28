@@ -48,7 +48,7 @@ func set_player(new_player):
 	wire_place_audio = $Sounds/WirePlaceAudio
 	wire_clip_audio = $Sounds/WireClipAudio
 	wire_mismatch_audio = $Sounds/WireMismatchAudio
-	laser = $LazerBeam
+	laser = $LaserGun
 	center_dot.visible = false
 	
 	#if !player.connect("input", self, "process_input"):

@@ -17,10 +17,11 @@ func _ready():
 	add_collision_exception_with(host)
 
 func _process(delta):
-	if visible:
+	if visible and !$Sound.playing:
 		$Sound.playing = true
-	else:
+	elif !visible and $Sound.playing:
 		$Sound.playing = false
+		transform.origin = Vector3(0,0,0)
 	
 	if cooling_down and time < cool_down_timer:
 		time += delta
@@ -33,11 +34,8 @@ func _process(delta):
 	cooling_down = false
 	
 	if visible:
-		
-		
-		
 		host.adjust_stamina(change_stamina)
-		
+		transform.origin = lerp(transform.origin, Vector3(0,0,-20), delta * 5)
 		if host.get_stamina() <= -change_stamina:
 			turn_off()
 			cooling_down = true
