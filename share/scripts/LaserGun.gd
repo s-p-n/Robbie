@@ -13,7 +13,7 @@ var cooling_down = false
 func _ready():
 	host = get_parent().get_parent().get_parent()
 	if OK != connect("body_entered", self, "handle_contact"):
-		print("LazerBeam cannot interact")
+		print("LaserBeam cannot interact")
 	add_collision_exception_with(host)
 
 func _process(delta):

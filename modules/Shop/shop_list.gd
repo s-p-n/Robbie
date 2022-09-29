@@ -17,6 +17,10 @@ func _ready ():
 		add_item(iten)
 
 
+func _input (event):
+	if event is InputEventJoypadButton and Input.is_action_just_pressed("ui_accept"):
+		find_parent("Shop")._on_Buy_pressed()
+
 func _on_ItemList_item_selected(index):
 	var iten = get_item_text(index)
 	var cost = item_prices[iten]

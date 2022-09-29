@@ -46,7 +46,7 @@ func _process(delta):
 			return
 		
 		if is_instance_valid(hit):
-			print("Lazer interacting with: ", hit)
+			print("Laser interacting with: ", hit)
 			hit.interact()
 			hit = null
 			turn_off()

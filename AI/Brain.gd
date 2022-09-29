@@ -98,9 +98,8 @@ func die(handler):
 			death_handler = handler
 		is_dieing = true
 		death_audio.play()
-		print("dieing")
 		if death_audio.connect("finished", death_handler, "handle_death") != OK:
-			print("could connect death audio signal in Brain.")
+			print("could not connect death audio signal in Brain.")
 
 func handle_death():
 	print("dead")

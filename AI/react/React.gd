@@ -158,11 +158,11 @@ func handle_shoot_at(entity:Spatial):
 	fire_lazer = true
 
 func turn_lazer_on():
-	var beam = brain.get_parent().find_node("LazerBeam")
+	var beam = brain.get_parent().find_node("LaserBeam")
 	if is_instance_valid(beam):
 		beam.turn_on()
 
 func turn_lazer_off():
-	var beam = brain.get_parent().find_node("LazerBeam")
+	var beam = brain.get_parent().find_node("LaserBeam")
 	if is_instance_valid(beam):
 		beam.turn_off()

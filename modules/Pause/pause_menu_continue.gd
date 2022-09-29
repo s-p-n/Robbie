@@ -10,7 +10,7 @@ func _ready():
 	grab_focus()
 
 func _on_Continue_gui_input(event):
-	if event.is_action("leftclick") and event.is_pressed() and not event.is_echo():
+	if (event.is_action("leftclick") or event.is_action("ui_accept")) and event.is_pressed() and not event.is_echo():
 		find_parent("Paused").toggle_pause()
 
 func _on_focus_entered():
