@@ -3,7 +3,7 @@
 [ext_resource path="res://DisketOBJ.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://modules/Interactive/FloppyDisk/FloppyDisk.gd" type="Script" id=2]
 [ext_resource path="res://modules/Interactive/FloppyDisk/shiny_green.tres" type="Material" id=3]
-[ext_resource path="res://modules/Interactive/FloppyDisk/gold.tres" type="Material" id=4]
+[ext_resource path="res://modules/Interactive/FloppyDisk/stainless_steel.tres" type="Material" id=4]
 [ext_resource path="res://modules/Interactive/FloppyDisk/Default OBJ.material" type="Material" id=5]
 
 [sub_resource type="ArrayMesh" id=2]
@@ -68,8 +68,6 @@ shape = SubResource( 1 )
 
 [node name="SpotLight" type="SpotLight" parent="."]
 transform = Transform( 0.893246, -0.266751, 0.361878, 0, 0.804946, 0.593349, -0.449568, -0.530006, 0.719014, 1.20773, 1.44878, 1.79713 )
-visible = false
 
 [node name="SpotLight2" type="SpotLight" parent="."]
 transform = Transform( -0.94046, -0.201681, 0.273604, 0, 0.804946, 0.593349, -0.339903, 0.558021, -0.757019, 1.20773, 1.44878, -2.94201 )
-visible = false
