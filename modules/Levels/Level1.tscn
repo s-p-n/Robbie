@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://share/scripts/Puzzle.gd" type="Script" id=1]
 [ext_resource path="res://share/scripts/open_door.gd" type="Script" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://modules/Powerlines/Pylons/input/PylonInput.tscn" type="PackedScene" id=13]
 [ext_resource path="res://modules/Structures/block/block.obj" type="ArrayMesh" id=14]
 [ext_resource path="res://modules/Structures/Ending.tscn" type="PackedScene" id=15]
+[ext_resource path="res://modules/Interactive/FloppyDisk/FloppyDisk.tscn" type="PackedScene" id=16]
 
 [sub_resource type="ConcavePolygonShape" id=1]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
@@ -1320,3 +1321,7 @@ transform = Transform( 2.26876, 0, 0.0490688, 0, 2.46121, 0, -0.0216228, 0, 0.99
 [node name="Ending" parent="." instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99959, -3.35948, -11.0851 )
 shop_items = [ "Laser Gun", "Extra Life", "Extra Life" ]
+
+[node name="FloppyDisk" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.094, -2.4578, -4.63505 )
+rotation_speed = 3.0
