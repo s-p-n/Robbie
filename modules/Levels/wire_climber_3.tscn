@@ -3935,9 +3935,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.834, 4.33167, 10.465 )
 [node name="WaterBlob2" parent="." instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 89.957, 4.33167, -0.524984 )
 
-[node name="WaterBlob3" parent="." instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.9066, -5.09315, -53.722 )
-
 [node name="WaterBlob5" parent="." instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5715, 2.70334, -47.2693 )
 

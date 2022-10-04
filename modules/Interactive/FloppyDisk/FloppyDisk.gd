@@ -2,6 +2,8 @@ extends Area
 
 
 export var rotation_speed:float
+export var audio_file:AudioStream
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,3 +12,8 @@ func _ready():
 
 func _process(delta):
 	rotate_y(delta * rotation_speed)
+
+
+func _on_FloppyDisk_body_entered(body):
+	if body.name == "Player":
+		body.play_log_file(audio_file)

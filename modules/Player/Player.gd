@@ -18,12 +18,14 @@ var checkpoint_padding = Vector3(0,0.5,0)
 var last_checkpoint:Spatial = self
 
 onready var subtitle_text = $Head/Subtitles/SubText
+onready var logFilePlayer:AudioStreamPlayer = $LogFileAudio
 
 var held_wire = null
 var has_laser = false
 var has_wings = false
 var wire_health = 1
 var battery = 100
+
 func _ready():
 	#print("player ready")
 	starting_checkpoint_node = get_node_or_null(starting_checkpoint)
@@ -97,3 +99,8 @@ func get_stamina():
 
 func adjust_stamina(n):
 	return UI.adjust_stamina(n)
+
+func play_log_file(stream:AudioStream):
+	if !logFilePlayer.playing:
+		logFilePlayer.stream = stream
+		logFilePlayer.play(0)

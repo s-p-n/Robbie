@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://share/scripts/Puzzle.gd" type="Script" id=1]
 [ext_resource path="res://share/scripts/open_door.gd" type="Script" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://modules/Structures/block/block.obj" type="ArrayMesh" id=14]
 [ext_resource path="res://modules/Structures/Ending.tscn" type="PackedScene" id=15]
 [ext_resource path="res://modules/Interactive/FloppyDisk/FloppyDisk.tscn" type="PackedScene" id=16]
+[ext_resource path="res://share/audio/Log File 7.3_01.wav" type="AudioStream" id=17]
 
 [sub_resource type="ConcavePolygonShape" id=1]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
@@ -1323,5 +1324,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99959, -3.35948, -11.0851 )
 shop_items = [ "Laser Gun", "Extra Life", "Extra Life" ]
 
 [node name="FloppyDisk" parent="." instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64.1496, -13.7564, -6.77848 )
+transform = Transform( 0.959136, 0.282944, 0, -0.282944, 0.959136, 0, 0, 0, 1, -45.3685, -17.1444, -7.58123 )
 rotation_speed = 3.0
+audio_file = ExtResource( 17 )
