@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/elite-heli-CON.png-ef0cb31b9fe44a1ff77064040082d1b2.stex"
+path="res://.import/Fluid Color.png-ae3befca0f054272e9dd5eded2cd284a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://share/images/elite-heli-CON.png"
-dest_files=[ "res://.import/elite-heli-CON.png-ef0cb31b9fe44a1ff77064040082d1b2.stex" ]
+source_file="res://modules/NPCs/WaterBlob/Fluid Color.png"
+dest_files=[ "res://.import/Fluid Color.png-ae3befca0f054272e9dd5eded2cd284a.stex" ]
 
 [params]
 

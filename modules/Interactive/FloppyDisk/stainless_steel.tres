@@ -4,14 +4,22 @@
 
 [resource]
 albedo_color = Color( 0.811765, 0.811765, 0.811765, 1 )
-albedo_texture = ExtResource( 1 )
 metallic = 0.42
 metallic_specular = 1.0
 metallic_texture = ExtResource( 1 )
-roughness = 0.15
+metallic_texture_channel = 4
+roughness = 0.11
 roughness_texture = ExtResource( 1 )
-ao_enabled = true
-ao_light_affect = 0.54
-ao_on_uv2 = false
-ao_texture_channel = 0
+roughness_texture_channel = 4
+normal_enabled = true
+normal_scale = 0.07
+normal_texture = ExtResource( 1 )
+depth_enabled = true
+depth_scale = 1.0
+depth_deep_parallax = true
+depth_min_layers = 8
+depth_max_layers = 32
+depth_flip_tangent = false
+depth_flip_binormal = false
+depth_texture = ExtResource( 1 )
 uv2_scale = Vector3( 0.02, 0.02, 0.02 )
