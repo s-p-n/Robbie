@@ -11,14 +11,10 @@
 [node name="Shop" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1132.0
-margin_top = 116.0
-margin_right = -95.0
-margin_bottom = -293.0
 script = ExtResource( 2 )
 
 [node name="Arrow" type="Sprite" parent="."]
-position = Vector2( -552, 250 )
+position = Vector2( 624, 304 )
 scale = Vector2( 0.620005, 0.379999 )
 texture = ExtResource( 3 )
 
@@ -33,32 +29,32 @@ text = "Buy The Laser Gun to Move On"
 [node name="Panel" type="Panel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -153.0
-margin_top = 87.0
-margin_right = -153.0
-margin_bottom = 87.0
+margin_left = 1020.0
+margin_top = 129.0
+margin_right = -167.0
+margin_bottom = -135.0
 
 [node name="CashLabel" type="Label" parent="Panel"]
 anchor_left = 0.022
 anchor_top = 0.021
-anchor_right = 0.968
-anchor_bottom = 0.107
-margin_left = -0.246
-margin_top = -0.0909996
-margin_right = -621.824
-margin_bottom = -43.797
+anchor_right = 0.39
+anchor_bottom = 0.08
+margin_left = 3.874
+margin_top = 21.864
+margin_right = -193.87
+margin_bottom = -12.28
 rect_scale = Vector2( 3.75, 3.75 )
 text = "Cash:"
 
 [node name="CostLabel" type="Label" parent="Panel"]
-anchor_left = 0.022
-anchor_top = 0.021
-anchor_right = 0.968
-anchor_bottom = 0.107
-margin_left = 250.754
-margin_top = 583.909
-margin_right = -370.824
-margin_bottom = 540.203
+anchor_left = 0.387
+anchor_top = 0.911
+anchor_right = 0.572
+anchor_bottom = 0.969
+margin_left = 0.328979
+margin_top = -0.376038
+margin_right = -99.276
+margin_bottom = -33.704
 rect_scale = Vector2( 3.75, 3.75 )
 text = "Cost:"
 
@@ -66,51 +62,59 @@ text = "Cost:"
 anchor_top = 0.131
 anchor_right = 1.0
 anchor_bottom = 0.869
-margin_top = 0.0989914
-margin_right = -559.0
-margin_bottom = -416.099
+margin_top = 0.104004
+margin_right = -590.0
+margin_bottom = -505.104
 rect_scale = Vector2( 5.11645, 6.20275 )
 same_column_width = true
 script = ExtResource( 1 )
 
 [node name="Buy" type="Button" parent="Panel"]
-margin_left = 559.0
-margin_top = 588.0
-margin_right = 595.0
-margin_bottom = 608.0
+margin_left = 577.0
+margin_top = 732.0
+margin_right = 613.0
+margin_bottom = 752.0
 rect_scale = Vector2( 3.39011, 3.48603 )
 text = "Buy"
 
 [node name="Close" type="Button" parent="Panel"]
-margin_left = 628.0
-margin_top = 18.0
-margin_right = 647.0
-margin_bottom = 38.0
+anchor_left = 0.879
+anchor_top = 0.038
+anchor_right = 0.944
+anchor_bottom = 0.096
+margin_left = -0.307068
+margin_top = -0.00800133
+margin_right = -28.952
+margin_bottom = -27.336
 rect_scale = Vector2( 2.64, 2.36 )
 text = "x"
 
 [node name="NextLevel" type="Button" parent="Panel"]
-margin_left = 19.0
-margin_top = 588.0
-margin_right = 99.0
-margin_bottom = 608.0
+margin_left = 37.0
+margin_top = 732.0
+margin_right = 117.0
+margin_bottom = 752.0
 rect_scale = Vector2( 2.8, 3.44 )
 disabled = true
 text = "Next Level"
 
 [node name="Cash" type="Label" parent="Panel"]
-margin_left = 161.0
-margin_top = 18.0
-margin_right = 189.0
-margin_bottom = 32.0
+margin_left = 165.0
+margin_top = 40.0
+margin_right = 193.0
+margin_bottom = 54.0
 rect_scale = Vector2( 3.75, 3.75 )
 text = "5"
 
 [node name="Cost" type="Label" parent="Panel"]
-margin_left = 404.0
-margin_top = 598.0
-margin_right = 432.0
-margin_bottom = 612.0
+anchor_left = 0.573
+anchor_top = 0.901
+anchor_right = 0.715
+anchor_bottom = 0.969
+margin_left = -0.00900269
+margin_top = 7.784
+margin_right = -76.095
+margin_bottom = -33.704
 rect_scale = Vector2( 3.75, 3.75 )
 text = "0"
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://DisketOBJ.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://share/images/floppy_secret.png" type="Texture" id=1]
 [ext_resource path="res://modules/Interactive/FloppyDisk/FloppyDisk.gd" type="Script" id=2]
-[ext_resource path="res://modules/Interactive/FloppyDisk/shiny_green.tres" type="Material" id=3]
+[ext_resource path="res://share/images/floppy_roughness.png" type="Texture" id=3]
 [ext_resource path="res://modules/Interactive/FloppyDisk/stainless_steel.tres" type="Material" id=4]
 [ext_resource path="res://modules/Interactive/FloppyDisk/Default OBJ.material" type="Material" id=5]
 
@@ -39,7 +39,23 @@ surfaces/0 = {
 }
 
 [sub_resource type="SpatialMaterial" id=4]
-albedo_color = Color( 0.207843, 0.207843, 0.207843, 1 )
+albedo_texture = ExtResource( 1 )
+metallic_specular = 0.63
+metallic_texture = ExtResource( 3 )
+metallic_texture_channel = 4
+roughness_texture = ExtResource( 3 )
+roughness_texture_channel = 4
+normal_enabled = true
+normal_scale = 0.1
+normal_texture = ExtResource( 3 )
+depth_enabled = true
+depth_scale = 0.05
+depth_deep_parallax = true
+depth_min_layers = 8
+depth_max_layers = 32
+depth_flip_tangent = true
+depth_flip_binormal = false
+depth_texture = ExtResource( 3 )
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 2, 1, 2 )
@@ -57,17 +73,13 @@ transform = Transform( 0.03, 0, 0, 0, -1.31134e-09, -0.03, 0, 0.03, -1.31134e-09
 mesh = SubResource( 3 )
 material/0 = SubResource( 4 )
 
-[node name="DisketOBJ" type="MeshInstance" parent="."]
-transform = Transform( 0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0.757019, -0.648183, -0.131888 )
-visible = false
-mesh = ExtResource( 1 )
-material/0 = ExtResource( 3 )
-
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
 
 [node name="SpotLight" type="SpotLight" parent="."]
 transform = Transform( 0.893246, -0.266751, 0.361878, 0, 0.804946, 0.593349, -0.449568, -0.530006, 0.719014, 1.20773, 1.44878, 1.79713 )
+visible = false
 
 [node name="SpotLight2" type="SpotLight" parent="."]
 transform = Transform( -0.94046, -0.201681, 0.273604, 0, 0.804946, 0.593349, -0.339903, 0.558021, -0.757019, 1.20773, 1.44878, -2.94201 )
+visible = false

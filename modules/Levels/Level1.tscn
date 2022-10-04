@@ -26,7 +26,7 @@ data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4
 transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, -55.5372, -15, -1.69617 )
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -33.8052, -2.96482, -1.36233 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -55.5648, -14.0974, -1.36233 )
 starting_checkpoint = NodePath("../Checkpoint")
 
 [node name="Stage0" type="Spatial" parent="."]
@@ -1323,5 +1323,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99959, -3.35948, -11.0851 )
 shop_items = [ "Laser Gun", "Extra Life", "Extra Life" ]
 
 [node name="FloppyDisk" parent="." instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.094, -2.4578, -4.63505 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64.1496, -13.7564, -6.77848 )
 rotation_speed = 3.0
