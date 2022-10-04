@@ -17,19 +17,19 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	time += delta
+	if time_per_line.size() == 0:
+		return
 	if subtitles_active:
-		if time > (subtitle_start_time + time_per_line[0]):
+		time += delta
+		if time > time_per_line[0]:
 			time_per_line.pop_at(0)
 			content.pop_at(0)
-			
+			time = 0
 			if content.size() == 0:
 				# Set active to false so you don't get index access error.
 				subtitles_active = false
-				
-			else:
-				# Otherwise, set the start_time to the new time.
-				subtitle_start_time = time
+				text = ''
+			
 		else:
 			text = content[0]
 	else:
@@ -48,8 +48,9 @@ func init_subtitles(sub_content : Array, sub_time_per_line : Array):
 		# If there isn't a time_per_line for each line, don't run the script.
 		print("Error: Invalid subtitles parameters.")
 		return
-	time_per_line = sub_time_per_line
-	content = sub_content
+	time_per_line = sub_time_per_line.duplicate()
+	content = sub_content.duplicate()
 	subtitles_active = true
 	time = 0
-	subtitle_start_time = time
+	#subtitle_start_time = time
+	text = ''

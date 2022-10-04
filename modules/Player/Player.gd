@@ -100,7 +100,7 @@ func get_stamina():
 func adjust_stamina(n):
 	return UI.adjust_stamina(n)
 
-func play_log_file(stream:AudioStream, subtitle_texts, subtitle_times):
+func play_log_file(stream:AudioStream, subtitle_texts:Array, subtitle_times:Array):
 	if !logFilePlayer.playing:
 		logFilePlayer.stream = stream
 		logFilePlayer.play(0)
