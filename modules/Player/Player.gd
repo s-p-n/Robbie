@@ -31,7 +31,7 @@ func _ready():
 	starting_checkpoint_node = get_node_or_null(starting_checkpoint)
 	if starting_checkpoint_node.connect("tree_entered", self, "setup"):
 		pass
-	subtitle_text.init_subtitles(['Hello', 'This is a test', 'Goodbye', 'Your days are numbered.', 'Bitchass Robot.'], [3, 4, 3, 2, 0.5])
+	#subtitle_text.init_subtitles(['Hello', 'This is a test', 'Goodbye', 'Your days are numbered.', 'Bitchass Robot.'], [3, 4, 3, 2, 0.5])
 
 func setup():
 	#print("player setup")
@@ -100,7 +100,8 @@ func get_stamina():
 func adjust_stamina(n):
 	return UI.adjust_stamina(n)
 
-func play_log_file(stream:AudioStream):
+func play_log_file(stream:AudioStream, subtitle_texts, subtitle_times):
 	if !logFilePlayer.playing:
 		logFilePlayer.stream = stream
 		logFilePlayer.play(0)
+		subtitle_text.init_subtitles(subtitle_texts, subtitle_times)
