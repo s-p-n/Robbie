@@ -69,7 +69,6 @@ margin_top = 896.0
 margin_right = 1920.0
 margin_bottom = 960.0
 theme = SubResource( 3 )
-text = "HERLLO WORLD"
 align = 1
 script = ExtResource( 7 )
 

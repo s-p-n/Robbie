@@ -27,7 +27,7 @@ data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4
 transform = Transform( 0.0205759, 0, 0.999788, 0, 1, 0, -0.999788, 0, 0.0205759, -55.5372, -15, -1.69617 )
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -47.4017, -14.0974, -1.36233 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -55.5192, -14.0974, -1.36233 )
 starting_checkpoint = NodePath("../Checkpoint")
 
 [node name="Stage0" type="Spatial" parent="."]
@@ -1324,8 +1324,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99959, -3.35948, -11.0851 )
 shop_items = [ "Laser Gun", "Extra Life", "Extra Life" ]
 
 [node name="FloppyDisk" parent="." instance=ExtResource( 16 )]
-transform = Transform( 0.959136, 0.282944, 0, -0.282944, 0.959136, 0, 0, 0, 1, -45.3685, -17.1444, -7.58123 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -125.716, -13.8851, 5.89395 )
 rotation_speed = 3.0
 audio_file = ExtResource( 17 )
-subtitle_lines = [ "Experimental Log: 7-3.", "It is a success!", "Richard is able to find, and replace, any components", "Or even repair damaged ones from common phrases, such as...", "Which way did he go.. Hey Richard! ", "(Richard squeaking)", "Can you please fix the damn computer!", "(Richard arguing)", "No, I'm not shouting at you I'm shouting near you.", "(Richard arguing)", "Further experimentation is underway.", "Side note... $#%& Yeah! We managed to make a completely autonomous nanobot!", "We'll party like crazy tonight!" ]
+subtitle_lines = [ "Experimental Log: 7-3.", "It is a success!", "Richard is able to find, and replace, any components", "Or even repair damaged ones from common phrases, such as...", "Which way did he go.. Hey Richard! ", "(Richard squeaking)", "Can you please fix the damn computer!", "(Richard arguing)", "No, I'm not shouting at you I'm shouting near you.", "(Richard arguing)", "Further experimentation is needed.", "Side note... $#%& Yeah! We managed to make a completely autonomous nanobot!", "We'll party like crazy tonight!" ]
 subtitle_line_time = [ 2.9, 2.0, 4.5, 5.0, 2.0, 1.5, 2.5, 1.0, 2.5, 1.0, 2.0, 6.0, 5.0 ]
