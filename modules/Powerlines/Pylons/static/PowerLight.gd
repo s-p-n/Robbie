@@ -7,7 +7,7 @@ var target_energy:float = rand_range(min_energy, max_energy)
 
 var t:float = 0
 var flicker_time:float = 1
-var throttle_interval:float = 0.1
+var throttle_interval:float = 0
 var throttle:float = 0
 
 func _process(delta):
