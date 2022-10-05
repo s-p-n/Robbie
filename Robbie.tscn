@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://modules/SceneManager/SceneManager.gd" type="Script" id=1]
 [ext_resource path="res://modules/Levels/Level2.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://modules/Levels/Level1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://modules/2D/UI/UI.tscn" type="PackedScene" id=9]
 [ext_resource path="res://modules/Levels/wire_climber_3.tscn" type="PackedScene" id=10]
+[ext_resource path="res://modules/Levels/Boss1.tscn" type="PackedScene" id=11]
 [ext_resource path="res://modules/Shop/Shop.tscn" type="PackedScene" id=12]
 
 [sub_resource type="SpatialMaterial" id=1]
@@ -24,7 +25,7 @@ points = PoolVector3Array( 4, 4, 1, 4, 4, -1, -4, 4, 1, 4, -4, 1, 4, -4, -1, -4,
 
 [node name="Robbie" type="Spatial"]
 script = ExtResource( 1 )
-levels = [ ExtResource( 8 ), ExtResource( 2 ), ExtResource( 10 ) ]
+levels = [ ExtResource( 11 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 10 ) ]
 
 [node name="PowerLines" type="Spatial" parent="."]
 

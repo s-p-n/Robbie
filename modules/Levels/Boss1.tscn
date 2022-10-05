@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://modules/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://share/images/brushed.png" type="Texture" id=2]
+[ext_resource path="res://modules/Interactive/Checkpoint/Checkpoint.tscn" type="PackedScene" id=3]
+[ext_resource path="res://modules/Structures/Ending.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 50, 0.2, 50 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.819608, 0.819608, 0.819608, 1 )
+metallic_texture = ExtResource( 2 )
+roughness = 0.54
+roughness_texture = ExtResource( 2 )
+roughness_texture_channel = 4
+normal_enabled = true
+normal_scale = 0.54
+normal_texture = ExtResource( 2 )
+
+[sub_resource type="ConvexPolygonShape" id=3]
+points = PoolVector3Array( -25, -0.1, -25, -25, 0.1, -25, 25, -0.1, -25, -25, -0.1, 25, -25, 0.1, 25, 25, 0.1, -25, 25, -0.1, 25, 25, 0.1, 25 )
+
+[node name="Objects" type="Spatial"]
+
+[node name="Checkpoint" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.474349, 0.0777549, -10.3947 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.447368, 0.974845, -10.3924 )
+starting_checkpoint = NodePath("../Checkpoint")
+
+[node name="RigidBody" type="RigidBody" parent="."]
+mode = 1
+
+[node name="MeshInstance" type="MeshInstance" parent="RigidBody"]
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
+shape = SubResource( 3 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.866025, 0.433013, 0.25, 0, -0.5, 0.866025, 0.5, -0.75, -0.433013, 3.59974, 3.65776, -6.83601 )
+light_energy = 0.373
+light_indirect_energy = 0.268
+
+[node name="DirectionalLight2" type="DirectionalLight" parent="."]
+transform = Transform( -0.965926, -0.224144, -0.12941, 0.258819, -0.836516, -0.482963, 1.13133e-08, -0.5, 0.866025, -10.2977, -11.3277, 7.80529 )
+light_energy = 0.373
+light_indirect_energy = 0.268
+
+[node name="Ending" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 2.79, -11.085 )
