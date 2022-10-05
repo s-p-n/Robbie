@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://modules/Powerlines/PylonGroup.gd" type="Script" id=1]
 [ext_resource path="res://modules/Interactive/Ship/Ship.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://modules/Structures/circuitBoard/med/circuit_board_med.tres" type="Material" id=9]
 [ext_resource path="res://modules/Structures/circuitBoard/low/CircuitBoardLow.tscn" type="PackedScene" id=10]
 [ext_resource path="res://modules/Decorative/Posters/Difiiculty/Difficulty_4.tscn" type="PackedScene" id=11]
+[ext_resource path="res://share/textures/wall_cyan.tres" type="Material" id=12]
 [ext_resource path="res://modules/Decorative/Posters/SomethingGoesHere/PosterSomethingGoesHere.tscn" type="PackedScene" id=13]
 [ext_resource path="res://share/textures/wall_black_glossy.tres" type="Material" id=14]
 [ext_resource path="res://modules/Powerlines/Pylons/static/PylonStatic.tscn" type="PackedScene" id=15]
@@ -55,8 +56,11 @@ points = PoolVector3Array( 1, -1, 1, 1, 1, -1.00024, -1, -1, 1, 1, -1, -2.27423,
 [sub_resource type="ConcavePolygonShape" id=11]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
 
+[sub_resource type="ConcavePolygonShape" id=14]
+data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
+
 [sub_resource type="SpatialMaterial" id=13]
-albedo_color = Color( 0.403922, 0.403922, 0.403922, 1 )
+albedo_color = Color( 0.0627451, 0.0745098, 0.0784314, 1 )
 
 [sub_resource type="ConcavePolygonShape" id=4]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
@@ -409,62 +413,366 @@ material/0 = ExtResource( 14 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 0, 0 )
 shape = SubResource( 11 )
 
-[node name="platform" parent="Stage2/Walls" instance=ExtResource( 17 )]
+[node name="platform" type="RigidBody" parent="Stage2/Walls"]
 transform = Transform( 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, 42.137, -17.9735, -8.57216 )
+mode = 1
 
-[node name="platform2" parent="Stage2/Walls" instance=ExtResource( 17 )]
+[node name="block-441" type="MeshInstance" parent="Stage2/Walls/platform"]
+transform = Transform( 1, 1.77636e-15, 0, 1.49012e-08, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+mesh = ExtResource( 21 )
+material/0 = ExtResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage2/Walls/platform"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+shape = SubResource( 14 )
+
+[node name="SpotLight" type="SpotLight" parent="Stage2/Walls/platform"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
+light_color = Color( 0.654902, 0.882353, 0.992157, 1 )
+spot_range = 14.3195
+spot_angle = 60.4688
+
+[node name="platform2" type="RigidBody" parent="Stage2/Walls"]
 transform = Transform( 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, 52.7302, -20.8119, -8.57216 )
+mode = 1
 
-[node name="platform3" parent="Stage2/Walls" instance=ExtResource( 17 )]
+[node name="block-441" type="MeshInstance" parent="Stage2/Walls/platform2"]
+transform = Transform( 1, 1.77636e-15, 0, 1.49012e-08, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+mesh = ExtResource( 21 )
+material/0 = ExtResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage2/Walls/platform2"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+shape = SubResource( 14 )
+
+[node name="SpotLight" type="SpotLight" parent="Stage2/Walls/platform2"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
+light_color = Color( 0.654902, 0.882353, 0.992157, 1 )
+spot_range = 14.3195
+spot_angle = 60.4688
+
+[node name="platform3" type="RigidBody" parent="Stage2/Walls"]
 transform = Transform( 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, 52.7302, -20.8119, -19.0422 )
+mode = 1
 
-[node name="platform4" parent="Stage2/Walls" instance=ExtResource( 17 )]
+[node name="block-441" type="MeshInstance" parent="Stage2/Walls/platform3"]
+transform = Transform( 1, 1.77636e-15, 0, 1.49012e-08, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+mesh = ExtResource( 21 )
+material/0 = ExtResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage2/Walls/platform3"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+shape = SubResource( 14 )
+
+[node name="SpotLight" type="SpotLight" parent="Stage2/Walls/platform3"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
+light_color = Color( 0.654902, 0.882353, 0.992157, 1 )
+spot_range = 14.3195
+spot_angle = 60.4688
+
+[node name="platform4" type="RigidBody" parent="Stage2/Walls"]
 transform = Transform( 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, 41.87, -17.9019, -19.0422 )
+mode = 1
 
-[node name="platform5" parent="Stage2/Walls" instance=ExtResource( 17 )]
+[node name="block-441" type="MeshInstance" parent="Stage2/Walls/platform4"]
+transform = Transform( 1, 1.77636e-15, 0, 1.49012e-08, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+mesh = ExtResource( 21 )
+material/0 = ExtResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage2/Walls/platform4"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+shape = SubResource( 14 )
+
+[node name="SpotLight" type="SpotLight" parent="Stage2/Walls/platform4"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
+light_color = Color( 0.654902, 0.882353, 0.992157, 1 )
+spot_range = 14.3195
+spot_angle = 60.4688
+
+[node name="platform5" type="RigidBody" parent="Stage2/Walls"]
 transform = Transform( 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, 42.3877, -15.9701, -29.5215 )
+mode = 1
 
-[node name="platform6" parent="Stage2/Walls" instance=ExtResource( 17 )]
+[node name="block-441" type="MeshInstance" parent="Stage2/Walls/platform5"]
+transform = Transform( 1, 1.77636e-15, 0, 1.49012e-08, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+mesh = ExtResource( 21 )
+material/0 = ExtResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage2/Walls/platform5"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+shape = SubResource( 14 )
+
+[node name="SpotLight" type="SpotLight" parent="Stage2/Walls/platform5"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
+light_color = Color( 0.654902, 0.882353, 0.992157, 1 )
+spot_range = 14.3195
+spot_angle = 60.4688
+
+[node name="platform6" type="RigidBody" parent="Stage2/Walls"]
 transform = Transform( 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, 53.7341, -16.878, -35.5109 )
+mode = 1
 
-[node name="platform11" parent="Stage2/Walls" instance=ExtResource( 17 )]
+[node name="block-441" type="MeshInstance" parent="Stage2/Walls/platform6"]
+transform = Transform( 1, 1.77636e-15, 0, 1.49012e-08, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+mesh = ExtResource( 21 )
+material/0 = ExtResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage2/Walls/platform6"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+shape = SubResource( 14 )
+
+[node name="SpotLight" type="SpotLight" parent="Stage2/Walls/platform6"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
+light_color = Color( 0.654902, 0.882353, 0.992157, 1 )
+spot_range = 14.3195
+spot_angle = 60.4688
+
+[node name="platform11" type="RigidBody" parent="Stage2/Walls"]
 transform = Transform( 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, 50.3392, -18.8276, -27.7736 )
+mode = 1
 
-[node name="platform7" parent="Stage2/Walls" instance=ExtResource( 17 )]
+[node name="block-441" type="MeshInstance" parent="Stage2/Walls/platform11"]
+transform = Transform( 1, 1.77636e-15, 0, 1.49012e-08, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+mesh = ExtResource( 21 )
+material/0 = ExtResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage2/Walls/platform11"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+shape = SubResource( 14 )
+
+[node name="SpotLight" type="SpotLight" parent="Stage2/Walls/platform11"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
+light_color = Color( 0.654902, 0.882353, 0.992157, 1 )
+spot_range = 14.3195
+spot_angle = 60.4688
+
+[node name="platform7" type="RigidBody" parent="Stage2/Walls"]
 transform = Transform( 0.965926, 0.25, 0.0669873, -0.258819, 0.933013, 0.25, 0, -0.258819, 0.965926, 43.26, -15.1531, -46.0167 )
+mode = 1
 
-[node name="platform10" parent="Stage2/Walls" instance=ExtResource( 17 )]
+[node name="block-441" type="MeshInstance" parent="Stage2/Walls/platform7"]
+transform = Transform( 1, 8.21221e-09, 6.29357e-09, -4.85625e-08, -1.49012e-08, -0.2, 1.44021e-08, 1, -1.49012e-08, 0, 0, 0 )
+mesh = ExtResource( 21 )
+material/0 = ExtResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage2/Walls/platform7"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+shape = SubResource( 14 )
+
+[node name="SpotLight" type="SpotLight" parent="Stage2/Walls/platform7"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
+light_color = Color( 0.654902, 0.882353, 0.992157, 1 )
+spot_range = 14.3195
+spot_angle = 60.4688
+
+[node name="platform10" type="RigidBody" parent="Stage2/Walls"]
 transform = Transform( 0.965926, 0.25, 0.0669873, -0.258819, 0.933013, 0.25, 0, -0.258819, 0.965926, 45.6946, -17.878, -37.9479 )
+mode = 1
 
-[node name="platform8" parent="Stage2/Walls" instance=ExtResource( 17 )]
+[node name="block-441" type="MeshInstance" parent="Stage2/Walls/platform10"]
+transform = Transform( 1, 8.21221e-09, 6.29357e-09, -4.85625e-08, -1.49012e-08, -0.2, 1.44021e-08, 1, -1.49012e-08, 0, 0, 0 )
+mesh = ExtResource( 21 )
+material/0 = ExtResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage2/Walls/platform10"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+shape = SubResource( 14 )
+
+[node name="SpotLight" type="SpotLight" parent="Stage2/Walls/platform10"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
+light_color = Color( 0.654902, 0.882353, 0.992157, 1 )
+spot_range = 14.3195
+spot_angle = 60.4688
+
+[node name="platform8" type="RigidBody" parent="Stage2/Walls"]
 transform = Transform( 0.965926, 0.224144, 0.12941, -0.258819, 0.836516, 0.482963, -2.98023e-08, -0.5, 0.866025, 42.246, -18.9374, -60.6381 )
+mode = 1
 
-[node name="platform12" parent="Stage2/Walls" instance=ExtResource( 17 )]
+[node name="block-441" type="MeshInstance" parent="Stage2/Walls/platform8"]
+transform = Transform( 1, 2.303e-08, -5.96047e-09, 4.72348e-09, -5.96046e-08, -0.2, -1.90897e-08, 1, -7.45058e-09, 0, 0, 0 )
+mesh = ExtResource( 21 )
+material/0 = ExtResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage2/Walls/platform8"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+shape = SubResource( 14 )
+
+[node name="SpotLight" type="SpotLight" parent="Stage2/Walls/platform8"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
+light_color = Color( 0.654902, 0.882353, 0.992157, 1 )
+spot_range = 14.3195
+spot_angle = 60.4688
+
+[node name="platform12" type="RigidBody" parent="Stage2/Walls"]
 transform = Transform( 0.965926, 0.224144, 0.12941, -0.258819, 0.836516, 0.482963, -2.98023e-08, -0.5, 0.866025, 41.1935, -22.8657, -67.6821 )
+mode = 1
 
-[node name="platform13" parent="Stage2/Walls" instance=ExtResource( 17 )]
+[node name="block-441" type="MeshInstance" parent="Stage2/Walls/platform12"]
+transform = Transform( 1, 2.303e-08, -5.96047e-09, 4.72348e-09, -5.96046e-08, -0.2, -1.90897e-08, 1, -7.45058e-09, 0, 0, 0 )
+mesh = ExtResource( 21 )
+material/0 = ExtResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage2/Walls/platform12"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+shape = SubResource( 14 )
+
+[node name="SpotLight" type="SpotLight" parent="Stage2/Walls/platform12"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
+light_color = Color( 0.654902, 0.882353, 0.992157, 1 )
+spot_range = 14.3195
+spot_angle = 60.4688
+
+[node name="platform13" type="RigidBody" parent="Stage2/Walls"]
 transform = Transform( 0.887352, 0.460502, 0.0233535, -0.424394, 0.795875, 0.431825, 0.180269, -0.393091, 0.901655, 39.1986, -30.3104, -75.3193 )
+mode = 1
 
-[node name="platform14" parent="Stage2/Walls" instance=ExtResource( 17 )]
+[node name="block-441" type="MeshInstance" parent="Stage2/Walls/platform13"]
+transform = Transform( 1, -1.49012e-08, 6.51926e-09, 4.47035e-08, -5.96046e-08, -0.2, -4.47035e-08, 1, -3.72529e-08, 0, 0, 0 )
+mesh = ExtResource( 21 )
+material/0 = ExtResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage2/Walls/platform13"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+shape = SubResource( 14 )
+
+[node name="SpotLight" type="SpotLight" parent="Stage2/Walls/platform13"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
+light_color = Color( 0.654902, 0.882353, 0.992157, 1 )
+spot_range = 14.3195
+spot_angle = 60.4688
+
+[node name="platform14" type="RigidBody" parent="Stage2/Walls"]
 transform = Transform( 0.887352, 0.460502, 0.0233535, -0.424394, 0.795875, 0.431825, 0.180269, -0.393091, 0.901655, 47.585, -34.3214, -73.6155 )
+mode = 1
 
-[node name="platform15" parent="Stage2/Walls" instance=ExtResource( 17 )]
+[node name="block-441" type="MeshInstance" parent="Stage2/Walls/platform14"]
+transform = Transform( 1, -1.49012e-08, 6.51926e-09, 4.47035e-08, -5.96046e-08, -0.2, -4.47035e-08, 1, -3.72529e-08, 0, 0, 0 )
+mesh = ExtResource( 21 )
+material/0 = ExtResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage2/Walls/platform14"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+shape = SubResource( 14 )
+
+[node name="SpotLight" type="SpotLight" parent="Stage2/Walls/platform14"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
+light_color = Color( 0.654902, 0.882353, 0.992157, 1 )
+spot_range = 14.3195
+spot_angle = 60.4688
+
+[node name="platform15" type="RigidBody" parent="Stage2/Walls"]
 transform = Transform( 0.887352, 0.460502, 0.0233535, -0.424394, 0.795875, 0.431825, 0.180269, -0.393091, 0.901655, 47.5056, -29.7736, -64.5906 )
+mode = 1
 
-[node name="platform16" parent="Stage2/Walls" instance=ExtResource( 17 )]
+[node name="block-441" type="MeshInstance" parent="Stage2/Walls/platform15"]
+transform = Transform( 1, -1.49012e-08, 6.51926e-09, 4.47035e-08, -5.96046e-08, -0.2, -4.47035e-08, 1, -3.72529e-08, 0, 0, 0 )
+mesh = ExtResource( 21 )
+material/0 = ExtResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage2/Walls/platform15"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+shape = SubResource( 14 )
+
+[node name="SpotLight" type="SpotLight" parent="Stage2/Walls/platform15"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
+light_color = Color( 0.654902, 0.882353, 0.992157, 1 )
+spot_range = 14.3195
+spot_angle = 60.4688
+
+[node name="platform16" type="RigidBody" parent="Stage2/Walls"]
 transform = Transform( 0.887352, 0.460502, 0.0233535, -0.424394, 0.795875, 0.431825, 0.180269, -0.393091, 0.901655, 56.6786, -34.6031, -63.5329 )
+mode = 1
 
-[node name="platform17" parent="Stage2/Walls" instance=ExtResource( 17 )]
+[node name="block-441" type="MeshInstance" parent="Stage2/Walls/platform16"]
+transform = Transform( 1, -1.49012e-08, 6.51926e-09, 4.47035e-08, -5.96046e-08, -0.2, -4.47035e-08, 1, -3.72529e-08, 0, 0, 0 )
+mesh = ExtResource( 21 )
+material/0 = ExtResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage2/Walls/platform16"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+shape = SubResource( 14 )
+
+[node name="SpotLight" type="SpotLight" parent="Stage2/Walls/platform16"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
+light_color = Color( 0.654902, 0.882353, 0.992157, 1 )
+spot_range = 14.3195
+spot_angle = 60.4688
+
+[node name="platform17" type="RigidBody" parent="Stage2/Walls"]
 transform = Transform( 0.887352, 0.460502, 0.0233535, -0.424394, 0.795875, 0.431825, 0.180269, -0.393091, 0.901655, 59.3565, -39.7401, -70.7965 )
+mode = 1
 
-[node name="platform18" parent="Stage2/Walls" instance=ExtResource( 17 )]
+[node name="block-441" type="MeshInstance" parent="Stage2/Walls/platform17"]
+transform = Transform( 1, -1.49012e-08, 6.51926e-09, 4.47035e-08, -5.96046e-08, -0.2, -4.47035e-08, 1, -3.72529e-08, 0, 0, 0 )
+mesh = ExtResource( 21 )
+material/0 = ExtResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage2/Walls/platform17"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+shape = SubResource( 14 )
+
+[node name="SpotLight" type="SpotLight" parent="Stage2/Walls/platform17"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
+light_color = Color( 0.654902, 0.882353, 0.992157, 1 )
+spot_range = 14.3195
+spot_angle = 60.4688
+
+[node name="platform18" type="RigidBody" parent="Stage2/Walls"]
 transform = Transform( 0.990484, -0.135634, 0.0233535, 0.112368, 0.894931, 0.431824, -0.0794698, -0.425091, 0.901655, 59.0483, -45.4391, -82.696 )
+mode = 1
 
-[node name="platform19" parent="Stage2/Walls" instance=ExtResource( 17 )]
+[node name="block-441" type="MeshInstance" parent="Stage2/Walls/platform18"]
+transform = Transform( 1, 0, 1.86265e-09, 7.45058e-09, -5.96046e-08, -0.2, 0, 1, -2.23517e-08, 0, 0, 0 )
+mesh = ExtResource( 21 )
+material/0 = ExtResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage2/Walls/platform18"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+shape = SubResource( 14 )
+
+[node name="SpotLight" type="SpotLight" parent="Stage2/Walls/platform18"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
+light_color = Color( 0.654902, 0.882353, 0.992157, 1 )
+spot_range = 14.3195
+spot_angle = 60.4688
+
+[node name="platform19" type="RigidBody" parent="Stage2/Walls"]
 transform = Transform( 0.990484, -0.0923536, 0.102043, 0.112368, 0.970763, -0.212115, -0.0794698, 0.221563, 0.971902, 58.3334, -45.9993, -92.3977 )
+mode = 1
 
-[node name="platform20" parent="Stage2/Walls" instance=ExtResource( 17 )]
+[node name="block-441" type="MeshInstance" parent="Stage2/Walls/platform19"]
+transform = Transform( 1, 0, -4.42378e-09, 1.67638e-08, -2.98023e-08, -0.2, 0, 1, -1.49012e-08, 0, 0, 0 )
+mesh = ExtResource( 21 )
+material/0 = ExtResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage2/Walls/platform19"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+shape = SubResource( 14 )
+
+[node name="SpotLight" type="SpotLight" parent="Stage2/Walls/platform19"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
+light_color = Color( 0.654902, 0.882353, 0.992157, 1 )
+spot_range = 14.3195
+spot_angle = 60.4688
+
+[node name="platform20" type="RigidBody" parent="Stage2/Walls"]
 transform = Transform( 0.755397, 0.609622, 0.240283, -0.619183, 0.784083, -0.042722, -0.214447, -0.116507, 0.969762, 50.0767, -41.2306, -90.4901 )
+mode = 1
+
+[node name="block-441" type="MeshInstance" parent="Stage2/Walls/platform20"]
+transform = Transform( 1, 0, -1.62981e-08, 2.04891e-08, -4.47035e-08, -0.2, -5.96046e-08, 1, -5.58794e-09, 0, 0, 0 )
+mesh = ExtResource( 21 )
+material/0 = ExtResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage2/Walls/platform20"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+shape = SubResource( 14 )
+
+[node name="SpotLight" type="SpotLight" parent="Stage2/Walls/platform20"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
+light_color = Color( 0.654902, 0.882353, 0.992157, 1 )
+spot_range = 14.3195
+spot_angle = 60.4688
 
 [node name="OmniLight" type="OmniLight" parent="Stage2/Walls"]
 transform = Transform( 0.921213, -0.133066, 0.365596, -3.50063e-08, 0.939693, 0.34202, -0.38906, -0.315073, 0.865657, 61.4706, -19.7466, -31.7125 )
@@ -487,8 +795,30 @@ omni_attenuation = 0.378929
 omni_shadow_mode = 0
 omni_shadow_detail = 0
 
-[node name="platform9" parent="Stage2/Walls" instance=ExtResource( 17 )]
+[node name="platform9" type="RigidBody" parent="Stage2/Walls"]
 transform = Transform( 0.965926, 0.224144, 0.12941, -0.258819, 0.836516, 0.482963, -2.98023e-08, -0.5, 0.866025, 53.9169, -25.4564, -53.1054 )
+mode = 1
+
+[node name="block-441" type="MeshInstance" parent="Stage2/Walls/platform9"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+mesh = ExtResource( 21 )
+material/0 = ExtResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage2/Walls/platform9"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+shape = SubResource( 14 )
+
+[node name="SpotLight" type="SpotLight" parent="Stage2/Walls/platform9"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
+light_color = Color( 0.654902, 0.882353, 0.992157, 1 )
+spot_range = 14.3195
+spot_angle = 60.4688
+
+[node name="SpotLight" type="SpotLight" parent="Stage2/Walls/platform9/SpotLight"]
+transform = Transform( 1, 2.98023e-08, -1.08301e-07, 1.40954e-07, 2.98023e-08, 1, 1.3172e-08, -1, 0, 1.58656, 72.7775, 32.2944 )
+light_color = Color( 0.654902, 0.882353, 0.992157, 1 )
+spot_range = 14.3195
+spot_angle = 60.4688
 
 [node name="platform21" type="RigidBody" parent="Stage2/Walls"]
 transform = Transform( 0.939693, -0.116978, 0.321394, 0, 0.939693, 0.34202, -0.34202, -0.321394, 0.883022, 49.3782, -34.1094, -49.6429 )
