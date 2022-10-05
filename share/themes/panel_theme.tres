@@ -19,6 +19,6 @@ shadow_offset = Vector2( 3, 3 )
 
 [resource]
 default_font = ExtResource( 1 )
-Label/fonts/font = null
+Label/fonts/font = ExtResource( 1 )
 Label/styles/normal = null
 Panel/styles/panel = SubResource( 1 )
