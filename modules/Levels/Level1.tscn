@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://share/scripts/Puzzle.gd" type="Script" id=1]
 [ext_resource path="res://share/scripts/open_door.gd" type="Script" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://share/textures/wall_cyan_2.tres" type="Material" id=18]
 [ext_resource path="res://share/textures/wall_cyan.tres" type="Material" id=19]
 [ext_resource path="res://share/textures/wall_green.tres" type="Material" id=20]
+[ext_resource path="res://share/textures/wall_green_2.tres" type="Material" id=21]
 
 [sub_resource type="ConcavePolygonShape" id=1]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
@@ -228,7 +229,7 @@ output_color = Color( 0.784314, 0.572549, 0.945098, 1 )
 [node name="Walls" type="Spatial" parent="Stage0/Stage 1"]
 
 [node name="block-441-wall4" type="RigidBody" parent="Stage0/Stage 1/Walls"]
-transform = Transform( 1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, -4.4749, -6.09315, -9.49826 )
+transform = Transform( 1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, -4.80463, -6.09315, -9.49826 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -244,7 +245,7 @@ transform = Transform( 3, -3.08308e-15, 0, -9.24925e-15, 2.6136, 7.05327e-08, 0,
 shape = SubResource( 1 )
 
 [node name="block-441-wall5" type="RigidBody" parent="Stage0/Stage 1/Walls"]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -4.475, -4.801, -22.401 )
+transform = Transform( 0, -1, 0, 1, 0, 0, 0, 0, 1, -4.475, -4.801, -22.46 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -260,7 +261,7 @@ transform = Transform( 3, -3.08308e-15, 0, -9.24925e-15, 2.6136, 7.05327e-08, 0,
 shape = SubResource( 1 )
 
 [node name="block-441-wall6" type="RigidBody" parent="Stage0/Stage 1/Walls"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 46.6772, 5.36774, -9.38281 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 46.6772, 5.36774, -9.49209 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -276,7 +277,7 @@ transform = Transform( 3, -3.08308e-15, 0, -9.24925e-15, 2.6136, 7.05327e-08, 0,
 shape = SubResource( 1 )
 
 [node name="block-441-wall7" type="RigidBody" parent="Stage0/Stage 1/Walls"]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -4.4749, -4.80109, 3.47997 )
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -4.43592, -4.80109, 3.47997 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -292,7 +293,7 @@ transform = Transform( 3, -3.08308e-15, 0, -9.24925e-15, 2.6136, 7.05327e-08, 0,
 shape = SubResource( 1 )
 
 [node name="block-441-wall8" type="RigidBody" parent="Stage0/Stage 1/Walls"]
-transform = Transform( 1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, -25.3606, -6.09315, -9.49826 )
+transform = Transform( 1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, -25.7084, -6.09315, -9.49826 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -356,7 +357,7 @@ transform = Transform( 3, -3.08308e-15, 0, -9.24925e-15, 2.6136, 7.05327e-08, 0,
 shape = SubResource( 1 )
 
 [node name="block-441-wall12" type="RigidBody" parent="Stage0/Stage 1/Walls"]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -46.3197, -4.80109, 3.47997 )
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -46.2254, -4.80109, 3.47997 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -372,7 +373,7 @@ transform = Transform( 3, -3.08308e-15, 0, -9.24925e-15, 2.6136, 7.05327e-08, 0,
 shape = SubResource( 1 )
 
 [node name="block-441-wall14" type="RigidBody" parent="Stage0/Stage 1/Walls"]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -46.1112, -4.801, -22.401 )
+transform = Transform( 0, -1, 0, 1, 0, 0, 0, 0, 1, -46.2622, -4.801, -22.46 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -420,7 +421,7 @@ transform = Transform( 3, -3.08308e-15, 0, -9.24925e-15, 2.6136, 7.05327e-08, 0,
 shape = SubResource( 1 )
 
 [node name="block-441-wall17" type="RigidBody" parent="Stage0/Stage 1/Walls"]
-transform = Transform( 1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, 16.3719, -6.09315, -9.49826 )
+transform = Transform( 1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, 16.0736, -6.09315, -9.49826 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -436,7 +437,7 @@ transform = Transform( 3, -3.08308e-15, 0, -9.24925e-15, 2.6136, 7.05327e-08, 0,
 shape = SubResource( 1 )
 
 [node name="block-441-wall18" type="RigidBody" parent="Stage0/Stage 1/Walls"]
-transform = Transform( 1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, 37.2003, -6.09315, -9.49826 )
+transform = Transform( 1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, 36.9762, -6.09315, -9.49826 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -452,7 +453,7 @@ transform = Transform( 3, 8.05795e-15, -8.32026e-23, -9.24925e-15, 2.6136, -2.69
 shape = SubResource( 1 )
 
 [node name="block-441-wall20" type="RigidBody" parent="Stage0/Stage 1/Walls"]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 37.1673, -4.80109, -22.4601 )
+transform = Transform( 0, -1, 0, 1, 0, 0, 0, 0, 1, 37.319, -4.801, -22.46 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -468,7 +469,7 @@ transform = Transform( 3, -3.08308e-15, 0, -9.24925e-15, 2.6136, 7.05327e-08, 0,
 shape = SubResource( 1 )
 
 [node name="block-441-wall21" type="RigidBody" parent="Stage0/Stage 1/Walls"]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 16.4474, -4.801, -22.401 )
+transform = Transform( 0, -1, 0, 1, 0, 0, 0, 0, 1, 16.447, -4.801, -22.46 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -500,7 +501,7 @@ transform = Transform( 3, -3.08308e-15, 0, -9.24925e-15, 2.6136, 7.05327e-08, 0,
 shape = SubResource( 1 )
 
 [node name="block-441-wall22" type="RigidBody" parent="Stage0/Stage 1/Walls"]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 16.4795, -4.80109, 3.47997 )
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 16.4534, -4.80109, 3.47997 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -516,7 +517,7 @@ transform = Transform( 3, -3.08308e-15, 0, -9.24925e-15, 2.6136, 7.05327e-08, 0,
 shape = SubResource( 1 )
 
 [node name="block-441-wall23" type="RigidBody" parent="Stage0/Stage 1/Walls"]
-transform = Transform( 1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, 16.9898, -15.8885, -9.49826 )
+transform = Transform( 1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, 15.2937, -15.8885, -9.49826 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -532,7 +533,7 @@ transform = Transform( 3, -3.08308e-15, 0, -9.24925e-15, 2.6136, 7.05327e-08, 0,
 shape = SubResource( 1 )
 
 [node name="block-441-wall24" type="RigidBody" parent="Stage0/Stage 1/Walls"]
-transform = Transform( 1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, 37.174, -15.889, -9.498 )
+transform = Transform( 1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, 36.1846, -15.889, -9.498 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -580,7 +581,7 @@ transform = Transform( 3, -3.08308e-15, 0, -9.24925e-15, 2.6136, 7.05327e-08, 0,
 shape = SubResource( 1 )
 
 [node name="block-441-wall27" type="RigidBody" parent="Stage0/Stage 1/Walls"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 16.33, -4.01136, -9.53264 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 16.33, -4.01136, -9.47758 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -589,6 +590,7 @@ __meta__ = {
 [node name="block-441" type="MeshInstance" parent="Stage0/Stage 1/Walls/block-441-wall27"]
 transform = Transform( -1.62921e-07, 2.4, 5.82705e-09, -1, -3.9101e-07, -4.37114e-08, -4.37114e-08, -1.39849e-08, 1, 0, 0.231992, -0.1 )
 mesh = ExtResource( 14 )
+material/0 = ExtResource( 21 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Stage0/Stage 1/Walls/block-441-wall27"]
 transform = Transform( -1.62921e-07, 2.4, 5.82705e-09, -1, -3.9101e-07, -4.37114e-08, -4.37114e-08, -1.39849e-08, 1, 0, 0.231992, -0.1 )
@@ -643,7 +645,7 @@ transform = Transform( 3, -3.08308e-15, 0, -9.24925e-15, 2.6136, 7.05327e-08, 0,
 shape = SubResource( 1 )
 
 [node name="block-441-wall31" type="RigidBody" parent="Stage0/Stage 1/Walls"]
-transform = Transform( 1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, 57.716, -15.889, -9.498 )
+transform = Transform( 1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, 57.0854, -15.889, -9.498 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -691,23 +693,23 @@ transform = Transform( 1, -1.48943e-09, -1.13133e-08, -1.48943e-09, 0.965926, -0
 shape = SubResource( 1 )
 
 [node name="block-441-wall61" type="RigidBody" parent="Stage0/Stage 1/Walls"]
-transform = Transform( 1.66282e-08, 4.02418e-08, -0.380408, 1.75903e-15, -0.540217, -4.02419e-08, -0.423749, 0, -1.85226e-08, 47.3323, -9.23198, -16.403 )
+transform = Transform( 0, 0, -0.38, 0, -0.54, 0, -0.424, 0, 0, 47.2411, -10.73, -17.786 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="block-441" type="MeshInstance" parent="Stage0/Stage 1/Walls/block-441-wall61"]
-transform = Transform( 3, -3.08308e-15, 0, -9.24925e-15, 2.6136, 7.05327e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+transform = Transform( 3.32464, -3.08308e-15, 4.73016e-09, -9.24925e-15, 2.6136, 7.05327e-08, 1.41906e-08, 7.05327e-08, 1, 0, 0, 0 )
 mesh = ExtResource( 14 )
 material/0 = ExtResource( 19 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Stage0/Stage 1/Walls/block-441-wall61"]
-transform = Transform( 3, -3.08308e-15, 0, -9.24925e-15, 2.6136, 7.05327e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
+transform = Transform( 3.32464, -3.08308e-15, 4.73016e-09, -9.24925e-15, 2.6136, 7.05327e-08, 1.41906e-08, 7.05327e-08, 1, 0, 0, 0 )
 shape = SubResource( 1 )
 
 [node name="block-441-wall62" type="RigidBody" parent="Stage0/Stage 1/Walls"]
-transform = Transform( 1.66282e-08, 4.02418e-08, -0.380408, 1.75903e-15, -0.540217, -4.02419e-08, -0.423749, 0, -1.85226e-08, 47.3323, -9.23198, -1.90812 )
+transform = Transform( 1.66282e-08, 4.02418e-08, -0.380408, 1.75903e-15, -0.540217, -4.02419e-08, -0.423749, 0, -1.85226e-08, 47.241, -10.7298, -1.90812 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -770,7 +772,7 @@ transform = Transform( 1, 3.08308e-15, -8.32026e-23, -3.08308e-15, 1, -2.69868e-
 shape = SubResource( 1 )
 
 [node name="block-441-wall36" type="RigidBody" parent="Stage0/Stage 1/Walls"]
-transform = Transform( 0.0894464, -0.975277, 0.202076, 0.394751, 0.220987, 0.891816, -0.914424, -2.08616e-07, 0.404757, 52.0014, 2.40688, -18.3801 )
+transform = Transform( 0.0894464, -0.975277, 0.202076, 0.394751, 0.220987, 0.891816, -0.914424, -2.08616e-07, 0.404757, 50.748, 2.40688, -18.7487 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -786,7 +788,7 @@ transform = Transform( 1.5, -6.56441e-09, 7.45058e-09, -7.14824e-08, 1.5, -2.433
 shape = SubResource( 1 )
 
 [node name="block-441-wall37" type="RigidBody" parent="Stage0/Stage 1/Walls"]
-transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 64.6926, 5.66005, -9.32144 )
+transform = Transform( 0, -1, 0, 0, 0, 1, -1, 0, 0, 64.693, 5.66, -9.498 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -802,7 +804,7 @@ transform = Transform( 3, 3.55271e-15, 9.26442e-23, -1.42109e-14, 0.7, -8.09604e
 shape = SubResource( 1 )
 
 [node name="block-441-wall38" type="RigidBody" parent="Stage0/Stage 1/Walls"]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -4.475, 19.0198, -22.401 )
+transform = Transform( 0, -1, 0, 1, 0, 0, 0, 0, 1, -4.475, 19.02, -22.46 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -866,7 +868,7 @@ transform = Transform( 3, -3.08308e-15, 0, -9.24925e-15, 2.6136, 7.05327e-08, 0,
 shape = SubResource( 1 )
 
 [node name="block-441-wall42" type="RigidBody" parent="Stage0/Stage 1/Walls"]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -46.1112, 19.0198, -22.401 )
+transform = Transform( 0, -1, 0, 1, 0, 0, 0, 0, 1, -46.111, 19.02, -22.46 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -898,7 +900,7 @@ transform = Transform( 3, -3.08308e-15, 0, -9.24925e-15, 2.6136, 7.05327e-08, 0,
 shape = SubResource( 1 )
 
 [node name="block-441-wall44" type="RigidBody" parent="Stage0/Stage 1/Walls"]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 16.4474, 19.0198, -22.401 )
+transform = Transform( 0, -1, 0, 1, 0, 0, 0, 0, 1, 16.447, 19.02, -22.46 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -1074,7 +1076,7 @@ transform = Transform( 3, -3.08308e-15, 0, -9.24925e-15, 2.6136, 7.05327e-08, 0,
 shape = SubResource( 1 )
 
 [node name="block-441-wall54" type="RigidBody" parent="Stage0/Stage 1/Walls"]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 57.7093, 18.9394, -22.4601 )
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 57.7093, 18.9647, -22.4601 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -1138,7 +1140,7 @@ transform = Transform( 3, -3.08308e-15, 0, -9.24925e-15, 2.6136, 7.05327e-08, 0,
 shape = SubResource( 1 )
 
 [node name="block-441-wall56" type="RigidBody" parent="Stage0/Stage 1/Walls"]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 78.9679, 16.1965, 3.47997 )
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 78.7716, 16.1965, 3.47997 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -1154,7 +1156,7 @@ transform = Transform( 3, -3.08308e-15, 0, -9.24925e-15, 2.6136, 7.05327e-08, 0,
 shape = SubResource( 1 )
 
 [node name="block-441-wall59" type="RigidBody" parent="Stage0/Stage 1/Walls"]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 78.721, 15.9263, -22.4601 )
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 78.5678, 15.9263, -22.4601 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -1185,6 +1187,22 @@ material/0 = ExtResource( 19 )
 transform = Transform( 3, -3.08308e-15, 0, -9.24925e-15, 2.6136, 7.05327e-08, 0, 7.05327e-08, 1, 0, 0, 0 )
 shape = SubResource( 1 )
 
+[node name="block-441-wall63" type="RigidBody" parent="Stage0/Stage 1/Walls"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.37605, -4.01136, -17.3754 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="Stage0/Stage 1/Walls/block-441-wall63"]
+transform = Transform( -1.62921e-07, 2.4, 5.82705e-09, -1, -3.9101e-07, -4.37114e-08, -4.37114e-08, -1.39849e-08, 1, 0, 0.231992, -0.1 )
+mesh = ExtResource( 14 )
+material/0 = ExtResource( 20 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage0/Stage 1/Walls/block-441-wall63"]
+transform = Transform( -1.62921e-07, 2.4, 5.82705e-09, -1, -3.9101e-07, -4.37114e-08, -4.37114e-08, -1.39849e-08, 1, 0, 0.231992, -0.1 )
+shape = SubResource( 1 )
+
 [node name="block-441-wall4" type="RigidBody" parent="Stage0/Stage 1"]
 transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -4.03511, -15.889, -9.48752 )
 mode = 1
@@ -1202,7 +1220,7 @@ transform = Transform( 1, 3.55271e-15, -5.29396e-23, -3.55271e-15, 1, -2.69868e-
 shape = SubResource( 1 )
 
 [node name="block-441-wall7" type="RigidBody" parent="Stage0/Stage 1"]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -25.4096, -4.80109, 3.47997 )
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -25.3436, -4.80109, 3.47997 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -1250,7 +1268,7 @@ unit_size = 7.6
 max_db = 1.0
 
 [node name="block-441-wall6" type="RigidBody" parent="Stage0/Stage 1"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 67.2591, -4.41919, -9.38281 )
+transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, 67.259, -4.419, -9.498 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
