@@ -26,6 +26,7 @@ func activate():
 	visible = true
 	openAudio.play()
 	itemList.grab_focus()
+	#itemList.items[0].grab_focus()
 
 func deactivate():
 	active = false
