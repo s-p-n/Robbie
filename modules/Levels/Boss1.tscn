@@ -42,6 +42,7 @@ starting_checkpoint = NodePath("../Floor/Checkpoint")
 
 [node name="FartBoss" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.06563, 4.24523, -1.25465 )
+health = 20
 
 [node name="Room" type="Spatial" parent="."]
 
