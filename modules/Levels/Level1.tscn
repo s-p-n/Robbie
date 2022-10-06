@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://share/scripts/Puzzle.gd" type="Script" id=1]
 [ext_resource path="res://share/scripts/open_door.gd" type="Script" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://share/textures/wall_cyan.tres" type="Material" id=19]
 [ext_resource path="res://share/textures/wall_green.tres" type="Material" id=20]
 [ext_resource path="res://share/textures/wall_green_2.tres" type="Material" id=21]
+[ext_resource path="res://modules/Interactive/ScrapParts/Scrap.tscn" type="PackedScene" id=22]
 
 [sub_resource type="ConcavePolygonShape" id=1]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
@@ -1349,3 +1350,6 @@ rotation_speed = 3.0
 audio_file = ExtResource( 17 )
 subtitle_lines = [ "Experimental Log: 7-3.", "It is a success!", "Richard is able to find, and replace, any components", "Or even repair damaged ones from common phrases, such as...", "Which way did he go.. Hey Richard! ", "(Richard squeaking)", "Can you please fix the damn computer!", "(Richard arguing)", "No, I'm not shouting at you I'm shouting near you.", "(Richard arguing)", "Further experimentation is needed.", "Side note... $#%& Yeah! We managed to make a completely autonomous nanobot!", "We'll party like crazy tonight!" ]
 subtitle_line_time = [ 2.9, 2.0, 4.5, 5.0, 2.0, 1.5, 2.5, 1.0, 2.5, 1.0, 2.0, 6.0, 5.0 ]
+
+[node name="Scrap" parent="." instance=ExtResource( 22 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, -65.2467, -14.1145, -2.82168 )
