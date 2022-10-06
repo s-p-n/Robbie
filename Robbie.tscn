@@ -25,7 +25,7 @@ points = PoolVector3Array( 4, 4, 1, 4, 4, -1, -4, 4, 1, 4, -4, 1, 4, -4, -1, -4,
 
 [node name="Robbie" type="Spatial"]
 script = ExtResource( 1 )
-levels = [ ExtResource( 11 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 10 ) ]
+levels = [ ExtResource( 8 ), ExtResource( 2 ), ExtResource( 10 ), ExtResource( 11 ) ]
 
 [node name="PowerLines" type="Spatial" parent="."]
 
@@ -58,6 +58,7 @@ transform = Transform( 5000, 0, 0, 0, -0.000218557, -1, 0, 5000, -4.37114e-08, 0
 material_override = SubResource( 1 )
 cast_shadow = 0
 mesh = ExtResource( 5 )
+material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="platform"]
 transform = Transform( 5000, 0, 0, 0, -0.000218557, -1, 0, 5000, -4.37114e-08, 0, 0, 0 )

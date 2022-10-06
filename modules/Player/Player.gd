@@ -55,9 +55,9 @@ func _process(delta):
 func checkpoint(new_checkpoint):
 	last_checkpoint = new_checkpoint
 
-func interact():
+func interact(n=1):
 	#print("got hit")
-	UI.remove_health()
+	UI.remove_health(n)
 	if UI.health <= 0:
 		respawn()
 

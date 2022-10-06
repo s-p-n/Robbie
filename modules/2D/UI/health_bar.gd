@@ -33,8 +33,8 @@ func add_health():
 	health += health_step
 	publish_changes()
 
-func remove_health():
-	health -= health_step
+func remove_health(n = 1):
+	health -= health_step * n
 	publish_changes()
 
 func reset_health():
