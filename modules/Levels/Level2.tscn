@@ -16,7 +16,6 @@
 [ext_resource path="res://share/textures/wall_black_glossy.tres" type="Material" id=14]
 [ext_resource path="res://modules/Powerlines/Pylons/static/PylonStatic.tscn" type="PackedScene" id=15]
 [ext_resource path="res://modules/Player/Player.tscn" type="PackedScene" id=16]
-[ext_resource path="res://modules/Structures/block/platform.tscn" type="PackedScene" id=17]
 [ext_resource path="res://modules/Interactive/Checkpoint/Checkpoint.tscn" type="PackedScene" id=18]
 [ext_resource path="res://modules/Powerlines/Pylons/input/PylonInput.tscn" type="PackedScene" id=19]
 [ext_resource path="res://modules/Structures/circuitBoard/med/circuit_board_dark.tres" type="Material" id=20]
@@ -78,6 +77,9 @@ extents = Vector3( 3.98502, 1.93056, 3.99755 )
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
 
 [sub_resource type="ConcavePolygonShape" id=8]
+data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=15]
 data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
 
 [sub_resource type="ConvexPolygonShape" id=9]
@@ -1326,8 +1328,24 @@ mesh = ExtResource( 21 )
 transform = Transform( 0.4, 0, 0, 0, 0.02, 0, 0, 0, 0.1, 0, 0, 0 )
 shape = SubResource( 8 )
 
-[node name="platform14" parent="Stage3" instance=ExtResource( 17 )]
+[node name="platform14" type="RigidBody" parent="Stage3"]
 transform = Transform( 0.866025, -0.433013, 0.25, 0.5, 0.75, -0.433013, 0, 0.5, 0.866025, 37.031, 1.77922, -69.713 )
+mode = 1
+
+[node name="block-441" type="MeshInstance" parent="Stage3/platform14"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+mesh = ExtResource( 21 )
+material/0 = ExtResource( 30 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage3/platform14"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+shape = SubResource( 15 )
+
+[node name="SpotLight" type="SpotLight" parent="Stage3/platform14"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
+light_color = Color( 0.654902, 0.882353, 0.992157, 1 )
+spot_range = 14.3195
+spot_angle = 60.4688
 
 [node name="Poster4" parent="Stage3/platform14" instance=ExtResource( 11 )]
 transform = Transform( 1, 8.9407e-08, 5.96046e-08, -1.20207e-07, 2.98023e-08, -1, -3.84469e-08, 1, -8.9407e-08, 0.138634, 0.207947, -0.120056 )
