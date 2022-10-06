@@ -19,6 +19,8 @@ scale = Vector2( 0.620005, 0.379999 )
 texture = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="Arrow"]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
 margin_left = -546.77
 margin_top = -34.2108
 margin_right = -348.77
