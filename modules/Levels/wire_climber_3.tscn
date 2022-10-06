@@ -64,26 +64,19 @@ light_energy = 0.259
 
 [node name="DirectionalLight7" type="DirectionalLight" parent="DevLights"]
 transform = Transform( 0.244188, -0.960198, -0.135619, 0.460238, 0.237852, -0.85534, 0.853553, 0.146447, 0.5, 0, 30.9096, 8.28221 )
-visible = false
 light_color = Color( 0.686275, 0.839216, 0.941176, 1 )
 
 [node name="DirectionalLight4" type="DirectionalLight" parent="DevLights"]
 transform = Transform( 1, 0, 0, 0, 0.19983, 0.979831, 0, -0.979831, 0.19983, 0, 30.9096, 8.28221 )
-visible = false
 light_color = Color( 0.223529, 0.27451, 0.309804, 1 )
-editor_only = true
 
 [node name="DirectionalLight5" type="DirectionalLight" parent="DevLights"]
 transform = Transform( 0.863431, -0.100808, -0.494292, 0.504467, 0.172539, 0.846016, 0, -0.979831, 0.19983, 0, 30.1937, 8.3655 )
-visible = false
 light_color = Color( 0.223529, 0.27451, 0.309804, 1 )
-editor_only = true
 
 [node name="DirectionalLight6" type="DirectionalLight" parent="DevLights"]
 transform = Transform( 0.0252698, 0.199766, 0.979518, -0.999681, 0.00504966, 0.0247601, 0, -0.979831, 0.19983, 0, 30.1936, 8.3655 )
-visible = false
 light_color = Color( 0.223529, 0.27451, 0.309804, 1 )
-editor_only = true
 
 [node name="Stage 0" type="Spatial" parent="DevLights"]
 

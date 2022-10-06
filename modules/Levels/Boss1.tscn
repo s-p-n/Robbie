@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://modules/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://share/scripts/rotate_object.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://modules/Structures/wall/wall.obj" type="ArrayMesh" id=10]
 [ext_resource path="res://modules/Levels/Boss1.gd" type="Script" id=11]
 [ext_resource path="res://share/audio/Boss Music_05.wav" type="AudioStream" id=12]
+[ext_resource path="res://modules/NPCs/FartBoss/Cloud.tscn" type="PackedScene" id=13]
 
 [sub_resource type="ConvexPolygonShape" id=1]
 points = PoolVector3Array( -0.068783, -6.38385, -11.7301, 0.0687695, -6.38385, -11.7301, -0.068783, -6.38385, 11.7301, -0.068783, 6.38385, -11.7301, 0.0687695, 6.38385, -11.7301, 0.0687695, -6.38385, 11.7301, -0.068783, 6.38385, 11.7301, 0.0687695, 6.38385, 11.7301 )
@@ -41,7 +42,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95893, 0 )
 starting_checkpoint = NodePath("../Floor/Checkpoint")
 
 [node name="FartBoss" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.06563, 4.24523, -1.25465 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.195, 11.6682, -1.25465 )
 health = 20
 
 [node name="Room" type="Spatial" parent="."]
@@ -200,4 +201,7 @@ light_energy = 0.373
 light_indirect_energy = 0.268
 
 [node name="Ending" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 2.79, -11.085 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 82.0236, 2.79, -11.085 )
+
+[node name="Cloud" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.1998, 10.7608, -0.76649 )

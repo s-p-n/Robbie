@@ -20,7 +20,7 @@ func _process(delta):
 	global_transform.origin.y += 0.01
 
 func _on_Cloud_body_entered(body):
-	if body.has_method("interact"):
+	if body.has_method("interact") and body.name != "FartBoss":
 		interactables.append(body)
 		if !$FartSound.playing:
 			$FartSound.play(0)

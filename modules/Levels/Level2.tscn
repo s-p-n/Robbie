@@ -1571,5 +1571,25 @@ audio_file = ExtResource( 25 )
 subtitle_lines = [ "Experimental Log: 7-3", "We've made a grave mistake..", "Since Richard could create new components from old ones,", "We were wondering if he could self-replicate..", "So at the party last night, we brought him out for all of our guests... and...", "We ordered him to self-replicate.. and he could..", "Why didn't we restrict this in the code?", "Richard's clones aren't as big as him, they're about half the size. But they have all the same abilities as him.", "Except they only listen to Richard- which, I guess? is a good thing?", "We managed to contain Richard and all of his children, except the one.. that maybe escaped...", "We don't know if he can self-replicate, but we don't really want to stand around and find out.", "Side Note: We may have to make another robot, to track this one down.. Log Over..." ]
 subtitle_line_time = [ 10.0, 4.0, 5.0, 4.0, 8.0, 5.0, 4.0, 9.0, 7.0, 8.0, 7.0, 11.0 ]
 
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 41.6854, 0 )
+light_color = Color( 0.623529, 0.623529, 0.623529, 1 )
+light_energy = 0.25
+
+[node name="DirectionalLight2" type="DirectionalLight" parent="."]
+transform = Transform( -4.37114e-08, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, 3.09086e-08, -3.09086e-08, 0, 41.6854, 0 )
+light_color = Color( 0.623529, 0.623529, 0.623529, 1 )
+light_energy = 0.25
+
+[node name="DirectionalLight3" type="DirectionalLight" parent="."]
+transform = Transform( -0.965926, -0.183013, 0.183013, 0, 0.707107, 0.707107, -0.258819, 0.683013, -0.683013, 0, 41.6854, 0 )
+light_color = Color( 0.623529, 0.623529, 0.623529, 1 )
+light_energy = 0.25
+
+[node name="DirectionalLight4" type="DirectionalLight" parent="."]
+transform = Transform( 0, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 0, 0, 0, 41.6854, 0 )
+light_color = Color( 0.623529, 0.623529, 0.623529, 1 )
+light_energy = 0.25
+
 [connection signal="body_entered" from="Stage3/Ship/Area" to="Stage3/Ship" method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Stage3/Ship/Area" to="Stage3/Ship" method="_on_Area_body_exited"]
