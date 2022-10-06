@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://modules/Interactive/PowerUp/PowerUp.gd" type="Script" id=1]
-[ext_resource path="res://modules/Interactive/FloppyDisk/stainless_steel.tres" type="Material" id=2]
+[ext_resource path="res://share/audio/CG_GameSound_Power_PickUp.wav" type="AudioStream" id=2]
 [ext_resource path="res://modules/Interactive/ScrapParts/screwPhilips.obj" type="ArrayMesh" id=3]
 [ext_resource path="res://modules/Interactive/ScrapParts/screwFlat.obj" type="ArrayMesh" id=4]
 [ext_resource path="res://modules/Interactive/ScrapParts/screwSquare.obj" type="ArrayMesh" id=5]
 [ext_resource path="res://modules/Interactive/ScrapParts/nut.obj" type="ArrayMesh" id=6]
+[ext_resource path="res://modules/Interactive/ScrapParts/part_rotate.gd" type="Script" id=7]
+[ext_resource path="res://modules/Interactive/ScrapParts/metal.tres" type="Material" id=8]
 
 [sub_resource type="ConvexPolygonShape" id=1]
 points = PoolVector3Array( -0.364112, -0.29427, -0.929538, 0.165141, 0.366424, 1.03386, -0.154154, 0.366424, 1.03386, -0.0600288, 2.50185, -0.0600184, 0.985549, -0.295899, -0.146839, -0.978696, -0.302052, 0.202037, 0.576238, 0.366424, -0.88555, 0.504977, 2.22697, 0.114014, -0.233669, 2.27213, -0.450978, -0.306134, 2.22044, 0.358906, 0.588382, -0.284788, 0.804582, -0.976951, 0.366424, -0.382646, -0.885552, 0.366424, 0.576658, 0.850839, 0.366424, 0.622358, -0.245755, 0.366424, -1.02285, 1.03384, 0.366424, -0.154346, 0.284872, 2.25927, -0.403143, -0.321306, -0.297208, 0.942521, 0.151789, 2.22687, 0.444397, -0.407162, 2.31395, 0.114029, 0.373753, -0.289917, -0.926614, -0.748251, 0.366424, -0.748248, 0.942239, 0.366424, -0.474248, -1.02285, 0.366424, 0.210854, -0.841292, -0.292204, -0.537278, 0.210841, 0.366424, -1.02285, -0.474052, 0.366424, 0.94226, 0.622139, 0.366424, 0.850859, 0.987939, 0.366424, 0.348156, 0.857223, -0.29973, 0.507467, 0.810121, -0.294405, -0.581636, -0.407665, 2.31544, -0.103152, -0.0157487, 2.04478, 0.543587, 0.456941, 2.2587, -0.144916, -0.58163, -0.294379, 0.810126, 0.157478, -0.294652, 0.984502, 0.202024, -0.302058, -0.9787, -1.02285, 0.366424, -0.245746, 0.200269, 2.26681, -0.448911, -0.565653, 0.366424, -0.88555, 0.0708177, 2.49348, 0.0706373, 1.03384, 0.366424, 0.165355, 0.406367, 2.23718, 0.237553, 0.34794, 0.366424, 0.98796, -0.9694, -0.28883, -0.232686, -0.42175, 2.19645, -0.218249, 0.850839, 0.366424, -0.611349, -0.836909, -0.285011, 0.545478, -0.611353, 0.366424, 0.850859, -0.431447, 2.22139, 0.192531, -0.190131, 2.31524, 0.375108, 0.984482, -0.294382, 0.157683, -0.885552, 0.366424, -0.565648, 0.371738, 2.26125, -0.317454, -0.976951, 0.366424, 0.393655, 0.39364, 0.366424, -0.976951, -0.707102, -0.285007, -0.707098, 0.200728, 2.31281, 0.374369, 0.593404, -0.2967, -0.800458, -0.141026, 2.23002, 0.445622, 0.0709939, 2.49725, -0.0598036, -0.496069, 2.06072, 0.0254826, 0.942521, -0.296967, -0.321306, -0.382854, 0.366424, -0.976951 )
@@ -37,49 +39,62 @@ axis_lock_angular_y = true
 axis_lock_angular_z = true
 
 [node name="screwFlat" type="MeshInstance" parent="Shape"]
-transform = Transform( -0.108577, -0.119025, 0.118507, 0.100475, -0.159107, -0.067746, 0.134594, 0.0227569, 0.146173, 0, -0.0852527, 0 )
+transform = Transform( -0.108577, -0.119025, 0.118507, 0.100475, -0.159107, -0.067746, 0.134594, 0.0227569, 0.146173, 0.069018, 0.231035, 0.0794838 )
 mesh = ExtResource( 4 )
 skeleton = NodePath("../..")
-material/0 = ExtResource( 2 )
-material/1 = ExtResource( 2 )
-material/2 = ExtResource( 2 )
+material/0 = ExtResource( 8 )
+material/1 = ExtResource( 8 )
+material/2 = ExtResource( 8 )
+script = ExtResource( 7 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Shape"]
-transform = Transform( -0.108577, -0.119025, 0.118507, 0.100475, -0.159107, -0.067746, 0.134594, 0.0227569, 0.146173, 0, -0.0852527, 0 )
+transform = Transform( -0.108577, -0.119025, 0.118507, 0.100475, -0.159107, -0.067746, 0.134594, 0.0227569, 0.146173, 0.069018, 0.231035, 0.0794838 )
 shape = SubResource( 1 )
 
 [node name="screwPhilips" type="MeshInstance" parent="Shape"]
-transform = Transform( 0.13083, -0.0791846, -0.128892, 0.0666087, 0.183156, -0.0449113, 0.135819, -0.0135481, 0.146184, 0.140368, -1, -0.330317 )
+transform = Transform( 0.13083, -0.0791846, -0.128892, 0.0666087, 0.183156, -0.0449113, 0.135819, -0.0135481, 0.146184, 0.209386, -0.683712, -0.250833 )
 mesh = ExtResource( 3 )
 skeleton = NodePath("../..")
-material/0 = ExtResource( 2 )
-material/1 = ExtResource( 2 )
-material/2 = ExtResource( 2 )
+material/0 = ExtResource( 8 )
+material/1 = ExtResource( 8 )
+material/2 = ExtResource( 8 )
+script = ExtResource( 7 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="Shape"]
-transform = Transform( 0.13083, -0.0791846, -0.128892, 0.0666087, 0.183156, -0.0449113, 0.135819, -0.0135481, 0.146184, 0.140368, -1, -0.330317 )
+transform = Transform( 0.13083, -0.0791846, -0.128892, 0.0666087, 0.183156, -0.0449113, 0.135819, -0.0135481, 0.146184, 0.209386, -0.683712, -0.250833 )
 shape = SubResource( 2 )
 
 [node name="screwSquare" type="MeshInstance" parent="Shape"]
-transform = Transform( 0.0423883, -0.144164, 0.131985, -0.00144615, -0.135281, -0.147299, 0.195451, 0.0302644, -0.029714, -0.329639, -0.917232, 0.222261 )
+transform = Transform( 0.0423883, -0.144164, 0.131985, -0.00144615, -0.135281, -0.147299, 0.195451, 0.0302644, -0.029714, -0.260621, -0.600945, 0.301745 )
 mesh = ExtResource( 5 )
 skeleton = NodePath("../screwPhilips")
-material/0 = ExtResource( 2 )
-material/1 = ExtResource( 2 )
-material/2 = ExtResource( 2 )
+material/0 = ExtResource( 8 )
+material/1 = ExtResource( 8 )
+material/2 = ExtResource( 8 )
+script = ExtResource( 7 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="Shape"]
-transform = Transform( 0.0423883, -0.144164, 0.131985, -0.00144615, -0.135281, -0.147299, 0.195451, 0.0302644, -0.029714, -0.329639, -0.917232, 0.222261 )
+transform = Transform( 0.0423883, -0.144164, 0.131985, -0.00144615, -0.135281, -0.147299, 0.195451, 0.0302644, -0.029714, -0.260621, -0.600945, 0.301745 )
 shape = SubResource( 3 )
 
 [node name="nut" type="MeshInstance" parent="Shape"]
-transform = Transform( 0.0423882, -0.144164, 0.131985, -0.00144615, -0.135281, -0.147299, 0.195451, 0.0302644, -0.0297139, -0.0259263, -0.728739, 0.017481 )
+transform = Transform( 0.0423882, -0.144164, 0.131985, -0.00144615, -0.135281, -0.147299, 0.195451, 0.0302644, -0.0297139, 0.0430916, -0.412451, 0.0969648 )
 mesh = ExtResource( 6 )
 skeleton = NodePath("../screwSquare")
-material/0 = ExtResource( 2 )
+material/0 = ExtResource( 8 )
+script = ExtResource( 7 )
 
 [node name="CollisionShape4" type="CollisionShape" parent="Shape"]
-transform = Transform( 0.0423882, -0.144164, 0.131985, -0.00144615, -0.135281, -0.147299, 0.195451, 0.0302644, -0.0297139, -0.0259263, -0.728739, 0.017481 )
+transform = Transform( 0.0423882, -0.144164, 0.131985, -0.00144615, -0.135281, -0.147299, 0.195451, 0.0302644, -0.0297139, 0.0430916, -0.412451, 0.0969648 )
 shape = SubResource( 4 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, -1.49012e-07, 0, 1, 0, 1.49012e-07, 0, 1, 0, 0.573131, 0 )
+light_color = Color( 0.584314, 0.835294, 0.882353, 1 )
+light_energy = 2.73
+light_indirect_energy = 0.0
+
+[node name="CollectSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 2 )
 
 [connection signal="body_entered" from="Shape" to="." method="_on_Shape_body_entered"]
