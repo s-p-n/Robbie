@@ -1,0 +1,375 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://share/scripts/LaserBeam.gd" type="Script" id=1]
+[ext_resource path="res://share/audio/Laser Power Down 2_02.wav" type="AudioStream" id=2]
+[ext_resource path="res://share/audio/Laser Loop-cm-01.wav" type="AudioStream" id=3]
+[ext_resource path="res://AI/Brain.tscn" type="PackedScene" id=4]
+[ext_resource path="res://share/textures/progress_bar_red.tres" type="Material" id=5]
+[ext_resource path="res://share/textures/progress_bar_green.tres" type="Material" id=6]
+
+[sub_resource type="SphereMesh" id=13]
+radius = 0.1
+height = 0.2
+radial_segments = 16
+rings = 8
+
+[sub_resource type="SpatialMaterial" id=14]
+metallic = 0.61
+metallic_specular = 0.89
+emission_enabled = true
+emission = Color( 1, 1, 1, 1 )
+emission_energy = 5.0
+emission_operator = 1
+emission_on_uv2 = false
+
+[sub_resource type="SphereMesh" id=15]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="SpatialMaterial" id=16]
+albedo_color = Color( 0, 0, 0, 1 )
+metallic = 1.0
+metallic_specular = 1.0
+
+[sub_resource type="CylinderMesh" id=17]
+top_radius = 0.02
+bottom_radius = 0.02
+height = 12.5
+radial_segments = 8
+rings = 8
+
+[sub_resource type="SpatialMaterial" id=18]
+emission_enabled = true
+emission = Color( 0.811765, 0, 0, 1 )
+emission_energy = 5.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="ConvexPolygonShape" id=19]
+points = PoolVector3Array( -0.02, -6.25, 0, -0.0141425, -6.25, -0.0141425, -0.0141425, -6.25, 0.0141386, -0.02, 6.25, 0, 0, -6.25, -0.02, -0.0141425, 6.25, -0.0141425, 0, -6.25, 0.02, -0.0141425, 6.25, 0.0141386, 0.0141386, -6.25, -0.0141425, 0, 6.25, -0.02, 0.0141386, -6.25, 0.0141386, 0, 6.25, 0.02, 0.02, -6.25, 0, 0.0141386, 6.25, -0.0141425, 0.0141386, 6.25, 0.0141386, 0.02, 6.25, 0 )
+
+[sub_resource type="CylinderMesh" id=8]
+top_radius = 0.5
+height = 1.0
+
+[sub_resource type="SpatialMaterial" id=12]
+albedo_color = Color( 0.341176, 0.254902, 0.145098, 1 )
+
+[sub_resource type="ConvexPolygonShape" id=9]
+points = PoolVector3Array( 0, -0.5, -1, -0.0980814, -0.5, -0.995301, 0, -0.30002, -0.900157, 0.0978857, -0.5, -0.995301, -0.0882929, -0.30002, -0.89585, -0.195184, -0.5, -0.980814, 0, 0.5, -0.5, 0.0587314, 0.299922, -0.597298, 0.0880971, -0.30002, -0.89585, -0.0589272, 0.299922, -0.597298, 0.194988, -0.5, -0.980814, -0.145262, 0.5, -0.478661, -0.0976899, 0.5, -0.490407, -0.290329, -0.5, -0.957126, -0.0491386, 0.5, -0.497651, 0.0489428, 0.5, -0.497651, 0.0974941, 0.5, -0.490407, 0.145067, 0.5, -0.478661, 0.290133, -0.5, -0.957126, -0.191464, 0.5, -0.46202, -0.382733, -0.5, -0.924041, -0.344558, -0.30002, -0.831637, 0.191269, 0.5, -0.46202, 0.344362, -0.30002, -0.831637, 0.382537, -0.5, -0.924041, -0.235709, 0.5, -0.441073, -0.424432, -0.30002, -0.793853, -0.471417, -0.5, -0.88195, 0.235513, 0.5, -0.441073, 0.424237, -0.30002, -0.793853, 0.471222, -0.5, -0.88195, -0.388998, 0.0999413, -0.582224, -0.2778, 0.5, -0.415818, -0.555599, -0.5, -0.831637, -0.500196, -0.30002, -0.748434, 0.277604, 0.5, -0.415818, 0.388802, 0.0999413, -0.582224, 0.5, -0.30002, -0.748434, 0.555403, -0.5, -0.831637, -0.317345, 0.5, -0.386648, -0.634495, -0.5, -0.773101, 0.31715, 0.5, -0.386648, 0.634299, -0.5, -0.773101, -0.424432, 0.299922, -0.424432, -0.353563, 0.5, -0.353563, -0.707126, -0.5, -0.707126, 0.353367, 0.5, -0.353563, 0.424237, 0.299922, -0.424432, 0.70693, -0.5, -0.707126, -0.386648, 0.5, -0.317345, -0.773101, -0.5, -0.634495, 0.386453, 0.5, -0.317345, 0.772905, -0.5, -0.634495, -0.415818, 0.5, -0.2778, -0.748434, -0.30002, -0.500196, -0.582224, 0.0999413, -0.388998, -0.831637, -0.5, -0.555599, 0.415623, 0.5, -0.2778, 0.582028, 0.0999413, -0.388998, 0.748238, -0.30002, -0.500196, 0.831441, -0.5, -0.555599, -0.441073, 0.5, -0.235709, -0.793853, -0.30002, -0.424432, -0.88195, -0.5, -0.471417, 0.440877, 0.5, -0.235709, 0.793657, -0.30002, -0.424432, 0.881754, -0.5, -0.471417, -0.46202, 0.5, -0.191464, -0.924041, -0.5, -0.382733, -0.831637, -0.30002, -0.344558, 0.461825, 0.5, -0.191464, 0.831441, -0.30002, -0.344558, 0.923845, -0.5, -0.382733, -0.478661, 0.5, -0.145262, -0.957126, -0.5, -0.290329, 0.478465, 0.5, -0.145262, 0.95693, -0.5, -0.290329, -0.980814, -0.5, -0.195184, -0.490407, 0.5, -0.0976899, 0.490211, 0.5, -0.0976899, 0.980619, -0.5, -0.195184, -0.995301, -0.5, -0.0980814, -0.89585, -0.30002, -0.0882929, -0.597298, 0.299922, -0.0589272, -0.497651, 0.5, -0.0491386, 0.497455, 0.5, -0.0491386, 0.597103, 0.299922, -0.0589272, 0.895654, -0.30002, -0.0882929, 0.995106, -0.5, -0.0980814, -1, -0.5, 0, -0.900157, -0.30002, 0, -0.5, 0.5, 0, 0.5, 0.5, 0, 1, -0.5, 0, -0.995301, -0.5, 0.0978857, -0.89585, -0.30002, 0.0880971, -0.597298, 0.299922, 0.0587314, -0.497651, 0.5, 0.0489428, 0.497455, 0.5, 0.0489428, 0.597103, 0.299922, 0.0587314, 0.895654, -0.30002, 0.0880971, 0.995106, -0.5, 0.0978857, -0.980814, -0.5, 0.194988, -0.490407, 0.5, 0.0974941, 0.490211, 0.5, 0.0974941, 0.980619, -0.5, 0.194988, -0.957126, -0.5, 0.290133, -0.478661, 0.5, 0.145067, 0.478465, 0.5, 0.145067, 0.95693, -0.5, 0.290133, -0.924041, -0.5, 0.382537, -0.831637, -0.30002, 0.344362, -0.46202, 0.5, 0.191269, 0.831441, -0.30002, 0.344362, 0.923845, -0.5, 0.382537, 0.461825, 0.5, 0.191269, -0.88195, -0.5, 0.471222, -0.793853, -0.30002, 0.424237, -0.441073, 0.5, 0.235513, 0.793657, -0.30002, 0.424237, 0.881754, -0.5, 0.471222, 0.440877, 0.5, 0.235513, -0.831637, -0.5, 0.555403, -0.748434, -0.30002, 0.5, -0.582224, 0.0999413, 0.388802, -0.415818, 0.5, 0.277604, 0.582028, 0.0999413, 0.388802, 0.748238, -0.30002, 0.5, 0.831441, -0.5, 0.555403, 0.415623, 0.5, 0.277604, -0.773101, -0.5, 0.634299, -0.386648, 0.5, 0.31715, 0.386453, 0.5, 0.31715, 0.772905, -0.5, 0.634299, -0.707126, -0.5, 0.70693, -0.424432, 0.299922, 0.424237, -0.353563, 0.5, 0.353367, 0.353367, 0.5, 0.353367, 0.424237, 0.299922, 0.424237, 0.70693, -0.5, 0.70693, -0.634495, -0.5, 0.772905, -0.317345, 0.5, 0.386453, 0.31715, 0.5, 0.386453, 0.634299, -0.5, 0.772905, -0.555599, -0.5, 0.831441, -0.500196, -0.30002, 0.748238, -0.388998, 0.0999413, 0.582028, -0.2778, 0.5, 0.415623, 0.277604, 0.5, 0.415623, 0.388802, 0.0999413, 0.582028, 0.5, -0.30002, 0.748238, 0.555403, -0.5, 0.831441, -0.471417, -0.5, 0.881754, -0.424432, -0.30002, 0.793657, -0.235709, 0.5, 0.440877, 0.235513, 0.5, 0.440877, 0.424237, -0.30002, 0.793657, 0.471222, -0.5, 0.881754, -0.382733, -0.5, 0.923845, -0.344558, -0.30002, 0.831441, -0.191464, 0.5, 0.461825, 0.191269, 0.5, 0.461825, 0.344362, -0.30002, 0.831441, 0.382537, -0.5, 0.923845, -0.290329, -0.5, 0.95693, -0.145262, 0.5, 0.478465, 0.145067, 0.5, 0.478465, 0.290133, -0.5, 0.95693, -0.195184, -0.5, 0.980619, -0.0976899, 0.5, 0.490211, 0.0974941, 0.5, 0.490211, 0.194988, -0.5, 0.980619, -0.0980814, -0.5, 0.995106, -0.0882929, -0.30002, 0.895654, -0.0589272, 0.299922, 0.597103, -0.0491386, 0.5, 0.497455, 0.0489428, 0.5, 0.497455, 0.0587314, 0.299922, 0.597103, 0.0880971, -0.30002, 0.895654, 0.0978857, -0.5, 0.995106, 0, -0.5, 1, 0, 0.5, 0.5 )
+
+[sub_resource type="ConvexPolygonShape" id=10]
+points = PoolVector3Array( 0, -0.5, -1, -0.0980814, -0.5, -0.995301, 0, -0.30002, -0.900157, 0.0978857, -0.5, -0.995301, -0.0882929, -0.30002, -0.89585, -0.195184, -0.5, -0.980814, 0, 0.5, -0.5, 0.0587314, 0.299922, -0.597298, 0.0880971, -0.30002, -0.89585, -0.0589272, 0.299922, -0.597298, 0.194988, -0.5, -0.980814, -0.145262, 0.5, -0.478661, -0.0976899, 0.5, -0.490407, -0.290329, -0.5, -0.957126, -0.0491386, 0.5, -0.497651, 0.0489428, 0.5, -0.497651, 0.0974941, 0.5, -0.490407, 0.145067, 0.5, -0.478661, 0.290133, -0.5, -0.957126, -0.191464, 0.5, -0.46202, -0.382733, -0.5, -0.924041, -0.344558, -0.30002, -0.831637, 0.191269, 0.5, -0.46202, 0.344362, -0.30002, -0.831637, 0.382537, -0.5, -0.924041, -0.235709, 0.5, -0.441073, -0.424432, -0.30002, -0.793853, -0.471417, -0.5, -0.88195, 0.235513, 0.5, -0.441073, 0.424237, -0.30002, -0.793853, 0.471222, -0.5, -0.88195, -0.388998, 0.0999413, -0.582224, -0.2778, 0.5, -0.415818, -0.555599, -0.5, -0.831637, -0.500196, -0.30002, -0.748434, 0.277604, 0.5, -0.415818, 0.388802, 0.0999413, -0.582224, 0.5, -0.30002, -0.748434, 0.555403, -0.5, -0.831637, -0.317345, 0.5, -0.386648, -0.634495, -0.5, -0.773101, 0.31715, 0.5, -0.386648, 0.634299, -0.5, -0.773101, -0.424432, 0.299922, -0.424432, -0.353563, 0.5, -0.353563, -0.707126, -0.5, -0.707126, 0.353367, 0.5, -0.353563, 0.424237, 0.299922, -0.424432, 0.70693, -0.5, -0.707126, -0.386648, 0.5, -0.317345, -0.773101, -0.5, -0.634495, 0.386453, 0.5, -0.317345, 0.772905, -0.5, -0.634495, -0.415818, 0.5, -0.2778, -0.748434, -0.30002, -0.500196, -0.582224, 0.0999413, -0.388998, -0.831637, -0.5, -0.555599, 0.415623, 0.5, -0.2778, 0.582028, 0.0999413, -0.388998, 0.748238, -0.30002, -0.500196, 0.831441, -0.5, -0.555599, -0.441073, 0.5, -0.235709, -0.793853, -0.30002, -0.424432, -0.88195, -0.5, -0.471417, 0.440877, 0.5, -0.235709, 0.793657, -0.30002, -0.424432, 0.881754, -0.5, -0.471417, -0.46202, 0.5, -0.191464, -0.924041, -0.5, -0.382733, -0.831637, -0.30002, -0.344558, 0.461825, 0.5, -0.191464, 0.831441, -0.30002, -0.344558, 0.923845, -0.5, -0.382733, -0.478661, 0.5, -0.145262, -0.957126, -0.5, -0.290329, 0.478465, 0.5, -0.145262, 0.95693, -0.5, -0.290329, -0.980814, -0.5, -0.195184, -0.490407, 0.5, -0.0976899, 0.490211, 0.5, -0.0976899, 0.980619, -0.5, -0.195184, -0.995301, -0.5, -0.0980814, -0.89585, -0.30002, -0.0882929, -0.597298, 0.299922, -0.0589272, -0.497651, 0.5, -0.0491386, 0.497455, 0.5, -0.0491386, 0.597103, 0.299922, -0.0589272, 0.895654, -0.30002, -0.0882929, 0.995106, -0.5, -0.0980814, -1, -0.5, 0, -0.900157, -0.30002, 0, -0.5, 0.5, 0, 0.5, 0.5, 0, 1, -0.5, 0, -0.995301, -0.5, 0.0978857, -0.89585, -0.30002, 0.0880971, -0.597298, 0.299922, 0.0587314, -0.497651, 0.5, 0.0489428, 0.497455, 0.5, 0.0489428, 0.597103, 0.299922, 0.0587314, 0.895654, -0.30002, 0.0880971, 0.995106, -0.5, 0.0978857, -0.980814, -0.5, 0.194988, -0.490407, 0.5, 0.0974941, 0.490211, 0.5, 0.0974941, 0.980619, -0.5, 0.194988, -0.957126, -0.5, 0.290133, -0.478661, 0.5, 0.145067, 0.478465, 0.5, 0.145067, 0.95693, -0.5, 0.290133, -0.924041, -0.5, 0.382537, -0.831637, -0.30002, 0.344362, -0.46202, 0.5, 0.191269, 0.831441, -0.30002, 0.344362, 0.923845, -0.5, 0.382537, 0.461825, 0.5, 0.191269, -0.88195, -0.5, 0.471222, -0.793853, -0.30002, 0.424237, -0.441073, 0.5, 0.235513, 0.793657, -0.30002, 0.424237, 0.881754, -0.5, 0.471222, 0.440877, 0.5, 0.235513, -0.831637, -0.5, 0.555403, -0.748434, -0.30002, 0.5, -0.582224, 0.0999413, 0.388802, -0.415818, 0.5, 0.277604, 0.582028, 0.0999413, 0.388802, 0.748238, -0.30002, 0.5, 0.831441, -0.5, 0.555403, 0.415623, 0.5, 0.277604, -0.773101, -0.5, 0.634299, -0.386648, 0.5, 0.31715, 0.386453, 0.5, 0.31715, 0.772905, -0.5, 0.634299, -0.707126, -0.5, 0.70693, -0.424432, 0.299922, 0.424237, -0.353563, 0.5, 0.353367, 0.353367, 0.5, 0.353367, 0.424237, 0.299922, 0.424237, 0.70693, -0.5, 0.70693, -0.634495, -0.5, 0.772905, -0.317345, 0.5, 0.386453, 0.31715, 0.5, 0.386453, 0.634299, -0.5, 0.772905, -0.555599, -0.5, 0.831441, -0.500196, -0.30002, 0.748238, -0.388998, 0.0999413, 0.582028, -0.2778, 0.5, 0.415623, 0.277604, 0.5, 0.415623, 0.388802, 0.0999413, 0.582028, 0.5, -0.30002, 0.748238, 0.555403, -0.5, 0.831441, -0.471417, -0.5, 0.881754, -0.424432, -0.30002, 0.793657, -0.235709, 0.5, 0.440877, 0.235513, 0.5, 0.440877, 0.424237, -0.30002, 0.793657, 0.471222, -0.5, 0.881754, -0.382733, -0.5, 0.923845, -0.344558, -0.30002, 0.831441, -0.191464, 0.5, 0.461825, 0.191269, 0.5, 0.461825, 0.344362, -0.30002, 0.831441, 0.382537, -0.5, 0.923845, -0.290329, -0.5, 0.95693, -0.145262, 0.5, 0.478465, 0.145067, 0.5, 0.478465, 0.290133, -0.5, 0.95693, -0.195184, -0.5, 0.980619, -0.0976899, 0.5, 0.490211, 0.0974941, 0.5, 0.490211, 0.194988, -0.5, 0.980619, -0.0980814, -0.5, 0.995106, -0.0882929, -0.30002, 0.895654, -0.0589272, 0.299922, 0.597103, -0.0491386, 0.5, 0.497455, 0.0489428, 0.5, 0.497455, 0.0587314, 0.299922, 0.597103, 0.0880971, -0.30002, 0.895654, 0.0978857, -0.5, 0.995106, 0, -0.5, 1, 0, 0.5, 0.5 )
+
+[sub_resource type="CylinderMesh" id=11]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.05
+radial_segments = 6
+rings = 1
+
+[node name="FartBoss" type="KinematicBody"]
+
+[node name="Brain" parent="." instance=ExtResource( 4 )]
+ground_ray_path = NodePath("../Vision/Ground")
+ground_ahead_ray_path = NodePath("../Vision/GroundAhead")
+ahead_ray_path = NodePath("../Vision/Front")
+jump_ray_path = NodePath("../Vision/JumpBlocked")
+seek_out_object_names = [ "Player" ]
+interact_with_object_names = [ "Player" ]
+behaviors = {
+"Attempt Platforming": false,
+"Explore": false,
+"Hover": true
+}
+speed = 15.0
+
+[node name="Vision" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.759733, 0.5, 0 )
+
+[node name="Front" type="RayCast" parent="Vision"]
+transform = Transform( 0.992546, -0.121869, 0, 0.121869, 0.992546, 0, 0, 0, 1, 0.25, 0.05, 0 )
+enabled = true
+cast_to = Vector3( 8, 0, 0 )
+debug_shape_custom_color = Color( 0.439216, 0.698039, 0.945098, 1 )
+debug_shape_thickness = 3
+
+[node name="MeshInstance2" type="MeshInstance" parent="Vision/Front"]
+mesh = SubResource( 13 )
+skeleton = NodePath("../../..")
+material/0 = SubResource( 14 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="Vision/Front"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0571522, 1.19209e-07, 0 )
+mesh = SubResource( 15 )
+skeleton = NodePath("../../..")
+material/0 = SubResource( 16 )
+
+[node name="LaserBeam" type="RigidBody" parent="Vision/Front"]
+visible = false
+input_ray_pickable = false
+contacts_reported = 5
+contact_monitor = true
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource( 1 )
+
+[node name="Lazer" type="MeshInstance" parent="Vision/Front/LaserBeam"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6.25, 0, 0 )
+mesh = SubResource( 17 )
+skeleton = NodePath("../../../..")
+material/0 = SubResource( 18 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Vision/Front/LaserBeam"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6.25, 0, 0 )
+shape = SubResource( 19 )
+
+[node name="Sound" type="AudioStreamPlayer3D" parent="Vision/Front/LaserBeam"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.156263, 0.00896084 )
+stream = ExtResource( 3 )
+
+[node name="CoolDown" type="AudioStreamPlayer3D" parent="Vision/Front/LaserBeam"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.75496, -0.157982 )
+stream = ExtResource( 2 )
+
+[node name="JumpBlocked" type="RayCast" parent="Vision"]
+transform = Transform( 0.92388, -0.382684, 0, 0.382684, 0.92388, 0, 0, 0, 1, 0, 1, 0 )
+enabled = true
+cast_to = Vector3( 10, 0, 0 )
+debug_shape_custom_color = Color( 0.439216, 0.945098, 0.494118, 1 )
+debug_shape_thickness = 3
+
+[node name="GroundAhead" type="RayCast" parent="Vision"]
+transform = Transform( 0.994522, 0.104528, 0, -0.104528, 0.994522, 0, 0, 0, 1, 0, -0.25, 0 )
+enabled = true
+cast_to = Vector3( 3, 0, 0 )
+debug_shape_custom_color = Color( 0.439216, 0.945098, 0.494118, 1 )
+debug_shape_thickness = 3
+
+[node name="Ground" type="RayCast" parent="Vision"]
+enabled = true
+cast_to = Vector3( 0, -0.75, 0 )
+debug_shape_custom_color = Color( 0.439216, 0.698039, 0.945098, 1 )
+debug_shape_thickness = 3
+
+[node name="Whisker1" type="RayCast" parent="Vision"]
+enabled = true
+cast_to = Vector3( 3, -0.25, -3 )
+debug_shape_custom_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+
+[node name="Whisker2" type="RayCast" parent="Vision"]
+enabled = true
+cast_to = Vector3( 3, -0.25, 3 )
+debug_shape_custom_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+
+[node name="Whisker3" type="RayCast" parent="Vision"]
+enabled = true
+cast_to = Vector3( 0, -0.25, 3 )
+debug_shape_custom_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+
+[node name="Whisker4" type="RayCast" parent="Vision"]
+enabled = true
+cast_to = Vector3( 0, -0.25, -3 )
+debug_shape_custom_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+
+[node name="Whisker5" type="RayCast" parent="Vision"]
+enabled = true
+cast_to = Vector3( -3, -0.25, -3 )
+debug_shape_custom_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+
+[node name="Whisker6" type="RayCast" parent="Vision"]
+enabled = true
+cast_to = Vector3( -3, -0.25, 3 )
+debug_shape_custom_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+
+[node name="Whisker7" type="RayCast" parent="Vision"]
+enabled = true
+cast_to = Vector3( 3, 1.5, -3 )
+debug_shape_custom_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+
+[node name="Whisker8" type="RayCast" parent="Vision"]
+enabled = true
+cast_to = Vector3( 3, 1.5, 3 )
+debug_shape_custom_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+
+[node name="Whisker9" type="RayCast" parent="Vision"]
+enabled = true
+cast_to = Vector3( 0, 1.5, 3 )
+debug_shape_custom_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+
+[node name="Whisker10" type="RayCast" parent="Vision"]
+enabled = true
+cast_to = Vector3( 0, 1.5, -3 )
+debug_shape_custom_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+
+[node name="Whisker11" type="RayCast" parent="Vision"]
+enabled = true
+cast_to = Vector3( -3, 1.5, -3 )
+debug_shape_custom_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+
+[node name="Whisker12" type="RayCast" parent="Vision"]
+enabled = true
+cast_to = Vector3( -3, 1.5, 3 )
+debug_shape_custom_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+mesh = SubResource( 8 )
+material/0 = SubResource( 12 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0 )
+mesh = SubResource( 8 )
+material/0 = SubResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0 )
+shape = SubResource( 10 )
+
+[node name="Spatial" type="Spatial" parent="."]
+
+[node name="HealthBarGreen" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.771559, 0 )
+
+[node name="HealthIndicator1" type="MeshInstance" parent="HealthBarGreen"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59513, 0 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 6 )
+
+[node name="HealthIndicator2" type="MeshInstance" parent="HealthBarGreen"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53878, 0 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 6 )
+
+[node name="HealthIndicator3" type="MeshInstance" parent="HealthBarGreen"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48179, 0 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 6 )
+
+[node name="HealthIndicator4" type="MeshInstance" parent="HealthBarGreen"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42256, 0 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 6 )
+
+[node name="HealthIndicator5" type="MeshInstance" parent="HealthBarGreen"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36763, 0 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 6 )
+
+[node name="HealthIndicator6" type="MeshInstance" parent="HealthBarGreen"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30999, 0 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 6 )
+
+[node name="HealthIndicator7" type="MeshInstance" parent="HealthBarGreen"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25367, 0 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 6 )
+
+[node name="HealthIndicator8" type="MeshInstance" parent="HealthBarGreen"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19199, 0 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 6 )
+
+[node name="HealthIndicator9" type="MeshInstance" parent="HealthBarGreen"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12922, 0 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 6 )
+
+[node name="HealthIndicator10" type="MeshInstance" parent="HealthBarGreen"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0692, 0 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 6 )
+
+[node name="HealthBarRed" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.771559, 0 )
+
+[node name="HealthIndicator1" type="MeshInstance" parent="HealthBarRed"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59513, 0 )
+visible = false
+mesh = SubResource( 11 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 5 )
+
+[node name="HealthIndicator2" type="MeshInstance" parent="HealthBarRed"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53878, 0 )
+visible = false
+mesh = SubResource( 11 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 5 )
+
+[node name="HealthIndicator3" type="MeshInstance" parent="HealthBarRed"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48179, 0 )
+visible = false
+mesh = SubResource( 11 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 5 )
+
+[node name="HealthIndicator4" type="MeshInstance" parent="HealthBarRed"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42256, 0 )
+visible = false
+mesh = SubResource( 11 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 5 )
+
+[node name="HealthIndicator5" type="MeshInstance" parent="HealthBarRed"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36763, 0 )
+visible = false
+mesh = SubResource( 11 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 5 )
+
+[node name="HealthIndicator6" type="MeshInstance" parent="HealthBarRed"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30999, 0 )
+visible = false
+mesh = SubResource( 11 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 5 )
+
+[node name="HealthIndicator7" type="MeshInstance" parent="HealthBarRed"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25367, 0 )
+visible = false
+mesh = SubResource( 11 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 5 )
+
+[node name="HealthIndicator8" type="MeshInstance" parent="HealthBarRed"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19199, 0 )
+visible = false
+mesh = SubResource( 11 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 5 )
+
+[node name="HealthIndicator9" type="MeshInstance" parent="HealthBarRed"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12922, 0 )
+visible = false
+mesh = SubResource( 11 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 5 )
+
+[node name="HealthIndicator10" type="MeshInstance" parent="HealthBarRed"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0692, 0 )
+visible = false
+mesh = SubResource( 11 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 5 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]

@@ -15,6 +15,14 @@ func make_decision():
 			"weight": 0.0
 		})
 	
+	if behaviors["Hover"]:
+		return brain.queue_action({
+			"object": explore,
+			"method": "hover",
+			"args": [],
+			"weight": 0.0
+		})
+	
 
 func pick_action_by_weight(a, b):
 	if a["weight"] > b["weight"]:

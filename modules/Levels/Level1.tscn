@@ -16,7 +16,7 @@
 [ext_resource path="res://modules/Structures/block/block.obj" type="ArrayMesh" id=14]
 [ext_resource path="res://modules/Structures/Ending.tscn" type="PackedScene" id=15]
 [ext_resource path="res://modules/Interactive/FloppyDisk/FloppyDisk.tscn" type="PackedScene" id=16]
-[ext_resource path="res://share/audio/Log File 7.3_01.wav" type="AudioStream" id=17]
+[ext_resource path="res://share/audio/Log File 7.3_BLEEPED.wav" type="AudioStream" id=17]
 [ext_resource path="res://share/textures/wall_cyan_2.tres" type="Material" id=18]
 [ext_resource path="res://share/textures/wall_cyan.tres" type="Material" id=19]
 [ext_resource path="res://share/textures/wall_green.tres" type="Material" id=20]

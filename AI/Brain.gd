@@ -18,7 +18,7 @@ export(Array, String) var interact_with_object_names
 export(Dictionary) var behaviors = {
 	"Explore": true,
 	"Attempt Platforming": false,
-	
+	"Hover": false
 }
 
 # Movement Speed

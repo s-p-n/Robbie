@@ -68,6 +68,7 @@ func process_current_state(delta):
 					return
 			state = State.EXPLORE
 			follow_entity = null
+
 func something_beneath(entity):
 	if is_instance_valid(entity):
 		emit_signal("stand_on", entity)
@@ -129,3 +130,10 @@ func is_moving():
 	return not react.within_range(my_pos.distance_to(movement.destination))
 
 
+func hover():
+	if !player:
+		get_player()
+		
+	follow(player)
+	movement.hover(player.global_transform.origin.y + 2)
+	

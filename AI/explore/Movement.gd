@@ -10,10 +10,12 @@ var air_acceleration = 5
 var acceleration = air_acceleration
 var falling_velocity = 0
 var jump_height = 10
+var hover_y = 10
 
 var forward_command = true
 var rotate_command = true
 var jump_command = false
+var hover_command = false
 
 var gravity = 9.8
 var gravity_vec:Vector3
@@ -169,6 +171,13 @@ func move(direction, delta):
 			jump_command = false
 			gravity_vec = Vector3.UP * jump_height
 	
+	if hover_command and mob.global_transform.origin.y < hover_y:
+		var fartSoundNode = brain.get_node("Sounds/HoverFart")
+		if !fartSoundNode.playing:
+			fartSoundNode.play(0)
+		snapped = false
+		gravity_vec = Vector3.UP * jump_height
+	
 	# "bug" where entities can climb on ceiling:
 	# Also prevents entities from going through ceiling
 	if mob.is_on_ceiling():
@@ -194,3 +203,7 @@ func handle_cleanup(delta):
 		time = 0
 		mob.global_transform = mob.global_transform.orthonormalized()
 		
+
+func hover(y):
+	hover_command = true
+	hover_y = y
