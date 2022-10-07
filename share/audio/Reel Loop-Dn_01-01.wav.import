@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Reel Loop-Dn_01-01.wav-4e6314c69b96794d482f47799b7b8eed.sample"
+
+[deps]
+
+source_file="res://share/audio/Reel Loop-Dn_01-01.wav"
+dest_files=[ "res://.import/Reel Loop-Dn_01-01.wav-4e6314c69b96794d482f47799b7b8eed.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://share/audio/CG_Door_Open.wav" type="AudioStream" id=1]
+[ext_resource path="res://share/audio/CG_Door_Close.wav" type="AudioStream" id=2]
+[ext_resource path="res://share/scripts/open_door.gd" type="Script" id=3]
+[ext_resource path="res://share/scripts/Puzzle.gd" type="Script" id=4]
+[ext_resource path="res://modules/Structures/circuitBoard/low/CircuitBoardLow.tscn" type="PackedScene" id=5]
+[ext_resource path="res://modules/Powerlines/Pylons/input/PylonInput.tscn" type="PackedScene" id=6]
+
+[node name="Doorway" type="Spatial"]
+script = ExtResource( 4 )
+activate_node = NodePath("Door")
+piece_paths = [ NodePath("Door/InputPylon") ]
+
+[node name="Door" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, -8.75 )
+script = ExtResource( 3 )
+open_axis = "Y"
+open_position = 4.0
+
+[node name="CircuitBoard" parent="Door" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+
+[node name="InputPylon" parent="Door" instance=ExtResource( 6 )]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -0.0457392, -1.78122, -0.110047 )
+
+[node name="doorOpen" type="AudioStreamPlayer3D" parent="Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 8.75 )
+stream = ExtResource( 1 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="doorClose" type="AudioStreamPlayer3D" parent="Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 8.75 )
+stream = ExtResource( 2 )
+unit_size = 7.6
+max_db = 1.0

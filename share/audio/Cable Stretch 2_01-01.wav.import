@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Cable Stretch 2_01-01.wav-fc66fed5747f2a95c1aa4aeb8781bd33.sample"
+
+[deps]
+
+source_file="res://share/audio/Cable Stretch 2_01-01.wav"
+dest_files=[ "res://.import/Cable Stretch 2_01-01.wav-fc66fed5747f2a95c1aa4aeb8781bd33.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

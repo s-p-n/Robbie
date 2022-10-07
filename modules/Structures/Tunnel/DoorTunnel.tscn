@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://modules/Structures/block/block.tscn" type="PackedScene" id=1]
+[ext_resource path="res://modules/Powerlines/Pylons/input/PylonInput.tscn" type="PackedScene" id=2]
+[ext_resource path="res://share/scripts/Puzzle.gd" type="Script" id=3]
+[ext_resource path="res://share/scripts/open_door.gd" type="Script" id=4]
+[ext_resource path="res://share/audio/CG_Door_Close.wav" type="AudioStream" id=5]
+[ext_resource path="res://share/audio/CG_Door_Open.wav" type="AudioStream" id=6]
+[ext_resource path="res://modules/Powerlines/Pylons/static/PylonStatic.tscn" type="PackedScene" id=7]
+
+[node name="Tunnel" type="Spatial"]
+
+[node name="block-441" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+
+[node name="block-442" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9 )
+
+[node name="block-443" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, -4, 5 )
+
+[node name="block-444" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 4, 5 )
+
+[node name="Opener" type="Spatial" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0, 5 )
+script = ExtResource( 3 )
+activate_node = NodePath("Door")
+piece_paths = [ NodePath("PylonInput") ]
+
+[node name="Door" type="Spatial" parent="Opener"]
+script = ExtResource( 4 )
+open_position = 4.0
+
+[node name="block-445" parent="Opener/Door" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+
+[node name="doorOpen" type="AudioStreamPlayer3D" parent="Opener/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 6 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="doorClose" type="AudioStreamPlayer3D" parent="Opener/Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 37.5, 118.75 )
+stream = ExtResource( 5 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="PylonStatic" parent="Opener/Door" instance=ExtResource( 7 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, -8.21014e-16, 0, 0, 0.5, -4.78572, -4.20734, 2.44224 )
+visible = false
+is_source = true
+
+[node name="PylonInput" parent="Opener" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.47357, -4.36922, 2.55231 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.965926, -0.183013, 0.183013, -0.258819, -0.683013, 0.683013, 0, -0.707107, -0.707107, 0, 9.01443, 0 )
+editor_only = true

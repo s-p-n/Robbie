@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/CG_GameSound_Item_Reveal.wav-440a69dc0157f03284a4a58e07cb8975.sample"
+
+[deps]
+
+source_file="res://share/audio/CG_GameSound_Item_Reveal.wav"
+dest_files=[ "res://.import/CG_GameSound_Item_Reveal.wav-440a69dc0157f03284a4a58e07cb8975.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

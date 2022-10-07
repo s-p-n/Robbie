@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Security Room Ambience_01-02.wav-c0cb0a17ac74375ba2943a5ab2c3c0f7.sample"
+
+[deps]
+
+source_file="res://share/audio/Security Room Ambience_01-02.wav"
+dest_files=[ "res://.import/Security Room Ambience_01-02.wav-c0cb0a17ac74375ba2943a5ab2c3c0f7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

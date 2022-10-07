@@ -1,0 +1,20 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://modules/Player/plugins/Movement/footstepSound/FootstepSound.gd" type="Script" id=1]
+[ext_resource path="res://share/audio/Robot Footsteps-cm.wav" type="AudioStream" id=2]
+[ext_resource path="res://share/audio/Robot Footsteps-cm_04.wav" type="AudioStream" id=3]
+[ext_resource path="res://share/audio/Robot Footsteps-cm_03.wav" type="AudioStream" id=4]
+[ext_resource path="res://share/audio/Robot Footsteps-cm_01.wav" type="AudioStream" id=5]
+[ext_resource path="res://share/audio/Robot Footsteps-cm_02.wav" type="AudioStream" id=6]
+[ext_resource path="res://share/audio/Robot Footsteps-cm_05.wav" type="AudioStream" id=7]
+[ext_resource path="res://modules/Player/plugins/Movement/footstepSound/step_audio.gd" type="Script" id=8]
+
+[node name="FootstepSound" type="Spatial"]
+script = ExtResource( 1 )
+footstep_sounds = [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 7 ) ]
+timer_path = NodePath("Timer")
+audio_script = ExtResource( 8 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Connected electronic_01.wav-da6d8764905ea0c20f216b63fbd60bd0.sample"
+
+[deps]
+
+source_file="res://share/audio/Connected electronic_01.wav"
+dest_files=[ "res://.import/Connected electronic_01.wav-da6d8764905ea0c20f216b63fbd60bd0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

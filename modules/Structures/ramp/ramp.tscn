@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://modules/Structures/ramp/ramp.obj" type="ArrayMesh" id=1]
+
+[sub_resource type="ConvexPolygonShape" id=1]
+points = PoolVector3Array( 1, -1, 1, 1, 1, -1.00024, -1, -1, 1, 1, -1, -2.27423, -1, 1, -1.00024, 1, 1, -2.27423, -1, -1, -2.27423, -1, 1, -2.27423 )
+
+[node name="ramp" type="RigidBody"]
+mode = 1
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="ramp" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )

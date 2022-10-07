@@ -1,0 +1,8 @@
+[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://modules/Structures/circuitBoard/med/Metallic-med.png" type="Texture" id=1]
+
+[resource]
+albedo_color = Color( 0.615686, 0.701961, 0.933333, 1 )
+metallic = 0.24
+metallic_texture = ExtResource( 1 )

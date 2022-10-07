@@ -1,0 +1,102 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://share/themes/health_bar.tres" type="Theme" id=1]
+[ext_resource path="res://modules/2D/UI/health_bar.gd" type="Script" id=2]
+[ext_resource path="res://share/themes/big_button_font.tres" type="Theme" id=3]
+[ext_resource path="res://share/themes/stamina_bar.tres" type="Theme" id=4]
+
+[node name="UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 0.1
+script = ExtResource( 2 )
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.5
+mouse_filter = 2
+theme = ExtResource( 1 )
+value = 81.0
+rounded = true
+
+[node name="StaminaBar" type="ProgressBar" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -44.0
+mouse_filter = 2
+theme = ExtResource( 4 )
+value = 81.0
+rounded = true
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.001
+anchor_top = 0.593
+anchor_right = 1.0
+anchor_bottom = 1.074
+margin_left = 0.0799999
+margin_top = -0.0439987
+margin_bottom = 0.00800323
+
+[node name="RechargeLabel" type="Label" parent="."]
+anchor_left = 0.001
+anchor_top = 0.593
+anchor_right = 0.205
+anchor_bottom = 1.037
+margin_left = 0.0799999
+margin_top = -0.0440063
+margin_right = -70.6
+margin_bottom = 0.00399017
+theme = ExtResource( 3 )
+text = "Recharge Level"
+
+[node name="Recharge" type="Label" parent="."]
+anchor_left = 0.001
+anchor_top = 0.593
+anchor_right = 0.205
+anchor_bottom = 1.074
+margin_left = 321.08
+margin_top = -0.0440063
+margin_right = 0.399963
+margin_bottom = 0.00800323
+theme = ExtResource( 3 )
+text = "1"
+align = 2
+valign = 1
+
+[node name="Lives" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 1834.0
+margin_top = 5.0
+margin_right = -15.0
+margin_bottom = 3.0
+theme = ExtResource( 3 )
+text = "3"
+align = 2
+valign = 1
+
+[node name="CashLabel" type="Label" parent="."]
+anchor_left = 0.001
+anchor_top = 0.593
+anchor_right = 0.205
+anchor_bottom = 1.037
+margin_left = 1676.08
+margin_top = -0.0439987
+margin_right = 1439.4
+margin_bottom = 0.00400543
+theme = ExtResource( 3 )
+text = "Spares"
+
+[node name="Cash" type="Label" parent="."]
+anchor_left = 0.001
+anchor_top = 0.593
+anchor_right = 0.205
+anchor_bottom = 1.074
+margin_left = 1844.08
+margin_top = -0.0439987
+margin_right = 1523.4
+margin_bottom = 0.00801086
+theme = ExtResource( 3 )
+text = "0"
+align = 2
+valign = 1

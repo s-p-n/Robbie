@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://share/scripts/Puzzle.gd" type="Script" id=1]
+[ext_resource path="res://share/scripts/open_door.gd" type="Script" id=2]
+[ext_resource path="res://modules/Structures/block/block.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://modules/Structures/circuitBoard/med/circuit_board_dark.tres" type="Material" id=4]
+[ext_resource path="res://share/audio/CG_Door_Close.wav" type="AudioStream" id=5]
+[ext_resource path="res://share/audio/CG_Door_Open.wav" type="AudioStream" id=6]
+
+[sub_resource type="ConcavePolygonShape" id=1]
+data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
+
+[node name="SlidingDoor" type="Spatial"]
+script = ExtResource( 1 )
+activate_node = NodePath("Door")
+
+[node name="Door" type="RigidBody" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 4, 2.38419e-07 )
+mode = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+open_axis = "Z"
+open_position = 8.0
+
+[node name="block-441" type="MeshInstance" parent="Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 0, 0 )
+material_override = ExtResource( 4 )
+mesh = ExtResource( 3 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="doorOpen" type="AudioStreamPlayer3D" parent="Door"]
+stream = ExtResource( 6 )
+unit_size = 7.6
+max_db = 1.0
+
+[node name="doorClose" type="AudioStreamPlayer3D" parent="Door"]
+stream = ExtResource( 5 )
+unit_size = 7.6
+max_db = 1.0

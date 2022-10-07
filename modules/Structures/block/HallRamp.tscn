@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://modules/Structures/block/block.tscn" type="PackedScene" id=1]
+[ext_resource path="res://modules/Structures/block/block.obj" type="ArrayMesh" id=2]
+
+[sub_resource type="ConcavePolygonShape" id=1]
+data = PoolVector3Array( -4, 4, -1, 4, 4, -1, -4, 4, 1, -4, 4, 1, 4, 4, -1, 4, 4, 1, 4, 4, 1, 4, -4, 1, -4, 4, 1, -4, 4, 1, 4, -4, 1, -4, -4, 1, -4, 4, 1, -4, -4, 1, -4, 4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1, 4, -4, -1, -4, -4, -1, 4, -4, 1, 4, -4, 1, -4, -4, -1, -4, -4, 1, 4, 4, -1, 4, -4, -1, 4, 4, 1, 4, 4, 1, 4, -4, -1, 4, -4, 1, -4, 4, -1, -4, -4, -1, 4, 4, -1, 4, 4, -1, -4, -4, -1, 4, -4, -1 )
+
+[node name="HallRamp" type="Spatial"]
+
+[node name="wall3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -4 )
+
+[node name="wall8" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 4 )
+
+[node name="platform3" type="RigidBody" parent="."]
+transform = Transform( 0.894677, -0.446713, 0, 0.446713, 0.894677, 0, 0, 0, 1, 0, 2, 0 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="platform3"]
+transform = Transform( 1.15, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="platform3"]
+transform = Transform( 1.15, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="SpotLight" type="SpotLight" parent="platform3"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
+light_color = Color( 0.654902, 0.882353, 0.992157, 1 )
+spot_range = 14.3195
+spot_angle = 60.4688
+
+[node name="wall4" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4, -4 )
+
+[node name="wall9" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4, 4 )
+
+[node name="wall5" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, -4 )
+
+[node name="wall10" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 4 )
+
+[node name="wall6" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 12, -4 )
+
+[node name="wall11" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 12, 4 )
+
+[node name="platform4" type="RigidBody" parent="."]
+transform = Transform( 0.894677, -0.446713, 0, 0.446713, 0.894677, 0, 0, 0, 1, 8, 6, 0 )
+mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="block-441" type="MeshInstance" parent="platform4"]
+transform = Transform( 1.15, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="platform4"]
+transform = Transform( 1.15, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="SpotLight" type="SpotLight" parent="platform4"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
+light_color = Color( 0.654902, 0.882353, 0.992157, 1 )
+spot_range = 14.3195
+spot_angle = 60.4688

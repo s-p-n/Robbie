@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/CG_GameSound_Puzzle_Solved-01.wav-0753321e1f7804c17dd9f232e06a0fa7.sample"
+
+[deps]
+
+source_file="res://share/audio/CG_GameSound_Puzzle_Solved-01.wav"
+dest_files=[ "res://.import/CG_GameSound_Puzzle_Solved-01.wav-0753321e1f7804c17dd9f232e06a0fa7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

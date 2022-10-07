@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://modules/Interactive/PowerUp/PowerUp.gd" type="Script" id=1]
+[ext_resource path="res://modules/Interactive/PowerUp/PowerUp.tres" type="Material" id=2]
+[ext_resource path="res://modules/Interactive/ScrapParts/screwFlat.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://modules/Interactive/FloppyDisk/stainless_steel.tres" type="Material" id=4]
+
+[sub_resource type="CubeMesh" id=2]
+material = ExtResource( 2 )
+size = Vector3( 0.5, 0.5, 0.5 )
+
+[sub_resource type="ConvexPolygonShape" id=3]
+points = PoolVector3Array( 0.1, 0.1, 0.1, 0.1, 0.1, -0.1, -0.1, 0.1, 0.1, 0.1, -0.1, 0.1, 0.1, -0.1, -0.1, -0.1, 0.1, -0.1, -0.1, -0.1, 0.1, -0.1, -0.1, -0.1 )
+
+[node name="PowerUp" type="Spatial"]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 0, 0, 0 )
+script = ExtResource( 1 )
+
+[node name="Shape" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+custom_integrator = true
+continuous_cd = true
+contacts_reported = 1
+contact_monitor = true
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance" type="MeshInstance" parent="Shape"]
+transform = Transform( 0.853553, -0.146447, 0.5, 0.5, 0.5, -0.707107, -0.146447, 0.853553, 0.5, 0, 0, 0 )
+visible = false
+mesh = SubResource( 2 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="screwFlat" type="MeshInstance" parent="Shape"]
+transform = Transform( -0.108577, -0.119025, 0.118507, 0.100475, -0.159107, -0.067746, 0.134594, 0.0227569, 0.146173, 0, -0.0852527, 0 )
+mesh = ExtResource( 3 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Shape"]
+transform = Transform( 0.853553, -0.146447, 0.5, 0.5, 0.5, -0.707107, -0.146447, 0.853553, 0.5, 0, 0, 0 )
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="Shape" to="." method="_on_Shape_body_entered"]

@@ -1,0 +1,48 @@
+extends RigidBody
+
+export var flag_unset:Material
+export var flag_set:Material
+
+onready var checkpoint_pos = global_transform.origin
+onready var checkpoints = find_parent("Robbie").get_node("Checkpoints")
+onready var mesh = $Mesh
+onready var audio = $SetSound
+var is_preloaded = false
+var has_been_set = false
+var player:KinematicBody = null
+
+func _ready():
+	var parent = get_parent()
+	var level = find_parent("Objects")
+	if !is_instance_valid(level) and is_instance_valid(parent):
+		level = parent.find_parent("Objects")
+
+	if is_instance_valid(level):
+		player = level.find_node("Player")
+		mesh.set_surface_material(1, flag_unset)
+		call_deferred("setup")
+	else:
+		if !parent.is_connected("ready", self, "_parent_ready"):
+			parent.connect("ready", self, "_parent_ready")
+
+func _parent_ready():
+	_ready()
+
+func setup():
+	checkpoints.checkpoints_in_level.append(self)
+
+func _on_Checkpoint_body_entered(body):
+	if body == player:
+		set_this_checkpoint()
+
+func set_this_checkpoint():
+	if is_instance_valid(player) and player.last_checkpoint != self:
+		var siblings = checkpoints.get_children()
+		player.checkpoint(self)
+		for sibling in siblings:
+			sibling.mesh.set_surface_material(1, flag_unset)
+		mesh.set_surface_material(1, flag_set)
+		audio.play(0)
+		if !has_been_set and player.starting_checkpoint_node != self:
+			player.UI.add_life()
+		has_been_set = true

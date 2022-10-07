@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Play.cm_01.wav-5d4d3b45c41516f06f06f135ebd7854d.sample"
+
+[deps]
+
+source_file="res://share/audio/Play.cm_01.wav"
+dest_files=[ "res://.import/Play.cm_01.wav-5d4d3b45c41516f06f06f135ebd7854d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

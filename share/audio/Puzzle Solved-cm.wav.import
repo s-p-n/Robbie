@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Puzzle Solved-cm.wav-d00bce0ad2d219b30bbf9582c9d26b99.sample"
+
+[deps]
+
+source_file="res://share/audio/Puzzle Solved-cm.wav"
+dest_files=[ "res://.import/Puzzle Solved-cm.wav-d00bce0ad2d219b30bbf9582c9d26b99.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

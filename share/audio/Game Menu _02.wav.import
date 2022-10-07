@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Game Menu _02.wav-403cd64af2b1ee261a7499ac8218d347.sample"
+
+[deps]
+
+source_file="res://share/audio/Game Menu _02.wav"
+dest_files=[ "res://.import/Game Menu _02.wav-403cd64af2b1ee261a7499ac8218d347.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

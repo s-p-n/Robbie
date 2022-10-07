@@ -1,0 +1,103 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://share/scripts/ShopArea.gd" type="Script" id=1]
+[ext_resource path="res://share/audio/_Store music test_01.wav" type="AudioStream" id=2]
+[ext_resource path="res://modules/Structures/block/HallDeadEnd.tscn" type="PackedScene" id=3]
+[ext_resource path="res://modules/Structures/Ending.gd" type="Script" id=4]
+[ext_resource path="res://modules/NPCs/Duck/duck2.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://modules/NPCs/Duck/lemonadeStand.obj" type="ArrayMesh" id=6]
+[ext_resource path="res://share/textures/glass.tres" type="Material" id=7]
+[ext_resource path="res://share/textures/lemon.tres" type="Material" id=8]
+[ext_resource path="res://share/textures/duck.tres" type="Material" id=9]
+[ext_resource path="res://share/textures/duck_eyes.tres" type="Material" id=10]
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 18.4463, 4.21501, 11.9355 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.345098, 0.188235, 0.0862745, 1 )
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.470588, 0.517647, 0.2, 1 )
+
+[sub_resource type="ConvexPolygonShape" id=13]
+points = PoolVector3Array( 1.9915, 2.04232, -0.991472, -1.99959, 0.0277698, -1, -1.99095, 0.0403317, 1, -2.00015, 5.86254, -1, 1.9915, 5.83356, 0.993903, 1.9915, 0.0565069, 0.993682, -1.99095, 5.84917, 1, 1.9915, 5.83356, -0.991402, 1.44309, 0.0687497, -1.3477, -1.58077, 1.91803, -1.39437, 1.68529, 1.73151, 1.12559, 1.49837, 1.91803, -1.39437, -1.76729, 1.73151, 1.12559, 1.9915, 0.0565069, -0.991472, -1.5017, 0.106976, -1.33157, 1.60299, 0.104488, 1.06385, 1.6509, 5.54267, -1.0436, -1.65362, 0.149592, 1.04482, -1.63923, 5.54267, -1.0436 )
+
+[sub_resource type="SpatialMaterial" id=9]
+
+[sub_resource type="SpatialMaterial" id=10]
+
+[sub_resource type="SpatialMaterial" id=11]
+albedo_color = Color( 0.478431, 0.145098, 0.145098, 1 )
+
+[sub_resource type="SpatialMaterial" id=12]
+albedo_color = Color( 0.14902, 0.137255, 0.137255, 1 )
+
+[sub_resource type="ConvexPolygonShape" id=14]
+points = PoolVector3Array( 0.184881, 0.659624, 0.736053, -2.7579, -3.87933, -0.300207, -2.7579, -3.87933, 0.240276, 0.578742, -4.69144, -0.300207, -0.672083, -3.02246, -2.28512, -0.671869, -3.02167, 2.22314, 1.90263, -0.524365, 0.0548782, -1.44972, 0.700815, -0.289288, 0.758911, 0.449679, -1.11254, 0.217467, -4.51172, 1.32262, -1.10391, 0.356075, 1.09536, -0.143339, -4.33088, -1.74394, -1.10444, 0.357697, -1.15656, 0.758911, 0.449679, 1.05215, -2.1266, -3.78947, 1.32262, -2.1266, -3.78947, -1.38255, -1.58563, -4.4213, -0.480674, 1.79043, -0.540928, -0.283626, 0.398104, -4.78243, 0.691214, -1.5894, 0.548161, 0.137962, -0.410494, -2.81543, 2.14498, 0.112012, 0.900186, -0.20409, 0.398104, -4.78243, -0.751145, -1.58563, -4.4213, 0.420743, -0.323508, -4.33088, 1.68355, -0.410523, -2.81606, -2.20685, 0.578742, -4.4213, -0.841608, -1.01557, 0.868935, 0.228391, -1.08029, -2.98421, 2.06417, -1.08025, -2.98416, -2.12447, -2.7579, -3.78947, -0.390211, -2.7579, -3.78947, 0.33028, 0.578742, -4.4213, 0.781218, 0.217467, -4.51172, -1.38301, 1.77787, -0.548812, 0.221761, -1.50032, 0.537102, -0.449113, -1.01571, 0.869515, -0.288836, -0.323508, -4.33088, -1.74394, -2.39709, -3.96975, -0.931612, -2.39709, -3.96975, 0.871681, -1.49991, 0.536218, 0.388571, 0.578742, -4.69144, 0.240276, -0.1546, 0.669243, -0.799328, -1.58985, 0.549066, -0.197986, 0.112053, 0.900426, 0.144159, 1.89541, -0.528726, -0.114998, -0.143339, -4.33088, 1.68355, -2.66805, -3.96975, 0.149813, -0.410663, 0.762013, 0.569466, -1.44962, 0.700574, 0.228873, -2.66805, -3.96975, -0.209744, 0.270587, 0.748563, -0.626822, -0.154667, 0.668438, 0.738696, 0.270407, 0.747814, 0.566263, -0.839723, 0.763727, -0.544211, -1.10061, 0.863436, -0.201804, -0.839581, 0.762928, 0.484102, 1.84008, -0.728703, 0.0525345, -0.151359, 0.882228, -0.290025, -0.495301, 0.746305, -0.626313, -0.151386, 0.881881, 0.229602 )
+
+[node name="Ending" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.64832, -1.7165, -11.0851 )
+script = ExtResource( 4 )
+
+[node name="HallDeadEnd" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.833027, 0 )
+
+[node name="DuckShop" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.581294, 0.0267394, -0.132847 )
+collision_layer = 4
+collision_mask = 4
+mode = 1
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="DuckShop"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28746, 0 )
+stream = ExtResource( 2 )
+unit_size = 10.0
+autoplay = true
+max_distance = 25.0
+
+[node name="Area" type="Area" parent="DuckShop"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="DuckShop/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.17996, 3.17425, 3.0793 )
+shape = SubResource( 4 )
+
+[node name="lemonadeStand" type="MeshInstance" parent="DuckShop"]
+transform = Transform( -3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 0.347088, -0.723274, 0.268538 )
+mesh = ExtResource( 6 )
+skeleton = NodePath("../duck2")
+material/0 = SubResource( 5 )
+material/1 = SubResource( 6 )
+material/2 = ExtResource( 8 )
+material/3 = ExtResource( 8 )
+material/4 = ExtResource( 8 )
+material/5 = ExtResource( 8 )
+material/6 = ExtResource( 8 )
+material/7 = ExtResource( 8 )
+material/8 = ExtResource( 8 )
+material/9 = ExtResource( 8 )
+material/10 = ExtResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="DuckShop"]
+transform = Transform( -3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 0.347088, -0.723274, 0.268538 )
+shape = SubResource( 13 )
+
+[node name="duck2" type="MeshInstance" parent="DuckShop"]
+transform = Transform( -0.399909, 0, -0.00854233, 0, 0.4, 0, 0.00854233, 0, -0.399909, 1.64841, 1.26789, 0.303974 )
+mesh = ExtResource( 5 )
+skeleton = NodePath("")
+material/0 = ExtResource( 9 )
+material/1 = ExtResource( 10 )
+material/2 = ExtResource( 10 )
+material/3 = SubResource( 9 )
+material/4 = SubResource( 10 )
+material/5 = SubResource( 11 )
+material/6 = SubResource( 12 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="DuckShop"]
+transform = Transform( -0.399909, 0, -0.00854233, 0, 0.4, 0, 0.00854233, 0, -0.399909, 1.64841, 1.26789, 0.303974 )
+shape = SubResource( 14 )
+
+[connection signal="body_entered" from="DuckShop/Area" to="DuckShop/Area" method="_on_Area_body_entered"]
+[connection signal="body_exited" from="DuckShop/Area" to="DuckShop/Area" method="_on_Area_body_exited"]

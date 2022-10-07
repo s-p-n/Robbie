@@ -1,0 +1,8 @@
+[gd_resource type="SpatialMaterial" format=2]
+
+[resource]
+metallic = 0.95
+metallic_specular = 0.89
+roughness = 0.56
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 0.45

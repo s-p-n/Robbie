@@ -1,0 +1,22 @@
+[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://modules/Interactive/Checkpoint/Roughness-low2.png" type="Texture" id=1]
+
+[resource]
+albedo_color = Color( 1, 0, 0, 1 )
+albedo_texture = ExtResource( 1 )
+metallic_texture = ExtResource( 1 )
+roughness = 0.58
+roughness_texture = ExtResource( 1 )
+emission_enabled = true
+emission = Color( 1, 0, 0, 1 )
+emission_energy = 1.0
+emission_operator = 1
+emission_on_uv2 = false
+emission_texture = ExtResource( 1 )
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 0.52
+subsurf_scatter_texture = ExtResource( 1 )
+distance_fade_mode = 1
+distance_fade_min_distance = 0.25
+distance_fade_max_distance = 1.0
