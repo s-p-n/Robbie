@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://share/scripts/ShopArea.gd" type="Script" id=1]
 [ext_resource path="res://share/audio/_Store music test_01.wav" type="AudioStream" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://share/textures/glass.tres" type="Material" id=7]
 [ext_resource path="res://share/textures/lemon.tres" type="Material" id=8]
 [ext_resource path="res://share/textures/duck.tres" type="Material" id=9]
+[ext_resource path="res://share/textures/duck_eyes.tres" type="Material" id=10]
 
 [sub_resource type="SphereShape" id=1]
 radius = 0.987489
@@ -38,11 +39,6 @@ albedo_color = Color( 0.345098, 0.188235, 0.0862745, 1 )
 [sub_resource type="SpatialMaterial" id=6]
 albedo_color = Color( 0.470588, 0.517647, 0.2, 1 )
 
-[sub_resource type="SpatialMaterial" id=7]
-albedo_color = Color( 0.129412, 0.298039, 0.0784314, 1 )
-
-[sub_resource type="SpatialMaterial" id=8]
-
 [sub_resource type="SpatialMaterial" id=9]
 
 [sub_resource type="SpatialMaterial" id=10]
@@ -70,7 +66,7 @@ mode = 1
 shape = SubResource( 1 )
 
 [node name="Sphere" type="MeshInstance" parent="DuckShop"]
-transform = Transform( 0.667261, 0, -0.744824, 0, 1, 0, 0.744824, 0, 0.667261, -0.000130177, 0.171389, 0.0128717 )
+transform = Transform( 0.333631, 0, -0.372412, 0, 0.5, 0, 0.372412, 0, 0.333631, -0.000130177, 0.171389, 0.149818 )
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
@@ -89,7 +85,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.17996, 3.17425, 3.0793 )
 shape = SubResource( 4 )
 
 [node name="lemonadeStand" type="MeshInstance" parent="DuckShop"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.347089, -0.723274, 0.268537 )
+transform = Transform( -3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 0.347088, -0.723274, 0.268538 )
 mesh = ExtResource( 6 )
 skeleton = NodePath("../duck2")
 material/0 = SubResource( 5 )
@@ -105,12 +101,12 @@ material/9 = ExtResource( 8 )
 material/10 = ExtResource( 7 )
 
 [node name="duck2" type="MeshInstance" parent="DuckShop"]
-transform = Transform( -0.499886, 0, -0.0106779, 0, 0.5, 0, 0.0106779, 0, -0.499886, 2.5042, 1.81029, 0.303974 )
+transform = Transform( -0.399909, 0, -0.00854233, 0, 0.4, 0, 0.00854233, 0, -0.399909, 1.64841, 1.26789, 0.303974 )
 mesh = ExtResource( 5 )
 skeleton = NodePath("../Sphere")
 material/0 = ExtResource( 9 )
-material/1 = SubResource( 7 )
-material/2 = SubResource( 8 )
+material/1 = ExtResource( 10 )
+material/2 = ExtResource( 10 )
 material/3 = SubResource( 9 )
 material/4 = SubResource( 10 )
 material/5 = SubResource( 11 )
