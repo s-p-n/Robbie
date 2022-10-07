@@ -104,5 +104,9 @@ shape = SubResource( 14 )
 stream = ExtResource( 11 )
 unit_db = 20.0
 
+[node name="DuckVoiceGrapes2" type="AudioStreamPlayer3D" parent="DuckShop"]
+stream = ExtResource( 11 )
+unit_db = 20.0
+
 [connection signal="body_entered" from="DuckShop/Area" to="DuckShop/Area" method="_on_Area_body_entered"]
 [connection signal="body_exited" from="DuckShop/Area" to="DuckShop/Area" method="_on_Area_body_exited"]
