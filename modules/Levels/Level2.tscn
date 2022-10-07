@@ -1400,7 +1400,7 @@ transform = Transform( 3.9, 2.84217e-14, 0, -2.84217e-14, 3.9, -6.50236e-09, 0, 
 shape = SubResource( 1 )
 
 [node name="block-441-wall4" type="RigidBody" parent="Stage3"]
-transform = Transform( -1.48175e-08, -0.940792, 0.338984, -4.11233e-08, 0.338984, 0.940792, -1, 0, -4.37114e-08, 50.6171, -13.3958, -109.072 )
+transform = Transform( -1.48175e-08, -0.940792, 0.338984, -4.11233e-08, 0.338984, 0.940792, -1, 0, -4.37114e-08, 50.6171, -12.7922, -109.072 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
