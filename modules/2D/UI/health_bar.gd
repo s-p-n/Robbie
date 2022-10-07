@@ -1,5 +1,6 @@
 extends Control
 
+export var funds = 0
 export var lives = 3
 export var health = 100
 export var health_step = 10

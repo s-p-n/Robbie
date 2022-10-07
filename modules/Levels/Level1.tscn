@@ -1351,6 +1351,27 @@ audio_file = ExtResource( 17 )
 subtitle_lines = [ "Experimental Log: 7-3.", "It is a success!", "Richard is able to find, and replace, any components", "Or even repair damaged ones from common phrases, such as...", "Which way did he go.. Hey Richard! ", "(Richard squeaking)", "Can you please fix the damn computer!", "(Richard arguing)", "No, I'm not shouting at you I'm shouting near you.", "(Richard arguing)", "Further experimentation is needed.", "Side note... $#%& Yeah! We managed to make a completely autonomous nanobot!", "We'll party like crazy tonight!" ]
 subtitle_line_time = [ 2.9, 2.0, 4.5, 5.0, 2.0, 1.5, 2.5, 1.0, 2.5, 1.0, 2.0, 6.0, 5.0 ]
 
+[node name="Scrap13" parent="." instance=ExtResource( 22 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, -44.8274, -14.1845, 7.15961 )
+
+[node name="Scrap14" parent="." instance=ExtResource( 22 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, -48.8806, -16.9277, -3.96256 )
+
+[node name="Scrap15" parent="." instance=ExtResource( 22 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, -40.4545, -20.8052, 0.998272 )
+
+[node name="Scrap16" parent="." instance=ExtResource( 22 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, -37.4355, -22.9121, -3.86982 )
+
+[node name="Scrap" parent="Scrap16" instance=ExtResource( 22 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, -4.9408, 10.629, 0.972748 )
+
+[node name="Scrap2" parent="Scrap16" instance=ExtResource( 22 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 1.26318, 17.0045, -12.1318 )
+
+[node name="Scrap3" parent="Scrap16" instance=ExtResource( 22 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 6.94404, 18.9382, -5.74048 )
+
 [node name="Scrap" parent="." instance=ExtResource( 22 )]
 transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, -65.2467, -14.5567, -2.82168 )
 
@@ -1380,9 +1401,6 @@ transform = Transform( -0.0235145, -0.757177, 0.652786, -0.0272572, 0.653209, 0.
 
 [node name="Scrap10" parent="." instance=ExtResource( 22 )]
 transform = Transform( -0.0235145, -0.757177, 0.652786, -0.0272572, 0.653209, 0.756687, -0.999352, 0, -0.0359985, -67.7201, -23.6975, 6.2643 )
-
-[node name="Scrap11" parent="." instance=ExtResource( 22 )]
-transform = Transform( -0.0235145, -0.757177, 0.652786, -0.0272572, 0.653209, 0.756687, -0.999352, 0, -0.0359985, -55.6026, -23.6975, 0.153273 )
 
 [node name="Scrap12" parent="." instance=ExtResource( 22 )]
 transform = Transform( -0.0235145, -0.757177, 0.652786, -0.0272572, 0.653209, 0.756687, -0.999352, 0, -0.0359985, -61.2413, -23.6975, 0.153273 )

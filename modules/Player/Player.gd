@@ -14,6 +14,7 @@ var starting_checkpoint_node:RigidBody
 
 onready var checkpoint_pos = global_transform.origin
 onready var UI = find_parent("Robbie").get_node("UI")
+onready var shop = find_parent("Robbie").get_node("Shop")
 var checkpoint_padding = Vector3(0,0.5,0)
 var last_checkpoint:Spatial = self
 
@@ -72,6 +73,9 @@ func respawn():
 		held_wire = null
 	if last_checkpoint.is_inside_tree():
 		global_transform.origin = last_checkpoint.global_transform.origin + checkpoint_padding
+
+func collect_spare():
+	shop.funds += 1
 
 func give_power(power):
 	print("Player gained the power of: ", power)

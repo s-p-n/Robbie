@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://modules/Interactive/Checkpoint/Checkpoint.tres" type="ArrayMesh" id=1]
 [ext_resource path="res://modules/Interactive/Checkpoint/Checkpoint.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://modules/Interactive/Checkpoint/flag_undiscoverred.tres" type="Material" id=4]
 [ext_resource path="res://share/audio/CG_GameSound_Puzzle_Solved-01.wav" type="AudioStream" id=5]
 [ext_resource path="res://modules/Interactive/Checkpoint/flag_circuit_red.tres" type="Material" id=6]
+[ext_resource path="res://modules/Interactive/Checkpoint/metal.tres" type="Material" id=7]
 
 [sub_resource type="CylinderShape" id=1]
 
@@ -24,9 +25,9 @@ flag_set = ExtResource( 3 )
 
 [node name="Mesh" type="MeshInstance" parent="."]
 mesh = ExtResource( 1 )
-material/0 = null
-material/1 = null
-material/2 = null
+material/0 = ExtResource( 7 )
+material/1 = ExtResource( 4 )
+material/2 = ExtResource( 7 )
 
 [node name="Mesh2" type="MeshInstance" parent="."]
 visible = false

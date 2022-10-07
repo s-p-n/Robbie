@@ -7,7 +7,7 @@ onready var collectSound:AudioStreamPlayer3D = $CollectSound
 
 var direction = true
 
-func _physics_process(delta):
+func _process(delta):
 	var r = delta * 50
 	
 	if r > 360:
@@ -21,14 +21,15 @@ func _physics_process(delta):
 		shape.rotation_degrees -= Vector3(r, r, r)
 
 func _on_Shape_body_entered(body):
-	print("collision with power-up: ", body)
+	#print("collision with spare: ", body)
 	if is_instance_valid(body) and body.name == "Player":
-		body.give_power(power)
 		
 		if !collectSound.playing:
 			collectSound.play(0)
+			body.collect_spare()
 			shape.visible = false
-			collectSound.connect("finished", self, "_handle_removal")
+			if !collectSound.connect("finished", self, "_handle_removal"):
+				print("Warning: Spare cannot connect to audio finish signal.")
 
 func _handle_removal():
 	queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://modules/Powerlines/PylonGroup.gd" type="Script" id=1]
 [ext_resource path="res://modules/Interactive/Ship/Ship.gd" type="Script" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://share/textures/wall_black_glossy.tres" type="Material" id=14]
 [ext_resource path="res://modules/Powerlines/Pylons/static/PylonStatic.tscn" type="PackedScene" id=15]
 [ext_resource path="res://modules/Player/Player.tscn" type="PackedScene" id=16]
+[ext_resource path="res://modules/Interactive/ScrapParts/Scrap.tscn" type="PackedScene" id=17]
 [ext_resource path="res://modules/Interactive/Checkpoint/Checkpoint.tscn" type="PackedScene" id=18]
 [ext_resource path="res://modules/Powerlines/Pylons/input/PylonInput.tscn" type="PackedScene" id=19]
 [ext_resource path="res://modules/Structures/circuitBoard/med/circuit_board_dark.tres" type="Material" id=20]
@@ -1590,6 +1591,102 @@ light_energy = 0.25
 transform = Transform( 0, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 0, 0, 0, 41.6854, 0 )
 light_color = Color( 0.623529, 0.623529, 0.623529, 1 )
 light_energy = 0.25
+
+[node name="Scrap2" parent="." instance=ExtResource( 17 )]
+transform = Transform( -0.37493, 0, 0.927052, 0, 1, 0, -0.927052, 0, -0.37493, 31.7861, -16.069, -1.95057 )
+
+[node name="Scrap" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 1.18387, -3.38045, 8.14455 )
+
+[node name="Scrap3" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 30.5049, -16.069, -0.209462 )
+
+[node name="Scrap4" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 34.7201, -16.069, -0.611315 )
+
+[node name="Scrap5" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 35.4518, -16.069, -1.67413 )
+
+[node name="Scrap6" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 35.7281, -16.069, -0.275158 )
+
+[node name="Scrap7" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 36.2936, -16.069, -1.57692 )
+
+[node name="Scrap8" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 36.5245, -16.069, -0.297469 )
+
+[node name="Scrap9" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 25.4048, -11.7863, -0.961581 )
+
+[node name="Scrap10" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 22.0051, -8.63552, -1.09948 )
+
+[node name="Scrap11" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 19.2088, -5.64411, -1.04637 )
+
+[node name="Scrap12" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 12.9385, -6.00385, -1.15611 )
+
+[node name="Scrap13" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 11.6181, -6.0196, 10.4247 )
+
+[node name="Scrap14" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 6.37067, 3.00624, -1.45108 )
+
+[node name="Scrap15" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 9.06363, -4, -13.089 )
+
+[node name="Scrap16" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 4.26153, -4.25951, -16.7286 )
+
+[node name="Scrap17" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 31.8621, -16.069, -18.1746 )
+
+[node name="Scrap18" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 34.5863, -16.069, -8.96521 )
+
+[node name="Scrap19" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 35.2276, -16.069, -18.5126 )
+
+[node name="Scrap20" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 42.4571, -17.8522, -20.043 )
+
+[node name="Scrap21" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 51.5473, -18.9443, -26.9388 )
+
+[node name="Scrap22" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 44.0953, -15.0334, -45.551 )
+
+[node name="Scrap23" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 43.7247, -17.4225, -57.8408 )
+
+[node name="Scrap24" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 68.5574, -18.0836, -104.746 )
+
+[node name="Scrap25" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 48.3609, -12.3703, -105.372 )
+
+[node name="Scrap26" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 42.257, -8.91319, -109.68 )
+
+[node name="Scrap27" parent="." instance=ExtResource( 17 )]
+transform = Transform( 0.559048, 0, 0.829135, 0, 1, 0, -0.829135, 0, 0.559048, 52.8872, -15.1149, -124.088 )
+
+[node name="Scrap28" parent="." instance=ExtResource( 17 )]
+transform = Transform( -0.37493, 0, 0.927052, 0, 1, 0, -0.927052, 0, -0.37493, 53.7599, -22.5398, -118.848 )
+
+[node name="Scrap29" parent="." instance=ExtResource( 17 )]
+transform = Transform( -0.37493, 0, 0.927052, 0, 1, 0, -0.927052, 0, -0.37493, 44.6335, -27.1942, -118.333 )
+
+[node name="Scrap30" parent="." instance=ExtResource( 17 )]
+transform = Transform( -0.37493, 0, 0.927052, 0, 1, 0, -0.927052, 0, -0.37493, 60.3611, -31.5194, -118.876 )
+
+[node name="Scrap31" parent="." instance=ExtResource( 17 )]
+transform = Transform( -0.37493, 0, 0.927052, 0, 1, 0, -0.927052, 0, -0.37493, 45.5234, -34.6664, -117.742 )
+
+[node name="Scrap32" parent="." instance=ExtResource( 17 )]
+transform = Transform( -0.37493, 0, 0.927052, 0, 1, 0, -0.927052, 0, -0.37493, 66.2778, -36.7074, -117.742 )
 
 [connection signal="body_entered" from="Stage3/Ship/Area" to="Stage3/Ship" method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Stage3/Ship/Area" to="Stage3/Ship" method="_on_Area_body_exited"]

@@ -1,6 +1,6 @@
 extends Control
 
-var funds = 100 setget set_funds, get_funds
+var funds = 0 setget set_funds, get_funds
 
 var player_items = ["Laser Gun"]
 
@@ -11,6 +11,7 @@ onready var arrow = $Arrow
 onready var buyAudio = $Panel/BuyAudio
 onready var closeAudio = $Panel/CloseAudio
 onready var openAudio = $Panel/OpenAudio
+onready var UI = get_parent().get_node("UI")
 
 var active = false
 
@@ -37,6 +38,7 @@ func deactivate():
 func set_funds(new_funds):
 	funds = new_funds
 	cash.text = str(funds)
+	UI.get_node("Cash").text = str(funds)
 	print("funds set: ", funds)
 	return funds
 
