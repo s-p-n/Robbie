@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Log File 1-1_01.wav-e74a7b1bcc6d52a07797d57203c32ecc.sample"
+
+[deps]
+
+source_file="res://share/audio/Log File 1-1_01.wav"
+dest_files=[ "res://.import/Log File 1-1_01.wav-e74a7b1bcc6d52a07797d57203c32ecc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

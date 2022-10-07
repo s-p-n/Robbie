@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://modules/Powerlines/PylonGroup.gd" type="Script" id=1]
 [ext_resource path="res://modules/Interactive/Ship/Ship.gd" type="Script" id=2]
@@ -26,9 +26,11 @@
 [ext_resource path="res://modules/NPCs/WaterBlob/WaterBlob.tscn" type="PackedScene" id=24]
 [ext_resource path="res://share/audio/Log file 7.3.2_02.wav" type="AudioStream" id=25]
 [ext_resource path="res://modules/Interactive/FloppyDisk/FloppyDisk.tscn" type="PackedScene" id=26]
+[ext_resource path="res://share/audio/Log File 1-1_01.wav" type="AudioStream" id=27]
 [ext_resource path="res://share/textures/glass.tres" type="Material" id=28]
 [ext_resource path="res://modules/Structures/circuitBoard/med/AO-med.png" type="Texture" id=29]
 [ext_resource path="res://share/textures/wall_grey.tres" type="Material" id=30]
+[ext_resource path="res://share/audio/Log File 2-4_01.wav" type="AudioStream" id=31]
 
 [sub_resource type="SpatialMaterial" id=10]
 albedo_color = Color( 0.172549, 0.172549, 0.172549, 1 )
@@ -1570,6 +1572,18 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.37728, -2.80353, -8.42076 )
 rotation_speed = 1.0
 audio_file = ExtResource( 25 )
 subtitle_lines = [ "Experimental Log: 7-3", "We've made a grave mistake..", "Since Richard could create new components from old ones,", "We were wondering if he could self-replicate..", "So at the party last night, we brought him out for all of our guests... and...", "We ordered him to self-replicate.. and he could..", "Why didn't we restrict this in the code?", "Richard's clones aren't as big as him, they're about half the size. But they have all the same abilities as him.", "Except they only listen to Richard- which, I guess? is a good thing?", "We managed to contain Richard and all of his children, except the one.. that maybe escaped...", "We don't know if he can self-replicate, but we don't really want to stand around and find out.", "Side Note: We may have to make another robot, to track this one down.. Log Over..." ]
+subtitle_line_time = [ 10.0, 4.0, 5.0, 4.0, 8.0, 5.0, 4.0, 9.0, 7.0, 8.0, 7.0, 11.0 ]
+
+[node name="FloppyDisk2" parent="." instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.235, -0.686439, -97.184 )
+rotation_speed = 1.0
+audio_file = ExtResource( 31 )
+subtitle_line_time = [ 10.0, 4.0, 5.0, 4.0, 8.0, 5.0, 4.0, 9.0, 7.0, 8.0, 7.0, 11.0 ]
+
+[node name="FloppyDisk3" parent="." instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.235, -36.8673, -107.029 )
+rotation_speed = 1.0
+audio_file = ExtResource( 27 )
 subtitle_line_time = [ 10.0, 4.0, 5.0, 4.0, 8.0, 5.0, 4.0, 9.0, 7.0, 8.0, 7.0, 11.0 ]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
