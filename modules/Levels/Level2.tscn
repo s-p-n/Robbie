@@ -924,7 +924,6 @@ __meta__ = {
 transform = Transform( 4.19106, 0, -3.52437e-08, 0, 2.8839, 0, -1.47708e-07, 0, 0.193719, 2.64417, 0, 0 )
 material_override = ExtResource( 9 )
 mesh = ExtResource( 21 )
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Stage2/Puzzle/Door/block-441-wall5"]
 transform = Transform( 4.19106, 0, -3.52437e-08, 0, 2.8839, 0, -1.47708e-07, 0, 0.193719, 2.64417, 0, 0 )
@@ -1109,7 +1108,7 @@ transform = Transform( 3.9, 2.16316e-14, -3.60657e-23, -2.16316e-14, 3.9, -6.502
 shape = SubResource( 1 )
 
 [node name="block-444" type="RigidBody" parent="Stage3/Walls"]
-transform = Transform( 1.91069e-15, -1, -4.37114e-08, 0.99948, 1.40885e-09, -0.0322306, 0.0322306, -4.36887e-08, 0.99948, 55.1464, -16.7634, -127.199 )
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 55.1464, -16.7634, -126.778 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -1289,7 +1288,6 @@ mode = 1
 [node name="block-441" type="MeshInstance" parent="Stage3/Ship/block-441"]
 transform = Transform( 0.4, 0, 0, 0, 0.02, 0, 0, 0, 0.1, 0, 0, 0 )
 mesh = ExtResource( 21 )
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Stage3/Ship/block-441"]
 transform = Transform( 0.4, 0, 0, 0, 0.02, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -1302,7 +1300,6 @@ mode = 1
 [node name="block-441" type="MeshInstance" parent="Stage3/Ship/block-442"]
 transform = Transform( 0.4, 0, 0, 0, 0.02, 0, 0, 0, 0.1, 0, 0, 0 )
 mesh = ExtResource( 21 )
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Stage3/Ship/block-442"]
 transform = Transform( 0.4, 0, 0, 0, 0.02, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -1315,7 +1312,6 @@ mode = 1
 [node name="block-441" type="MeshInstance" parent="Stage3/Ship/block-443"]
 transform = Transform( 0.4, 0, 0, 0, 0.02, 0, 0, 0, 0.1, 0, 0, 0 )
 mesh = ExtResource( 21 )
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Stage3/Ship/block-443"]
 transform = Transform( 0.4, 0, 0, 0, 0.02, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -1328,7 +1324,6 @@ mode = 1
 [node name="block-441" type="MeshInstance" parent="Stage3/Ship/block-444"]
 transform = Transform( 0.4, 0, 0, 0, 0.02, 0, 0, 0, 0.1, 0, 0, 0 )
 mesh = ExtResource( 21 )
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Stage3/Ship/block-444"]
 transform = Transform( 0.4, 0, 0, 0, 0.02, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -1406,7 +1401,7 @@ transform = Transform( 3.9, 2.84217e-14, 0, -2.84217e-14, 3.9, -6.50236e-09, 0, 
 shape = SubResource( 1 )
 
 [node name="block-441-wall4" type="RigidBody" parent="Stage3"]
-transform = Transform( -1.48175e-08, -0.940792, 0.338984, -4.11233e-08, 0.338984, 0.940792, -1, 0, -4.37114e-08, 50.6171, -13.3958, -109.072 )
+transform = Transform( -1.48175e-08, -0.940792, 0.338984, -4.11233e-08, 0.338984, 0.940792, -1, 0, -4.37114e-08, 50.6171, -12.7922, -109.072 )
 mode = 1
 __meta__ = {
 "_edit_group_": true
@@ -1562,7 +1557,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7747, -16.069, -8.01777 )
 health = 3
 
 [node name="Ending" parent="." instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 53.6135, -35.6222, -133.03 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 55.4258, -37.2623, -131.989 )
 shop_items = [ "Recharge II", "Wires II", "Extra Life", "Extra Life", "Extra Life" ]
 
 [node name="FloppyDisk" parent="." instance=ExtResource( 26 )]
