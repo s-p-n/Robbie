@@ -924,6 +924,7 @@ __meta__ = {
 transform = Transform( 4.19106, 0, -3.52437e-08, 0, 2.8839, 0, -1.47708e-07, 0, 0.193719, 2.64417, 0, 0 )
 material_override = ExtResource( 9 )
 mesh = ExtResource( 21 )
+material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Stage2/Puzzle/Door/block-441-wall5"]
 transform = Transform( 4.19106, 0, -3.52437e-08, 0, 2.8839, 0, -1.47708e-07, 0, 0.193719, 2.64417, 0, 0 )
@@ -1288,6 +1289,7 @@ mode = 1
 [node name="block-441" type="MeshInstance" parent="Stage3/Ship/block-441"]
 transform = Transform( 0.4, 0, 0, 0, 0.02, 0, 0, 0, 0.1, 0, 0, 0 )
 mesh = ExtResource( 21 )
+material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Stage3/Ship/block-441"]
 transform = Transform( 0.4, 0, 0, 0, 0.02, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -1300,6 +1302,7 @@ mode = 1
 [node name="block-441" type="MeshInstance" parent="Stage3/Ship/block-442"]
 transform = Transform( 0.4, 0, 0, 0, 0.02, 0, 0, 0, 0.1, 0, 0, 0 )
 mesh = ExtResource( 21 )
+material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Stage3/Ship/block-442"]
 transform = Transform( 0.4, 0, 0, 0, 0.02, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -1312,6 +1315,7 @@ mode = 1
 [node name="block-441" type="MeshInstance" parent="Stage3/Ship/block-443"]
 transform = Transform( 0.4, 0, 0, 0, 0.02, 0, 0, 0, 0.1, 0, 0, 0 )
 mesh = ExtResource( 21 )
+material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Stage3/Ship/block-443"]
 transform = Transform( 0.4, 0, 0, 0, 0.02, 0, 0, 0, 0.1, 0, 0, 0 )
@@ -1324,6 +1328,7 @@ mode = 1
 [node name="block-441" type="MeshInstance" parent="Stage3/Ship/block-444"]
 transform = Transform( 0.4, 0, 0, 0, 0.02, 0, 0, 0, 0.1, 0, 0, 0 )
 mesh = ExtResource( 21 )
+material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Stage3/Ship/block-444"]
 transform = Transform( 0.4, 0, 0, 0, 0.02, 0, 0, 0, 0.1, 0, 0, 0 )
