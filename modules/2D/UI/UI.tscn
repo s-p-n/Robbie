@@ -76,25 +76,25 @@ align = 2
 valign = 1
 
 [node name="CashLabel" type="Label" parent="."]
-anchor_left = 0.001
+anchor_left = 0.874
 anchor_top = 0.593
-anchor_right = 0.205
-anchor_bottom = 1.037
-margin_left = 1676.08
+anchor_right = 1.0
+anchor_bottom = 0.815
+margin_left = -0.0800781
 margin_top = -0.0439987
-margin_right = 1439.4
-margin_bottom = 0.00400543
+margin_right = -87.0
+margin_bottom = 23.98
 theme = ExtResource( 3 )
 text = "Spares"
 
 [node name="Cash" type="Label" parent="."]
-anchor_left = 0.001
+anchor_left = 0.874
 anchor_top = 0.593
-anchor_right = 0.205
+anchor_right = 1.0
 anchor_bottom = 1.074
-margin_left = 1844.08
+margin_left = 167.92
 margin_top = -0.0439987
-margin_right = 1523.4
+margin_right = -3.0
 margin_bottom = 0.00801086
 theme = ExtResource( 3 )
 text = "0"
