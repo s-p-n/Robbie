@@ -1,6 +1,9 @@
 extends RigidBody
 
 onready var collisionShape = $CollisionShape
+
+var strength:int = 0
+
 var host:Spatial = null
 var hit = null
 var can_hit = false
@@ -47,7 +50,8 @@ func _process(delta):
 		
 		if is_instance_valid(hit):
 			print("Laser interacting with: ", hit)
-			hit.interact()
+			for i in range(strength):
+				hit.interact()
 			hit = null
 			turn_off()
 			cooling_down = true

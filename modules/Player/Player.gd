@@ -17,7 +17,9 @@ onready var UI = find_parent("Robbie").get_node("UI")
 onready var shop = find_parent("Robbie").get_node("Shop")
 onready var thrust_level = $Head/Interact/ThrustIcon/Amount
 onready var laser_level = $Head/Interact/LaserIcon/Amount
+onready var laser = $Head/Interact/LaserGun
 onready var Movement = $Head/Movement
+onready var Interact = $Head/Interact
 
 var checkpoint_padding = Vector3(0,0.5,0)
 var last_checkpoint:Spatial = self
@@ -67,7 +69,7 @@ func interact(n=1):
 		respawn()
 
 func respawn():
-	$Head/Interact.death_audio.play(0)
+	Interact.death_audio.play(0)
 	UI.remove_life()
 	UI.reset_health()
 	UI.reset_stamina()
@@ -88,6 +90,7 @@ func give_power(power):
 		"Laser Gun":
 			has_laser = true
 			laser_level.text = str(1 + int(laser_level.text))
+			laser.strength += 1
 			return
 		"Extra Life":
 			return UI.add_life()
