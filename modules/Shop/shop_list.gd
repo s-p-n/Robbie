@@ -6,8 +6,8 @@ var item_prices = {
 	"Laser Gun": 5,
 	"Recharge II": 10,
 	"Wires II": 10,
-	"Extra Life": 10,
-	"Wings": 25
+	"Extra Life": 5,
+	"Thrust": 5
 }
 
 var shop_items = []

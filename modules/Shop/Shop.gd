@@ -2,7 +2,7 @@ extends Control
 
 var funds = 0 setget set_funds, get_funds
 
-var player_items = []
+var player_items = ["Thrust"]
 
 onready var itemList:ItemList = $Panel/ItemList
 onready var cash = $Panel/Cash

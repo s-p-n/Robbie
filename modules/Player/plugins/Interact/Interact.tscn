@@ -73,15 +73,39 @@ debug_shape_custom_color = Color( 0.67451, 0.219608, 0.8, 1 )
 
 [node name="HoldPosition" type="Position3D" parent="."]
 
+[node name="ThrustIcon" type="Sprite" parent="."]
+position = Vector2( 1864, 152 )
+texture = ExtResource( 21 )
+
+[node name="Amount" type="Label" parent="ThrustIcon"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -32.0
+margin_bottom = -34.0
+text = "0"
+align = 2
+valign = 2
+autowrap = true
+clip_text = true
+
 [node name="LaserIcon" type="Sprite" parent="."]
-visible = false
-position = Vector2( 1862, 148 )
+position = Vector2( 1864, 208 )
 texture = ExtResource( 20 )
 
-[node name="JetpackIcon" type="Sprite" parent="."]
-visible = false
-position = Vector2( 1862, 266 )
-texture = ExtResource( 21 )
+[node name="Amount" type="Label" parent="LaserIcon"]
+anchor_right = 1.0
+anchor_bottom = 1.045
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -32.0
+margin_bottom = -27.475
+text = "0"
+align = 2
+valign = 2
+autowrap = true
+clip_text = true
 
 [node name="CenterDot" type="Sprite" parent="."]
 position = Vector2( 960, 540 )
