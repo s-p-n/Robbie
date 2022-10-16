@@ -10,6 +10,7 @@ onready var lives_label = $Lives
 onready var health_bar = $HealthBar
 onready var stamina_bar = $StaminaBar
 onready var recharge = $Recharge
+onready var compass = $Compass
 
 func _ready():
 	reset_health()
@@ -55,6 +56,16 @@ func remove_life():
 	if lives < 0:
 		get_parent().game_over()
 	publish_changes()
+
+func set_compass(degr):
+	if len(degr) <= 3:
+		degr = degr + '.0000'
+	var x = str(degr)[3]
+	if x == '.':
+		compass.text = str(degr).left(6)
+		return
+	compass.text = str(degr).left(5)
+	return
 
 func publish_changes():
 	if health > 100:
