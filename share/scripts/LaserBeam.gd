@@ -50,7 +50,7 @@ func _process(delta):
 		
 		if is_instance_valid(hit):
 			print("Laser interacting with: ", hit)
-			for i in range(strength):
+			for _unused in range(strength):
 				hit.interact()
 			hit = null
 			turn_off()
