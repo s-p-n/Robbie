@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://share/themes/health_bar.tres" type="Theme" id=1]
 [ext_resource path="res://modules/2D/UI/health_bar.gd" type="Script" id=2]
 [ext_resource path="res://share/themes/big_button_font.tres" type="Theme" id=3]
 [ext_resource path="res://share/themes/stamina_bar.tres" type="Theme" id=4]
 [ext_resource path="res://share/images/auto-repair.png" type="Texture" id=5]
+[ext_resource path="res://share/fonts/medium_styled_font.tres" type="DynamicFont" id=6]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.152941, 0.152941, 0.152941, 0.466667 )
 
 [node name="UI" type="Control"]
 anchor_right = 1.0
@@ -99,3 +103,17 @@ theme = ExtResource( 3 )
 text = "0"
 align = 2
 valign = 1
+
+[node name="Compass" type="Label" parent="."]
+margin_top = 54.0
+margin_right = 218.0
+margin_bottom = 89.0
+rect_scale = Vector2( 1.55578, 1.44 )
+custom_fonts/font = ExtResource( 6 )
+custom_styles/normal = SubResource( 1 )
+text = "sad"
+align = 1
+valign = 1
+__meta__ = {
+"_editor_description_": ""
+}

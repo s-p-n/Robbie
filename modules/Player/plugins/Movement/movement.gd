@@ -49,6 +49,7 @@ func _unhandled_input(event):
 		player.rotation_degrees.y -= event.relative.x * mouse_sensitivity / 18
 		head.rotation_degrees.x -= event.relative.y * mouse_sensitivity / 18
 		head.rotation_degrees.x = clamp(head.rotation_degrees.x, -90, 90)
+		player.update_compass()
 
 func _physics_process(delta):
 	var moved = false

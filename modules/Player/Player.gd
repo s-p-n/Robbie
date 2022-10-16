@@ -106,6 +106,9 @@ func give_power(power):
 			print("jump: ", Movement.jump_height)
 			return
 
+func update_compass():
+	return UI.set_compass(str(self.rotation_degrees[1] + 180))
+
 func get_stamina():
 	return UI.stamina
 
