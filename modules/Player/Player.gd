@@ -15,6 +15,12 @@ var starting_checkpoint_node:RigidBody
 onready var checkpoint_pos = global_transform.origin
 onready var UI = find_parent("Robbie").get_node("UI")
 onready var shop = find_parent("Robbie").get_node("Shop")
+onready var thrust_level = $Head/Interact/ThrustIcon/Amount
+onready var laser_level = $Head/Interact/LaserIcon/Amount
+onready var laser = $Head/Interact/LaserGun
+onready var Movement = $Head/Movement
+onready var Interact = $Head/Interact
+
 var checkpoint_padding = Vector3(0,0.5,0)
 var last_checkpoint:Spatial = self
 
@@ -63,7 +69,7 @@ func interact(n=1):
 		respawn()
 
 func respawn():
-	$Head/Interact.death_audio.play(0)
+	Interact.death_audio.play(0)
 	UI.remove_life()
 	UI.reset_health()
 	UI.reset_stamina()
@@ -83,19 +89,21 @@ func give_power(power):
 	match power:
 		"Laser Gun":
 			has_laser = true
-			$Head/Interact/LaserIcon.visible = true
+			laser_level.text = str(1 + int(laser_level.text))
+			laser.strength += 1
 			return
 		"Extra Life":
 			return UI.add_life()
-		"Wires II":
+		"Wires":
 			wire_health = 3
 			return
-		"Recharge II":
+		"Recharge":
 			UI.recharge.text = str(int(UI.recharge.text) + 1)
 			return
-		"Wings":
-			has_wings = true
-			$Head/Interact/JetpackIcon.visible = true
+		"Thrust":
+			thrust_level.text = str(1 + int(thrust_level.text))
+			Movement.jump_height += 1
+			print("jump: ", Movement.jump_height)
 			return
 
 func get_stamina():

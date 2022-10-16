@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://share/scripts/ShopArea.gd" type="Script" id=1]
 [ext_resource path="res://share/audio/_Store music test_01.wav" type="AudioStream" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://share/textures/lemon.tres" type="Material" id=8]
 [ext_resource path="res://share/textures/duck.tres" type="Material" id=9]
 [ext_resource path="res://share/textures/duck_eyes.tres" type="Material" id=10]
+[ext_resource path="res://share/audio/DUCK VOICES.cm_03.wav" type="AudioStream" id=11]
 
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 18.4463, 4.21501, 11.9355 )
@@ -98,6 +99,14 @@ material/6 = SubResource( 12 )
 [node name="CollisionShape2" type="CollisionShape" parent="DuckShop"]
 transform = Transform( -0.399909, 0, -0.00854233, 0, 0.4, 0, 0.00854233, 0, -0.399909, 1.64841, 1.26789, 0.303974 )
 shape = SubResource( 14 )
+
+[node name="DuckVoiceGrapes" type="AudioStreamPlayer3D" parent="DuckShop"]
+stream = ExtResource( 11 )
+unit_db = 20.0
+
+[node name="DuckVoiceGrapes2" type="AudioStreamPlayer3D" parent="DuckShop"]
+stream = ExtResource( 11 )
+unit_db = 20.0
 
 [connection signal="body_entered" from="DuckShop/Area" to="DuckShop/Area" method="_on_Area_body_entered"]
 [connection signal="body_exited" from="DuckShop/Area" to="DuckShop/Area" method="_on_Area_body_exited"]

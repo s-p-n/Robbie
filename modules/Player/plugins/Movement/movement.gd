@@ -8,14 +8,14 @@ var head:Position3D
 var camera:Camera
 
 var mouse_sensitivity = 1
-var joystick_deadzone = 0.2
+var joystick_deadzone = 0.4
 
 # Movement
 var is_moving = false
 var walk_speed = 8 # speed in m/s
 var run_speed = walk_speed * 2
 var crouch_speed = run_speed / 3
-var jump_height = 6
+var jump_height = 5
 var current_speed = run_speed
 var ground_acceleration = 10
 var air_acceleration = 5
@@ -55,9 +55,9 @@ func _physics_process(delta):
 	var change_stamina:int = walk_speed * 1.25
 	# Look with the right analog of the joystick
 	if Input.get_joy_axis(0, 2) < -joystick_deadzone or Input.get_joy_axis(0, 2) > joystick_deadzone:
-		player.rotation_degrees.y -= Input.get_joy_axis(0, 2) * 4
+		player.rotation_degrees.y -= Input.get_joy_axis(0, 2) * 3
 	if Input.get_joy_axis(0, 3) < -joystick_deadzone or Input.get_joy_axis(0, 3) > joystick_deadzone:
-		head.rotation_degrees.x = clamp(head.rotation_degrees.x - Input.get_joy_axis(0, 3) * 4, -90, 90)
+		head.rotation_degrees.x = clamp(head.rotation_degrees.x - Input.get_joy_axis(0, 3) * 3, -90, 90)
 	
 	# Direction inputs
 	direction = Vector3()

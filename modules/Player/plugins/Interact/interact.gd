@@ -8,6 +8,10 @@ signal tick(delta)
 
 export var PowerLineScene:PackedScene
 
+var event_duration = 0.05
+var time:float = 0
+var last_event_time:float = 0
+
 var player:KinematicBody
 var entity:KinematicBody
 var center_dot:Sprite
@@ -65,6 +69,11 @@ func _unhandled_input(event):
 		setup_center_dot(interactables)
 	
 	elif Input.is_action_just_released("leftclick"):
+		if last_event_time > time - event_duration:
+			return
+		
+		print("left click ", last_event_time, " ", time - event_duration)
+		last_event_time = time
 		var took_action = false
 		
 		if !is_instance_valid(powerline):
@@ -79,7 +88,8 @@ func _unhandled_input(event):
 			took_action = handle_shop_action()
 		#if !took_action:
 		#	took_action = handle_laser_fire()
-func _physics_process (delta):
+func _process (delta):
+	time += delta
 	handle_move_with_wire()
 	handle_held_object(delta)
 	handle_laser_fire(delta)
