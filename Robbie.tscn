@@ -36,6 +36,11 @@ script = ExtResource( 6 )
 
 [node name="Shop" parent="." instance=ExtResource( 12 )]
 visible = false
+item_prices = {
+"Laser": 10,
+"Recharge": 10,
+"Thrust": 25
+}
 
 [node name="UI" parent="." instance=ExtResource( 9 )]
 

@@ -1,6 +1,6 @@
 extends Control
 
-var funds = 50 setget set_funds, get_funds
+var funds = 0 setget set_funds, get_funds
 
 export(Dictionary) var item_prices = {
 	"Laser": 5,
@@ -17,6 +17,9 @@ onready var arrow = $Arrow
 
 onready var UI = get_parent().get_node("UI")
 
+export var exit_timer:float = 1.0
+
+var time:float = 1.0
 var active = false
 
 func _ready():
@@ -24,7 +27,17 @@ func _ready():
 		print("HEY! Couldn't connect shop to level_loaded signal!")
 	set_funds(funds)
 
+func _process(delta):
+	if !active:
+		if time < exit_timer:
+			time += delta
+	else:
+		time = 0
+		
+
 func activate():
+	if time < exit_timer:
+		return
 	active = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	visible = true
@@ -78,6 +91,11 @@ func purchase_item(item_amount:Label):
 	print("funds: ", funds)
 	if funds >= item_prices[item_name]:
 		var player = get_parent().get_node("ActiveLevel/Objects").find_node("Player")
-		UI.item_levels[item_name] += 1
+		UI.increase_item_level(item_name)
 		self.funds -= item_prices[item_name]
-		player.set_thrusters()
+		player.setup_items()
+
+
+func _on_Exit_gui_input(event:InputEvent):
+	if event.is_action("leftclick") or event.is_action("ui_accept"):
+		deactivate()

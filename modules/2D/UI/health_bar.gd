@@ -6,10 +6,6 @@ export var health = 100
 export var health_step = 10
 export var stamina = 100
 
-export var laser_level = 1
-export var thrust_level = 1
-export var recharge_level = 1
-
 export(Dictionary) var item_levels = {
 	"Laser": 1,
 	"Thrust": 1,
@@ -20,7 +16,6 @@ export(Dictionary) var item_levels = {
 onready var lives_label = $Lives
 onready var health_bar = $HealthBar
 onready var stamina_bar = $StaminaBar
-onready var recharge = $Recharge
 onready var compass = $Compass
 
 onready var laser_label = $IconSidebar/Laser/Amount
@@ -33,12 +28,12 @@ func _ready():
 	publish_changes()
 
 func add_stamina():
-	stamina += int(recharge.text)
+	stamina += item_levels["Recharge"]
 	publish_changes()
 
 func adjust_stamina(n):
 	if n > 0:
-		n *= int(recharge.text)
+		n *= int(item_levels["Recharge"])
 	
 	stamina += n
 	publish_changes()
@@ -72,6 +67,22 @@ func remove_life():
 	if lives < 0:
 		get_parent().game_over()
 	publish_changes()
+
+func increase_item_level(item_name:String):
+	item_levels[item_name] += 1
+	get_node("IconSidebar/" + item_name + "/Amount").text = str(item_levels[item_name])
+
+func set_laser(new_value):
+	item_levels["Laser"] = new_value
+	laser_label.text = str(new_value)
+
+func set_thrust(new_value):
+	item_levels["Thrust"] = new_value
+	thrust_label.text = str(new_value)
+
+func set_recharge(new_value):
+	item_levels["Recharge"] = new_value
+	recharge_label.text = str(new_value)
 
 func set_compass(degr):
 	if len(degr) <= 3:

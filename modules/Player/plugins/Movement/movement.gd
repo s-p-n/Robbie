@@ -56,6 +56,9 @@ func _unhandled_input(event):
 		player.update_compass()
 
 func _physics_process(delta):
+	if is_instance_valid(player):
+		if player.shop.active:
+			return
 	var moved = false
 	var change_stamina:int = walk_speed * 1.25
 	# Look with the right analog of the joystick

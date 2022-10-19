@@ -38,7 +38,7 @@ func _ready():
 	starting_checkpoint_node = get_node_or_null(starting_checkpoint)
 	if starting_checkpoint_node.connect("tree_entered", self, "setup"):
 		pass
-	set_thrusters()
+	setup_items()
 	
 func setup():
 	#print("player setup")
@@ -59,8 +59,19 @@ func _process(delta):
 				#collider.turn_off()
 				#interact()
 
+func setup_items():
+	set_thrusters()
+	set_laser()
+	set_recharge()
+
 func set_thrusters():
 	Movement.jump_height = Movement.starting_jump_height + int(thrust_level.text)
+
+func set_laser():
+	Interact.get_node("LaserGun").strength = int(laser_level.text)
+	
+func set_recharge():
+	pass
 
 func checkpoint(new_checkpoint):
 	last_checkpoint = new_checkpoint

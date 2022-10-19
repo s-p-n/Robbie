@@ -2,7 +2,7 @@ extends RigidBody
 
 onready var collisionShape = $CollisionShape
 
-var strength:int = 0
+var strength:int = 1
 
 var host:Spatial = null
 var hit = null
@@ -55,7 +55,7 @@ func _process(delta):
 			hit = null
 			turn_off()
 			cooling_down = true
-			print("laser hit")
+			print("laser hit ", str(strength), " damage")
 			$CoolDown.playing = true
 	else:
 		$Sound.playing = false

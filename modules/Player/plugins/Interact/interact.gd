@@ -89,6 +89,10 @@ func _unhandled_input(event):
 		#if !took_action:
 		#	took_action = handle_laser_fire()
 func _process (delta):
+	if is_instance_valid(player):
+		if player.shop.active:
+			laser.turn_off()
+			return
 	time += delta
 	handle_move_with_wire()
 	handle_held_object(delta)
