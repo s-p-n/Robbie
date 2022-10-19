@@ -4,6 +4,9 @@ signal move_on_floor()
 
 onready var footstep_scene = $FootstepSound
 onready var landTween:Tween = $LandTween
+
+export var starting_jump_height = 5
+
 var head:Position3D
 var camera:Camera
 
@@ -15,7 +18,7 @@ var is_moving = false
 var walk_speed = 8 # speed in m/s
 var run_speed = walk_speed * 2
 var crouch_speed = run_speed / 3
-var jump_height = 5
+var jump_height = starting_jump_height
 var current_speed = run_speed
 var ground_acceleration = 10
 var air_acceleration = 5
@@ -36,6 +39,7 @@ var player:KinematicBody
 
 func _ready():
 	set_player(find_parent("Player"))
+	
 
 func set_player(new_player):
 	player = new_player

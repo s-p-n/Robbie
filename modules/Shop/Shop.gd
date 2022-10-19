@@ -1,44 +1,57 @@
 extends Control
 
-var funds = 0 setget set_funds, get_funds
+var funds = 50 setget set_funds, get_funds
 
-var player_items = ["Thrust"]
+export(Dictionary) var item_prices = {
+	"Laser": 5,
+	"Recharge": 5,
+	"Thrust": 5
+}
 
-onready var itemList:ItemList = $Panel/ItemList
-onready var cash = $Panel/Cash
-onready var nextLevelBtn = $Panel/NextLevel
+#var player_items = ["Thrust"]
+
+#onready var itemList:ItemList = $Panel/ItemList
+#onready var cash = $Panel/Cash
+onready var nextLevelBtn = $NextLevel/NextLevel
 onready var arrow = $Arrow
-onready var buyAudio = $Panel/BuyAudio
-onready var closeAudio = $Panel/CloseAudio
-onready var openAudio = $Panel/OpenAudio
+
 onready var UI = get_parent().get_node("UI")
 
 var active = false
 
 func _ready():
-	pause_mode = PAUSE_MODE_PROCESS
-	cash.text = str(funds)
 	if get_parent().connect("level_loaded", self, "_on_level_loaded") != OK:
 		print("HEY! Couldn't connect shop to level_loaded signal!")
+	set_funds(funds)
 
 func activate():
 	active = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	visible = true
-	openAudio.play()
-	itemList.grab_focus()
-	#itemList.items[0].grab_focus()
+	
+	if !is_instance_valid(UI):
+		UI = get_parent().get_node("UI")
+	
+	UI.get_node("IconSidebar/Laser/Upgrade").visible = true
+	UI.get_node("IconSidebar/Thrust/Upgrade").visible = true
+	UI.get_node("IconSidebar/Recharge/Upgrade").visible = true
 
 func deactivate():
 	active = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	visible = false
-	closeAudio.play()
+	
+	if !is_instance_valid(UI):
+		UI = get_parent().get_node("UI")
+	
+	UI.get_node("IconSidebar/Laser/Upgrade").visible = false
+	UI.get_node("IconSidebar/Thrust/Upgrade").visible = false
+	UI.get_node("IconSidebar/Recharge/Upgrade").visible = false
 
 func set_funds(new_funds):
 	funds = new_funds
-	cash.text = str(funds)
-	UI.get_node("Cash").text = str(funds)
+	#cash.text = str(funds)
+	UI.get_node("SparesPanel/Amount").text = str(funds)
 	print("funds set: ", funds)
 	return funds
 
@@ -46,43 +59,25 @@ func get_funds():
 	print("funds get: ", funds)
 	return funds
 
-func _on_Close_pressed():
-	deactivate()
-
-func _on_Buy_pressed():
-	var items = itemList.get_selected_items()
-	if len(items) == 0:
-		return
-		
-	var item = itemList.get_item_text(items[0])
-	var cost = itemList.item_prices[item]
-	
-	if funds < cost:
-		print("Not enough funds.")
-		return
-	
-	if item == "Laser Gun":
-		nextLevelBtn.disabled = false
-		arrow.visible = false
-	
-	var player = get_parent().get_node("ActiveLevel").get_child(0).find_node("Player")
-	
-	self.funds -= cost
-	buyAudio.play(0)
-	player_items.append(item)
-	itemList.remove_item(items[0])
-	get_node("Panel/Cost").text = "0"
-	player.give_power(item)
-
-func _on_NextLevel_pressed():
-	if "Laser Gun" in player_items:
-		deactivate()
-		get_tree().root.get_node("Robbie").next_level()
-	else:
-		print("Laser Gun required to move on")
-
 func _on_level_loaded(level):
 	var ending = level.find_node("Ending")
 	print("Level loaded.. Here is the ending: ", ending)
-	itemList.shop_items = ending.shop_items
-	itemList._ready()
+
+
+func _on_NextLevel_pressed(event:InputEvent):
+	if event.is_action("leftclick") or event.is_action("ui_accept"):
+		if int(UI.get_node("IconSidebar/Laser/Amount").text) > 0:
+			deactivate()
+			get_tree().root.get_node("Robbie").next_level()
+		else:
+			print("Laser Gun required to move on")
+
+func purchase_item(item_amount:Label):
+	var item_name = item_amount.get_parent().name
+	print("Attempt to purchase item: ", item_name, " for ", item_prices[item_name])
+	print("funds: ", funds)
+	if funds >= item_prices[item_name]:
+		var player = get_parent().get_node("ActiveLevel/Objects").find_node("Player")
+		UI.item_levels[item_name] += 1
+		self.funds -= item_prices[item_name]
+		player.set_thrusters()

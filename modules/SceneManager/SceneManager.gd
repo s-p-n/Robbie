@@ -43,9 +43,8 @@ func load_level(idx):
 	var level = levels[idx].instance()
 	active_level.add_child(level)
 	
-	var player = active_level.get_child(0).find_node("Player")
-	for item in shop.player_items:
-		player.give_power(item)
+	#var player = active_level.get_child(0).find_node("Player")
+	
 	emit_signal("level_loaded", level)
 
 func game_over():

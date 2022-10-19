@@ -22,7 +22,7 @@ func _process(_delta):
 				starting_button.grab_focus()
 				visible = true
 			
-		get_tree().paused = true
+			get_tree().paused = true
 	else:
 		visible = false
 		get_tree().paused = false

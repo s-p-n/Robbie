@@ -110,19 +110,20 @@ mouse_filter = 0
 mouse_default_cursor_shape = 2
 input_pass_on_modal_close_click = false
 theme = ExtResource( 4 )
+custom_colors/font_color = Color( 0.243137, 0.243137, 0.243137, 1 )
 text = "Skip  to Next Level"
 align = 1
 valign = 1
 script = ExtResource( 3 )
 
 [node name="Exit" type="Panel" parent="."]
-anchor_left = 1.291
-anchor_top = -0.143
-anchor_right = 1.421
+anchor_left = 1.111
+anchor_top = -0.137
+anchor_right = 1.239
 anchor_bottom = -0.044
-margin_left = -182.656
-margin_top = 3.802
-margin_right = -184.736
+margin_left = 0.223877
+margin_top = 0.118004
+margin_right = 0.175903
 margin_bottom = 4.016
 focus_neighbour_left = NodePath("../pause_menu/Continue")
 focus_neighbour_top = NodePath("../pause_menu/Skip")
@@ -130,15 +131,16 @@ focus_neighbour_bottom = NodePath("../pause_menu/Continue")
 focus_previous = NodePath("../pause_menu/Continue")
 focus_mode = 2
 mouse_default_cursor_shape = 2
+theme = ExtResource( 4 )
 script = ExtResource( 9 )
 
 [node name="Exit" type="Label" parent="Exit"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 42.0
-margin_top = 21.0
-margin_right = -43.0
-margin_bottom = -16.0
+margin_left = 23.0
+margin_top = 12.0
+margin_right = -20.0
+margin_bottom = -1.0
 text = "Exit"
 
 [node name="MouseDirections" type="Sprite" parent="."]
@@ -160,7 +162,6 @@ texture = ExtResource( 7 )
 [connection signal="gui_input" from="pause_menu/Restart" to="pause_menu/Restart" method="_on_Restart_gui_input"]
 [connection signal="focus_entered" from="pause_menu/Skip" to="pause_menu/Skip" method="_on_focus_entered"]
 [connection signal="focus_exited" from="pause_menu/Skip" to="pause_menu/Skip" method="_on_focus_exited"]
-[connection signal="gui_input" from="pause_menu/Skip" to="pause_menu/Skip" method="_on_Skip_gui_input"]
 [connection signal="focus_entered" from="Exit" to="Exit" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Exit" to="Exit" method="_on_focus_exited"]
 [connection signal="gui_input" from="Exit" to="Exit" method="_on_Exit_gui_input"]

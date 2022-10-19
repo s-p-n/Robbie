@@ -2,12 +2,11 @@ extends Sprite
 
 export(Array,Texture) var images
 
-onready var Interact = get_parent()
+onready var UI = get_parent().get_parent()
 onready var Amount = $Amount
 
 func _process(_delta):
-	if is_instance_valid(Interact.player) and is_instance_valid(Interact.player.UI):
-		var UI = Interact.player.UI
+	if is_instance_valid(UI):
 		var stamina = UI.get_node("StaminaBar").value
 		Amount.text = str(stamina)
 		var image_count = images.size() - 1

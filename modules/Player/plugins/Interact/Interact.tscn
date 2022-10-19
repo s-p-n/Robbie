@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://modules/Powerlines/PowerLine/PowerLine.tscn" type="PackedScene" id=1]
 [ext_resource path="res://modules/Player/plugins/Interact/interact.gd" type="Script" id=2]
@@ -19,18 +19,9 @@
 [ext_resource path="res://share/audio/Robot Voices 2-cm-33.wav" type="AudioStream" id=17]
 [ext_resource path="res://share/scripts/LaserBeam.gd" type="Script" id=18]
 [ext_resource path="res://share/images/aim.png" type="Texture" id=19]
-[ext_resource path="res://share/images/light-saber-icon.png" type="Texture" id=20]
-[ext_resource path="res://share/images/jetpack.png" type="Texture" id=21]
 [ext_resource path="res://share/audio/Robbie Dead.wav" type="AudioStream" id=22]
 [ext_resource path="res://share/audio/Laser Loop-cm-01.wav" type="AudioStream" id=23]
 [ext_resource path="res://share/audio/Laser Power Down 2_02.wav" type="AudioStream" id=24]
-[ext_resource path="res://share/images/battery-100.png" type="Texture" id=25]
-[ext_resource path="res://modules/Player/plugins/Interact/BatteryIcon.gd" type="Script" id=26]
-[ext_resource path="res://share/images/battery-0.png" type="Texture" id=27]
-[ext_resource path="res://share/images/battery-50.png" type="Texture" id=28]
-[ext_resource path="res://share/images/battery-75.png" type="Texture" id=29]
-[ext_resource path="res://share/images/battery-25.png" type="Texture" id=30]
-[ext_resource path="res://share/images/batteries.png" type="Texture" id=31]
 
 [sub_resource type="CylinderMesh" id=1]
 top_radius = 0.02
@@ -79,92 +70,6 @@ collision_mask = 4
 debug_shape_custom_color = Color( 0.67451, 0.219608, 0.8, 1 )
 
 [node name="HoldPosition" type="Position3D" parent="."]
-
-[node name="ThrustIcon" type="Sprite" parent="."]
-position = Vector2( 1864, 152 )
-texture = ExtResource( 21 )
-
-[node name="Amount" type="Label" parent="ThrustIcon"]
-anchor_right = 1.0
-anchor_bottom = 1.045
-margin_left = -16.0
-margin_right = -56.0
-margin_bottom = -51.88
-rect_scale = Vector2( 1.96, 1.88 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
-text = "0"
-align = 2
-valign = 2
-autowrap = true
-clip_text = true
-
-[node name="LaserIcon" type="Sprite" parent="."]
-position = Vector2( 1864, 208 )
-texture = ExtResource( 20 )
-
-[node name="Amount" type="Label" parent="LaserIcon"]
-anchor_right = 1.0
-anchor_bottom = 1.045
-margin_left = -16.0
-margin_top = 8.0
-margin_right = -56.0
-margin_bottom = -36.475
-rect_scale = Vector2( 1.96, 1.88 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
-text = "0"
-align = 2
-valign = 2
-autowrap = true
-clip_text = true
-
-[node name="BatteryIcon" type="Sprite" parent="."]
-position = Vector2( 1864, 272 )
-texture = ExtResource( 25 )
-script = ExtResource( 26 )
-images = [ ExtResource( 27 ), ExtResource( 30 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 25 ) ]
-
-[node name="Amount" type="Label" parent="BatteryIcon"]
-anchor_right = 1.0
-anchor_bottom = 1.045
-margin_left = -16.0
-margin_top = 8.0
-margin_right = -56.0
-margin_bottom = -43.88
-rect_scale = Vector2( 1.96, 1.88 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
-text = "0"
-align = 2
-valign = 2
-autowrap = true
-clip_text = true
-percent_visible = -1.0
-
-[node name="BatteryIcon2" type="Sprite" parent="."]
-position = Vector2( 1864, 344 )
-texture = ExtResource( 31 )
-
-[node name="Amount" type="Label" parent="BatteryIcon2"]
-anchor_right = 1.0
-anchor_bottom = 1.045
-margin_left = -16.0
-margin_top = 8.0
-margin_right = -56.0
-margin_bottom = -43.88
-rect_scale = Vector2( 1.96, 1.88 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
-text = "0"
-align = 2
-valign = 2
-autowrap = true
-clip_text = true
 
 [node name="CenterDot" type="Sprite" parent="."]
 position = Vector2( 960, 540 )

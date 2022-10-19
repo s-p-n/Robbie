@@ -15,8 +15,9 @@ var starting_checkpoint_node:RigidBody
 onready var checkpoint_pos = global_transform.origin
 onready var UI = find_parent("Robbie").get_node("UI")
 onready var shop = find_parent("Robbie").get_node("Shop")
-onready var thrust_level = $Head/Interact/ThrustIcon/Amount
-onready var laser_level = $Head/Interact/LaserIcon/Amount
+onready var thrust_level = UI.get_node("IconSidebar/Thrust/Amount")
+onready var laser_level = UI.get_node("IconSidebar/Laser/Amount")
+onready var recharge_level = UI.get_node("IconSidebar/Recharge/Amount")
 onready var laser = $Head/Interact/LaserGun
 onready var Movement = $Head/Movement
 onready var Interact = $Head/Interact
@@ -28,18 +29,17 @@ onready var subtitle_text = $Head/Subtitles/SubText
 onready var logFilePlayer:AudioStreamPlayer = $LogFileAudio
 
 var held_wire = null
-var has_laser = false
+var has_laser = true
 var has_wings = false
 var wire_health = 1
 var battery = 100
 
 func _ready():
-	#print("player ready")
 	starting_checkpoint_node = get_node_or_null(starting_checkpoint)
 	if starting_checkpoint_node.connect("tree_entered", self, "setup"):
 		pass
-	#subtitle_text.init_subtitles(['Hello', 'This is a test', 'Goodbye', 'Your days are numbered.', 'Bitchass Robot.'], [3, 4, 3, 2, 0.5])
-
+	set_thrusters()
+	
 func setup():
 	#print("player setup")
 	#starting_checkpoint_node.set_this_checkpoint()
@@ -58,6 +58,9 @@ func _process(delta):
 				pass
 				#collider.turn_off()
 				#interact()
+
+func set_thrusters():
+	Movement.jump_height = Movement.starting_jump_height + int(thrust_level.text)
 
 func checkpoint(new_checkpoint):
 	last_checkpoint = new_checkpoint
@@ -82,29 +85,6 @@ func respawn():
 
 func collect_spare():
 	shop.funds += 1
-
-func give_power(power):
-	print("Player gained the power of: ", power)
-	
-	match power:
-		"Laser Gun":
-			has_laser = true
-			laser_level.text = str(1 + int(laser_level.text))
-			laser.strength += 1
-			return
-		"Extra Life":
-			return UI.add_life()
-		"Wires":
-			wire_health = 3
-			return
-		"Recharge":
-			UI.recharge.text = str(int(UI.recharge.text) + 1)
-			return
-		"Thrust":
-			thrust_level.text = str(1 + int(thrust_level.text))
-			Movement.jump_height += 1
-			print("jump: ", Movement.jump_height)
-			return
 
 func update_compass():
 	return UI.set_compass(str(self.rotation_degrees[1] + 180))
