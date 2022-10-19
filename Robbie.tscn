@@ -38,7 +38,7 @@ script = ExtResource( 6 )
 visible = false
 item_prices = {
 "Laser": 10,
-"Recharge": 10,
+"Recharge": 17,
 "Thrust": 25
 }
 
