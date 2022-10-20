@@ -1,7 +1,5 @@
 extends Control
 
-export var funds = 0
-export var lives = 3
 export var health = 100
 export var health_step = 10
 export var stamina = 100
@@ -9,11 +7,12 @@ export var stamina = 100
 export(Dictionary) var item_levels = {
 	"Laser": 1,
 	"Thrust": 1,
-	"Recharge": 1
+	"Recharge": 1,
+	"Lives": 3
 }
 
 
-onready var lives_label = $Lives
+onready var lives_label = $IconSidebar/Lives/Amount
 onready var health_bar = $HealthBar
 onready var stamina_bar = $StaminaBar
 onready var compass = $Compass
@@ -59,12 +58,11 @@ func reset_stamina():
 	publish_changes()
 
 func add_life():
-	lives += 1
-	publish_changes()
+	increase_item_level("Lives")
 
 func remove_life():
-	lives -= 1
-	if lives < 0:
+	item_levels["Lives"] -= 1
+	if item_levels["Lives"] < 0:
 		get_parent().game_over()
 	publish_changes()
 
@@ -107,27 +105,8 @@ func publish_changes():
 	
 	health_bar.value = health
 	stamina_bar.value = stamina
-	lives_label.text = str(lives)
 	
+	lives_label.text = str(item_levels["Lives"])
 	laser_label.text = str(item_levels["Laser"])
 	thrust_label.text = str(item_levels["Thrust"])
 	recharge_label.text = str(item_levels["Recharge"])
-
-
-func _on_BatteryUpgrade_pressed():
-	pass # Replace with function body.
-
-
-func _on_LaserUpgrade_pressed():
-	Shop.purchase_item(laser_label)
-	#laser_level += 1
-
-
-func _on_ThrustUpgrade_pressed():
-	Shop.purchase_item(thrust_label)
-	#thrust_level += 1
-
-
-func _on_RechargeUpgrade_pressed():
-	Shop.purchase_item(recharge_label)
-	#recharge_level += 1

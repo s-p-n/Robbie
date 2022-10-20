@@ -16,7 +16,7 @@ var starting_lives = 0
 export (Array, PackedScene) var levels
 
 func _ready():
-	starting_lives = UI.lives
+	starting_lives = UI.item_levels["Lives"]
 	load_level(cur_level)
 	
 func restart_level():

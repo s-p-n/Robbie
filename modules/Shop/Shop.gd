@@ -1,6 +1,6 @@
 extends Control
 
-var funds = 0 setget set_funds, get_funds
+export var funds = 0 setget set_funds, get_funds
 
 export(Dictionary) var item_prices = {
 	"Laser": 5,
@@ -19,6 +19,9 @@ onready var UI = get_parent().get_node("UI")
 
 export var exit_timer:float = 1.0
 
+var hover_theme = preload("res://share/themes/big_button_hover.tres")
+var regular_theme = preload("res://share/themes/big_button.tres")
+
 var time:float = 1.0
 var active = false
 
@@ -26,6 +29,10 @@ func _ready():
 	if get_parent().connect("level_loaded", self, "_on_level_loaded") != OK:
 		print("HEY! Couldn't connect shop to level_loaded signal!")
 	set_funds(funds)
+	
+	for item in item_prices:
+		var price = item_prices[item]
+		get_node("Panel/" + item + "/price").text = str(price)
 
 func _process(delta):
 	if !active:
@@ -44,10 +51,6 @@ func activate():
 	
 	if !is_instance_valid(UI):
 		UI = get_parent().get_node("UI")
-	
-	UI.get_node("IconSidebar/Laser/Upgrade").visible = true
-	UI.get_node("IconSidebar/Thrust/Upgrade").visible = true
-	UI.get_node("IconSidebar/Recharge/Upgrade").visible = true
 
 func deactivate():
 	active = false
@@ -56,20 +59,17 @@ func deactivate():
 	
 	if !is_instance_valid(UI):
 		UI = get_parent().get_node("UI")
-	
-	UI.get_node("IconSidebar/Laser/Upgrade").visible = false
-	UI.get_node("IconSidebar/Thrust/Upgrade").visible = false
-	UI.get_node("IconSidebar/Recharge/Upgrade").visible = false
 
 func set_funds(new_funds):
 	funds = new_funds
 	#cash.text = str(funds)
-	UI.get_node("SparesPanel/Amount").text = str(funds)
-	print("funds set: ", funds)
+	if is_instance_valid(UI):
+		UI.get_node("SparesPanel/Amount").text = str(funds)
+	#print("funds set: ", funds)
 	return funds
 
 func get_funds():
-	print("funds get: ", funds)
+	#print("funds get: ", funds)
 	return funds
 
 func _on_level_loaded(level):
@@ -87,7 +87,8 @@ func _on_NextLevel_pressed(event:InputEvent):
 
 func purchase_item(item_amount:Label):
 	var item_name = item_amount.get_parent().name
-	print("Attempt to purchase item: ", item_name, " for ", item_prices[item_name])
+	print("Attempt to purchase item: ", item_name)
+	print("Price: ", item_prices[item_name])
 	print("funds: ", funds)
 	if funds >= item_prices[item_name]:
 		var player = get_parent().get_node("ActiveLevel/Objects").find_node("Player")
@@ -99,3 +100,36 @@ func purchase_item(item_amount:Label):
 func _on_Exit_gui_input(event:InputEvent):
 	if event.is_action("leftclick") or event.is_action("ui_accept"):
 		deactivate()
+
+
+func _on_NextLevel_mouse_entered():
+	$NextLevel.theme = hover_theme
+
+
+func _on_NextLevel_mouse_exited():
+	$NextLevel.theme = regular_theme
+
+
+
+func _on_Exit_mouse_entered():
+	$ExitShop.theme = hover_theme
+
+
+func _on_Exit_mouse_exited():
+	$ExitShop.theme = regular_theme
+
+
+func _on_LaserUpgrade_pressed():
+	purchase_item(UI.laser_label)
+
+
+func _on_RechargeUpgrade_pressed():
+	purchase_item(UI.recharge_label)
+
+
+func _on_ThrustUpgrade_pressed():
+	purchase_item(UI.thrust_label)
+
+
+func _on_ExtraLife_pressed():
+	purchase_item(UI.lives_label)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://share/themes/health_bar.tres" type="Theme" id=1]
 [ext_resource path="res://modules/2D/UI/health_bar.gd" type="Script" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://share/images/batteries.png" type="Texture" id=14]
 [ext_resource path="res://modules/Player/plugins/Interact/BatteryIcon.gd" type="Script" id=15]
 [ext_resource path="res://share/themes/big_button_font.tres" type="Theme" id=16]
+[ext_resource path="res://share/images/health-normal.png" type="Texture" id=17]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.152941, 0.152941, 0.152941, 0.466667 )
@@ -72,18 +73,6 @@ text = "00"
 align = 2
 valign = 1
 
-[node name="Lives" type="Label" parent="."]
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = 1834.0
-margin_top = 5.0
-margin_right = -15.0
-margin_bottom = 3.0
-theme = ExtResource( 16 )
-text = "3"
-align = 2
-valign = 1
-
 [node name="Compass" type="Label" parent="."]
 margin_top = 54.0
 margin_right = 218.0
@@ -122,18 +111,6 @@ text = "100"
 align = 2
 valign = 1
 
-[node name="Upgrade" type="Button" parent="IconSidebar/Battery"]
-visible = false
-anchor_right = 0.948
-anchor_bottom = 0.958
-margin_left = -68.6666
-margin_top = 13.3333
-margin_right = -38.3386
-margin_bottom = -21.9787
-rect_rotation = -30.0
-theme = ExtResource( 3 )
-text = "Upgrade"
-
 [node name="Laser" type="Sprite" parent="IconSidebar"]
 position = Vector2( 1839, 273 )
 scale = Vector2( 1.5, 1.5 )
@@ -151,18 +128,6 @@ theme = ExtResource( 3 )
 text = "100"
 align = 2
 valign = 1
-
-[node name="Upgrade" type="Button" parent="IconSidebar/Laser"]
-visible = false
-anchor_right = 0.948
-anchor_bottom = 0.958
-margin_left = -68.6666
-margin_top = 13.3333
-margin_right = -38.3386
-margin_bottom = -21.9787
-rect_rotation = -30.0
-theme = ExtResource( 3 )
-text = "Upgrade"
 
 [node name="Thrust" type="Sprite" parent="IconSidebar"]
 position = Vector2( 1839, 377 )
@@ -182,18 +147,6 @@ text = "100"
 align = 2
 valign = 1
 
-[node name="Upgrade" type="Button" parent="IconSidebar/Thrust"]
-visible = false
-anchor_right = 0.948
-anchor_bottom = 0.958
-margin_left = -68.6666
-margin_top = 13.3333
-margin_right = -38.3386
-margin_bottom = -21.9787
-rect_rotation = -30.0
-theme = ExtResource( 3 )
-text = "Upgrade"
-
 [node name="Recharge" type="Sprite" parent="IconSidebar"]
 position = Vector2( 1834, 482 )
 scale = Vector2( 1.5, 1.5 )
@@ -212,19 +165,28 @@ text = "100"
 align = 2
 valign = 1
 
-[node name="Upgrade" type="Button" parent="IconSidebar/Recharge"]
-visible = false
-anchor_right = 0.948
-anchor_bottom = 0.958
-margin_left = -68.6666
-margin_top = 13.3333
-margin_right = -38.3386
-margin_bottom = -21.9787
-rect_rotation = -30.0
-theme = ExtResource( 3 )
-text = "Upgrade"
+[node name="Lives" type="Control" parent="IconSidebar"]
+anchor_left = 0.933
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 1753.68
+margin_right = 1880.0
+margin_bottom = 31.0
 
-[connection signal="pressed" from="IconSidebar/Battery/Upgrade" to="." method="_on_BatteryUpgrade_pressed"]
-[connection signal="pressed" from="IconSidebar/Laser/Upgrade" to="." method="_on_LaserUpgrade_pressed"]
-[connection signal="pressed" from="IconSidebar/Thrust/Upgrade" to="." method="_on_ThrustUpgrade_pressed"]
-[connection signal="pressed" from="IconSidebar/Recharge/Upgrade" to="." method="_on_RechargeUpgrade_pressed"]
+[node name="Amount" type="Label" parent="IconSidebar/Lives"]
+anchor_left = -0.062
+anchor_right = 0.551
+anchor_bottom = 1.059
+margin_left = -0.00199986
+margin_top = 6.0
+margin_right = -1.079
+margin_bottom = 0.990997
+theme = ExtResource( 16 )
+text = "0"
+align = 2
+valign = 1
+
+[node name="LivesIcon" type="Sprite" parent="IconSidebar/Lives"]
+position = Vector2( 100, 27 )
+scale = Vector2( 0.8125, 0.6875 )
+texture = ExtResource( 17 )
