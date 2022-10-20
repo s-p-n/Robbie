@@ -91,80 +91,6 @@ __meta__ = {
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="Battery" type="Sprite" parent="IconSidebar"]
-position = Vector2( 1839, 180 )
-scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 8 )
-script = ExtResource( 15 )
-images = [ ExtResource( 9 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 8 ) ]
-
-[node name="Amount" type="Label" parent="IconSidebar/Battery"]
-anchor_top = -0.125
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -12.6666
-margin_top = 17.3333
-margin_right = -34.6666
-margin_bottom = -34.6667
-theme = ExtResource( 3 )
-text = "100"
-align = 2
-valign = 1
-
-[node name="Laser" type="Sprite" parent="IconSidebar"]
-position = Vector2( 1839, 273 )
-scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 10 )
-
-[node name="Amount" type="Label" parent="IconSidebar/Laser"]
-anchor_top = -0.125
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -12.6669
-margin_top = 14.875
-margin_right = -34.6669
-margin_bottom = -27.0
-theme = ExtResource( 3 )
-text = "100"
-align = 2
-valign = 1
-
-[node name="Thrust" type="Sprite" parent="IconSidebar"]
-position = Vector2( 1839, 377 )
-scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 7 )
-
-[node name="Amount" type="Label" parent="IconSidebar/Thrust"]
-anchor_top = -0.125
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -12.6667
-margin_top = 17.3333
-margin_right = -34.6667
-margin_bottom = -34.6667
-theme = ExtResource( 3 )
-text = "100"
-align = 2
-valign = 1
-
-[node name="Recharge" type="Sprite" parent="IconSidebar"]
-position = Vector2( 1834, 482 )
-scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 14 )
-
-[node name="Amount" type="Label" parent="IconSidebar/Recharge"]
-anchor_top = -0.125
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -9.33337
-margin_top = 18.6666
-margin_right = -31.3334
-margin_bottom = -33.3334
-theme = ExtResource( 3 )
-text = "100"
-align = 2
-valign = 1
-
 [node name="Lives" type="Control" parent="IconSidebar"]
 anchor_left = 0.933
 anchor_right = 1.0
@@ -190,3 +116,86 @@ valign = 1
 position = Vector2( 100, 27 )
 scale = Vector2( 0.8125, 0.6875 )
 texture = ExtResource( 17 )
+
+[node name="Battery" type="Sprite" parent="IconSidebar"]
+position = Vector2( 1839, 180 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 8 )
+script = ExtResource( 15 )
+images = [ ExtResource( 9 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 8 ) ]
+
+[node name="Amount" type="Label" parent="IconSidebar/Battery"]
+anchor_top = -0.125
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -12.6666
+margin_top = 17.3333
+margin_right = -34.6666
+margin_bottom = -34.6667
+theme = ExtResource( 3 )
+text = "100"
+align = 2
+valign = 1
+
+[node name="Laser" type="Sprite" parent="IconSidebar"]
+position = Vector2( 1839, 707.25 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Amount" type="Label" parent="IconSidebar/Laser"]
+anchor_top = -0.125
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -12.6669
+margin_top = 14.875
+margin_right = -34.6669
+margin_bottom = -27.0
+theme = ExtResource( 3 )
+text = "100"
+align = 2
+valign = 1
+
+[node name="Thrust" type="Sprite" parent="IconSidebar"]
+position = Vector2( 1839, 813.25 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Amount" type="Label" parent="IconSidebar/Thrust"]
+anchor_top = -0.125
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -12.6667
+margin_top = 17.3333
+margin_right = -34.6667
+margin_bottom = -34.6667
+theme = ExtResource( 3 )
+text = "100"
+align = 2
+valign = 1
+
+[node name="Recharge" type="Sprite" parent="IconSidebar"]
+position = Vector2( 1839, 920.25 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Amount" type="Label" parent="IconSidebar/Recharge"]
+anchor_top = -0.125
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -9.33337
+margin_top = 18.6666
+margin_right = -31.3334
+margin_bottom = -33.3334
+theme = ExtResource( 3 )
+text = "100"
+align = 2
+valign = 1
