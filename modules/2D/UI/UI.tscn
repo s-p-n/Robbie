@@ -80,7 +80,6 @@ margin_bottom = 89.0
 rect_scale = Vector2( 1.55578, 1.44 )
 custom_fonts/font = ExtResource( 6 )
 custom_styles/normal = SubResource( 1 )
-text = "sad"
 align = 1
 valign = 1
 __meta__ = {
