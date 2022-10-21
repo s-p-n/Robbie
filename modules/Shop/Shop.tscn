@@ -129,12 +129,12 @@ scale = Vector2( 1.14091, 1.14091 )
 texture = ExtResource( 7 )
 
 [node name="name" type="Label" parent="Panel/Laser"]
-anchor_right = 1.0
-anchor_bottom = 0.24
+anchor_right = 0.999
+anchor_bottom = 0.885
 margin_left = 111.0
 margin_top = -3.0
-margin_right = -522.0
-margin_bottom = 38.04
+margin_right = -521.055
+margin_bottom = -0.0149918
 theme = ExtResource( 8 )
 text = "Laser Strength"
 valign = 1
@@ -150,7 +150,6 @@ theme = ExtResource( 8 )
 text = "000"
 align = 2
 valign = 1
-percent_visible = 1.5
 
 [node name="Spares" type="Sprite" parent="Panel/Laser"]
 position = Vector2( 516.327, 22.3273 )
@@ -158,9 +157,11 @@ scale = Vector2( 0.697727, 0.697727 )
 texture = ExtResource( 12 )
 
 [node name="Button" type="Button" parent="Panel/Laser"]
+anchor_right = 0.999
+anchor_bottom = 1.0
 margin_left = 732.0
-margin_right = 945.0
-margin_bottom = 54.0
+margin_right = 0.945007
+margin_bottom = -4.99998
 text = "Upgrade"
 
 [node name="Recharge" type="Control" parent="Panel"]
@@ -225,20 +226,22 @@ scale = Vector2( 1.14091, 1.14091 )
 texture = ExtResource( 6 )
 
 [node name="name" type="Label" parent="Panel/Thrust"]
-anchor_right = 1.0
-anchor_bottom = 0.24
+anchor_right = 0.999
+anchor_bottom = 0.885
 margin_left = 111.0
 margin_top = -3.0
-margin_right = -522.0
-margin_bottom = 38.04
+margin_right = -521.055
+margin_bottom = -0.0150108
 theme = ExtResource( 8 )
 text = "Jump Thrusters"
 valign = 1
 
 [node name="Button" type="Button" parent="Panel/Thrust"]
+anchor_right = 1.0
+anchor_bottom = 0.915
 margin_left = 732.0
-margin_right = 945.0
-margin_bottom = 54.0
+margin_right = 6.10352e-05
+margin_bottom = 0.0149841
 text = "Upgrade"
 
 [node name="price" type="Label" parent="Panel/Thrust"]
@@ -274,19 +277,21 @@ texture = ExtResource( 13 )
 
 [node name="name" type="Label" parent="Panel/Lives"]
 anchor_right = 1.0
-anchor_bottom = 0.24
+anchor_bottom = 1.0
 margin_left = 111.0
 margin_top = -3.0
 margin_right = -522.0
-margin_bottom = 38.04
+margin_bottom = -6.8
 theme = ExtResource( 8 )
 text = "Extra Life"
 valign = 1
 
 [node name="Button" type="Button" parent="Panel/Lives"]
+anchor_right = 0.996
+anchor_bottom = 1.0
 margin_left = 732.0
-margin_right = 945.0
-margin_bottom = 54.0
+margin_right = 3.78003
+margin_bottom = -5.0
 text = "Upgrade"
 
 [node name="price" type="Label" parent="Panel/Lives"]
@@ -340,9 +345,9 @@ script = ExtResource( 1 )
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.007
-margin_left = 1008.0
+margin_left = 1018.0
 margin_top = 637.0
-margin_right = -529.0
+margin_right = -519.0
 margin_bottom = -310.56
 rect_pivot_offset = Vector2( 192, 80 )
 theme = ExtResource( 11 )
