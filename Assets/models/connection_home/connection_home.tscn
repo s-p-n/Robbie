@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/models/block-441/block-441.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://Assets/models/connection_home/connection_home_material.tres" type="Material" id=2]
-[ext_resource path="res://Scripts/connection_home.gd" type="Script" id=3]
+[ext_resource path="res://scripts/connection_home.gd" type="Script" id=3]
 
 [sub_resource type="ConvexPolygonShape" id=8]
 points = PoolVector3Array( 4, 4, 1, 4, 4, -1, -4, 4, 1, 4, -4, 1, 4, -4, -1, -4, 4, -1, -4, -4, 1, -4, -4, -1 )

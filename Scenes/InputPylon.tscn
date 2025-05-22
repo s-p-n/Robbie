@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/pylons/Pylon.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/PylonPositioner.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/LerpVelocityToZero.gd" type="Script" id=3]
-[ext_resource path="res://Scripts/loop.gd" type="Script" id=4]
+[ext_resource path="res://scripts/loop.gd" type="Script" id=4]
 [ext_resource path="res://Assets/audio/CG_Electrical_Disturbance_Loop.wav" type="AudioStream" id=5]
 
 [sub_resource type="CubeMesh" id=1]

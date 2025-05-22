@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/somethingGoesHerePoster.obj-1079b18c2dcfbe02d9cf3fe8120f4f0e.mesh"
+
+[deps]
+
+files=[ "res://.import/somethingGoesHerePoster.obj-1079b18c2dcfbe02d9cf3fe8120f4f0e.mesh" ]
+
+source_file="res://Assets/models/Posters/somethingGoesHerePoster.obj"
+dest_files=[ "res://.import/somethingGoesHerePoster.obj-1079b18c2dcfbe02d9cf3fe8120f4f0e.mesh", "res://.import/somethingGoesHerePoster.obj-1079b18c2dcfbe02d9cf3fe8120f4f0e.mesh" ]
+
+[params]
+
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh_flags=4286
+generate_tangents=true
+vertex_cache_optimization=true
+octahedral_compression=true

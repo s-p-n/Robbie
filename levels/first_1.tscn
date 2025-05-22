@@ -15,7 +15,7 @@
 [ext_resource path="res://scripts/pylons/Pylon.gd" type="Script" id=13]
 [ext_resource path="res://Scenes/PylonPositioner.gd" type="Script" id=14]
 [ext_resource path="res://Scenes/LerpVelocityToZero.gd" type="Script" id=15]
-[ext_resource path="res://Scripts/open_door.gd" type="Script" id=16]
+[ext_resource path="res://scripts/open_door.gd" type="Script" id=16]
 [ext_resource path="res://Scenes/LightCheck.gd" type="Script" id=17]
 [ext_resource path="res://Scenes/ElevatorPylonScript.gd" type="Script" id=18]
 [ext_resource path="res://Scenes/InputPylon.tscn" type="PackedScene" id=19]
@@ -100,7 +100,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9701, -13.2379, 40.5051 )
 
 [node name="connection_home2" parent="Objects" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5124, 0.770683, 39.5718 )
-connected_object = NodePath("../block-441-wall20")
 
 [node name="block-441-wall" parent="Objects" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 4, 45 )
@@ -203,7 +202,6 @@ script = ExtResource( 23 )
 
 [node name="block-441" type="MeshInstance" parent="Objects/block-441-wall39"]
 mesh = ExtResource( 7 )
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Objects/block-441-wall39"]
 shape = SubResource( 24 )
@@ -262,7 +260,6 @@ mode = 1
 [node name="block-441" type="MeshInstance" parent="Objects/block-441-wall34"]
 transform = Transform( 0.750348, 5.07461e-07, 1.09126e-08, 5.07461e-07, 4.62014, 1.58241e-07, 1.09127e-08, 1.58241e-07, 1, 0, 0, 0 )
 mesh = ExtResource( 7 )
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Objects/block-441-wall34"]
 transform = Transform( 0.750348, 5.07461e-07, 1.09126e-08, 5.07461e-07, 4.62014, 1.58241e-07, 1.09127e-08, 1.58241e-07, 1, 0, 0, 0 )
@@ -276,7 +273,6 @@ mode = 1
 [node name="block-441" type="MeshInstance" parent="Objects/block-441-wall36"]
 transform = Transform( 1.97271, 4.37549e-07, -4.25185e-08, 4.3755e-07, 5.30937, 1.88368e-07, -4.25183e-08, 1.88368e-07, 1, 0.308629, -2.98023e-08, 0 )
 mesh = ExtResource( 7 )
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Objects/block-441-wall36"]
 transform = Transform( 1.97271, 4.37549e-07, -4.25185e-08, 4.3755e-07, 5.30937, 1.88368e-07, -4.25183e-08, 1.88368e-07, 1, 0.308629, -2.98023e-08, 0 )
@@ -290,7 +286,6 @@ mode = 1
 [node name="block-441" type="MeshInstance" parent="Objects/block-441-wall38"]
 transform = Transform( 0.750348, 4.28458e-07, 1.09126e-08, 4.28458e-07, 4.01768, 1.31907e-07, 1.09127e-08, 1.31907e-07, 1, 0, 0, 0 )
 mesh = ExtResource( 7 )
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Objects/block-441-wall38"]
 transform = Transform( 0.750348, 4.28458e-07, 1.09126e-08, 4.28458e-07, 4.01768, 1.31907e-07, 1.09127e-08, 1.31907e-07, 1, 0, 0, 0 )
@@ -304,7 +299,6 @@ mode = 1
 [node name="block-441" type="MeshInstance" parent="Objects/block-441-wall37"]
 transform = Transform( 3.75302, 5.8857e-07, -1.20338e-07, 5.88572e-07, 8.24134, 3.62482e-07, -1.20338e-07, 5.01151e-07, 1, 0, 0, 0 )
 mesh = ExtResource( 7 )
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Objects/block-441-wall37"]
 transform = Transform( 3.75302, 5.8857e-07, -1.20338e-07, 5.88572e-07, 8.24134, 3.62482e-07, -1.20338e-07, 5.01151e-07, 1, 0, 0, 0 )
@@ -318,7 +312,6 @@ mode = 1
 [node name="block-441" type="MeshInstance" parent="Objects/block-441-wall35"]
 transform = Transform( 0.750348, 4.28458e-07, 1.09126e-08, 4.28458e-07, 4.01768, 1.31907e-07, 1.09127e-08, 1.31907e-07, 1, 0, 0, 0 )
 mesh = ExtResource( 7 )
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Objects/block-441-wall35"]
 transform = Transform( 0.750348, 4.28458e-07, 1.09126e-08, 4.28458e-07, 4.01768, 1.31907e-07, 1.09127e-08, 1.31907e-07, 1, 0, 0, 0 )
@@ -336,7 +329,6 @@ mode = 1
 [node name="block-441" type="MeshInstance" parent="Objects/block-441-wall22"]
 transform = Transform( 1.3656, -4.79422e-08, -6.98543e-16, -4.79422e-08, 1, 3.42159e-22, -6.9854e-16, 3.42157e-22, 1, 0, 0, 0 )
 mesh = ExtResource( 7 )
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Objects/block-441-wall22"]
 transform = Transform( 1.3656, -4.79422e-08, -6.98543e-16, -4.79422e-08, 1, 3.42159e-22, -6.9854e-16, 3.42157e-22, 1, 0, 0, 0 )
@@ -404,7 +396,6 @@ mode = 1
 [node name="block-441" type="MeshInstance" parent="Objects/block-441-wall16"]
 transform = Transform( 9.9, -1.50944e-14, 3.8466e-07, -1.50944e-14, 9, 3.4532e-07, 3.8466e-07, 3.4532e-07, 1.1, 0, 0, 0 )
 mesh = ExtResource( 7 )
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Objects/block-441-wall16"]
 transform = Transform( 9.9, -1.50944e-14, 3.8466e-07, -1.50944e-14, 9, 3.4532e-07, 3.8466e-07, 3.4532e-07, 1.1, 0, 0, 0 )
@@ -418,7 +409,6 @@ mode = 1
 [node name="block-441" type="MeshInstance" parent="Objects/block-441-wall17"]
 transform = Transform( 9.9, -1.50944e-14, 3.8466e-07, -1.50944e-14, 9, 3.4532e-07, 3.8466e-07, 3.4532e-07, 1.1, 0, 0, 0 )
 mesh = ExtResource( 7 )
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Objects/block-441-wall17"]
 transform = Transform( 9.9, -1.50944e-14, 3.8466e-07, -1.50944e-14, 9, 3.4532e-07, 3.8466e-07, 3.4532e-07, 1.1, 0, 0, 0 )
@@ -432,7 +422,6 @@ mode = 1
 [node name="block-441" type="MeshInstance" parent="Objects/block-441-wall18"]
 transform = Transform( 9.9, -1.50944e-14, 3.8466e-07, -1.50944e-14, 9, 3.4532e-07, 3.8466e-07, 3.4532e-07, 1.1, 0, 0, 0 )
 mesh = ExtResource( 7 )
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Objects/block-441-wall18"]
 transform = Transform( 9.9, -1.50944e-14, 3.8466e-07, -1.50944e-14, 9, 3.4532e-07, 3.8466e-07, 3.4532e-07, 1.1, 0, 0, 0 )
@@ -446,7 +435,6 @@ mode = 1
 [node name="block-441" type="MeshInstance" parent="Objects/block-441-wall19"]
 transform = Transform( 9.9, -1.50944e-14, 3.8466e-07, -1.50944e-14, 9, 3.4532e-07, 3.8466e-07, 3.4532e-07, 1.1, 0, 0, 0 )
 mesh = ExtResource( 7 )
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Objects/block-441-wall19"]
 transform = Transform( 9.9, -1.50944e-14, 3.8466e-07, -1.50944e-14, 9, 3.4532e-07, 3.8466e-07, 3.4532e-07, 1.1, 0, 0, 0 )
@@ -497,7 +485,6 @@ axis_lock_angular_z = true
 transform = Transform( 2.27926, 0, -3.08741e-07, 0, 3.45321, 0, -3.08741e-07, 0, 5.81085, 0, 0, 0 )
 mesh = ExtResource( 5 )
 skeleton = NodePath("../../ramp2")
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Objects/ramp2"]
 transform = Transform( 2.27926, 0, -3.08741e-07, 0, 3.45321, 0, -3.08741e-07, 0, 5.81085, 0, 0, 0 )
@@ -517,7 +504,6 @@ axis_lock_angular_z = true
 [node name="ramp" type="MeshInstance" parent="Objects/ramp"]
 transform = Transform( 2.2, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0 )
 mesh = ExtResource( 5 )
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Objects/ramp"]
 transform = Transform( 2.2, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0 )
@@ -541,7 +527,6 @@ spot_range = 10.372
 [node name="connection_home" parent="Objects" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3552, -15.7481, 47.0151 )
 contacts_reported = 3
-connected_object = NodePath("../../Pylons/InputPylon")
 
 [node name="OmniLight" type="OmniLight" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.2987, 29.2953 )
@@ -554,7 +539,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.35992, -14.9927, 48.4735 )
 [node name="connection_home3" parent="Objects" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0096, -15.7097, 34.8222 )
 contacts_reported = 4
-connected_object = NodePath("../../Pylons/InputPylonElevator/Elevator")
 
 [node name="doorOpen" type="AudioStreamPlayer3D" parent="Objects"]
 stream = ExtResource( 22 )
@@ -645,7 +629,6 @@ visible = false
 layers = 8192
 mesh = SubResource( 9 )
 skeleton = NodePath("../Parts/RigidBody")
-material/0 = null
 
 [node name="StartPoints" type="Spatial" parent="Pylons/InputPylonElevator"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0 )

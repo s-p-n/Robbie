@@ -14,11 +14,11 @@
 [ext_resource path="res://Scenes/LightCheck.gd" type="Script" id=12]
 [ext_resource path="res://Scenes/InputPylon.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Assets/models/capacitor/static_capacitor.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Scripts/fan_spin.gd" type="Script" id=15]
+[ext_resource path="res://scripts/fan_spin.gd" type="Script" id=15]
 [ext_resource path="res://Scenes/BatteryPylon.tscn" type="PackedScene" id=16]
 [ext_resource path="res://levels/SlidingDoorPylon.gd" type="Script" id=17]
 [ext_resource path="res://Assets/audio/CG_Creepy_Electrical_Ambience.wav" type="AudioStream" id=18]
-[ext_resource path="res://Scripts/loop.gd" type="Script" id=19]
+[ext_resource path="res://scripts/loop.gd" type="Script" id=19]
 [ext_resource path="res://levels/PoweredFanPylon.gd" type="Script" id=20]
 [ext_resource path="res://Assets/models/battery/battery.tscn" type="PackedScene" id=21]
 [ext_resource path="res://levels/FanInputCheckInverse.gd" type="Script" id=22]
@@ -362,7 +362,6 @@ visible = false
 layers = 8192
 mesh = SubResource( 9 )
 skeleton = NodePath("../Parts/RigidBody")
-material/0 = null
 
 [node name="StartPoints" type="Spatial" parent="Pylons/InputPylonElevator"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0 )
@@ -534,7 +533,6 @@ visible = false
 layers = 8192
 mesh = SubResource( 29 )
 skeleton = NodePath("../Parts/RigidBody")
-material/0 = null
 
 [node name="StartPoints" type="Spatial" parent="Pylons/Pylon2"]
 
@@ -614,7 +612,6 @@ visible = false
 layers = 8192
 mesh = SubResource( 45 )
 skeleton = NodePath("../Parts/RigidBody")
-material/0 = null
 
 [node name="StartPoints" type="Spatial" parent="Pylons/PoweredFanPylon"]
 
@@ -647,7 +644,6 @@ mode = 1
 transform = Transform( 0.687915, 0, 0, 0, 0.346861, 0, 0, 0, 0.687915, 0, 0, 0 )
 mesh = SubResource( 46 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Pylons/PoweredFanPylon/bigFan/blade"]
 transform = Transform( 0.687915, 0, 0, 0, 0.346861, 0, 0, 0, 0.687915, 0, 0, 0 )
@@ -661,7 +657,6 @@ mode = 1
 transform = Transform( 4.62875, 0, 0, 0, 4.62875, 0, 0, 0, 2.78786, 0.332214, 4.73113, -0.173747 )
 mesh = SubResource( 17 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Pylons/PoweredFanPylon/bigFan/body"]
 transform = Transform( 4.62875, 0, 0, 0, 4.62875, 0, 0, 0, 2.78786, 0.332214, 4.73113, -0.173747 )
@@ -671,7 +666,6 @@ shape = SubResource( 48 )
 transform = Transform( 0.398623, 0, 0, 0, -0.000746594, -0.398624, 0, 1.84582, -0.000161234, 0.272758, 4.71133, -0.0598092 )
 mesh = SubResource( 3 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="CollisionShape2" type="CollisionShape" parent="Pylons/PoweredFanPylon/bigFan/body"]
 transform = Transform( 0.398623, 0, 0, 0, -0.000746594, -0.398624, 0, 1.84582, -0.000161234, 0.272758, 4.71133, -0.0598092 )
@@ -681,7 +675,6 @@ shape = SubResource( 49 )
 transform = Transform( 4.53917, 0, 0, 0, 0.562624, 0, 0, 0, 0.239785, 0.348999, 4.72348, 1.79341 )
 mesh = SubResource( 18 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="CollisionShape3" type="CollisionShape" parent="Pylons/PoweredFanPylon/bigFan/body"]
 transform = Transform( 4.53917, 0, 0, 0, 0.562624, 0, 0, 0, 0.239785, 0.348999, 4.72348, 1.79341 )
@@ -691,7 +684,6 @@ shape = SubResource( 50 )
 transform = Transform( 4.53917, 0, 0, 0, 0.562624, 0, 0, 0, 0.239785, 0.348999, 4.72348, -1.92968 )
 mesh = SubResource( 19 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="CollisionShape4" type="CollisionShape" parent="Pylons/PoweredFanPylon/bigFan/body"]
 transform = Transform( 4.53917, 0, 0, 0, 0.562624, 0, 0, 0, 0.239785, 0.348999, 4.72348, -1.92968 )
@@ -764,7 +756,6 @@ visible = false
 layers = 8192
 mesh = SubResource( 45 )
 skeleton = NodePath("../Parts/RigidBody")
-material/0 = null
 
 [node name="StartPoints" type="Spatial" parent="Pylons/PoweredFanPylon2"]
 
@@ -797,7 +788,6 @@ mode = 1
 transform = Transform( 0.687915, 0, 0, 0, 0.346861, 0, 0, 0, 0.687915, 0, 0, 0 )
 mesh = SubResource( 46 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Pylons/PoweredFanPylon2/bigFan/blade"]
 transform = Transform( 0.687915, 0, 0, 0, 0.346861, 0, 0, 0, 0.687915, 0, 0, 0 )
@@ -811,7 +801,6 @@ mode = 1
 transform = Transform( 4.62875, 0, 0, 0, 4.62875, 0, 0, 0, 2.78786, 0.332214, 4.73113, -0.173747 )
 mesh = SubResource( 17 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Pylons/PoweredFanPylon2/bigFan/body"]
 transform = Transform( 4.62875, 0, 0, 0, 4.62875, 0, 0, 0, 2.78786, 0.332214, 4.73113, -0.173747 )
@@ -821,7 +810,6 @@ shape = SubResource( 48 )
 transform = Transform( 0.398623, 0, 0, 0, -0.000746594, -0.398624, 0, 1.84582, -0.000161234, 0.272758, 4.71133, -0.0598092 )
 mesh = SubResource( 3 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="CollisionShape2" type="CollisionShape" parent="Pylons/PoweredFanPylon2/bigFan/body"]
 transform = Transform( 0.398623, 0, 0, 0, -0.000746594, -0.398624, 0, 1.84582, -0.000161234, 0.272758, 4.71133, -0.0598092 )
@@ -831,7 +819,6 @@ shape = SubResource( 49 )
 transform = Transform( 4.53917, 0, 0, 0, 0.562624, 0, 0, 0, 0.239785, 0.348999, 4.72348, 1.79341 )
 mesh = SubResource( 18 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="CollisionShape3" type="CollisionShape" parent="Pylons/PoweredFanPylon2/bigFan/body"]
 transform = Transform( 4.53917, 0, 0, 0, 0.562624, 0, 0, 0, 0.239785, 0.348999, 4.72348, 1.79341 )
@@ -841,7 +828,6 @@ shape = SubResource( 50 )
 transform = Transform( 4.53917, 0, 0, 0, 0.562624, 0, 0, 0, 0.239785, 0.348999, 4.72348, -1.92968 )
 mesh = SubResource( 19 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="CollisionShape4" type="CollisionShape" parent="Pylons/PoweredFanPylon2/bigFan/body"]
 transform = Transform( 4.53917, 0, 0, 0, 0.562624, 0, 0, 0, 0.239785, 0.348999, 4.72348, -1.92968 )
@@ -938,7 +924,6 @@ use_in_baked_light = true
 lightmap_scale = 3
 mesh = ExtResource( 3 )
 skeleton = NodePath("../../../..")
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Objects/Walls/circuit-board3"]
 transform = Transform( 1.24717, 0, -5.4656e-15, 0, 1, 0, 1.42109e-14, 0, 0.479671, 0, 0, 0 )
@@ -955,7 +940,6 @@ use_in_baked_light = true
 lightmap_scale = 3
 mesh = ExtResource( 3 )
 skeleton = NodePath("../../../..")
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Objects/Walls/circuit-board2"]
 transform = Transform( 2.132, 0, 0, 0, 1, 0, 0, 0, 2.132, 0, 0.169496, 0 )
@@ -1151,7 +1135,6 @@ use_in_baked_light = true
 lightmap_scale = 3
 mesh = ExtResource( 3 )
 skeleton = NodePath("../../../..")
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Objects/Walls/circuit-board"]
 transform = Transform( 2.132, 0, 0, 0, -14.0653, 0, 0, 0, 2.132, 0, 0.034, 0 )
@@ -1431,7 +1414,6 @@ mode = 1
 transform = Transform( 0.687915, 0, 0, 0, 0.346861, 0, 0, 0, 0.687915, 0, 0, 0 )
 mesh = SubResource( 30 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Objects/bigFan/blade"]
 transform = Transform( 0.687915, 0, 0, 0, 0.346861, 0, 0, 0, 0.687915, 0, 0, 0 )
@@ -1446,7 +1428,6 @@ mode = 1
 transform = Transform( 4.62875, 0, 0, 0, 4.62875, 0, 0, 0, 2.78786, 0.332214, 4.73113, -0.173747 )
 mesh = SubResource( 32 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Objects/bigFan/body"]
 transform = Transform( 4.62875, 0, 0, 0, 4.62875, 0, 0, 0, 2.78786, 0.332214, 4.73113, -0.173747 )
@@ -1456,7 +1437,6 @@ shape = SubResource( 33 )
 transform = Transform( 0.398623, 0, 0, 0, -0.000746594, -0.398624, 0, 1.84582, -0.000161234, 0.272758, 4.71133, -0.0598092 )
 mesh = SubResource( 64 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="CollisionShape2" type="CollisionShape" parent="Objects/bigFan/body"]
 transform = Transform( 0.398623, 0, 0, 0, -0.000746594, -0.398624, 0, 1.84582, -0.000161234, 0.272758, 4.71133, -0.0598092 )
@@ -1466,7 +1446,6 @@ shape = SubResource( 34 )
 transform = Transform( 4.53917, 0, 0, 0, 0.562624, 0, 0, 0, 0.239785, 0.348999, 4.72348, 1.79341 )
 mesh = SubResource( 35 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="CollisionShape3" type="CollisionShape" parent="Objects/bigFan/body"]
 transform = Transform( 4.53917, 0, 0, 0, 0.562624, 0, 0, 0, 0.239785, 0.348999, 4.72348, 1.79341 )
@@ -1476,7 +1455,6 @@ shape = SubResource( 36 )
 transform = Transform( 4.53917, 0, 0, 0, 0.562624, 0, 0, 0, 0.239785, 0.348999, 4.72348, -1.92968 )
 mesh = SubResource( 37 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="CollisionShape4" type="CollisionShape" parent="Objects/bigFan/body"]
 transform = Transform( 4.53917, 0, 0, 0, 0.562624, 0, 0, 0, 0.239785, 0.348999, 4.72348, -1.92968 )

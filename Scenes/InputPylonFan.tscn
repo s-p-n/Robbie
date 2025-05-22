@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/LerpVelocityToZero.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/FanInputCheck.gd" type="Script" id=4]
 [ext_resource path="res://Assets/audio/CG_Creepy_Electrical_Ambience.wav" type="AudioStream" id=5]
-[ext_resource path="res://Scripts/loop.gd" type="Script" id=6]
+[ext_resource path="res://scripts/loop.gd" type="Script" id=6]
 [ext_resource path="res://Assets/audio/CG_Electrical_Disturbance_Loop.wav" type="AudioStream" id=7]
 
 [sub_resource type="CubeMesh" id=22]

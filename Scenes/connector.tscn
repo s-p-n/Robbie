@@ -127,7 +127,6 @@ visible = false
 layers = 8192
 mesh = SubResource( 9 )
 skeleton = NodePath("../Parts/RigidBody")
-material/0 = null
 
 [node name="StartPoints" type="Spatial" parent="."]
 
